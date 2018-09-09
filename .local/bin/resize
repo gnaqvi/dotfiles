@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Reload polybar
+killall polybar
+polybar main &
+
+# Reset wallpaper
+~/.fehbg &
+

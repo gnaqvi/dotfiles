@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yad --width=220 --posx=850 --posy=38 --borders=0 --no-buttons --close-on-unfocus --calendar

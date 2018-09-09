@@ -1,0 +1,120 @@
+# reload bspwm/sxhkd/polybar configurations
+super + r ; {b,s,p}
+  {~/.config/bspwm/bspwmrc, pkill -USR1 -x sxhkd, ~/.config/polybar/scripts/launch}
+}
+
+# terminal emulator
+super + Return
+  alacritty
+
+# lock screen
+super + BackSpace
+  lock
+
+# program launcher
+super + @space
+  rofi -show drun
+
+# screenshots
+@Print ; {f,w,d}
+  {scrot -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -u -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -d 10 -q 100 -e 'mv $f ~/Pictures/Screenshots/'}
+
+# close/kill
+super + {_,shift + }w
+  bspc node -{c,k}
+
+# focus the next/previous monitor
+super + {semicolon, apostrophe}
+  bspc monitor -f (bspc query -M -m '.!focused')
+
+# focus the last node/desktop
+super + {_,shift +}Tab
+  bspc {desktop,node} -f last
+
+# focus the next/previous node/desktop in the current monitor
+super + {_,shift + }bracket{left,right}
+  bspc {desktop,node} -f {prev,next}.local
+
+# focus or send to the given desktop
+super + {_,shift +}{1-9,0}
+  bspc {desktop -f,node -d} 'focused:^{1-9,10}'
+
+# set the window state
+super + t ; {t,p,f,s}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + s ; {l,s,p}
+  bspc node -g {locked,sticky,private}
+
+# alternate between the tiled and monocle layout
+super + m
+  bspc desktop -l next
+  
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+  bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# swap the current node and the biggest node
+super + g
+  bspc node -s biggest.local
+
+# focus the node for the given path jump
+super + {p,b,semicolon,apostrophe}
+  bspc node -f @{parent,brother,first,second}
+
+# focus the older or newer node in the focus history
+super + {o,i}
+  bspc wm -h off; \
+  bspc node {older,newer} -f; \
+  bspc wm -h on
+
+# focus the node in the given direction or send to direction
+super + {_,shift + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+# expand a window by moving one of its side outward
+super + shift + plus : {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + shift + minus : {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# preselect the direction
+super + ctrl + {h,j,k,l} : {1-9}
+  bspc node -p {west,south,north,east} -o 0.{1-9}rs
+
+# cancel the preselection for the focused node
+super + ctrl + w
+  bspc node -p cancel
+
+# ratio
+super + alt + {h,j,k,l} ; {0-9}
+  bspc node {west,south,north,east} -r 0.{0-9}
+
+# play/pause
+XF86AudioPlay
+  playerctl play-pause
+
+# next/previous
+XF86Audio{Prev,Next}
+  playerctl {previous,next}
+
+# stop
+XF86AudioStop
+  playerctl stop
+
+XF86Audio{Raise,Lower}Volume
+  amixer set Master {5%+,5%-}
+
+XF86AudioMute
+  amixer set Master toggle
+
+# bspwm controls menu
+super + @button2
+    mygtkmenu ~/.config/mygtkmenu/bspwm-menu

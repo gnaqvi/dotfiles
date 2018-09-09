@@ -1,0 +1,23 @@
+#!/bin/bash
+
+icon="$HOME/Pictures/Other/lock.png"
+tmpbg='/tmp/screen.png'
+
+(( $# )) && { icon=$1; }
+
+scrot "$tmpbg"
+
+# Pixelate
+#convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
+# Blur
+convert "$tmpbg" -blur 0x5 "$tmpbg"
+
+convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
+
+# Stop notification manager
+pkill -u "$USER" -USR1 dunst
+
+i3lock -u -i "$tmpbg"
+
+# Resume notification manager
+pkill -u "$USER" -USR2 dunst

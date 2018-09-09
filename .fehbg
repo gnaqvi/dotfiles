@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --bg-scale '/home/gnaqvi/Pictures/Wallpapers/assassins.jpg' 

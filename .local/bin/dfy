@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[ -z "$1" ] && echo "Invalid input" && exit 1
+
+ABS_PATH=$(realpath $1)
+DFY_PATH=${ABS_PATH/$HOME\//}
+PARENT=$(dirname $DFY_PATH)
+
+[ "$PARENT" != "." ] && mkdir -p ~/.dotfiles/$PARENT
+
+mv $ABS_PATH ~/.dotfiles/$PARENT
+ln -sf ~/.dotfiles/$DFY_PATH $ABS_PATH

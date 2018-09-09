@@ -1,0 +1,53 @@
+pcm.realtek {
+    type hw
+    card 1
+}
+
+pcm.dmixed {
+    type dmix
+    ipc_key 765824
+    slave {
+        pcm "realtek"
+        channels 2
+        format S32_LE
+        rate 96000
+	period_size 1024
+	buffer_size 8192
+    }
+}
+
+pcm.dsnooped {
+    type dsnoop
+    ipc_key 683247
+    ipc_key_add_uid yes
+    slave {
+        pcm "realtek"
+        channels 2
+        rate 96000
+        period_size 1024
+        buffer_size 8192
+    }
+}
+
+pcm.asymed {
+    type asym
+    playback.pcm "dmixed"
+    capture.pcm "dsnooped"
+}
+
+pcm.pasymed {
+    type plug
+    slave.pcm "asymed"
+    rate_converter "speexrate_medium"
+}
+
+pcm.!default {
+    type plug
+    slave.pcm "asymed"
+    rate_converter "speexrate_medium"
+}
+
+ctl.!default {
+    type hw
+    card 1
+}
