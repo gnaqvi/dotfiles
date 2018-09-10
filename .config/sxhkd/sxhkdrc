@@ -128,5 +128,5 @@ XF86AudioMute
   amixer set Master toggle
 
 # bspwm controls menu
-super + @button3
+super + @button2
     mygtkmenu ~/.config/mygtkmenu/bspwm-menu
