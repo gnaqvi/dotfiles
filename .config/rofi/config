@@ -5,7 +5,7 @@ rofi.width:                            200
 ! "Number of lines" Set from: Default
 rofi.lines:                            10
 ! "Number of columns" Set from: Default
-rofi.columns:                          3
+rofi.columns:                          4
 ! "Font to use" Set from: Default
 ! rofi.font:                           Fira Sans
 ! "Border width" Set from: Default
