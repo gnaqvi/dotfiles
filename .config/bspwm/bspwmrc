@@ -28,9 +28,9 @@ bspc config click_to_focus          button1
 bspc config pointer_modifier        mod4
 
 # Placement
-bspc rule -a                        Sublime_text        desktop=^3
+bspc rule -a                        Code                desktop=^3
 bspc rule -a                        jetbrains-idea-ce   desktop=^4
-bspc rule -a                        Firefox             desktop=^5
+bspc rule -a                        Firefox             monitor=primary desktop=^5
 bspc rule -a                        Google-chrome       desktop=^5
 bspc rule -a                        Places              desktop=^5      state=floating
 bspc rule -a                        Spotify             desktop=^7
@@ -44,8 +44,17 @@ bspc rule -a                        Caffeine            state=floating
 bspc rule -a                        Gucharmap           state=floating
 
 #-------------------------------------------------------------------------------
-# fixes/hacks
+# desktop environment
 #-------------------------------------------------------------------------------
+
+# Set wallpaper
+~/.fehbg &
+
+# Disk manager tray
+udiskie -t &
+
+# Notifications server
+dunst &
 
 # Start polybar to avoid conflicts with compton
 ~/.config/polybar/scripts/launch

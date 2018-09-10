@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/gnaqvi/Pictures/Wallpapers/assassins.jpg' 
+feh --bg-fill '/home/gnaqvi/Pictures/Wallpapers/assassins.jpg' '/home/gnaqvi/Pictures/Wallpapers/assassins.jpg' 
