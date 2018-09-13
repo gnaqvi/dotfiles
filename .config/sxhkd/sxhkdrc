@@ -13,7 +13,7 @@ super + BackSpace
 
 # program launcher
 super + @space
-  rofi -show drun
+  rofi -show drun -m primary
 
 # screenshots
 @Print ; {f,w,d}

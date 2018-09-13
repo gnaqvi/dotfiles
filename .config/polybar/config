@@ -34,7 +34,7 @@ override-redirect = false
 
 bottom   	 = false
 width    	 = 100%
-height   	 = 3%:-5
+height   	 = 2.75%
 offset-x     = 0
 offset-y     = 0
 radius       = 0
@@ -145,7 +145,7 @@ label-font   = 0
 
 [bar/top]
 inherit = common/bar
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:_PRIMARY_MONITOR:DP-0}
 
 font-3 = "Weather Icons:size=15;4"
 font-4 = "Material Icons:pixelsize=19;6"
@@ -204,7 +204,7 @@ click-right = mygtkmenu ~/.config/mygtkmenu/player-menu
 
 [bar/bottom]
 inherit = common/bar
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:_PRIMARY_MONITOR:DP-0}
 
 bottom = true
 
@@ -224,12 +224,13 @@ tray-background = ${colors.base00}
 [module/bspwm]
 inherit = common/bspwm
 
-ws-icon-0       = terminal;
-ws-icon-1       = code;
-ws-icon-2       = web;
-ws-icon-3       = music;
-ws-icon-4       = files;
-ws-icon-5       = misc;
+ws-icon-0       = home;
+ws-icon-1       = terminal;
+ws-icon-2       = code;
+ws-icon-3       = web;
+ws-icon-4       = music;
+ws-icon-5       = chat;
+ws-icon-6       = misc;
 ws-icon-default = 
 
 [module/cpu]
@@ -343,11 +344,11 @@ click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 [bar/left]
 inherit = common/bar
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:_LEFT_MONITOR:HDMI-0}
 
 bottom = true
 
-height = 2%
+height = 2.25%
 
 font-0 = "Fira Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
@@ -364,9 +365,10 @@ modules-right  =
 [module/bspwm-left]
 inherit = common/bspwm
 
-ws-icon-0       = terminal;
-ws-icon-1       = code;
-ws-icon-2       = misc;
+ws-icon-0       = home;
+ws-icon-1       = terminal;
+ws-icon-2       = code;
+ws-icon-3       = misc;
 ws-icon-default = 
 
 ;--------------------------------------------------------------------;

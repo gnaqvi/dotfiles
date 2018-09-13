@@ -28,7 +28,7 @@ get_duration() {
     date --date="@$1" +%I:%M
 }
 
-CITY="6075357"
+CITY="6092122"
 UNITS="metric"
 SYMBOL="°"
 
