@@ -31,12 +31,12 @@ bspc config click_to_focus        button1
 bspc config pointer_modifier      mod4
 
 # Placement
-bspc rule -a Code                    -o desktop=focused:^3
-bspc rule -a jetbrains-idea          -o desktop=focused:^6
-bspc rule -a Google-chrome           -o desktop=focused:^7
-bspc rule -a Spotify                 -o desktop=focused:^8
-bspc rule -a Slack                   -o desktop=focused:^9
-bspc rule -a Gimp                    -o desktop=focused:^0 state=floating
+bspc rule -a Code                    -o desktop=primary:^3
+bspc rule -a jetbrains-idea          -o desktop=primary:^6
+bspc rule -a Google-chrome           -o desktop=primary:^7
+bspc rule -a Spotify                 -o desktop=primary:^8
+bspc rule -a Slack                   -o desktop=primary:^9
+bspc rule -a Gimp                    -o desktop=primary:^0 state=floating
 bspc rule -a Nautilus                -o state=floating
 bspc rule -a vlc                     -o state=floating
 bspc rule -a feh                     -o state=floating

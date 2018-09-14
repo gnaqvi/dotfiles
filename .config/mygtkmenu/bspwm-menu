@@ -6,6 +6,10 @@ Submenu = Window
 	cmd = bspc desktop -l next
 	icon = NULL
 
+	item = Tiled
+	cmd = bspc node -t tiled
+	icon = NULL
+
 	item = Floating
 	cmd = bspc node -t floating
 	icon = NULL
@@ -35,7 +39,7 @@ Submenu = Move to
 	icon = NULL
 
 	item = Desktop n°...
-	cmd = bspwm-zenity move-to-desktop
+	cmd = 
 	icon = NULL
 
 	item = Next empty desktop

@@ -1,6 +1,6 @@
 # reload bspwm/sxhkd/polybar configurations
 super + r ; {b,s,p}
-  {~/.config/bspwm/bspwmrc, pkill -USR1 -x sxhkd, ~/.config/polybar/scripts/launch}
+  {bspc quit, pkill -USR1 -x sxhkd, ~/.config/polybar/scripts/launch}
 }
 
 # terminal emulator

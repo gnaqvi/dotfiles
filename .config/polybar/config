@@ -86,7 +86,7 @@ enable-scroll  = true
 reverse-scroll = true
 fuzzy-match    = false
 
-format = <label-state> <label-mode> 
+format = <label-state> <label-mode>
 
 label-dimmed-foreground = ${colors.base03}
 
@@ -117,17 +117,22 @@ label-empty            = %icon%
 label-empty-foreground = ${colors.base02}
 label-empty-padding    = 3
 
-label-monocle            = 
-label-tiled              = 
-label-fullscreen         = 
-label-floating           = 
-label-pseudotiled        = P
-label-locked             = " "
-label-locked-foreground  = ${colors.base04}
-label-sticky             = " "
-label-sticky-foreground  = ${colors.base04}
-label-private            = " "
-label-private-foreground = ${colors.base04}
+label-monocle                = 
+label-monocle-foreground     = ${colors.base08}
+label-tiled                  = 
+label-tiled-foreground       = ${colors.base08}
+label-fullscreen             = 
+label-fullscreen-foreground  = ${colors.base08}
+label-floating               = 
+label-floating-foreground    = ${colors.base08}
+label-pseudotiled            = P
+label-pseudotiled-foreground = ${colors.base08}
+label-locked                 = " "
+label-locked-foreground      = ${colors.base08}
+label-sticky                 = " "
+label-sticky-foreground      = ${colors.base08}
+label-private                = " "
+label-private-foreground     = ${colors.base08}
 
 [module/title]
 type = internal/xwindow
@@ -215,7 +220,7 @@ font-7 = "FontAwesome5Free:style=Solid:pixelsize=15;4"
 
 modules-left   = bspwm title
 modules-center =
-modules-right  = cpu cpu-temp gpu gpu-temp memory filesystem alsa power-menu
+modules-right  = cpu cpu-temp gpu gpu-temp memory network filesystem alsa power-menu
 
 tray-position   = right
 tray-padding    = 12
@@ -296,23 +301,25 @@ label-mounted              = %percentage_used%%
 label-unmounted            = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.alert}
 
-[module/wired-network]
+[module/network]
 type      = internal/network
 interface = enp24s0
+
+interval = 3.0
+ping-interval = 0
+accumulate-stats = false
 
 format-connected    = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss   = <animation-packetloss> <label-connected>
 
-label-connected               = "     %downspeed:9%"
-label-disconnected            = Not connected
-label-disconnected-foreground = ${colors.alert}
+label-connected               = "    %ifname%  %linkspeed%"
+label-disconnected            = " Not connected"
+label-disconnected-foreground = ${colors.base02}
 label-packetloss-foreground   = ${colors.alert}
 
 animation-packetloss-0            = ⚠
-animation-packetloss-0-foreground = #ffa64c
 animation-packetloss-1            = 📶
-animation-packetloss-1-foreground = #000000
 animation-packetloss-framerate    = 500
 
 [module/alsa]
@@ -337,7 +344,7 @@ ramp-volume-2 = "    "
 [module/power-menu]
 type = custom/text
 
-content-foreground = ${colors.base08}
+content-foreground = ${colors.base0E}
 content = "    "
 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
