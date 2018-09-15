@@ -1,0 +1,46 @@
+#!/bin/bash
+
+getX() { 
+    echo ${1:0:4}
+}
+
+getY() { 
+    echo ${1:5}
+}
+
+getBarHeight() {
+    if [ -z "$1" ]; then
+        echo  ""
+    elif [ "$1" -lt 1080 ]; then
+        echo "2%"
+    elif [ "$1" -ge 1080 ] && [ "$1" -lt 1440 ]; then
+        echo "2.25%"
+    elif [ "$1" -ge 1440 ]; then
+        echo "2.8%"
+    fi
+}
+
+pm_name=$(xrandr | awk '$2 == "connected" && $3 == "primary" {print $1}')
+pm_res=$(xrandr | awk '$2 == "connected" && awk $3 == "primary" {getline; print $1}')
+pm_height=$(getY $pm_res)
+
+lm_name=$(xrandr | awk '$2 == "connected" && $4 == "left" {print $1}')
+lm_res=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
+lm_height=$(getY $lm_res)
+
+rm_name=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
+rm_res=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
+rm_height=$(getY $rm_res)
+
+export PM_NAME=$pm_name
+export PM_BAR_HEIGHT=$(getBarHeight $pm_height)
+
+if [ ! -z "$pm_name" ]; then
+    export LM_NAME=$lm_name
+    export LM_BAR_HEIGHT=$(getBarHeight $lm_height)
+fi
+
+if [ ! -z "$rm_name" ]; then
+    export RM_NAME=$rm_name
+    export RM_BAR_HEIGHT=$(getBarHeight $lm_height)
+fi

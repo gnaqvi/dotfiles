@@ -12,6 +12,7 @@ PS1='\u@\h \W\$ '
 BROWSER=/usr/bin/google-chrome-stable
 EDITOR=/usr/bin/code
 
+# Go
 export GOROOT=/usr/lib/go
 export GOPATH=/$HOME/Dev/go
 

@@ -4,12 +4,12 @@
 # bspwm settings
 #-------------------------------------------------------------------------------
 
-# Export environment variables for monitors
-./monitors_info
+# Load monitors info
+source monitorinfo
 
 # Desktops
-bspc monitor DP-0 -d home terminal terminal code code code web music chat misc
-bspc monitor HDMI-0 -d home terminal code code misc
+bspc monitor $PM_NAME -d home terminal terminal code code code web music chat misc
+bspc monitor $LM_NAME -d home terminal code code misc
 
 # Colors
 bspc config normal_border_color   "#747C84"
@@ -18,10 +18,9 @@ bspc config active_border_color   "#ADB3BA"
 bspc config presel_feedback_color "#C795AE"
 
 # Windows
-bspc config top_padding  0
-bspc config border_width 0
-bspc config window_gap   5
-
+bspc config top_padding           0
+bspc config border_width          0
+bspc config window_gap            5
 bspc config split_ratio           0.50
 bspc config borderless_monocle    true
 bspc config gapless_monocle       false
@@ -50,11 +49,11 @@ bspc rule -a sun-awt-X11-XDialogPeer -o state=floating
 # Set wallpaper
 ~/.fehbg &
 
-# Start disk manager tray
-~/.config/udiskie/scripts/launch
+# Start polybar to avoid conflicts with compton
+ ~/.config/polybar/scripts/launch
 
 # Start dunst notifications manager
 ~/.config/dunst/scripts/launch
 
-# Start polybar to avoid conflicts with compton
- ~/.config/polybar/scripts/launch
+# Start disk manager tray
+~/.config/udiskie/scripts/launch

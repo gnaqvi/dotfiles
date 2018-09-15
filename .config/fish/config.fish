@@ -23,9 +23,6 @@ set -gx GOPATH $HOME/Dev/go
 # PATH
 set -gx PATH $HOME/.local/bin $GOPATH/bin/ $PATH
 
-# Dev
-set -gx PATH $HOME/Dev/utils/ci-tools/package $PATH
-
 #
 # Aliases
 #

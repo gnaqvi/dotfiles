@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Load monitors info if not available
+if [ -z "$PM_NAME" ]; then
+    source monitorinfo
+fi
+
 # Terminate already running polybar instances
 killall -q polybar
 

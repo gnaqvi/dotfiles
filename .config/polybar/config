@@ -34,7 +34,7 @@ override-redirect = false
 
 bottom   	 = false
 width    	 = 100%
-height   	 = 2.75%
+height   	 = ${env:PM_BAR_HEIGHT}
 offset-x     = 0
 offset-y     = 0
 radius       = 0
@@ -150,7 +150,7 @@ label-font   = 0
 
 [bar/top]
 inherit = common/bar
-monitor = ${env:_PRIMARY_MONITOR:DP-0}
+monitor = ${env:PM_NAME}
 
 font-3 = "Weather Icons:size=15;4"
 font-4 = "Material Icons:pixelsize=19;6"
@@ -209,7 +209,7 @@ click-right = mygtkmenu ~/.config/mygtkmenu/player-menu
 
 [bar/bottom]
 inherit = common/bar
-monitor = ${env:_PRIMARY_MONITOR:DP-0}
+monitor = ${env:PM_NAME}
 
 bottom = true
 
@@ -313,7 +313,7 @@ format-connected    = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss   = <animation-packetloss> <label-connected>
 
-label-connected               = "    %ifname%  %linkspeed%"
+label-connected               = "    %ifname%  %downspeed%"
 label-disconnected            = " Not connected"
 label-disconnected-foreground = ${colors.base02}
 label-packetloss-foreground   = ${colors.alert}
@@ -351,11 +351,11 @@ click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 [bar/left]
 inherit = common/bar
-monitor = ${env:_LEFT_MONITOR:HDMI-0}
+monitor = ${env:LM_NAME}
 
 bottom = true
 
-height = 2.25%
+height = ${env:LM_BAR_HEIGHT}
 
 font-0 = "Fira Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
