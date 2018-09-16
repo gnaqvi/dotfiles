@@ -23,11 +23,11 @@ base0E = #C795AE
 base0F = #C79595
 
 ; Others
-alpha-base00 = #B91C2023
-alpha-base01 = #B9393F45
-alpha-base0E = #AAC795AE
+alpha-base00 = #E01C2023
+alpha-base01 = #E0393F45
+alpha-base0E = #BFC795AE
 alert        = #AF5454
-alpha-alert  = #AAAF5454
+alpha-alert  = #BFAF5454
 
 [common/bar]
 override-redirect = false

@@ -2,7 +2,7 @@
 
 # Load monitors info if not available
 if [ -z "$PM_NAME" ]; then
-    source monitorinfo
+    source ~/.local/bin/monitorinfo
 fi
 
 # Terminate already running polybar instances
