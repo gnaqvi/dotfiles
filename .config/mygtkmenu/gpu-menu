@@ -1,0 +1,3 @@
+item = Nvidia Settings
+cmd = nvidia-settings
+icon = /usr/share/pixmaps/nvidia-settings.png

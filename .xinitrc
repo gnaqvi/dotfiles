@@ -20,5 +20,5 @@ xrdb -load ~/.Xresources &
 compton &
 
 # Start hotkey daemon and bspwm
-sxhkd -m 1 &
+sxhkd -m 1 -t 20 &
 exec bspwm

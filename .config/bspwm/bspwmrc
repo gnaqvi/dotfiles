@@ -9,7 +9,9 @@ source ~/.local/bin/monitorinfo
 
 # Desktops
 bspc monitor $PM_NAME -d home terminal terminal code code code web music chat misc
-bspc monitor $LM_NAME -d home terminal code code misc
+if [ -n "$LM_NAME" ]; then 
+    bspc monitor $LM_NAME -d home terminal code code misc
+fi
 
 # Colors
 bspc config normal_border_color   "#393F45"
@@ -18,7 +20,7 @@ bspc config active_border_color   "#565E65"
 bspc config presel_feedback_color "#C795AE"
 
 # Windows
-bspc config border_width          1
+bspc config border_width          2
 bspc config top_padding           0
 bspc config window_gap            5
 bspc config split_ratio           0.50
@@ -36,7 +38,8 @@ bspc rule -a Google-chrome           -o desktop=primary:^7
 bspc rule -a Spotify                 -o desktop=primary:^8
 bspc rule -a Slack                   -o desktop=primary:^9
 bspc rule -a Gimp                    -o desktop=primary:^0 state=floating
-bspc rule -a Nautilus                -o state=floating
+bspc rule -a nautilus                -o state=floating
+bspc rule -a KeePass2                -o state=floating
 bspc rule -a vlc                     -o state=floating
 bspc rule -a feh                     -o state=floating
 bspc rule -a Yad                     -o state=floating

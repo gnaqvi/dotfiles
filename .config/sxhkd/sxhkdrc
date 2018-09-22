@@ -16,8 +16,8 @@ super + @space
   rofi -show drun -m primary
 
 # screenshots
-@Print ; {f,w,d}
-  {scrot -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -u -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -d 10 -q 100 -e 'mv $f ~/Pictures/Screenshots/'}
+@Print
+  gnome-screenshot
 
 # close/kill
 super + {_,shift + }w

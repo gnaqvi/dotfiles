@@ -12,10 +12,6 @@ PS1='\u@\h \W\$ '
 BROWSER=/usr/bin/google-chrome-stable
 EDITOR=/usr/bin/code
 
-# Go
-export GOROOT=/usr/lib/go
-export GOPATH=/$HOME/Dev/go
-
 #
 # Aliases
 #
@@ -50,3 +46,11 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
+## Dev
+
+# node
+source /usr/share/nvm/init-nvm.sh
+
+# Go
+export GOROOT=/usr/lib/go
+export GOPATH=/$HOME/Dev/go

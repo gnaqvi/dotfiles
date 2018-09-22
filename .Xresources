@@ -58,7 +58,7 @@ Xcursor.size:               16
 ! Xft fonts
 !-------------------------------------------------------------------------------
 
-Xft.dpi:                    96
+Xft.dpi:                    110
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true

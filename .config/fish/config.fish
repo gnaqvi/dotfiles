@@ -16,13 +16,6 @@ end
 # Config directory
 set -gx XDG_CONFIG_HOME $HOME/.config
 
-# Go
-set -gx GOROOT /usr/lib/go
-set -gx GOPATH $HOME/Dev/go
-
-# PATH
-set -gx PATH $HOME/.local/bin $GOPATH/bin/ $PATH
-
 #
 # Aliases
 #
@@ -63,3 +56,15 @@ alias ln "ln -i"
 alias chown "chown --preserve-root"
 alias chmod "chmod --preserve-root"
 alias chgrp "chgrp --preserve-root"
+
+## Dev
+
+# node
+function nvm
+    bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
+end
+
+# Go
+set -gx GOROOT /usr/lib/go
+set -gx GOPATH $HOME/Dev/go
+set -gx PATH $HOME/.local/bin $GOPATH/bin/ $PATH

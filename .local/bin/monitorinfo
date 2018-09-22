@@ -20,25 +20,28 @@ getBarHeight() {
     fi
 }
 
+# Primary
 pm_name=$(xrandr | awk '$2 == "connected" && $3 == "primary" {print $1}')
 pm_res=$(xrandr | awk '$2 == "connected" && awk $3 == "primary" {getline; print $1}')
 pm_height=$(getY $pm_res)
 
+export PM_NAME=$pm_name
+export PM_BAR_HEIGHT=$(getBarHeight $pm_height)
+
+# Left
 lm_name=$(xrandr | awk '$2 == "connected" && $4 == "left" {print $1}')
 lm_res=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
 lm_height=$(getY $lm_res)
-
-rm_name=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
-rm_res=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
-rm_height=$(getY $rm_res)
-
-export PM_NAME=$pm_name
-export PM_BAR_HEIGHT=$(getBarHeight $pm_height)
 
 if [ ! -z "$pm_name" ]; then
     export LM_NAME=$lm_name
     export LM_BAR_HEIGHT=$(getBarHeight $lm_height)
 fi
+
+# Right
+rm_name=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
+rm_res=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
+rm_height=$(getY $rm_res)
 
 if [ ! -z "$rm_name" ]; then
     export RM_NAME=$rm_name
