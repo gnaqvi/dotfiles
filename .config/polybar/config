@@ -169,7 +169,7 @@ modules-left = apps gap news
 modules-center = clock
 modules-right = weather gap now-playing
 
-font-1 = "Weather Icons:size=16;5"
+font-1 = "Weather Icons:size=16;6"
 
 [module/apps]
 type = custom/text
