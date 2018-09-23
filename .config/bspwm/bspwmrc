@@ -32,18 +32,19 @@ bspc config click_to_focus        button1
 bspc config pointer_modifier      mod4
 
 # Placement
-bspc rule -a Code                    -o desktop=primary:^3
-bspc rule -a jetbrains-idea          -o desktop=primary:^6
-bspc rule -a Google-chrome           -o desktop=primary:^7
-bspc rule -a Spotify                 -o desktop=primary:^8
-bspc rule -a Slack                   -o desktop=primary:^9
-bspc rule -a Gimp                    -o desktop=primary:^0 state=floating
-bspc rule -a nautilus                -o state=floating
-bspc rule -a KeePass2                -o state=floating
-bspc rule -a vlc                     -o state=floating
-bspc rule -a feh                     -o state=floating
-bspc rule -a Yad                     -o state=floating
-bspc rule -a sun-awt-X11-XDialogPeer -o state=floating
+bspc rule -a Code                    desktop=primary:^3
+bspc rule -a jetbrains-idea          desktop=primary:^6
+bspc rule -a Google-chrome           desktop=primary:^7
+bspc rule -a Spotify                 desktop=primary:^8
+bspc rule -a Slack                   desktop=primary:^9
+bspc rule -a Gimp                    desktop=primary:^0 state=floating
+bspc rule -a nautilus                state=floating
+bspc rule -a Baobab                  state=floating
+bspc rule -a KeePass2                state=floating
+bspc rule -a vlc                     state=floating
+bspc rule -a feh                     state=floating
+bspc rule -a Yad                     state=floating
+bspc rule -a sun-awt-X11-XDialogPeer state=floating
 
 #-------------------------------------------------------------------------------
 # desktop environment
@@ -52,7 +53,7 @@ bspc rule -a sun-awt-X11-XDialogPeer -o state=floating
 # Set wallpaper
 ~/.fehbg &
 
-# Start polybar to avoid conflicts with compton
+# Start polybar
  ~/.config/polybar/scripts/launch
 
 # Start dunst notifications manager

@@ -34,7 +34,7 @@ warn = ${colors.base08}
 alert = #AF5454
 
 [common/bar]
-override-redirect = true
+override-redirect = false
 
 bottom = false
 width = 100%
@@ -47,7 +47,7 @@ fixed-center = true
 font-0 = "Fira Sans:weight=Regular:size=14;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=14;5"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=14;5"
-font-3 = "Material Icons:pixelsize=18;6"
+font-3 = "Material Icons:pixelsize=18;7"
 
 background = ${colors.alpha-base00}
 foreground = ${colors.base04}
@@ -169,8 +169,7 @@ modules-left = apps gap news
 modules-center = clock
 modules-right = weather gap now-playing
 
-font-3 = "Weather Icons:size=14;5"
-font-4 = "Material Icons:pixelsize=18;7"
+font-1 = "Weather Icons:size=16;5"
 
 [module/apps]
 type = custom/text
@@ -198,7 +197,7 @@ interval = 600
 
 [module/now-playing]
 type = custom/script
-label = %{T5}%{T-}  %output:0:50%
+label =  %output:0:50%
 exec = python -u -W ignore ~/.config/polybar/scripts/now_playing.py
 tail = true
 click-right = mygtkmenu ~/.config/mygtkmenu/player-menu
@@ -246,13 +245,13 @@ content = %{T5}RYZ%{T-}%{T6}E%{T-}%{T5}N%{T-}
 
 [module/cpu-usage]
 type = internal/cpu
-interval = 2
+interval = 5
 format-prefix = " "
 label = %percentage%%
 
 [module/cpu-temp]
 type = internal/temperature
-interval = 1
+interval = 5
 
 hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon0/temp2_input
 warn-temperature = 80
@@ -288,7 +287,7 @@ click-right = mygtkmenu ~/.config/mygtkmenu/gpu-menu
 [module/gpu-usage]
 type = custom/script
 exec = ~/.local/bin/hwinfo gpu usage
-interval = 2
+interval = 5
 
 format-prefix = " "
 label = %output%
@@ -298,7 +297,7 @@ click-right = ~/.config/polybar/scripts/gpu menu
 [module/gpu-temp]
 type = custom/script
 exec = ~/.local/bin/hwinfo gpu temp
-interval = 2
+interval = 5
 
 format-prefix = " "
 format-prefix-foreground = ${colors.normal}
@@ -308,7 +307,7 @@ click-right = ~/.config/polybar/scripts/gpu menu
 
 [module/memory]
 type = internal/memory
-interval = 1
+interval = 5
 format-prefix = "LPX  "
 label = %percentage_used%%
 
@@ -326,7 +325,7 @@ label-unmounted-foreground = ${colors.alert}
 type = internal/network
 interface = enp24s0
 
-interval = 3.0
+interval = 5
 ping-interval = 0
 accumulate-stats = false
 
@@ -350,6 +349,10 @@ speaker-soundcard = hw:01
 headphone-soundcard = hw:01
 
 master-mixer = Master
+speaker-mixer = Front
+headphone-mixer = Headphone
+headphone-id = 9
+
 mapped = true
 
 format-volume = <ramp-volume> <label-volume>
@@ -359,6 +362,9 @@ label-muted-foreground = ${colors.base02}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
 
 [module/power-menu]
 type = custom/text
