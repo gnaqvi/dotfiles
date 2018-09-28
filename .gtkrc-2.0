@@ -1,0 +1,16 @@
+gtk-theme-name="Adwaita-dark"
+gtk-icon-theme-name="la-capitaine-icon-theme"
+gtk-font-name="Fira Sans 12"
+gtk-cursor-theme-name="capitaine-cursors"
+gtk-cursor-theme-size=0
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_MENU
+gtk-button-images=1
+gtk-menu-images=1
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0
+gtk-xft-dpi=110
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintslight"
+gtk-xft-rgba="rgb"

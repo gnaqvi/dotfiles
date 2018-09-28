@@ -3,7 +3,6 @@ configuration {
 	width: 200;
 	lines: 10;
 	columns: 4;
-	font: "Fira Sans 16";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -42,7 +41,7 @@ configuration {
 /*	hide-scrollbar: false;*/
 	fullscreen: true;
 /*	fake-transparency: false;*/
-/*	dpi: -1;*/
+	dpi: 110;
 /*	threads: 0;*/
 /*	scrollbar-width: 8;*/
 /*	scroll-method: 0;*/

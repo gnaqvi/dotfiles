@@ -59,5 +59,8 @@ bspc rule -a sun-awt-X11-XDialogPeer state=floating
 # Start dunst notifications manager
 ~/.config/dunst/scripts/launch
 
-# Start disk manager tray
+# Start disk manager
 ~/.config/udiskie/scripts/launch
+
+# Start redshift
+~/.config/redshift/launch

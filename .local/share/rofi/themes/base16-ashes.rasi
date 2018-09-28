@@ -26,7 +26,7 @@
     background-color: @transparent;
     separatorcolor:   @transparent;
 
-    font:             "Fira Sans 16";
+    font:             "Fira Sans 15";
 }
 
 #window {

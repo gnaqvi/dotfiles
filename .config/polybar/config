@@ -23,8 +23,8 @@ base0E = #C795AE
 base0F = #C79595
 
 ; Translucent
-alpha-base00 = #E01C2023
-alpha-base01 = #E0393F45
+alpha-base00 = #F21C2023
+alpha-base01 = #F2393F45
 alpha-base0E = #BFC795AE
 alpha-alert  = #BFAF5454
 
@@ -44,10 +44,10 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "Fira Sans:weight=Regular:size=14;4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=14;5"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=14;5"
-font-3 = "Material Icons:pixelsize=18;7"
+font-0 = "Fira Sans:weight=Regular:size=12;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=14;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=14;4"
+font-3 = "Material Icons:pixelsize=17;7"
 
 background = ${colors.alpha-base00}
 foreground = ${colors.base04}
@@ -164,12 +164,13 @@ content = "      "
 inherit = common/bar
 
 monitor = ${env:PM_NAME:DP-0}
+dpi = ${env:PM_DPI:110}
 
 modules-left = apps gap news
 modules-center = clock
 modules-right = weather gap now-playing
 
-font-1 = "Weather Icons:size=16;6"
+font-1 = "Weather Icons:size=15;6"
 
 [module/apps]
 type = custom/text
@@ -210,14 +211,15 @@ click-right = mygtkmenu ~/.config/mygtkmenu/player-menu
 inherit = common/bar
 
 monitor = ${env:PM_NAME:DP-0}
+dpi = ${env:PM_DPI:110}
 
 bottom = true
 padding-left = 0
 padding-right = 0
 
-font-4 = "Spy Agency:pixelsize=14;3"
-font-5 = "Spy Agency Laser:pixelsize=14;3"
-font-6 = "Geforce:style=Bold:pixelsize=14;4"
+font-4 = "Spy Agency:pixelsize=13;3"
+font-5 = "Spy Agency Laser:pixelsize=13;3"
+font-6 = "Geforce:style=Bold:pixelsize=13;4"
 
 modules-left = bspwm gap-small title
 modules-center =
@@ -226,6 +228,7 @@ modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand g
 tray-position = right
 tray-padding = 4
 tray-background = ${colors.base00}
+tray-maxsize = 22
 
 [module/bspwm]
 inherit = common/bspwm
@@ -380,9 +383,8 @@ click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 inherit = common/bar
 
 monitor = ${env:LM_NAME:HDMI-0}
+dpi = ${env:LM_DPI:110}
 
-
-width=1080
 bottom = true
 height = ${env:LM_BAR_HEIGHT:2.25%}
 
