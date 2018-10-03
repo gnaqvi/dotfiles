@@ -41,10 +41,27 @@ pcm.pasymed {
     rate_converter "speexrate_medium"
 }
 
+pcm.rawjack {
+    type jack
+    playback_ports {
+        0 system:playback_1
+        1 system:playback_2
+    }
+    capture_ports {
+        0 system:capture_1
+        1 system:capture_2
+    }
+}
+
+pcm.jack {
+    type plug
+    slave.pcm "rawjack"
+}
+
 pcm.!default {
     type plug
-    slave.pcm "asymed"
-    rate_converter "speexrate_medium"
+    slave.pcm "jack"
+    #slave.pcm "pasymed"
 }
 
 ctl.!default {

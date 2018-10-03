@@ -51,8 +51,8 @@
 ! Cursor theme
 !-------------------------------------------------------------------------------
 
-Xcursor.theme:              "capitaine-cursors"
-Xcursor.size:               16
+Xcursor.theme:              "Capitaine Cursors"
+Xcursor.size:               32
 
 !-------------------------------------------------------------------------------
 ! Xft fonts

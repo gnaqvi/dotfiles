@@ -44,10 +44,10 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "Fira Sans:weight=Regular:size=12;4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=14;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=14;4"
-font-3 = "Material Icons:pixelsize=17;7"
+font-0 = "Fira Sans:weight=Regular:size=11.5;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;5"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;5"
+font-3 = "Material Icons:pixelsize=16;6"
 
 background = ${colors.alpha-base00}
 foreground = ${colors.base04}
@@ -145,7 +145,7 @@ format-padding = 0
 format-foreground = ${colors.base0A}
 
 label = %title%
-label-maxlen = 70
+label-maxlen = 140
 label-font   = 0
 
 [module/gap-small]
@@ -170,7 +170,7 @@ modules-left = apps gap news
 modules-center = clock
 modules-right = weather gap now-playing
 
-font-1 = "Weather Icons:size=15;6"
+font-1 = "Weather Icons:size=13;6"
 
 [module/apps]
 type = custom/text
@@ -233,13 +233,12 @@ tray-maxsize = 22
 [module/bspwm]
 inherit = common/bspwm
 
-ws-icon-0 = home;
-ws-icon-1 = terminal;
-ws-icon-2 = code;
-ws-icon-3 = web;
-ws-icon-4 = music;
-ws-icon-5 = chat;
-ws-icon-6 = misc;
+ws-icon-0 = terminal;
+ws-icon-1 = code;
+ws-icon-2 = web;
+ws-icon-3 = music;
+ws-icon-4 = chat;
+ws-icon-5 = work;
 ws-icon-default = 
 
 [module/cpu-brand]
@@ -379,31 +378,31 @@ click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 ; Left panel
 ;--------------------------------------------------------------------;
 
-[bar/left]
-inherit = common/bar
+;[bar/left]
+;inherit = common/bar
 
-monitor = ${env:LM_NAME:HDMI-0}
-dpi = ${env:LM_DPI:110}
+;monitor = ${env:LM_NAME:HDMI-0}
+;dpi = ${env:LM_DPI:110}
 
-bottom = true
-height = ${env:LM_BAR_HEIGHT:2.25%}
+;bottom = true
+;height = ${env:LM_BAR_HEIGHT:2.25%}
 
 ;font-0 = Fira Sans:weight=Regular:size=11;4
 ;font-1 = FontAwesome5Free:style=Solid:pixelsize=13;4
 ;font-2 = FontAwesome5Brands:style=Solid:pixelsize=13;4
 
-modules-left = bspwm-left gap-small title
-modules-center =
-modules-right = 
+;modules-left = bspwm-left gap-small title
+;modules-center =
+;modules-right = 
 
-[module/bspwm-left]
-inherit = common/bspwm
+;[module/bspwm-left]
+;inherit = common/bspwm
 
-ws-icon-0 = home;
-ws-icon-1 = terminal;
-ws-icon-2 = code;
-ws-icon-3 = misc;
-ws-icon-default = 
+;ws-icon-0 = home;
+;ws-icon-1 = terminal;
+;ws-icon-2 = code;
+;ws-icon-3 = misc;
+;ws-icon-default = 
 
 ;--------------------------------------------------------------------;
 ; General

@@ -8,8 +8,9 @@
     "editor.fontSize": 13,
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.visible": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "vim.disableExtension": true,
     "editor.fontFamily": "'Fira Code', monospace",
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}"
 }

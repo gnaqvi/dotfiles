@@ -8,9 +8,9 @@
 source ~/.local/bin/monitorinfo
 
 # Desktops
-bspc monitor $PM_NAME -d home terminal terminal code code code web music chat misc
+bspc monitor $PM_NAME -d terminal terminal code code code web music chat work
 if [ -n "$LM_NAME" ]; then 
-    bspc monitor $LM_NAME -d home terminal code code misc
+    bspc monitor $LM_NAME -d home terminal code code
 fi
 
 # Colors
@@ -32,35 +32,39 @@ bspc config click_to_focus        button1
 bspc config pointer_modifier      mod4
 
 # Placement
-bspc rule -a Code                    desktop=primary:^3
-bspc rule -a jetbrains-idea          desktop=primary:^6
-bspc rule -a Google-chrome           desktop=primary:^7
-bspc rule -a Spotify                 desktop=primary:^8
-bspc rule -a Slack                   desktop=primary:^9
-bspc rule -a Gimp                    desktop=primary:^0 state=floating
-bspc rule -a nautilus                state=floating
-bspc rule -a Baobab                  state=floating
-bspc rule -a KeePass2                state=floating
-bspc rule -a vlc                     state=floating
-bspc rule -a feh                     state=floating
-bspc rule -a Yad                     state=floating
-bspc rule -a sun-awt-X11-XDialogPeer state=floating
+bspc rule -a Code                    -o desktop=primary:^3
+bspc rule -a jetbrains-idea             desktop=primary:^5
+bspc rule -a Google-chrome           -o desktop=primary:^6
+bspc rule -a Spotify                    desktop=primary:^7
+bspc rule -a Slack                      desktop=primary:^8
+bspc rule -a Gimp                       state=floating
+bspc rule -a Nautilus                   state=floating
+bspc rule -a Baobab                     state=floating
+bspc rule -a KeePass2                   state=floating
+bspc rule -a vlc                        state=floating
+bspc rule -a feh                        state=floating
+bspc rule -a Yad                        state=floating
+bspc rule -a qjackctl                   state=floating
+bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 
 #-------------------------------------------------------------------------------
 # desktop environment
 #-------------------------------------------------------------------------------
 
-# Set wallpaper
+# Wallpaper
 ~/.fehbg &
 
-# Start polybar
- ~/.config/polybar/scripts/launch
+# polybar
+ ~/.config/polybar/scripts/launch &
 
-# Start dunst notifications manager
-~/.config/dunst/scripts/launch
+# Notifications manager
+~/.config/dunst/scripts/launch &
 
-# Start disk manager
-~/.config/udiskie/scripts/launch
+# Disk manager
+~/.config/udiskie/scripts/launch &
 
-# Start redshift
-~/.config/redshift/launch
+# Screen dimmer
+~/.config/redshift/launch &
+
+# Jack
+~/.local/bin/start-jack &

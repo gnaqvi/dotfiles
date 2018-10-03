@@ -60,6 +60,8 @@ alias chgrp "chgrp --preserve-root"
 ## Dev
 
 # node
+bass export NVM_DIR="$HOME/.nvm"
+bass export NVM_SOURCE="/usr/share/nvm"
 function nvm
     bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
 end
@@ -68,3 +70,4 @@ end
 set -gx GOROOT /usr/lib/go
 set -gx GOPATH $HOME/Dev/go
 set -gx PATH $HOME/.local/bin $GOPATH/bin/ $PATH
+
