@@ -4,7 +4,7 @@
     },
     "workbench.colorTheme": "One Monokai",
     "workbench.iconTheme" : "vscode-icons",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 1.10,
     "editor.fontSize": 13,
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.visible": true,
@@ -12,5 +12,8 @@
     "vim.disableExtension": true,
     "editor.fontFamily": "'Fira Code', monospace",
     "editor.fontLigatures": true,
-    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}"
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+    "workbench.statusBar.feedback.visible": false,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
 }

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+[ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
+
+system_output=$(checkupdates)
+aur_output=$(trizen -Qu --aur)
+
+system_count=$(echo $system_output | awk 'NF' | wc -l)
+aur_count=$(echo $aur_output | awk 'NF' | wc -l)
+
+case $1 in
+    "count")
+        echo "${system_count}/${aur_count}"
+    ;;
+    "gui")
+        if [ "$system_count" -gt 0 ]; then
+            system_details=$(echo "<b>System</b>\n\n${system_output}")
+        fi
+
+        if [ "$aur_count" -gt 0 ]; then
+            aur_details=$(echo "<b>AUR</b>\n\n${aur_output}")
+        fi
+
+        if [ ! -z "$system_count" ] && [ ! -z "$aur_details" ]; then
+            gap="\n\n"
+        fi
+
+        yad --mouse --no-buttons --close-on-unfocus --borders=10 --text="${system_details}${gap}${aur_details}"
+    ;;
+    *)
+        echo "Invalid parameter." && exit 1
+    ;;
+esac

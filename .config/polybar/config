@@ -36,9 +36,8 @@ alert = #AF5454
 [common/bar]
 override-redirect = false
 
-bottom = false
 width = 100%
-height = ${env:PM_BAR_HEIGHT:2.8%}
+height = ${env:PM_BAR_HEIGHT:3%}
 offset-x = 0
 offset-y = 0
 radius = 0
@@ -79,6 +78,15 @@ scroll-down =
 double-click-left =
 double-click-middle =
 double-click-right =
+
+[common/bar-secondary]
+inherit = common/bar
+
+bottom = true
+
+modules-left = bspwm-secondary gap-small title
+modules-center =
+modules-right = 
 
 [common/bspwm]
 type = internal/bspwm
@@ -138,6 +146,14 @@ label-sticky-foreground = ${colors.base08}
 label-private = " "
 label-private-foreground = ${colors.base08}
 
+[module/bspwm-secondary]
+inherit = common/bspwm
+
+ws-icon-0 = terminal;
+ws-icon-1 = code;
+ws-icon-2 = misc;
+ws-icon-default = 
+
 [module/title]
 type = internal/xwindow
 
@@ -194,7 +210,7 @@ click-left = ~/.config/polybar/scripts/calendar
 [module/weather]
 type = custom/script
 exec = ~/.config/polybar/scripts/weather
-interval = 600
+interval = 1800
 
 [module/now-playing]
 type = custom/script
@@ -217,13 +233,13 @@ bottom = true
 padding-left = 0
 padding-right = 0
 
-font-4 = "Spy Agency:pixelsize=13;3"
-font-5 = "Spy Agency Laser:pixelsize=13;3"
+font-4 = "Spy Agency:pixelsize=13;4"
+font-5 = "Spy Agency Laser:pixelsize=13;4"
 font-6 = "Geforce:style=Bold:pixelsize=13;4"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap alsa gap power-menu gap
+modules-right = updates gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap alsa gap power-menu gap
 
 tray-position = right
 tray-padding = 4
@@ -240,6 +256,13 @@ ws-icon-3 = music;
 ws-icon-4 = chat;
 ws-icon-5 = work;
 ws-icon-default = 
+
+[module/updates]
+type = custom/script
+label =  %output%
+exec = ~/.config/polybar/scripts/updates count
+interval = 3600
+click-left = ~/.config/polybar/scripts/updates gui
 
 [module/cpu-brand]
 type = custom/text
@@ -294,8 +317,6 @@ interval = 5
 format-prefix = " "
 label = %output%
 
-click-right = ~/.config/polybar/scripts/gpu menu
-
 [module/gpu-temp]
 type = custom/script
 exec = ~/.local/bin/hwinfo gpu temp
@@ -304,8 +325,6 @@ interval = 5
 format-prefix = " "
 format-prefix-foreground = ${colors.normal}
 label = %output%
-
-click-right = ~/.config/polybar/scripts/gpu menu
 
 [module/memory]
 type = internal/memory
@@ -378,31 +397,25 @@ click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 ; Left panel
 ;--------------------------------------------------------------------;
 
-;[bar/left]
-;inherit = common/bar
+[bar/left]
+inherit = common/bar-secondary
 
-;monitor = ${env:LM_NAME:HDMI-0}
-;dpi = ${env:LM_DPI:110}
+monitor = ${env:LM_NAME:DP-1}
+dpi = ${env:LM_DPI:110}
 
-;bottom = true
-;height = ${env:LM_BAR_HEIGHT:2.25%}
+height = ${env:LM_BAR_HEIGHT:2.75%}
 
-;font-0 = Fira Sans:weight=Regular:size=11;4
-;font-1 = FontAwesome5Free:style=Solid:pixelsize=13;4
-;font-2 = FontAwesome5Brands:style=Solid:pixelsize=13;4
+;--------------------------------------------------------------------;
+; Right panel
+;--------------------------------------------------------------------;
 
-;modules-left = bspwm-left gap-small title
-;modules-center =
-;modules-right = 
+[bar/right]
+inherit = common/bar-secondary
 
-;[module/bspwm-left]
-;inherit = common/bspwm
+monitor = ${env:RM_NAME:DP-1}
+dpi = ${env:RM_DPI:110}
 
-;ws-icon-0 = home;
-;ws-icon-1 = terminal;
-;ws-icon-2 = code;
-;ws-icon-3 = misc;
-;ws-icon-default = 
+height = ${env:RM_BAR_HEIGHT:2.75%}
 
 ;--------------------------------------------------------------------;
 ; General
@@ -414,10 +427,10 @@ throttle-output-for = 10
 throttle-input-for = 30
 
 screenchange-reload = true
-#compositing-background = xor
-#compositing-background = screen
-#compositing-foreground = source
-#compositing-border = over
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
 
 [global/wm]
 margin-top = 0

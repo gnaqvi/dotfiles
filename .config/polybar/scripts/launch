@@ -14,4 +14,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bars
 polybar top &
 polybar bottom &
-polybar left &
+[ ! -z "$LM_NAME" ] && polybar left &
+[ ! -z "$RM_NAME" ] && polybar right &
+
