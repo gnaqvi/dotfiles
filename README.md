@@ -1,5 +1,5 @@
 # dotfiles
 
-![Desktop](https://i.imgur.com/VU0cR7u.png)
+![Desktop](https://i.imgur.com/hL4ywb7.png)
 
 Enjoy!
