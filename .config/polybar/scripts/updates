@@ -2,32 +2,24 @@
 
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
 
-system_output=$(checkupdates)
-aur_output=$(trizen -Qu --aur)
+SYSTEM_OUTPUT=$(checkupdates)
+AUR_OUTPUT=$(trizen -Qu --aur)
 
-system_count=$(echo $system_output | awk 'NF' | wc -l)
-aur_count=$(echo $aur_output | awk 'NF' | wc -l)
+SYSTEM_COUNT=$(echo "$SYSTEM_OUTPUT" | awk NF | wc -l)
+AUR_COUNT=$(echo "$AUR_OUTPUT" | awk NF | wc -l)
 
 case $1 in
-    "count")
-        echo "${system_count}/${aur_count}"
-    ;;
-    "gui")
-        if [ "$system_count" -gt 0 ]; then
-            system_details=$(echo "<b>System</b>\n\n${system_output}")
-        fi
+"count") echo "${SYSTEM_COUNT}/${AUR_COUNT}" ;;
+"gui")
+    SYSTEM_HEADING="<big><b>System</b></big>"
+    AUR_HEADING="<big><b>AUR</b></big>"
+    GAP="\n\n"
+    NO_UPDATES="No updates available"
 
-        if [ "$aur_count" -gt 0 ]; then
-            aur_details=$(echo "<b>AUR</b>\n\n${aur_output}")
-        fi
+    SYSTEM_DETAILS=$([ "$SYSTEM_COUNT" -gt 0 ] && echo "$SYSTEM_OUTPUT" || echo "$NO_UPDATES")
+    AUR_DETAILS=$([ "$AUR_COUNT" -gt 0 ] && echo "$AUR_OUTPUT" || echo "$NO_UPDATES")
 
-        if [ ! -z "$system_count" ] && [ ! -z "$aur_details" ]; then
-            gap="\n\n"
-        fi
-
-        yad --mouse --no-buttons --close-on-unfocus --borders=10 --text="${system_details}${gap}${aur_details}"
-    ;;
-    *)
-        echo "Invalid parameter." && exit 1
-    ;;
+    yad --mouse --no-buttons --close-on-unfocus --borders=10 --text="${SYSTEM_HEADING}${GAP}${SYSTEM_DETAILS}${GAP}${AUR_HEADING}${GAP}${AUR_DETAILS}"
+;;
+*) echo "Invalid parameter." && exit 1 ;;
 esac

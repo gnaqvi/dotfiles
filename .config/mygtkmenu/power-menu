@@ -1,15 +1,15 @@
 item = Log off
 cmd = bspc quit
-icon = /usr/share/icons/la-capitaine-icon-theme/actions/22x22-dark/application-exit.svg
+icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/application-exit.svg
 
 item = Sleep
 cmd = systemctl suspend
-icon = /usr/share/icons/la-capitaine-icon-theme/actions/22x22-dark/system-suspend-hibernate.svg
+icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/system-suspend-hibernate.svg
 
 item = Restart
 cmd = systemctl reboot
-icon = /usr/share/icons/la-capitaine-icon-theme/actions/22x22-dark/system-restart.svg
+icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/system-restart.svg
 
 item = Shutdown
 cmd = systemctl poweroff
-icon = /usr/share/icons/la-capitaine-icon-theme/actions/22x22-dark/system-shutdown.svg
+icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/system-shutdown.svg

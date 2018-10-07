@@ -1,0 +1,58 @@
+#!/bin/bash
+
+function get_status() {
+    LOG_FILE="$HOME/.config/redshift/logs/status.log"
+
+    [ -f "$LOG_FILE" ] \
+        && cat $LOG_FILE | tr -d '\000' | grep -i status | cut -d ":" -f 2 | tr -d "[:blank:]" \
+        || echo "Disabled"
+}
+
+function get_description() {
+    NORMAL='#ADB3BA'
+    DARK='#C7C795'
+    DARKER='#C79595'
+    DARKEST='#AF5454'
+
+    OUTPUT_TEMPL='%{F__COLOR__}%{F-} __TEMP__'
+    COLOR=$NORMAL
+    TEMP=$(get_status)
+
+    if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
+        TEMP=$(redshift -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
+        
+        if [ -z "$TEMP" ]; then
+            COLOR=$NORMAL
+        elif [ "$TEMP" -ge 5000 ]; then
+            COLOR=$DARK
+        elif [ "$TEMP" -ge 4000 ]; then
+            COLOR=$DARKER
+        else
+            COLOR=$DARKEST
+        fi
+
+        TEMP=${TEMP}k
+    fi
+
+    WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
+    WITH_TEMP=${WITH_COLOR/__TEMP__/$TEMP}
+
+    echo $WITH_TEMP
+}
+
+function toggle() {
+    if [ "$(pgrep -x redshift)" ]; then
+        echo "" > $HOME/.config/redshift/logs/status.log
+        pkill -USR1 redshift
+    else
+        $HOME/.config/redshift/scripts/launch
+    fi
+}
+
+[ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
+
+case $1 in
+"-p") get_description ;;
+"-t") toggle ;;
+*) echo "Invalid parameter." && exit 1 ;;
+esac

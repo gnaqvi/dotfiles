@@ -1,0 +1,7 @@
+item = Start
+cmd = /home/gnaqvi/.config/redshift/scripts/launch
+icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/quickopen.svg
+
+item = Quit
+cmd = killall -q redshift
+icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/application-exit.svg

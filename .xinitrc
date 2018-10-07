@@ -16,9 +16,6 @@ xsetroot -cursor_name left_ptr
 # Load .Xresources
 xrdb -load ~/.Xresources &
 
-# Composting manager
-compton &
-
 # Start hotkey daemon and bspwm
 sxhkd -m 1 -t 20 &
 exec bspwm

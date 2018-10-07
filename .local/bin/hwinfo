@@ -3,33 +3,31 @@
 [ "$#" -lt 2 ] && echo "Missing parameters." && exit 1
 
 case $1 in
-    "cpu")
-        case $2 in
-            "usage")
-                (grep 'cpu ' /proc/stat; sleep 0.1; grep 'cpu ' /proc/stat) | awk -v RS="" '{print ($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5)"%"}'
-            ;;
-            "temp")
-                echo $(expr $(cat /sys/devices/platform/nct6775.2592/hwmon/hwmon0/temp2_input) / 1000)°C
-            ;;
-            *)
-                echo "Invalid metric." && exit 1
-            ;;
-        esac
+"--cpu")
+    case $2 in
+    "usage")
+        (grep 'cpu ' /proc/stat; sleep 0.1; grep 'cpu ' /proc/stat) | awk -v RS="" '{print ($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5)"%"}'
     ;;
-    "gpu")
-        case $2 in
-            "usage")
-                echo $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)%
-            ;;
-            "temp")
-                echo $(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)°C
-            ;;
-            *)
-                echo "Invalid metric." && exit 1
-            ;;
-        esac
+    "temp")
+        echo $(expr $(cat /sys/devices/platform/nct6775.2592/hwmon/hwmon0/temp2_input) / 1000)°C
     ;;
     *)
-        echo "Invalid resource." && exit 1
+        echo "Invalid metric." && exit 1
     ;;
+    esac
+;;
+"--gpu")
+    case $2 in
+    "usage")
+        echo $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)%
+    ;;
+    "temp")
+        echo $(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)°C
+    ;;
+    *)
+        echo "Invalid metric." && exit 1
+    ;;
+    esac
+;;
+*) echo "Invalid resource." && exit 1 ;;
 esac

@@ -1,0 +1,3 @@
+item = Qjackctl
+cmd = qjackctl
+icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/apps/scalable/qjackctl.svg

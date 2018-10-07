@@ -9,7 +9,7 @@ super + Return
 
 # lock screen
 super + BackSpace
-  lock
+  ~/.local/bin/lock
 
 # program launcher
 super + @space

@@ -46,7 +46,7 @@ fixed-center = true
 font-0 = "Fira Sans:weight=Regular:size=11.5;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;5"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;5"
-font-3 = "Material Icons:pixelsize=16;6"
+font-3 = "Material Icons:pixelsize=17;7"
 
 background = ${colors.alpha-base00}
 foreground = ${colors.base04}
@@ -184,7 +184,7 @@ dpi = ${env:PM_DPI:110}
 
 modules-left = apps gap news
 modules-center = clock
-modules-right = weather gap now-playing
+modules-right = redshift gap weather gap now-playing
 
 font-1 = "Weather Icons:size=13;6"
 
@@ -207,6 +207,12 @@ exec = ~/.config/polybar/scripts/clock
 interval = 5
 click-left = ~/.config/polybar/scripts/calendar
 
+[module/redshift]
+type = custom/script
+exec = ~/.config/polybar/scripts/rsctl -p
+interval = 5
+click-left = ~/.config/polybar/scripts/rsctl -t
+
 [module/weather]
 type = custom/script
 exec = ~/.config/polybar/scripts/weather
@@ -214,10 +220,13 @@ interval = 1800
 
 [module/now-playing]
 type = custom/script
-label =  %output:0:50%
+label = %output:0:50%
 exec = python -u -W ignore ~/.config/polybar/scripts/now_playing.py
 tail = true
-click-right = mygtkmenu ~/.config/mygtkmenu/player-menu
+
+click-left = playerctl play-pause
+click-middle = playerctl next
+click-right = playerctl previous
 
 ;--------------------------------------------------------------------;
 ; Bottom panel
@@ -235,14 +244,14 @@ padding-right = 0
 
 font-4 = "Spy Agency:pixelsize=13;4"
 font-5 = "Spy Agency Laser:pixelsize=13;4"
-font-6 = "Geforce:style=Bold:pixelsize=13;4"
+font-6 = "Geforce:style=Bold:pixelsize=13.35;5"
 
 modules-left = bspwm gap-small title
 modules-center =
 modules-right = updates gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap alsa gap power-menu gap
 
 tray-position = right
-tray-padding = 4
+tray-padding = 0
 tray-background = ${colors.base00}
 tray-maxsize = 22
 
@@ -261,7 +270,7 @@ ws-icon-default = 
 type = custom/script
 label =  %output%
 exec = ~/.config/polybar/scripts/updates count
-interval = 3600
+interval = 600
 click-left = ~/.config/polybar/scripts/updates gui
 
 [module/cpu-brand]
@@ -293,7 +302,7 @@ ramp-1 = 
 ramp-1-foreground = ${colors.normal}
 ramp-2 = 
 ramp-2-foreground = ${colors.normal}
-ramp-3 =
+ramp-3 =  
 ramp-3-foreground = ${colors.normal}
 ramp-4 = 
 ramp-4-foreground = ${colors.warn}
@@ -311,19 +320,14 @@ click-right = mygtkmenu ~/.config/mygtkmenu/gpu-menu
 
 [module/gpu-usage]
 type = custom/script
-exec = ~/.local/bin/hwinfo gpu usage
+exec = ~/.config/polybar/scripts/gpu --usage
 interval = 5
-
-format-prefix = " "
 label = %output%
 
 [module/gpu-temp]
 type = custom/script
-exec = ~/.local/bin/hwinfo gpu temp
+exec = ~/.config/polybar/scripts/gpu --temp
 interval = 5
-
-format-prefix = " "
-format-prefix-foreground = ${colors.normal}
 label = %output%
 
 [module/memory]
@@ -372,7 +376,7 @@ headphone-soundcard = hw:01
 master-mixer = Master
 speaker-mixer = Front
 headphone-mixer = Headphone
-headphone-id = 9
+headphone-id = 41
 
 mapped = true
 
@@ -387,9 +391,10 @@ ramp-volume-2 = 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
 
+click-right = mygtkmenu ~/.config/mygtkmenu/audio-menu
+
 [module/power-menu]
 type = custom/text
-content-foreground = ${colors.base0E}
 content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 

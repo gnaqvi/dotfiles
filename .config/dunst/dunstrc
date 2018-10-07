@@ -165,7 +165,7 @@
     max_icon_size = 64
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/la-capitaine-icon-theme/status/scalable-dark:/usr/share/icons/la-capitaine-icon-theme/devices/scalable-dark
+    icon_path = /usr/share/icons/la-capitaine-icon-theme-0.6.0/status/scalable-dark:/usr/share/icons/la-capitaine-icon-theme-0.6.0/devices/scalable-dark
 
     ### History ###
 

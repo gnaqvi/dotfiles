@@ -5,7 +5,7 @@
 #-------------------------------------------------------------------------------
 
 # Load monitors info
-source ~/.local/bin/monitorinfo
+source ~/.local/bin/moninfo
 
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code code web music chat work
@@ -51,10 +51,16 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 # desktop environment
 #-------------------------------------------------------------------------------
 
+# Audio
+~/.local/bin/jackstart &
+
 # Wallpaper
 ~/.fehbg &
 
-# polybar
+# Composting manager
+compton &
+
+# Panels
  ~/.config/polybar/scripts/launch &
 
 # Notifications manager
@@ -65,6 +71,3 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 
 # Screen dimmer
 ~/.config/redshift/launch &
-
-# Jack
-~/.local/bin/start-jack &

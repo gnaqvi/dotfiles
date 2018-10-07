@@ -1,28 +1,19 @@
 #!/bin/bash
 
-# Lock icon
-icon="$HOME/Pictures/Other/lock.png"
-# Temporary location for scrot
-tmpbg='/tmp/screenlock.png'
-# For multi-monitor setup
-offset='+540+0'
+TMP_BG='/tmp/screenlock.png'
+OFFSET='+0+0'
 
-(( $# )) && { icon=$1; }
-
-scrot -q 50 "$tmpbg"
+scrot -q 50 "$TMP_BG"
 
 # Pixelate
-#convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
-
+convert "$TMP_BG" -scale 10% -scale 1000% "$TMP_BG"
 # Blur
-convert "$tmpbg" -blur 0x6 "$tmpbg"
-
-convert "$tmpbg" "$icon" -gravity center -geometry "$offset" -composite -matte "$tmpbg"
+# convert "$TMP_BG" -blur 0x6 "$TMP_BG"
 
 # Stop notification manager
 pkill -u "$USER" -USR1 dunst
 
-i3lock -u -i "$tmpbg"
+i3lock -i "$TMP_BG" --composite -f -t
 
 # Resume notification manager
 pkill -u "$USER" -USR2 dunst

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+[ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
+
+function get_usage() {
+    # TODO
+    echo " $(~/.local/bin/hwinfo --gpu usage)"
+}
+
+function get_temp() {
+    # TODO
+    echo " $(~/.local/bin/hwinfo --gpu temp)"
+}
+
+case $1 in
+"--usage") get_usage ;;
+"--temp") get_temp ;;
+*) echo "Invalid parameter." && exit 1 ;;
+esac
