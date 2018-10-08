@@ -52,7 +52,7 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 #-------------------------------------------------------------------------------
 
 # Audio
-~/.local/bin/jackstart &
+~/.local/bin/jackstart
 
 # Wallpaper
 ~/.fehbg &

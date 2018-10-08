@@ -16,8 +16,8 @@ EDITOR=/usr/bin/code
 # Aliases
 #
 
-## Modified commands
-alias diff='colordiff'              # requires colordiff package
+# Modified commands
+alias diff='colordiff' # requires colordiff package
 alias grep='grep --color=auto'
 alias more='less'
 alias df='df -h'
@@ -27,26 +27,32 @@ alias nano='nano -w'
 alias ping='ping -c 5'
 alias dmesg='dmesg -HL'
 
-## ls
+# ls
 alias ls='ls -hF --color=auto'
-alias lr='ls -R'                    # recursive ls
+alias lr='ls -R' # recursive ls
 alias ll='ls -l'
 alias la='ll -A'
-alias lx='ll -BX'                   # sort by extension
-alias lz='ll -rS'                   # sort by size
-alias lt='ll -rt'                   # sort by date
+alias lx='ll -BX' # sort by extension
+alias lz='ll -rS' # sort by size
+alias lt='ll -rt' # sort by date
 alias lm='la | more'
 
-## Safety features
+# Safety features
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -I'                    # 'rm -i' prompts for every file
+alias rm='rm -I' # 'rm -i' prompts for every file
 alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-## Dev
+# Pacman
+alias pru="sudo pacman -Rns (pacman -Qtdq)"
+alias pkglist="pacman -Qqe > ~/.pkglist" # updates package list
+
+#
+# Dev
+#
 
 # node
 source /usr/share/nvm/init-nvm.sh
