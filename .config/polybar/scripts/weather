@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.config/color_theme
+
 get_icon() {
     case $1 in
         01d) icon="";;
@@ -54,4 +56,6 @@ if [ ! -z "$current" ] && [ ! -z "$forecast" ]; then
     sun_set=" $(get_duration "$(echo "$current" | jq ".sys.sunset")")"
 
     echo "$(get_icon "$current_icon") $current_temp$SYMBOL  $trend  $(get_icon "$forecast_icon") $forecast_temp$SYMBOL   $sun_rise   $sun_set"
+else
+    echo "%{F$BASE02} Unable to get forecast%{F-}"
 fi

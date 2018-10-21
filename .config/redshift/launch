@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Terminate already running redshift instances
+killall -q redshift
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x redshift >/dev/null; do sleep 1; done
+
+LOG_DIR="/tmp/redshift"
+STATUS_LOG_FILE="status.log"
+
+if [ -d "$LOG_DIR" ]; then
+    [ -f "${LOG_DIR}/{STATUS_LOG_FILE}" ] && rm "${LOG_DIR}/{STATUS_LOG_FILE}"
+else
+    mkdir -p $LOG_DIR
+fi
+
+redshift -v > /tmp/redshift/status.log 2>&1 &

@@ -3,35 +3,12 @@
 ;--------------------------------------------------------------------;
 
 [colors]
+include-file=~/.config/color_theme
 
-; Base 16
-base00 = #1C2023
-base01 = #393F45
-base02 = #565E65
-base03 = #747C84
-base04 = #ADB3BA
-base05 = #C7CCD1
-base06 = #DFE2E5
-base07 = #F3F4F5
-base08 = #C7AE95
-base09 = #C7C795
-base0A = #AEC795
-base0B = #95C7AE
-base0C = #95AEC7
-base0D = #AE95C7
-base0E = #C795AE
-base0F = #C79595
-
-; Translucent
-alpha-base00 = #F21C2023
-alpha-base01 = #F2393F45
-alpha-base0E = #BFC795AE
-alpha-alert  = #BFAF5454
-
-; Others
-normal = ${colors.base0A}
-warn = ${colors.base08}
-alert = #AF5454
+; Aliases
+normal = ${colors.BASE0A}
+warn = ${colors.BASE08}
+alert = ${colors.RED}
 
 [common/bar]
 override-redirect = false
@@ -48,11 +25,11 @@ font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;5"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;5"
 font-3 = "Material Icons:pixelsize=17;7"
 
-background = ${colors.alpha-base00}
-foreground = ${colors.base04}
+background = ${colors.ALPHA_BASE00}
+foreground = ${colors.BASE04}
 
 line-size  = 3
-line-color = ${colors.alpha-base0E}
+line-color = ${colors.ALPHA_BASE0E}
 
 border-size = 0
 
@@ -100,51 +77,51 @@ fuzzy-match = true
 
 format = <label-state> <label-mode>
 
-label-dimmed-foreground = ${colors.base03}
+label-dimmed-foreground = ${colors.BASE03}
 
 label-dimmed-occupied = %icon%
-label-dimmed-occupied-foreground = ${colors.base07}
+label-dimmed-occupied-foreground = ${colors.BASE07}
 label-dimmed-occupied-padding = 3
 
 label-dimmed-empty = %icon%
-label-dimmed-empty-foreground = ${colors.base02}
+label-dimmed-empty-foreground = ${colors.BASE02}
 label-dimmed-empty-padding = 3
 
 label-focused = %icon%
-label-focused-foreground = ${colors.base07}
-label-focused-background = ${colors.alpha-base01}
-label-focused-overline = ${colors.alpha-base0E}
+label-focused-foreground = ${colors.BASE07}
+label-focused-background = ${colors.ALPHA_BASE01}
+label-focused-overline = ${colors.ALPHA_BASE0E}
 label-focused-padding = 3
 
 label-occupied = %icon%
-label-occupied-foreground = ${colors.base07}
+label-occupied-foreground = ${colors.BASE07}
 label-occupied-padding = 3
 
 label-urgent = %icon%
-label-urgent-foreground = ${colors.base04}
-label-urgent-background = ${colors.alpha-alert}
+label-urgent-foreground = ${colors.BASE04}
+label-urgent-background = ${colors.ALPHA_RED}
 label-urgent-padding = 3
 
 label-empty = %icon%
-label-empty-foreground = ${colors.base02}
+label-empty-foreground = ${colors.BASE02}
 label-empty-padding = 3
 
 label-monocle = 
-label-monocle-foreground = ${colors.base08}
+label-monocle-foreground = ${colors.BASE08}
 label-tiled = 
-label-tiled-foreground = ${colors.base08}
+label-tiled-foreground = ${colors.BASE08}
 label-fullscreen = 
-label-fullscreen-foreground = ${colors.base08}
+label-fullscreen-foreground = ${colors.BASE08}
 label-floating = 
-label-floating-foreground = ${colors.base08}
+label-floating-foreground = ${colors.BASE08}
 label-pseudotiled = P
-label-pseudotiled-foreground = ${colors.base08}
+label-pseudotiled-foreground = ${colors.BASE08}
 label-locked = " "
-label-locked-foreground = ${colors.base08}
+label-locked-foreground = ${colors.BASE08}
 label-sticky = " "
-label-sticky-foreground = ${colors.base08}
+label-sticky-foreground = ${colors.BASE08}
 label-private = " "
-label-private-foreground = ${colors.base08}
+label-private-foreground = ${colors.BASE08}
 
 [module/bspwm-secondary]
 inherit = common/bspwm
@@ -158,11 +135,30 @@ ws-icon-default = 
 type = internal/xwindow
 
 format-padding = 0
-format-foreground = ${colors.base0A}
+format-foreground = ${colors.BASE0A}
 
 label = %title%
 label-maxlen = 140
 label-font   = 0
+
+[common/alsa]
+type = internal/alsa
+
+master-soundcard = hw:Generic
+master-mixer = Master
+
+mapped = true
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =  Muted
+label-muted-foreground = ${colors.BASE02}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
 
 [module/gap-small]
 type = custom/text
@@ -191,7 +187,7 @@ font-1 = "Weather Icons:size=13;6"
 [module/apps]
 type = custom/text
 content = 
-content-foreground = ${colors.base0E}
+content-foreground = ${colors.BASE0E}
 click-left = rofi -show drun
 
 [module/news]
@@ -248,11 +244,11 @@ font-6 = "Geforce:style=Bold:pixelsize=13.25;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = updates gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap alsa gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap updates gap power-menu gap
 
 tray-position = right
 tray-padding = 0
-tray-background = ${colors.base00}
+tray-background = ${colors.BASE00}
 tray-maxsize = 22
 
 [module/bspwm]
@@ -265,13 +261,6 @@ ws-icon-3 = music;
 ws-icon-4 = chat;
 ws-icon-5 = work;
 ws-icon-default = 
-
-[module/updates]
-type = custom/script
-label =  %output%
-exec = ~/.config/polybar/scripts/updates count
-interval = 600
-click-left = ~/.config/polybar/scripts/updates gui
 
 [module/cpu-brand]
 type = custom/text
@@ -360,41 +349,49 @@ format-packetloss = <animation-packetloss> <label-connected>
 
 label-connected = %ifname%  %downspeed%
 label-disconnected =  Not connected
-label-disconnected-foreground = ${colors.base02}
+label-disconnected-foreground = ${colors.BASE02}
 label-packetloss-foreground = ${colors.alert}
 animation-packetloss-0 = ⚠
 animation-packetloss-1 = 📶
 animation-packetloss-framerate = 500
 
-[module/alsa]
-type = internal/alsa
+[module/audio-usb]
+inherit = common/alsa
 
-master-soundcard = hw:01
-speaker-soundcard = hw:01
-headphone-soundcard = hw:01
+master-soundcard = hw:USB
+master-mixer = PCM
 
-master-mixer = Master
-speaker-mixer = Front
-headphone-mixer = Headphone
-headphone-id = 41
+speaker-soundcard =
+speaker-mixer =
 
-mapped = true
-
-format-volume = <ramp-volume> <label-volume>
-label-muted =  Muted
-label-muted-foreground = ${colors.base02}
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-ramp-headphones-0 = 
-ramp-headphones-1 = 
+headphone-soundcard =
+headphone-mixer =
+headphone-id =
 
 click-right = mygtkmenu ~/.config/mygtkmenu/audio-menu
 
+[module/audio]
+inherit = common/alsa
+
+speaker-soundcard = hw:Generic
+speaker-mixer = PCM
+
+headphone-soundcard = hw:Generic
+headphone-mixer = Headphone
+headphone-id = 9
+
+click-right = 
+
+[module/updates]
+type = custom/script
+label = %output%
+exec = ~/.config/polybar/scripts/updates count
+interval = 600
+click-left = ~/.config/polybar/scripts/updates gui
+
 [module/power-menu]
 type = custom/text
+content-foreground =  ${colors.RED}
 content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
@@ -441,4 +438,4 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
-; vim:ft=dosini
+;vim:ft=dosini

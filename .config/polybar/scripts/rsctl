@@ -1,34 +1,31 @@
 #!/bin/bash
 
-function get_status() {
-    LOG_FILE="$HOME/.config/redshift/logs/status.log"
+source ~/.config/color_theme
 
-    [ -f "$LOG_FILE" ] \
-        && cat $LOG_FILE | tr -d '\000' | grep -i status | cut -d ":" -f 2 | tr -d "[:blank:]" \
+STATUS_LOG_FILE="/tmp/redshift/status.log"
+
+function get_status() {
+    [ -f "$STATUS_LOG_FILE" ] \
+        && cat $STATUS_LOG_FILE | tr -d '\000' | grep -i status | cut -d ":" -f 2 | tr -d "[:blank:]" \
         || echo "Disabled"
 }
 
 function get_description() {
-    NORMAL='#ADB3BA'
-    DARK='#C7C795'
-    DARKER='#C79595'
-    DARKEST='#AF5454'
-
-    OUTPUT_TEMPL='%{F__COLOR__}%{F-} __TEMP__'
-    COLOR=$NORMAL
+    OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
+    COLOR=$BASE02
     TEMP=$(get_status)
 
     if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
         TEMP=$(redshift -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
         
         if [ -z "$TEMP" ]; then
-            COLOR=$NORMAL
+            COLOR=$BASE04
         elif [ "$TEMP" -ge 5000 ]; then
-            COLOR=$DARK
+            COLOR=$BASE09
         elif [ "$TEMP" -ge 4000 ]; then
-            COLOR=$DARKER
+            COLOR=$BASE0D
         else
-            COLOR=$DARKEST
+            COLOR=$ALERT
         fi
 
         TEMP=${TEMP}k
@@ -42,10 +39,10 @@ function get_description() {
 
 function toggle() {
     if [ "$(pgrep -x redshift)" ]; then
-        echo "" > $HOME/.config/redshift/logs/status.log
+        echo "" > $STATUS_LOG_FILE
         pkill -USR1 redshift
     else
-        $HOME/.config/redshift/scripts/launch
+        $HOME/.config/redshift/launch
     fi
 }
 

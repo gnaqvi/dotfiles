@@ -1,23 +1,27 @@
-#!/bin/sh
+#!/bin/bash
 
 #-------------------------------------------------------------------------------
 # bspwm settings
 #-------------------------------------------------------------------------------
+
+# Color theme
+source ~/.config/color_theme
+
 
 # Load monitors info
 source ~/.local/bin/moninfo
 
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code code web music chat work
-if [ -n "$LM_NAME" ]; then 
+if [ -n "$LM_NAME" ]; then
     bspc monitor $LM_NAME -d home terminal code code
 fi
 
 # Colors
-bspc config normal_border_color   "#393F45"
-bspc config focused_border_color  "#565E65"
-bspc config active_border_color   "#565E65"
-bspc config presel_feedback_color "#C795AE"
+bspc config normal_border_color   $BASE01
+bspc config focused_border_color  $BASE01
+bspc config active_border_color   $BASE01
+bspc config presel_feedback_color $BASE0F
 
 # Windows
 bspc config border_width          2
@@ -39,6 +43,7 @@ bspc rule -a Spotify                    desktop=primary:^7
 bspc rule -a Slack                      desktop=primary:^8
 bspc rule -a Gimp                       state=floating
 bspc rule -a Nautilus                   state=floating
+bspc rule -a Transmission-gtk           state=floating
 bspc rule -a Baobab                     state=floating
 bspc rule -a KeePass2                   state=floating
 bspc rule -a vlc                        state=floating
@@ -51,23 +56,23 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 # desktop environment
 #-------------------------------------------------------------------------------
 
-# Audio
-~/.local/bin/jackstart
-
 # Wallpaper
 ~/.fehbg &
 
+# Audio
+qjackctl &
+
 # Composting manager
-compton &
+ ~/.config/compton/launch &
 
 # Panels
- ~/.config/polybar/scripts/launch &
+ ~/.config/polybar/launch &
 
 # Notifications manager
-~/.config/dunst/scripts/launch &
+~/.config/dunst/launch &
 
 # Disk manager
-~/.config/udiskie/scripts/launch &
+~/.config/udiskie/launch &
 
 # Screen dimmer
 ~/.config/redshift/launch &

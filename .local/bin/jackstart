@@ -5,20 +5,26 @@ function start() {
     jack_control ds alsa
 }
 
+function stop() {
+    jack_control stop
+}
+
 function generic() {
-    start
+    stop
     jack_control dps device hw:Generic
     jack_control dps rate 48000
     jack_control dps nperiods 2
     jack_control dps period 2048
+    start
 }
 
 function ux2() {
-    start
+    stop
     jack_control dps device hw:PODStudioUX2
     jack_control dps rate 48000
-    jack_control dps nperiods 2
-    jack_control dps period 64
+    jack_control dps nperiods 3
+    jack_control dps period 256
+    start
 }
 
 CARDS=$(aplay -l)

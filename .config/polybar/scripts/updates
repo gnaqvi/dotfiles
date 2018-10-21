@@ -1,25 +1,54 @@
 #!/bin/bash
 
+source ~/.config/color_theme
+
+NO_UPDATES="No updates available"
+FAILED_QUERY="Could not query remote server"
+SYSTEM_HEADING="<big><b>System</b></big>"
+AUR_HEADING="<big><b>AUR</b></big>"
+GAP="\n\n"
+
+function count_lines() {
+    echo $(echo "$1" | awk NF | wc -l)
+}
+
+function query() {
+    OUTPUT=$($1 2>/dev/null)
+
+    if [ $? -eq 0 ]; then
+        NUM=$(count_lines $OUTPUT)
+        [ "$NUM" -eq 0 ] && OUTPUT=$NO_UPDATES
+    else
+        NUM=$(count_lines "$OUTPUT")
+        OUTPUT=$FAILED_QUERY
+
+        # Fix for trizen which prints a message and exits with code 1 if there are no updates
+        #[ "$NUM" -eq 1 ] && NUM=0 || NUM="?"
+    fi
+
+    echo "COUNT=$NUM; OUTPUT=\"$OUTPUT\""
+}
+
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
 
-SYSTEM_OUTPUT=$(checkupdates)
-AUR_OUTPUT=$(trizen -Qu --aur)
-
-SYSTEM_COUNT=$(echo "$SYSTEM_OUTPUT" | awk NF | wc -l)
-AUR_COUNT=$(echo "$AUR_OUTPUT" | awk NF | wc -l)
-
 case $1 in
-"count") echo "${SYSTEM_COUNT}/${AUR_COUNT}" ;;
+"count")
+    eval "$(query 'checkupdates')"
+    STATUS=$COUNT
+    
+    eval "$(query 'trizen -Qu --aur')"
+    STATUS="${STATUS}/${COUNT}"
+    
+    echo " ${STATUS}"
+;;
 "gui")
-    SYSTEM_HEADING="<big><b>System</b></big>"
-    AUR_HEADING="<big><b>AUR</b></big>"
-    GAP="\n\n"
-    NO_UPDATES="No updates available"
+    eval "$(query 'checkupdates')"
+    SYSTEM_STATUS="${SYSTEM_HEADING}${GAP}${OUTPUT}"
 
-    SYSTEM_DETAILS=$([ "$SYSTEM_COUNT" -gt 0 ] && echo "$SYSTEM_OUTPUT" || echo "$NO_UPDATES")
-    AUR_DETAILS=$([ "$AUR_COUNT" -gt 0 ] && echo "$AUR_OUTPUT" || echo "$NO_UPDATES")
+    eval "$(query 'trizen -Qu --aur')"
+    AUR_STATUS="${SYSTEM_HEADING}${GAP}${OUTPUT}"
 
-    yad --mouse --no-buttons --close-on-unfocus --borders=10 --text="${SYSTEM_HEADING}${GAP}${SYSTEM_DETAILS}${GAP}${AUR_HEADING}${GAP}${AUR_DETAILS}"
+    yad --mouse --no-buttons --close-on-unfocus --borders=10 --text="${SYSTEM_STATUS}${GAP}${AUR_STATUS}"
 ;;
 *) echo "Invalid parameter." && exit 1 ;;
 esac
