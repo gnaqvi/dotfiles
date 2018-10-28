@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 source ~/.config/color_theme
 
 NO_UPDATES="No updates available"
@@ -14,15 +16,14 @@ function count_lines() {
 
 function query() {
     OUTPUT=$($1 2>/dev/null)
+    NUM=$(count_lines "$OUTPUT")
 
     if [ $? -eq 0 ]; then
-        # Fix for trizen which prints a message if there are no updates
-        [ "$OUTPUT"  == ":: No AUR updates found..." ] && NUM=0 || NUM=$(count_lines $OUTPUT)
-
+        [ "$OUTPUT" == ":: No AUR updates found..." ] && NUM=0 # Fix for Trizen
         [ "$NUM" -eq 0 ] && OUTPUT=$NO_UPDATES
     else
         NUM=$(count_lines "$OUTPUT")
-        OUTPUT=$FAILED_QUERY        
+        OUTPUT=$FAILED_QUERY
     fi
 
     echo "COUNT=$NUM; OUTPUT=\"$OUTPUT\""
@@ -34,10 +35,10 @@ case $1 in
 "count")
     eval "$(query 'checkupdates')"
     STATUS=$COUNT
-    
+
     eval "$(query 'trizen -Su --aur')"
     STATUS="${STATUS}/${COUNT}"
-    
+
     echo " ${STATUS}"
 ;;
 "gui")
