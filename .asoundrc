@@ -15,8 +15,8 @@ pcm.dmixed {
         channels 2
         format S32_LE
         rate 96000
-	period_size 1024
-	buffer_size 8192
+        period_size 1024
+        buffer_size 8192
     }
 }
 
@@ -46,7 +46,7 @@ pcm.pasymed {
 }
 
 #
-# Jack
+# Jack (USB)
 #
 
 pcm.rawjack {

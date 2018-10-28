@@ -19,8 +19,8 @@ fi
 
 # Colors
 bspc config normal_border_color   $BASE01
-bspc config focused_border_color  $BASE01
-bspc config active_border_color   $BASE01
+bspc config focused_border_color  $BASE02
+bspc config active_border_color   $BASE02
 bspc config presel_feedback_color $BASE0F
 
 # Windows

@@ -16,14 +16,13 @@ function query() {
     OUTPUT=$($1 2>/dev/null)
 
     if [ $? -eq 0 ]; then
-        NUM=$(count_lines $OUTPUT)
+        # Fix for trizen which prints a message if there are no updates
+        [ "$OUTPUT"  == ":: No AUR updates found..." ] && NUM=0 || NUM=$(count_lines $OUTPUT)
+
         [ "$NUM" -eq 0 ] && OUTPUT=$NO_UPDATES
     else
         NUM=$(count_lines "$OUTPUT")
-        OUTPUT=$FAILED_QUERY
-
-        # Fix for trizen which prints a message and exits with code 1 if there are no updates
-        #[ "$NUM" -eq 1 ] && NUM=0 || NUM="?"
+        OUTPUT=$FAILED_QUERY        
     fi
 
     echo "COUNT=$NUM; OUTPUT=\"$OUTPUT\""
@@ -36,7 +35,7 @@ case $1 in
     eval "$(query 'checkupdates')"
     STATUS=$COUNT
     
-    eval "$(query 'trizen -Qu --aur')"
+    eval "$(query 'trizen -Su --aur')"
     STATUS="${STATUS}/${COUNT}"
     
     echo " ${STATUS}"
@@ -45,7 +44,7 @@ case $1 in
     eval "$(query 'checkupdates')"
     SYSTEM_STATUS="${SYSTEM_HEADING}${GAP}${OUTPUT}"
 
-    eval "$(query 'trizen -Qu --aur')"
+    eval "$(query 'trizen -Su --aur')"
     AUR_STATUS="${SYSTEM_HEADING}${GAP}${OUTPUT}"
 
     yad --mouse --no-buttons --close-on-unfocus --borders=10 --text="${SYSTEM_STATUS}${GAP}${AUR_STATUS}"

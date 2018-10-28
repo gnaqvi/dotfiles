@@ -175,6 +175,12 @@ icon = NULL
 
 separator
 
+item = Terminal
+cmd = alacritty
+icon = NULL
+
+separator
+
 item = Close window
 cmd = bspc node -c
 icon = NULL

@@ -1,6 +1,8 @@
 # dotfiles
 
-![Desktop](https://i.imgur.com/hL4ywb7.png)
+A late night scrot.
+
+![Desktop](https://i.imgur.com/xYgrc6D.jpg)
 
 ### *TODO*
 - GPU temperature color ramp
