@@ -3,7 +3,7 @@
 ;--------------------------------------------------------------------;
 
 [colors]
-include-file=~/.config/color_theme
+include-file=~/.config/color_themes/current
 
 ; Aliases
 normal = ${colors.BASE0A}

@@ -8,7 +8,6 @@ while pgrep -u $UID -x dunst >/dev/null; do sleep 1; done
 
 # Write configuration
 source ~/.config/color_theme
-
 TEMPLATE_FILE=~/.config/dunst/dunstrc.template
 CONFIG_FILE=~/.config/dunst/dunstrc
 

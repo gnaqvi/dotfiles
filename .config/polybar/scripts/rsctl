@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.config/color_theme
+source ~/.config/color_themes/current
 
 STATUS_LOG_FILE="/tmp/redshift/status.log"
 

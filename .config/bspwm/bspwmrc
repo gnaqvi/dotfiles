@@ -5,7 +5,7 @@
 #-------------------------------------------------------------------------------
 
 # Color theme
-source ~/.config/color_theme
+source ~/.config/color_themes/current
 
 
 # Load monitors info

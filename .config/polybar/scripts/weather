@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.config/color_theme
+source ~/.config/color_themes/current
 
 get_icon() {
     case $1 in
