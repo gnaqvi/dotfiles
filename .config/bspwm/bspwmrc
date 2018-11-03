@@ -65,9 +65,6 @@ qjackctl &
 # Composting manager
  ~/.config/compton/launch &
 
-# Panels
- ~/.config/polybar/launch &
-
 # Notifications manager
 ~/.config/dunst/launch &
 
@@ -76,3 +73,7 @@ qjackctl &
 
 # Screen dimmer
 ~/.config/redshift/launch &
+
+# Panels
+sleep 5
+ ~/.config/polybar/launch &
