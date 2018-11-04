@@ -7,7 +7,7 @@ killall -q dunst
 while pgrep -u $UID -x dunst >/dev/null; do sleep 1; done
 
 # Write configuration
-source ~/.config/color_theme
+source ~/.config/color_themes/current
 TEMPLATE_FILE=~/.config/dunst/dunstrc.template
 CONFIG_FILE=~/.config/dunst/dunstrc
 
