@@ -238,8 +238,8 @@ bottom = true
 padding-left = 0
 padding-right = 0
 
-font-4 = "Spy Agency:pixelsize=13;4"
-font-5 = "Spy Agency Laser:pixelsize=13;4"
+font-4 = "Spy Agency:pixelsize=12.75;4"
+font-5 = "Spy Agency Laser:pixelsize=12.75;4"
 font-6 = "Geforce:style=Bold:pixelsize=13.25;5"
 
 modules-left = bspwm gap-small title

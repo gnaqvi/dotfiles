@@ -2,8 +2,20 @@
 # Fish specific
 #
 
+# Install fisher
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
+
 # Quite!
 set fish_greeting ""
+
+# Colors
+if functions -q bobthefish_display_colors
+    set theme_color_scheme zenburn
+end
 
 if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc 
     eval (dircolors -c ~/.dircolorsrc | sed 's/>&\/dev\/null$//')
@@ -63,14 +75,15 @@ alias pkglist "pacman -Qqe > ~/.pkglist" # updates package list
 #
 
 # node
-bass export NVM_DIR="$HOME/.nvm"
-bass export NVM_SOURCE="/usr/share/nvm"
-function nvm
-    bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
+if functions -q bass
+    bass export NVM_DIR="$HOME/.nvm"
+    bass export NVM_SOURCE="/usr/share/nvm"
+    function nvm
+        bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
+    end
 end
 
 # Go
 set -gx GOROOT /usr/lib/go
 set -gx GOPATH $HOME/Dev/go
 set -gx PATH $HOME/.local/bin $GOPATH/bin/ $PATH
-

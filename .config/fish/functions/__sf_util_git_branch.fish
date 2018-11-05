@@ -1,1 +1,0 @@
-/home/gnaqvi/.config/fisherman/spacefish/functions/__sf_util_git_branch.fish

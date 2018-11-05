@@ -1,1 +1,0 @@
-/home/gnaqvi/.config/fisherman/spacefish/functions/__sf_util_truncate_dir.fish

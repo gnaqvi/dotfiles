@@ -2,7 +2,6 @@
 shadow = true;
 no-dnd-shadow = true;
 no-dock-shadow = false;
-clear-shadow = true;
 shadow-radius = 7;
 shadow-offset-x = -10;
 shadow-offset-y = -10;
@@ -61,7 +60,6 @@ detect-client-opacity = true;
 #efresh-rate = 60;
 vsync = "none";
 dbe = false;
-paint-on-overlay = true;
 # sw-opti = true;
 # unredir-if-possible = false;
 # unredir-if-possible-delay = 5000;
