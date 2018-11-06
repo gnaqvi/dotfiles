@@ -5,6 +5,7 @@ alsa-plugins
 alsa-tools
 alsa-utils
 amd-ucode
+audacity
 autoconf
 automake
 aws-cli
@@ -32,14 +33,12 @@ dmidecode
 docker
 dunst
 e2fsprogs
-evince
 fakeroot
 feh
 file
 filesystem
 findutils
 fish
-fisherman
 flex
 gawk
 gcc
@@ -59,6 +58,7 @@ grep
 groff
 gtk2
 gucharmap
+guitarix2
 gvfs-mtp
 gzip
 handbrake
@@ -95,6 +95,8 @@ man-db
 man-pages
 mdadm
 mesa-demos
+msi-rgb
+mupdf
 mygtkmenu
 nano
 nautilus
