@@ -12,10 +12,8 @@ get_bar_height() {
     if [ -z "$1" ]; then
         echo  ""
     elif [ "$1" -lt 1080 ]; then
-        echo "2%"
-    elif [ "$1" -ge 1080 ] && [ "$1" -lt 1440 ]; then
-        echo "2.25%"
-    elif [ "$1" -ge 1440 ]; then
+        echo "2.5%"
+    elif [ "$1" -ge 1080 ]; then
         echo "2.75%"
     fi
 }

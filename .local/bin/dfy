@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 function dotify() {
     ABS_PATH=$(realpath $1)
     DFY_PATH=${ABS_PATH/$HOME\//}
