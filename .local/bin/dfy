@@ -1,12 +1,38 @@
 #!/bin/bash
 
-[ -z "$1" ] && echo "Invalid input" && exit 1
+set -x
 
-ABS_PATH=$(realpath $1)
-DFY_PATH=${ABS_PATH/$HOME\//}
-PARENT=$(dirname $DFY_PATH)
+function dotify() {
+    ABS_PATH=$(realpath $1)
+    DFY_PATH=${ABS_PATH/$HOME\//}
+    PARENT=$(dirname $DFY_PATH)
 
-[ "$PARENT" != "." ] && mkdir -p ~/.dotfiles/$PARENT
+    [ "$PARENT" != "." ] && mkdir -p ~/.dotfiles/$PARENT
 
-mv $ABS_PATH ~/.dotfiles/$PARENT
-ln -sf ~/.dotfiles/$DFY_PATH $ABS_PATH
+    mv $ABS_PATH ~/.dotfiles/$PARENT
+    ln -sf ~/.dotfiles/$DFY_PATH $ABS_PATH
+}
+
+function restore() {
+    DFY_PATH=$(realpath $1)
+    NORMAL_PATH=${DFY_PATH/.dotfiles\//}
+    BASENAME=$(basename $NORMAL_PATH)
+
+    if [ -L "$NORMAL_PATH" ]; then
+        echo "$NORMAL_PATH: Skipped. Already symlinked."
+        return
+    elif [ -f "$NORMAL_PATH" ] || [ -d "$NORMAL_PATH" ]; then
+        mkdir -p ~/dfy_backup
+        mv $NORMAL_PATH ~/dfy_backup/$BASENAME
+    fi
+
+    ln -s $DFY_PATH $NORMAL_PATH
+}
+
+[ "$#" -lt 2 ] && echo "Not enough parameters" && exit 1
+
+case $1 in
+"-d") dotify $2 ;;
+"-r") restore $2 ;;
+*) echo "Invalid parameter" && exit 1 ;;
+esac

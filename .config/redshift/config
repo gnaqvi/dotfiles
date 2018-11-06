@@ -2,7 +2,7 @@
 [redshift]
 ; Set the day and night screen temperatures
 temp-day=7000k
-temp-night=5000k
+temp-night=4000k
 
 ; Disable the smooth fade between temperatures when Redshift starts and stops.
 ; 0 will cause an immediate change between screen temperatures.
