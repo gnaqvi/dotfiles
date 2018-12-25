@@ -1,19 +1,19 @@
 item = Play
 cmd = playerctl play
-icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/gtk-media-play-ltr.svg
+icon = /usr/share/icons/la-capitaine/actions/22x22-dark/gtk-media-play-ltr.svg
 
 item = Pause
 cmd = playerctl pause
-icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/gtk-media-pause.svg
+icon = /usr/share/icons/la-capitaine/actions/22x22-dark/gtk-media-pause.svg
 
 item = Stop
 cmd = playerctl stop
-icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/gtk-media-stop.svg
+icon = /usr/share/icons/la-capitaine/actions/22x22-dark/gtk-media-stop.svg
 
 item = Next
 cmd = playerctl next
-icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/gtk-media-next-ltr.svg
+icon = /usr/share/icons/la-capitaine/actions/22x22-dark/gtk-media-next-ltr.svg
 
 item = Previous
 cmd = playerctl previous
-icon = /usr/share/icons/la-capitaine-icon-theme-0.6.0/actions/22x22-dark/gtk-media-previous-ltr.svg
+icon = /usr/share/icons/la-capitaine/actions/22x22-dark/gtk-media-previous-ltr.svg

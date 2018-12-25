@@ -59,4 +59,4 @@ source /usr/share/nvm/init-nvm.sh
 
 # Go
 export GOROOT=/usr/lib/go
-export GOPATH=/$HOME/Dev/go
+export GOPATH=$HOME/Dev/go

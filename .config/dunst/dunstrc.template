@@ -85,7 +85,7 @@
 
     ### Text ###
 
-    font = Fira Sans 12
+    font = Fira Sans 11.5
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -165,7 +165,7 @@
     max_icon_size = 64
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/la-capitaine-icon-theme-0.6.0/status/scalable-dark:/usr/share/icons/la-capitaine-icon-theme-0.6.0/devices/scalable-dark
+    icon_path = /usr/share/icons/la-capitaine/status/scalable-dark:/usr/share/icons/la-capitaine/devices/scalable-dark
 
     ### History ###
 
@@ -182,7 +182,7 @@
     dmenu = /usr/bin/rofi -dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = env GTK_THEME=Adwaita:light /usr/bin/firefox -new-tab
+    browser = /usr/bin/google-chrome-stable --force-device-scale-factor=1.20 
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true

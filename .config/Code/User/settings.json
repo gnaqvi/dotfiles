@@ -4,7 +4,7 @@
     },
     "workbench.colorTheme": "One Monokai",
     "workbench.iconTheme" : "vscode-icons",
-    "window.zoomLevel": 1.10,
+    "window.zoomLevel": 1.5,
     "editor.fontSize": 13,
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.visible": true,
