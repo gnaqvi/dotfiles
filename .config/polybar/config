@@ -238,13 +238,14 @@ bottom = true
 padding-left = 0
 padding-right = 0
 
-font-4 = "Spy Agency:pixelsize=12.75;4"
-font-5 = "Spy Agency Laser:pixelsize=12.75;4"
-font-6 = "Geforce:style=Bold:pixelsize=13.25;5"
+font-4 = "icomoon:pixelsize=15;3"
+font-5 = "Spy Agency:pixelsize=12.75;4"
+font-6 = "Spy Agency Laser:pixelsize=12.75;4"
+font-7 = "Geforce:style=Bold:pixelsize=13.25;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap updates gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap-small network-signal gap filesystem gap updates gap power-menu gap
 
 tray-position = right
 tray-padding = 0
@@ -264,7 +265,7 @@ ws-icon-default = 
 
 [module/cpu-brand]
 type = custom/text
-content = %{T5}RYZ%{T-}%{T6}E%{T-}%{T5}N%{T-}
+content = %{T6}RYZ%{T-}%{T7}E%{T-}%{T6}N%{T-}
 
 [module/cpu-usage]
 type = internal/cpu
@@ -293,9 +294,9 @@ ramp-2 = 
 ramp-2-foreground = ${colors.normal}
 ramp-3 =  
 ramp-3-foreground = ${colors.normal}
-ramp-4 = 
+ramp-4 = 
 ramp-4-foreground = ${colors.warn}
-ramp-5 = 
+ramp-5 = 
 ramp-5-foreground = ${colors.warn}
 ramp-6 = 
 ramp-6-foreground = ${colors.warn}
@@ -304,7 +305,7 @@ ramp-7-foreground = ${colors.alert}
 
 [module/gpu-brand]
 type = custom/text
-content = %{T7}GEFORCE%{T-}
+content = %{T8}GEFORCE%{T-}
 click-right = mygtkmenu ~/.config/mygtkmenu/gpu-menu
 
 [module/gpu-usage]
@@ -337,23 +338,42 @@ label-unmounted-foreground = ${colors.alert}
 
 [module/network]
 type = internal/network
-interface = enp24s0
+interface = wlo1
+
+interval = 5
+ping-interval = 0
+accumulate-stats = false
+
+format-connected = <label-connected> <ramp-signal>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-connected> <animation-packetloss>
+
+label-connected = %essid%
+label-signal = %signal%
+label-disconnected =  Not connected
+label-disconnected-foreground = ${colors.BASE02}
+
+label-packetloss-foreground = ${colors.alert}
+animation-packetloss-0 = ⚠
+animation-packetloss-1 = 📶
+animation-packetloss-framerate = 500
+
+ramp-signal-0 = %{T5}%{T-}
+ramp-signal-1 = %{T5}%{T-}
+ramp-signal-2 = %{T5}%{T-}
+ramp-signal-3 = %{T5}%{T-}
+ramp-signal-4 = %{T5}%{T-}
+
+[module/network-signal]
+type = internal/network
+interface = wlo1
 
 interval = 5
 ping-interval = 0
 accumulate-stats = false
 
 format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-format-packetloss = <animation-packetloss> <label-connected>
-
-label-connected = %ifname%  %downspeed%
-label-disconnected =  Not connected
-label-disconnected-foreground = ${colors.BASE02}
-label-packetloss-foreground = ${colors.alert}
-animation-packetloss-0 = ⚠
-animation-packetloss-1 = 📶
-animation-packetloss-framerate = 500
+label-connected = -%signal% dBm
 
 [module/audio-usb]
 inherit = common/alsa

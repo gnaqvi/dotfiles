@@ -1,10 +1,8 @@
 # Shadow
 shadow = true;
-no-dnd-shadow = true;
-no-dock-shadow = false;
-shadow-radius = 7;
-shadow-offset-x = -10;
-shadow-offset-y = -10;
+shadow-radius = 8;
+shadow-offset-x = -9;
+shadow-offset-y = -7.5;
 shadow-opacity = 0.7;
 # shadow-red = 0.0;
 # shadow-green = 0.0;
@@ -20,12 +18,10 @@ shadow-exclude = [
 # xinerama-shadow-crop = true;
 
 # Opacity
-menu-opacity = 0.92;
 inactive-opacity = 1;
 active-opacity = 1;
 frame-opacity = 1;
 inactive-opacity-override = false;
-alpha-step = 0.05;
 # inactive-dim = 0.2;
 # inactive-dim-fixed = true;
 blur-background = false;
@@ -46,9 +42,9 @@ fading = true;
 fade-delta = 4;
 fade-in-step = 0.03;
 fade-out-step = 0.03;
-# no-fading-openclose = true;
-# no-fading-destroyed-argb = true;
-# fade-exclude = [ "window_type *= 'menu'" ];
+no-fading-openclose = false;
+no-fading-destroyed-argb = true;
+fade-exclude = [];
 
 # Other
 backend = "glx";
@@ -57,13 +53,13 @@ mark-ovredir-focused = true;
 use-ewmh-active-win = true;
 detect-rounded-corners = true;
 detect-client-opacity = true;
-#efresh-rate = 60;
-vsync = "none";
+# refresh-rate = 60;
+vsync = "opengl-swc";
 dbe = false;
 # sw-opti = true;
-# unredir-if-possible = false;
-# unredir-if-possible-delay = 5000;
-# unredir-if-possible-exclude = [ ];
+unredir-if-possible = true;
+unredir-if-possible-delay = 5000;
+unredir-if-possible-exclude = [];
 focus-exclude = [ "class_g = 'Cairo-clock'" ];
 detect-transient = true;
 detect-client-leader = true;
@@ -81,5 +77,8 @@ glx-swap-method = "undefined";
 # Window type settings
 wintypes:
 {
-  tooltip = { fade = true; shadow = true; opacity = 0.75; focus = true; };
+  tooltip = { fade = true; shadow = true; opacity = 0.92; focus = true; };
+  popup_menu = { fade = true; shadow = true; opacity = 0.92; focus = true; };
+  dock = { shadow = false; }
+  dnd = { shadow = false; }
 };
