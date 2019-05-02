@@ -9,7 +9,7 @@ case $1 in
         (grep 'cpu ' /proc/stat; sleep 0.1; grep 'cpu ' /proc/stat) | awk -v RS="" '{print ($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5)"%"}'
     ;;
     "temp")
-        echo $(expr $(cat /sys/devices/platform/nct6775.2592/hwmon/hwmon0/temp2_input) / 1000)°C
+        echo hello $(expr $(cat /sys/devices/platform/nct6775.2592/hwmon/hwmon1/temp2_input) / 1000)°C
     ;;
     *)
         echo "Invalid metric." && exit 1
@@ -19,10 +19,12 @@ case $1 in
 "--gpu")
     case $2 in
     "usage")
-        echo $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)%
+        # :(
+        #echo $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)%
     ;;
     "temp")
-        echo $(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)°C
+        echo $(sensors amdgpu-pci-1e00 -u | grep temp1_input | awk '{print substr($2,0,2)}')°C
+        #echo $(nvidia-smi --query-gpu=temperature.gpu --format=csvnoheader,nounits)°C
     ;;
     *)
         echo "Invalid metric." && exit 1

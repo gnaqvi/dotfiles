@@ -49,7 +49,7 @@ pcm.pasymed {
 # Jack (USB)
 #
 
-pcm.rawjack {
+pcm.jack {
     type jack
     playback_ports {
         0 system:playback_1
@@ -59,11 +59,6 @@ pcm.rawjack {
         0 system:capture_1
         1 system:capture_2
     }
-}
-
-pcm.jack {
-    type plug
-    slave.pcm "rawjack"
 }
 
 #

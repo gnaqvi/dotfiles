@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 get_x() { 
     echo ${1:0:4}
 }

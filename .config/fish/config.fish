@@ -68,7 +68,7 @@ alias chgrp "chgrp --preserve-root"
 
 # Pacman
 alias pru "sudo pacman -Rns (pacman -Qtdq)"
-alias pkglist "pacman -Qqe > ~/.pkglist" # updates package list
+alias pkgl "pacman -Qqe > ~/.pkglist" # updates package list
 
 #
 # Dev

@@ -21,8 +21,8 @@ radius = 0
 fixed-center = true
 
 font-0 = "Fira Sans:weight=Regular:size=11.5;4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;5"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;5"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;3"
 font-3 = "Material Icons:pixelsize=17;7"
 
 background = ${colors.ALPHA_BASE00}
@@ -245,7 +245,7 @@ font-7 = "Geforce:style=Bold:pixelsize=13.25;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap-small network-signal gap filesystem gap updates gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-temp gap memory gap network gap filesystem gap updates gap power-menu gap
 
 tray-position = right
 tray-padding = 0
@@ -277,7 +277,7 @@ label = %percentage%%
 type = internal/temperature
 interval = 5
 
-hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon0/temp2_input
+hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon1/temp2_input
 warn-temperature = 80
 
 format = <ramp> <label>
@@ -305,7 +305,7 @@ ramp-7-foreground = ${colors.alert}
 
 [module/gpu-brand]
 type = custom/text
-content = %{T8}GEFORCE%{T-}
+content = %{T8}VEGA 64%{T-}
 click-right = mygtkmenu ~/.config/mygtkmenu/gpu-menu
 
 [module/gpu-usage]
@@ -363,17 +363,6 @@ ramp-signal-1 = %{T5}%{T-}
 ramp-signal-2 = %{T5}%{T-}
 ramp-signal-3 = %{T5}%{T-}
 ramp-signal-4 = %{T5}%{T-}
-
-[module/network-signal]
-type = internal/network
-interface = wlo1
-
-interval = 5
-ping-interval = 0
-accumulate-stats = false
-
-format-connected = <label-connected>
-label-connected = -%signal% dBm
 
 [module/audio-usb]
 inherit = common/alsa
