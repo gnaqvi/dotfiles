@@ -7,7 +7,6 @@
 # Color theme
 source ~/.config/color_themes/current
 
-
 # Load monitors info
 source ~/.local/bin/moninfo
 
@@ -42,7 +41,7 @@ bspc rule -a Google-chrome           -o desktop=primary:^6
 bspc rule -a Spotify                    desktop=primary:^7
 bspc rule -a Slack                      desktop=primary:^8
 bspc rule -a Gimp                       state=floating
-bspc rule -a Nautilus                   state=floating
+bspc rule -a org.gnome.Nautilus      -o state=floating
 bspc rule -a Transmission-gtk           state=floating
 bspc rule -a Baobab                     state=floating
 bspc rule -a KeePass2                   state=floating
@@ -59,9 +58,6 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 # Wallpaper
 ~/.fehbg &
 
-# Audio
-qjackctl &
-
 # Composting manager
  ~/.config/compton/launch &
 
@@ -76,3 +72,6 @@ qjackctl &
 
 # Panels
  ~/.config/polybar/launch &
+
+# Audio
+qjackctl &

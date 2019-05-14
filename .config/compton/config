@@ -24,14 +24,14 @@ frame-opacity = 1;
 inactive-opacity-override = false;
 # inactive-dim = 0.2;
 # inactive-dim-fixed = true;
-blur-background = false;
-# blur-background-frame = true;
-# blur-kern = "13,13,0.018316,0.033746,0.055638,0.082085,0.108368,0.128022,0.135335,0.128022,0.108368,0.082085,0.055638,0.033746,0.018316,0.033746,0.062177,0.102512,0.151240,0.199666,0.235877,0.249352,0.235877,0.199666,0.151240,0.102512,0.062177,0.033746,0.055638,0.102512,0.169013,0.249352,0.329193,0.388896,0.411112,0.388896,0.329193,0.249352,0.169013,0.102512,0.055638,0.082085,0.151240,0.249352,0.367879,0.485672,0.573753,0.606531,0.573753,0.485672,0.367879,0.249352,0.151240,0.082085,0.108368,0.199666,0.329193,0.485672,0.641180,0.757465,0.800737,0.757465,0.641180,0.485672,0.329193,0.199666,0.108368,0.128022,0.235877,0.388896,0.573753,0.757465,0.894839,0.945959,0.894839,0.757465,0.573753,0.388896,0.235877,0.128022,0.135335,0.249352,0.411112,0.606531,0.800737,0.945959,0.945959,0.800737,0.606531,0.411112,0.249352,0.135335,0.128022,0.235877,0.388896,0.573753,0.757465,0.894839,0.945959,0.894839,0.757465,0.573753,0.388896,0.235877,0.128022,0.108368,0.199666,0.329193,0.485672,0.641180,0.757465,0.800737,0.757465,0.641180,0.485672,0.329193,0.199666,0.108368,0.082085,0.151240,0.249352,0.367879,0.485672,0.573753,0.606531,0.573753,0.485672,0.367879,0.249352,0.151240,0.082085,0.055638,0.102512,0.169013,0.249352,0.329193,0.388896,0.411112,0.388896,0.329193,0.249352,0.169013,0.102512,0.055638,0.033746,0.062177,0.102512,0.151240,0.199666,0.235877,0.249352,0.235877,0.199666,0.151240,0.102512,0.062177,0.033746,0.018316,0.033746,0.055638,0.082085,0.108368,0.128022,0.135335,0.128022,0.108368,0.082085,0.055638,0.033746,0.018316,"
+blur-background = true;
+blur-kern = "5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1";
+blur-background-frame = false;
 # blur-background-fixed = true;
-# blur-background-exclude = [
-#  	 "window_type = 'desktop'",
-#	 "_GTK_FRAME_EXTENTS@:c"
-# ];
+blur-background-exclude = [
+	  "window_type = 'desktop'",
+    "_GTK_FRAME_EXTENTS@:c"
+];
 opacity-rule = [
     "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
     "85:class_i = 'tray'"
@@ -39,7 +39,7 @@ opacity-rule = [
 
 # Fading
 fading = true;
-fade-delta = 4;
+fade-delta = 3;
 fade-in-step = 0.03;
 fade-out-step = 0.03;
 no-fading-openclose = false;
@@ -53,10 +53,9 @@ mark-ovredir-focused = true;
 use-ewmh-active-win = true;
 detect-rounded-corners = true;
 detect-client-opacity = true;
-# refresh-rate = 60;
-vsync = "opengl-swc";
+refresh-rate = 0;
+vsync = true;
 dbe = false;
-# sw-opti = true;
 unredir-if-possible = true;
 unredir-if-possible-delay = 5000;
 unredir-if-possible-exclude = [];
@@ -64,15 +63,12 @@ focus-exclude = [ "class_g = 'Cairo-clock'" ];
 detect-transient = true;
 detect-client-leader = true;
 invert-color-include = [ ];
-# resize-damage = 1;
+use-damage = true;
 
 # GLX backend
 glx-no-stencil = true;
 glx-copy-from-front = false;
-# glx-use-copysubbuffermesa = true;
 glx-no-rebind-pixmap = true;
-glx-swap-method = "undefined";
-# glx-use-gpushader4 = true;
 
 # Window type settings
 wintypes:

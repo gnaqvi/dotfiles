@@ -3,7 +3,6 @@
         "suppressShowKeyBindingsNotice": true
     },
     "workbench.colorTheme": "One Monokai",
-    "workbench.iconTheme" : "vscode-icons",
     "window.zoomLevel": 1.5,
     "editor.fontSize": 13,
     "window.menuBarVisibility": "toggle",
@@ -15,5 +14,6 @@
     "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
     "workbench.statusBar.feedback.visible": false,
     "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false
+    "telemetry.enableCrashReporter": false,
+    "go.formatTool": "goimports"
 }
