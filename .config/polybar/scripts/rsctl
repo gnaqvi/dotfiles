@@ -6,11 +6,11 @@ STATUS_LOG_FILE="/tmp/redshift/status.log"
 
 function get_status() {
     [ -f "$STATUS_LOG_FILE" ] \
-        && cat $STATUS_LOG_FILE | tr -d '\000' | grep -i status | cut -d ":" -f 2 | tr -d "[:blank:]" \
+        && tac $STATUS_LOG_FILE | tr -d '\000' | grep -i -m 1 status | cut -d ":" -f 2 | tr -d "[:blank:]" \
         || echo "Disabled"
 }
 
-function get_description() {
+function get_polybar_text() {
     OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
     COLOR=$BASE02
     TEMP=$(get_status)
@@ -49,7 +49,7 @@ function toggle() {
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
 
 case $1 in
-"-p") get_description ;;
+"-p") get_polybar_text ;;
 "-t") toggle ;;
 *) echo "Invalid parameter." && exit 1 ;;
 esac

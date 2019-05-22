@@ -211,8 +211,9 @@ click-left = ~/.config/polybar/scripts/rsctl -t
 
 [module/weather]
 type = custom/script
-exec = ~/.config/polybar/scripts/weather
+exec = ~/.config/polybar/scripts/weather -p
 interval = 1800
+click-left = ~/.config/polybar/scripts/weather -o
 
 [module/now-playing]
 type = custom/script
@@ -245,7 +246,7 @@ font-7 = "Geforce:style=Bold:pixelsize=13.25;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-temp gap memory gap network gap filesystem gap updates gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-temp gap memory gap network gap filesystem gap audio-usb gap updates gap power-menu gap
 
 tray-position = right
 tray-padding = 0
@@ -259,9 +260,8 @@ ws-icon-0 = terminal;
 ws-icon-1 = code;
 ws-icon-2 = web;
 ws-icon-3 = music;
-ws-icon-4 = chat;
-ws-icon-5 = work;
-ws-icon-default = 
+ws-icon-4 = generic;
+ws-icon-default = 
 
 [module/cpu-brand]
 type = custom/text
@@ -306,7 +306,6 @@ ramp-7-foreground = ${colors.alert}
 [module/gpu-brand]
 type = custom/text
 content = %{T8}VEGA 64%{T-}
-click-right = mygtkmenu ~/.config/mygtkmenu/gpu-menu
 
 [module/gpu-usage]
 type = custom/script
@@ -331,8 +330,8 @@ type = internal/fs
 interval = 30
 mount-0 = /
 
-format-mounted-prefix = "  " 
-label-mounted = %percentage_used%%
+format-mounted-prefix = %{A1:baobab:}  %{A}
+label-mounted = %{A1:baobab:}%percentage_used%%%{A}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.alert}
 
@@ -368,7 +367,7 @@ ramp-signal-4 = %{T5}%{T-}
 inherit = common/alsa
 
 master-soundcard = hw:USB
-master-mixer = PCM
+master-mixer = 
 
 speaker-soundcard =
 speaker-mixer =
@@ -377,7 +376,7 @@ headphone-soundcard =
 headphone-mixer =
 headphone-id =
 
-click-right = mygtkmenu ~/.config/mygtkmenu/audio-menu
+format-volume = %{A1:qjackctl:}<ramp-volume>%{A}
 
 [module/audio]
 inherit = common/alsa
@@ -389,14 +388,12 @@ headphone-soundcard = hw:Generic
 headphone-mixer = Headphone
 headphone-id = 9
 
-click-right = 
-
 [module/updates]
 type = custom/script
 label = %output%
-exec = ~/.config/polybar/scripts/updates count
+exec = ~/.config/polybar/scripts/updates -p
 interval = 600
-click-left = ~/.config/polybar/scripts/updates gui
+click-left = ~/.config/polybar/scripts/updates -g
 
 [module/power-menu]
 type = custom/text

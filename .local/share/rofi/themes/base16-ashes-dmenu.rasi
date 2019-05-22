@@ -1,5 +1,5 @@
 /*******************************************************************************
- * base16-ashes-dunst
+ * base16-ashes
  * User: Ghazanfar Naqvi
  * Copyright: Ghazanfar Naqvi
  *******************************************************************************/
@@ -32,7 +32,7 @@
 #window {
     background-color: @base00;
     border:           0;
-    padding:          300 0 300 265;
+    padding:          5 5 5 5;
 }
 
 #mainbox {
@@ -104,18 +104,6 @@
 #element.alternate.active {
     background-color: @transparent;
     text-color:       @base05;
-}
-
-#scrollbar {
-    width:        4px ;
-    border:       0;
-    handle-width: 8px ;
-    padding:      0;
-}
-
-#sidebar {
-    border:       2px 0px 0px ;
-    border-color: @transparent;
 }
 
 #button.selected {

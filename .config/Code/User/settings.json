@@ -15,5 +15,6 @@
     "workbench.statusBar.feedback.visible": false,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "go.formatTool": "goimports"
+    "go.formatTool": "goimports",
+    "editor.cursorBlinking": "phase"
 }

@@ -60,8 +60,8 @@ unredir-if-possible = true;
 unredir-if-possible-delay = 5000;
 unredir-if-possible-exclude = [];
 focus-exclude = [ "class_g = 'Cairo-clock'" ];
-detect-transient = true;
-detect-client-leader = true;
+detect-transient = false;
+detect-client-leader = false;
 invert-color-include = [ ];
 use-damage = true;
 

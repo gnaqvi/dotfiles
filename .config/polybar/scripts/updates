@@ -30,7 +30,7 @@ function query() {
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
 
 case $1 in
-"count")
+"-p")
     eval "$(query 'checkupdates')"
     STATUS=$COUNT
 
@@ -39,7 +39,7 @@ case $1 in
 
     echo " ${STATUS}"
 ;;
-"gui")
+"-g")
     eval "$(query 'checkupdates')"
     SYSTEM_STATUS="${SYSTEM_HEADING}${GAP}${OUTPUT}"
 
