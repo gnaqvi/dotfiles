@@ -10,25 +10,24 @@ def get_icon(status):
 
     return icons.get(status, "")
 
-def on_track_change(player, e):
-    if 'xesam:artist' in e.keys() and 'xesam:title' in e.keys(): 
+def on_metadata(player, metadata):
+    if 'xesam:artist' in metadata.keys() and 'xesam:title' in metadata.keys():
         print('{status} {artist} - {title}'.format(
             status=get_icon(player.get_property('status')),
-            artist=e['xesam:artist'][0],
-            title=e['xesam:title']
+            artist=metadata['xesam:artist'][0],
+            title=metadata['xesam:title']
         ))
 
-# Get player instance
-player = Playerctl.Player(player_name='spotify')
+player = Playerctl.Player()
 
 # Initial track information
 artist = player.get_artist()
 title = player.get_title()
 status = get_icon(player.get_property('status'))
-
 print('%s %s - %s' % (status, artist,title))
 
-# Listener for track changes
-player.on('metadata', on_track_change)
+player.connect('metadata', on_metadata)
 
-GLib.MainLoop().run()
+# wait for events
+main = GLib.MainLoop()
+main.run()

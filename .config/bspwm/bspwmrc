@@ -11,7 +11,7 @@ source ~/.config/color_themes/current
 source ~/.local/bin/moninfo
 
 # Desktops
-bspc monitor $PM_NAME -d terminal terminal code code web music generic generic generic
+bspc monitor $PM_NAME -d terminal terminal code code tor web music chat misc misc misc
 if [ -n "$LM_NAME" ]; then
     bspc monitor $LM_NAME -d home terminal code code
 fi
@@ -36,7 +36,7 @@ bspc config pointer_modifier      mod4
 
 # Placement
 bspc rule -a Code                    -o desktop=primary:^3
-bspc rule -a jetbrains-idea             desktop=primary:^5
+bspc rule -a jetbrains-idea          -o desktop=primary:^4
 bspc rule -a Google-chrome           -o desktop=primary:^6
 bspc rule -a Spotify                    desktop=primary:^7
 bspc rule -a Slack                      desktop=primary:^8
@@ -44,7 +44,6 @@ bspc rule -a Gimp                       state=floating
 bspc rule -a org.gnome.Nautilus         state=floating
 bspc rule -a Transmission-gtk           state=floating
 bspc rule -a Baobab                     state=floating
-bspc rule -a KeePass2                   state=floating
 bspc rule -a vlc                        state=floating
 bspc rule -a feh                        state=floating
 bspc rule -a Yad                        state=floating
@@ -67,11 +66,11 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 # Disk manager
 ~/.config/udiskie/launch &
 
+# Audio
+qjackctl &
+
 # Screen dimmer
 ~/.config/redshift/launch &
 
 # Panels
  ~/.config/polybar/launch &
-
-# Audio
-qjackctl &

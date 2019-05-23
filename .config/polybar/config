@@ -128,8 +128,7 @@ inherit = common/bspwm
 
 ws-icon-0 = terminal;
 ws-icon-1 = code;
-ws-icon-2 = misc;
-ws-icon-default = 
+ws-icon-default = 
 
 [module/title]
 type = internal/xwindow
@@ -258,10 +257,13 @@ inherit = common/bspwm
 
 ws-icon-0 = terminal;
 ws-icon-1 = code;
-ws-icon-2 = web;
-ws-icon-3 = music;
-ws-icon-4 = generic;
+ws-icon-2 = tor;
+ws-icon-3 = web;
+ws-icon-4 = music;
+ws-icon-5 = chat;
+ws-icon-6 = misc;
 ws-icon-default = 
+
 
 [module/cpu-brand]
 type = custom/text
