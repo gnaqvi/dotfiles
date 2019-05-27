@@ -6,5 +6,5 @@ A late night scrot.
 
 ### *TODO*
 - GPU temperature color ramp
-- Alacritty themeable colors
+- Alacritty/Kitty themeable colors
 - Sleep/hibernate handles

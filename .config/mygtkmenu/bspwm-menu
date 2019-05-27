@@ -176,7 +176,7 @@ icon = NULL
 separator
 
 item = Terminal
-cmd = alacritty
+cmd = kitty
 icon = NULL
 
 separator

@@ -4,7 +4,7 @@ super + r ; {b,s,p}
 
 # terminal emulator
 super + Return
-  alacritty
+  kitty
 
 # lock screen
 super + BackSpace

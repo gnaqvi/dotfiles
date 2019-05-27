@@ -29,12 +29,13 @@ blur-kern = "5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1";
 blur-background-frame = false;
 # blur-background-fixed = true;
 blur-background-exclude = [
-	  "window_type = 'desktop'",
+	"window_type = 'desktop'",
     "_GTK_FRAME_EXTENTS@:c"
 ];
 opacity-rule = [
     "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
-    "85:class_i = 'tray'"
+    "85:class_i = 'tray'",
+    "90:class_g = 'Code'"
 ];
 
 # Fading

@@ -19,12 +19,16 @@ def on_metadata(player, metadata):
         ))
 
 player = Playerctl.Player()
+status= player.get_property('status')
 
-# Initial track information
-artist = player.get_artist()
-title = player.get_title()
-status = get_icon(player.get_property('status'))
-print('%s %s - %s' % (status, artist,title))
+if status:
+    # initial track information
+    artist = player.get_artist()
+    title = player.get_title()
+    print('%s %s - %s' % (get_icon(status), artist, title))
+else:
+    # default status
+    print(' None - None')
 
 player.connect('metadata', on_metadata)
 

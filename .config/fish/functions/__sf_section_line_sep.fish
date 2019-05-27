@@ -1,19 +1,19 @@
-function fish_right_prompt
+#
+# Line separator
+#
 
+function __sf_section_line_sep -d "Separate the prompt into two lines"
 	# ------------------------------------------------------------------------------
 	# Configuration
 	# ------------------------------------------------------------------------------
 
-	__sf_util_set_default SPACEFISH_RPROMPT_ORDER ""
+	__sf_util_set_default SPACEFISH_PROMPT_SEPARATE_LINE true
 
 	# ------------------------------------------------------------------------------
-	# Sections
+	# Section
 	# ------------------------------------------------------------------------------
 
-	[ -n "$SPACEFISH_RPROMPT_ORDER" ]; or return
-
-	for i in $SPACEFISH_RPROMPT_ORDER
-		eval __sf_section_$i
+	if test "$SPACEFISH_PROMPT_SEPARATE_LINE" = "true"
+		echo -e -n \n
 	end
-	set_color normal
 end

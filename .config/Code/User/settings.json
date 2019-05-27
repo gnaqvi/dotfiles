@@ -2,12 +2,12 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "workbench.colorTheme": "One Monokai",
+    "workbench.colorTheme": "Base16 Dark Ashes",
     "window.zoomLevel": 1.5,
     "editor.fontSize": 13,
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.visible": true,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "vim.disableExtension": true,
     "editor.fontFamily": "'Fira Code', monospace",
     "editor.fontLigatures": true,
@@ -16,5 +16,10 @@
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "go.formatTool": "goimports",
-    "editor.cursorBlinking": "phase"
+    "editor.cursorBlinking": "phase",
+    "workbench.colorCustomizations": {
+        "[Base16 Dark Ashes]": {
+            "sideBar.background": "#1C2023"
+        }
+    }
 }
