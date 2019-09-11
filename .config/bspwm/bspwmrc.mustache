@@ -1,0 +1,67 @@
+#!/bin/bash
+
+#-------------------------------------------------------------------------------
+# bspwm settings
+#-------------------------------------------------------------------------------
+
+# Desktops
+bspc monitor $PM_NAME -d terminal terminal code code tor web music chat misc misc misc
+if [ -n "$LM_NAME" ]; then
+    bspc monitor $LM_NAME -d home terminal code code
+fi
+
+# Colors
+bspc config normal_border_color   "{{colors.base.01}}"
+bspc config focused_border_color  "{{colors.levels.normal}}"
+bspc config active_border_color   "{{colors.levels.normal}}"
+bspc config presel_feedback_color "{{colors.base.0E}}"
+
+# Windows
+bspc config border_width          1
+bspc config top_padding           0
+bspc config window_gap            5
+bspc config split_ratio           0.50
+bspc config borderless_monocle    true
+bspc config gapless_monocle       false
+bspc config single_monocle        true
+bspc config focus_follows_pointer false
+bspc config click_to_focus        button1
+bspc config pointer_modifier      mod4
+
+# Placement
+bspc rule -a Code                    -o desktop=primary:^3
+bspc rule -a jetbrains-idea          -o desktop=primary:^4
+bspc rule -a Google-chrome           -o desktop=primary:^6
+bspc rule -a Spotify                    desktop=primary:^7
+bspc rule -a Slack                      desktop=primary:^8
+bspc rule -a Gimp                       state=floating
+bspc rule -a org.gnome.Nautilus         state=floating
+bspc rule -a Transmission-gtk           state=floating
+bspc rule -a Baobab                     state=floating
+bspc rule -a vlc                        state=floating
+bspc rule -a feh                        state=floating
+bspc rule -a Yad                        state=floating
+bspc rule -a qjackctl                   state=floating
+bspc rule -a sun-awt-X11-XDialogPeer    state=floating
+
+#-------------------------------------------------------------------------------
+# desktop environment
+#-------------------------------------------------------------------------------
+
+# Composting manager
+ ~/.config/compton/launch &
+
+# Notifications manager
+~/.config/dunst/launch &
+
+# Disk manager
+~/.config/udiskie/launch &
+
+# Audio
+qjackctl &
+
+# Screen dimmer
+~/.config/redshift/launch &
+
+# Panels
+ ~/.config/polybar/launch &

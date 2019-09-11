@@ -4,12 +4,6 @@
 # bspwm settings
 #-------------------------------------------------------------------------------
 
-# Color theme
-source ~/.config/color_themes/current
-
-# Load monitors info
-source ~/.local/bin/moninfo
-
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code tor web music chat misc misc misc
 if [ -n "$LM_NAME" ]; then
@@ -17,10 +11,10 @@ if [ -n "$LM_NAME" ]; then
 fi
 
 # Colors
-bspc config normal_border_color   "$BASE01"
-bspc config focused_border_color  "$BASE09"
-bspc config active_border_color   "$BASE09"
-bspc config presel_feedback_color "$BASE0F"
+bspc config normal_border_color   "#343d46"
+bspc config focused_border_color  "#a3be8c"
+bspc config active_border_color   "#a3be8c"
+bspc config presel_feedback_color "#b48ead"
 
 # Windows
 bspc config border_width          1
@@ -53,9 +47,6 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 #-------------------------------------------------------------------------------
 # desktop environment
 #-------------------------------------------------------------------------------
-
-# Wallpaper
-~/.fehbg &
 
 # Composting manager
  ~/.config/compton/launch &

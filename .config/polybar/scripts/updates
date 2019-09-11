@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ~/.config/color_themes/current
-
 NO_UPDATES="No updates available"
 FAILED_QUERY="Could not query remote server"
 SYSTEM_HEADING="<big><b>System</b></big>"

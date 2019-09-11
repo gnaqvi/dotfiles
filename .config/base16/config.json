@@ -1,0 +1,34 @@
+{
+    "colors": "ocean",
+    "wallpaper": "trees.jpg",
+    "opacity": 95,
+    "font": {
+        "sans": {
+            "name": "Fira Sans",
+            "size": "11.5"
+        },
+        "monospace": {
+            "name": "Fira Sans Mono",
+            "size": "10.5"
+        }
+    },
+    "gtk": {
+        "theme": "Arc-Dark",
+        "icons": "la-capitaine",
+        "cursors": "capitaine-cursors"
+    },
+    "templates": [
+        "$XDG_CONFIG_HOME/fish/config.fish.mustache",
+        "$XDG_CONFIG_HOME/compton/config.mustache",
+        "$XDG_CONFIG_HOME/polybar/scripts/rsctl.mustache",
+        "$XDG_CONFIG_HOME/bspwm/bspwmrc.mustache",
+        "$XDG_CONFIG_HOME/polybar/config.mustache",
+        "$XDG_CONFIG_HOME/dunst/dunstrc.mustache",
+        "$XDG_CONFIG_HOME/kitty/kitty.conf.mustache",
+        "$XDG_CONFIG_HOME/gtk-3.0/settings.ini.mustache",
+        "$XDG_CONFIG_HOME/rofi/config.rasi.mustache",
+        "$HOME/.local/share/rofi/themes/base16.rasi.mustache",
+        "$HOME/.local/share/rofi/themes/base16-dmenu.rasi.mustache",
+        "$HOME/.dotfiles/.Xresources.mustache"
+    ]
+}

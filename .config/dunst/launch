@@ -1,29 +1,13 @@
 #!/bin/bash
 
+# Generate config
+$HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/dunst/dunstrc
+
 # Terminate already running dunst instances
 killall -q dunst
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x dunst >/dev/null; do sleep 1; done
-
-# Write configuration
-source ~/.config/color_themes/current
-TEMPLATE_FILE=~/.config/dunst/dunstrc.template
-CONFIG_FILE=~/.config/dunst/dunstrc
-
-sed "
-    s/__LOW_BACKGROUND__/$BASE00/g;
-    s/__LOW_FOREGROUND__/$BASE06/g;
-    s/__LOW_FRAME__/$IGNORE/g;
-
-    s/__NORMAL_BACKGROUND__/$BASE00/g;
-    s/__NORMAL_FOREGROUND__/$BASE06/g;
-    s/__NORMAL_FRAME__/$NORMAL/g;
-
-    s/__CRITICAL_BACKGROUND__/$BASE00/g;
-    s/__CRITICAL_FOREGROUND__/$BASE06/g;
-    s/__CRITICAL_FRAME__/$ALERT/g;
-    " $TEMPLATE_FILE > $CONFIG_FILE
 
 # Launch dunst
 dunst &

@@ -1,0 +1,440 @@
+;--------------------------------------------------------------------;
+; Shared
+;--------------------------------------------------------------------;
+
+[common/bar]
+override-redirect = false
+
+width = 100%
+height = ${env:PM_BAR_HEIGHT:3%}
+offset-x = 0
+offset-y = 0
+radius = 0
+fixed-center = true
+
+font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;3"
+font-3 = "Material Icons:pixelsize=17;7"
+
+background = {{ colors.alphas.00 }}
+foreground = {{ colors.base.04 }}
+
+line-size  = 3
+line-color = {{ colors.alphas.0E }}
+
+border-size = 0
+
+padding-left  = 2
+padding-right = 2
+
+module-margin-left  = 0
+module-margin-right = 0
+
+modules-left = apps news
+modules-center = clock
+modules-right = weather now-playing
+
+wm-restack = bspwm
+
+locale = en_US.UTF-8
+
+click-left =
+click-middle =
+click-right =
+scroll-up =
+scroll-down =
+double-click-left =
+double-click-middle =
+double-click-right =
+
+[common/bar-secondary]
+inherit = common/bar
+
+bottom = true
+
+modules-left = bspwm-secondary gap-small title
+modules-center =
+modules-right = 
+
+[common/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+fuzzy-match = true
+
+format = <label-state> <label-mode>
+
+label-dimmed-foreground = {{ colors.base.03 }}
+
+label-dimmed-occupied = %icon%
+label-dimmed-occupied-foreground = {{ colors.base.07 }}
+label-dimmed-occupied-padding = 3
+
+label-dimmed-empty = %icon%
+label-dimmed-empty-foreground = {{ colors.base.02 }}
+label-dimmed-empty-padding = 3
+
+label-focused = %icon%
+label-focused-foreground = {{ colors.base.07 }}
+label-focused-background = {{ colors.alphas.01 }}
+label-focused-overline = {{ colors.base.0A }}
+label-focused-padding = 3
+
+label-occupied = %icon%
+label-occupied-foreground = {{ colors.base.07 }}
+label-occupied-padding = 3
+
+label-urgent = %icon%
+label-urgent-foreground = {{ colors.base.04 }}
+label-urgent-background = {{ colors.alphas.alert }}
+label-urgent-padding = 3
+
+label-empty = %icon%
+label-empty-foreground = {{ colors.base.02 }}
+label-empty-padding = 3
+
+label-monocle = 
+label-monocle-foreground = {{ colors.base.0B }}
+label-tiled = 
+label-tiled-foreground = {{ colors.base.0B }}
+label-fullscreen = 
+label-fullscreen-foreground = {{ colors.base.0B }}
+label-floating = 
+label-floating-foreground = {{ colors.base.0B }}
+label-pseudotiled = P
+label-pseudotiled-foreground = {{ colors.base.0B }}
+label-locked = " "
+label-locked-foreground = {{ colors.base.0B }}
+label-sticky = " "
+label-sticky-foreground = {{ colors.base.0B }}
+label-private = " "
+label-private-foreground = {{ colors.base.0B }}
+
+[module/bspwm-secondary]
+inherit = common/bspwm
+
+ws-icon-0 = terminal;
+ws-icon-1 = code;
+ws-icon-default = 
+
+[module/title]
+type = internal/xwindow
+
+format-padding = 0
+format-foreground = {{ colors.base.0A }}
+
+label = %title%
+label-maxlen = 140
+label-font   = 0
+
+[common/alsa]
+type = internal/alsa
+
+master-soundcard = hw:Generic
+master-mixer = Master
+
+mapped = true
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =  Muted
+label-muted-foreground = {{ colors.base.02 }}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+[module/gap-small]
+type = custom/text
+content = " "
+
+[module/gap]
+type = custom/text
+content = "      "
+
+;--------------------------------------------------------------------;
+; Top panel
+;--------------------------------------------------------------------;
+
+[bar/top]
+inherit = common/bar
+
+monitor = ${env:PM_NAME:DP-0}
+dpi = ${env:PM_DPI:110}
+
+modules-left = apps gap news
+modules-center = clock
+modules-right = redshift gap weather gap now-playing
+
+font-1 = "Weather Icons:size=13;6"
+
+[module/apps]
+type = custom/text
+content = 
+content-foreground = {{ colors.base.0A }}
+click-left = rofi -show drun
+
+[module/news]
+type = custom/script
+label =  %output:0:200%...
+exec = ~/.config/polybar/scripts/news.py
+click-left = google-chrome-stable https://news.ycombinator.com/
+interval = 600
+
+[module/clock]
+type = custom/script
+exec = ~/.config/polybar/scripts/clock
+interval = 5
+click-left = ~/.config/polybar/scripts/calendar
+
+[module/redshift]
+type = custom/script
+exec = ~/.config/polybar/scripts/rsctl -p
+interval = 5
+click-left = ~/.config/polybar/scripts/rsctl -t
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather -p
+interval = 1800
+click-left = ~/.config/polybar/scripts/weather -o
+
+[module/now-playing]
+type = custom/script
+label = %output:0:50%
+exec = python -u -W ignore ~/.config/polybar/scripts/now_playing.py
+tail = true
+
+click-left = playerctl play-pause
+click-middle = playerctl next
+click-right = playerctl previous
+
+;--------------------------------------------------------------------;
+; Bottom panel
+;--------------------------------------------------------------------;
+
+[bar/bottom]
+inherit = common/bar
+
+monitor = ${env:PM_NAME:DP-0}
+dpi = ${env:PM_DPI:110}
+
+bottom = true
+padding-left = 0
+padding-right = 0
+
+font-4 = "icomoon:pixelsize=15;3"
+font-5 = "Spy Agency:pixelsize=12.75;4"
+font-6 = "Spy Agency Laser:pixelsize=12.75;4"
+font-7 = "Geforce:style=Bold:pixelsize=13.25;5"
+
+modules-left = bspwm gap-small title
+modules-center =
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-temp gap memory gap network gap filesystem gap audio-usb gap updates gap power-menu gap
+
+tray-position = right
+tray-padding = 0
+tray-background = {{ colors.base.00 }}
+tray-maxsize = 22
+
+[module/bspwm]
+inherit = common/bspwm
+
+ws-icon-0 = terminal;
+ws-icon-1 = code;
+ws-icon-2 = tor;
+ws-icon-3 = web;
+ws-icon-4 = music;
+ws-icon-5 = chat;
+ws-icon-6 = misc;
+ws-icon-default = 
+
+[module/cpu-brand]
+type = custom/text
+content = %{T6}RYZ%{T-}%{T7}E%{T-}%{T6}N%{T-}
+
+[module/cpu-usage]
+type = internal/cpu
+interval = 5
+format-prefix = " "
+label = %percentage%%
+
+[module/cpu-temp]
+type = internal/temperature
+interval = 5
+
+hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon1/temp2_input
+warn-temperature = 80
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = {{ colors.levels.alert }}
+
+ramp-0 = 
+ramp-0-foreground = {{ colors.levels.normal }}
+ramp-1 = 
+ramp-1-foreground = {{ colors.levels.normal }}
+ramp-2 = 
+ramp-2-foreground = {{ colors.levels.normal }}
+ramp-3 =  
+ramp-3-foreground = {{ colors.levels.normal }}
+ramp-4 = 
+ramp-4-foreground = {{ colors.levels.normal }}
+ramp-5 = 
+ramp-5-foreground = {{ colors.levls.warn }}
+ramp-6 = 
+ramp-6-foreground = {{ colors.levls.warn }}
+ramp-7 = 
+ramp-7-foreground = {{ colors.levels.alert }}
+
+[module/gpu-brand]
+type = custom/text
+content = %{T8}VEGA 64%{T-}
+
+[module/gpu-usage]
+type = custom/script
+exec = ~/.config/polybar/scripts/gpu --usage
+interval = 5
+label = %output%
+
+[module/gpu-temp]
+type = custom/script
+exec = ~/.config/polybar/scripts/gpu --temp
+interval = 5
+label = %output%
+
+[module/memory]
+type = internal/memory
+interval = 5
+format-prefix = "LPX  "
+label = %percentage_used%%
+
+[module/filesystem]
+type = internal/fs
+interval = 30
+mount-0 = /
+
+format-mounted-prefix = %{A1:baobab:}  %{A}
+label-mounted = %{A1:baobab:}%percentage_used%%%{A}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = {{ colors.levels.alert }}
+
+[module/network]
+type = internal/network
+interface = wlo1
+
+interval = 5
+ping-interval = 0
+accumulate-stats = false
+
+format-connected = <label-connected> <ramp-signal>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-connected> <animation-packetloss>
+
+label-connected = %essid%
+label-signal = %signal%
+label-disconnected =  Not connected
+label-disconnected-foreground = {{ colors.base.02 }}
+
+label-packetloss-foreground = {{ colors.levels.alert }}
+animation-packetloss-0 = ⚠
+animation-packetloss-1 = 📶
+animation-packetloss-framerate = 500
+
+ramp-signal-0 = %{T5}%{T-}
+ramp-signal-1 = %{T5}%{T-}
+ramp-signal-2 = %{T5}%{T-}
+ramp-signal-3 = %{T5}%{T-}
+ramp-signal-4 = %{T5}%{T-}
+
+[module/audio-usb]
+inherit = common/alsa
+
+master-soundcard = hw:USB
+master-mixer = 
+
+speaker-soundcard =
+speaker-mixer =
+
+headphone-soundcard =
+headphone-mixer =
+headphone-id =
+
+format-volume = %{A1:qjackctl:}<ramp-volume>%{A}
+
+[module/audio]
+inherit = common/alsa
+
+speaker-soundcard = hw:Generic
+speaker-mixer = PCM
+
+headphone-soundcard = hw:Generic
+headphone-mixer = Headphone
+headphone-id = 9
+
+[module/updates]
+type = custom/script
+label = %output%
+exec = ~/.config/polybar/scripts/updates -p
+interval = 600
+click-left = ~/.config/polybar/scripts/updates -g
+
+[module/power-menu]
+type = custom/text
+content-foreground =  {{ colors.levels.alert }}
+content = 
+click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
+
+;--------------------------------------------------------------------;
+; Left panel
+;--------------------------------------------------------------------;
+
+[bar/left]
+inherit = common/bar-secondary
+
+monitor = ${env:LM_NAME:DP-1}
+dpi = ${env:LM_DPI:110}
+
+height = ${env:LM_BAR_HEIGHT:2.75%}
+
+;--------------------------------------------------------------------;
+; Right panel
+;--------------------------------------------------------------------;
+
+[bar/right]
+inherit = common/bar-secondary
+
+monitor = ${env:RM_NAME:DP-1}
+dpi = ${env:RM_DPI:110}
+
+height = ${env:RM_BAR_HEIGHT:2.75%}
+
+;--------------------------------------------------------------------;
+; General
+;--------------------------------------------------------------------;
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+;vim:ft=dosini

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Load monitors info if not available
-[ -z "$PM_NAME" ] && source ~/.local/bin/moninfo
+# Generate config
+$HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/polybar/config.mustache
 
-# Color theme
-source ~/.config/color_themes/current
+# Load monitors info if not loaded already
+[ -z "$PM_NAME" ] && . $HOME/.local/bin/moninfo
 
 # Terminate already running polybar instances
 killall -q polybar
@@ -13,9 +13,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bars
-sleep 5
 polybar top &
 polybar bottom &
 [ ! -z "$LM_NAME" ] && polybar left &
 [ ! -z "$RM_NAME" ] && polybar right &
-

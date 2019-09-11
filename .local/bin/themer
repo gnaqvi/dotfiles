@@ -1,0 +1,91 @@
+#!/bin/bash
+
+BASE16_DIR="$XDG_CONFIG_HOME/base16"
+CONFIG_FILE="$BASE16_DIR/config.json"
+TMPLS_FILE="$BASE16_DIR/templates.json"
+GEN_THEME="$BASE16_DIR/theme.generated.json"
+
+COLORS_DIR="$BASE16_DIR/colors"
+EXTRA_TMPL="$COLORS_DIR/extra.mustache"
+
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+
+function stdin_view_render() {
+    echo "$(echo "$1" | mustache - $2)"
+}
+
+function file_view_render() {
+    echo "$(mustache $1 $2)"
+}
+
+function gen_theme() {
+    test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
+    nvm use default > /dev/null
+    rm $GEN_THEME 2> /dev/null
+    
+    local OUTPUT=""
+
+    local OPACITY=$(jq -r '.opacity' $CONFIG_FILE)
+    local OPACITY_HEX=$(printf '%x' "$((255*${OPACITY}/100))")
+    local OPACITY_JSON="{ \"percentage\": \"$OPACITY\", \"hex\": \"$OPACITY_HEX\" }"
+    OUTPUT=$(jq ".opacity = $OPACITY_JSON" $CONFIG_FILE)
+
+    local BASE16_THEME=$(jq -r '.colors' $CONFIG_FILE)
+    local COLORS_FILE="${COLORS_DIR}/${BASE16_THEME}.json"
+
+    local HASHLESS_COLORS=$(sed 's/#//' $COLORS_FILE | jq ". += { \"opacity\": $OPACITY_JSON }" -)
+    local EXTRA_COLORS_JSON=$(stdin_view_render "$HASHLESS_COLORS" $EXTRA_TMPL)
+
+    local ALL_COLORS=$(jq ".colors += $EXTRA_COLORS_JSON" $COLORS_FILE)
+    local OUTPUT=$(echo $OUTPUT | jq ". += $ALL_COLORS")
+    local OUTPUT=$(echo $OUTPUT | jq ".colors += { \"scheme\": \"$BASE16_THEME\" }")
+
+    echo "$OUTPUT" | jq 'del(.templates)' > $GEN_THEME
+}
+
+function gen_app_config() {
+    local DIR=$(dirname $1)
+    local FILE=$(basename $1)
+    local SOURCE=$(echo "$DIR/$FILE" | envsubst)
+    local TARGET=$(echo "$DIR/${FILE%.*}" | envsubst)
+
+    file_view_render $GEN_THEME $SOURCE > $TARGET
+}
+
+function set_wallpaper() {
+    feh --no-fehbg --bg-fill "$WALLPAPER_DIR/$(jq -r '.wallpaper' $CONFIG_FILE)"
+}
+
+function set_theme() {
+    gen_theme
+
+    local TEMPLATE_ARR=()
+    read -a TEMPLATE_ARR < <(jq -r '.templates|@tsv' $CONFIG_FILE)
+
+    for TMPL in ${TEMPLATE_ARR[@]};
+    do
+        gen_app_config $TMPL
+    done
+
+    set_wallpaper
+}
+
+case $1 in
+"--app-config")
+    case $2 in
+    "")
+        echo 'Missing parameter.' >&2 && exit 1
+        ;;
+    *)
+        test -f "$2" || echo 'File does not exist.' >&2 && exit 1
+        gen_app_config $2
+        ;;
+    esac
+    ;;
+"--set")
+    set_theme
+    ;;
+*)
+    echo 'Invalid parameter.' >&2 && exit 1
+    ;;
+esac

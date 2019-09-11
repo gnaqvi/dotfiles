@@ -49,7 +49,7 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "base16-ashes";
+	theme: "base16";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/

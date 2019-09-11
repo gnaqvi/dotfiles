@@ -16,6 +16,12 @@ xsetroot -cursor_name left_ptr
 # Load .Xresources
 xrdb -load ~/.Xresources &
 
+# Load monitors info
+source ~/.local/bin/moninfo
+
+# Set theme
+~/.local/bin/themer --set
+
 # Start hotkey daemon and bspwm
 sxhkd -m 1 -t 20 &
 exec bspwm

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Reload polybar
-~/.config/polybar/scripts/launch
+~/.config/polybar/launch
 
 # Reset wallpaper
 ~/.fehbg &

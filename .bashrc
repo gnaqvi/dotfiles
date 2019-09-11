@@ -6,7 +6,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Prompt
-PS1='\u@\h \W\$ '
+eval "$(starship init bash)"
 
 # Environment
 BROWSER=/usr/bin/google-chrome-stable

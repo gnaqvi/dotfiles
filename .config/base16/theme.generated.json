@@ -1,0 +1,71 @@
+{
+  "colors": {
+    "base": {
+      "00": "#2b303b",
+      "01": "#343d46",
+      "02": "#4f5b66",
+      "03": "#65737e",
+      "04": "#a7adba",
+      "05": "#c0c5ce",
+      "06": "#dfe1e8",
+      "07": "#eff1f5",
+      "08": "#bf616a",
+      "09": "#d08770",
+      "0A": "#ebcb8b",
+      "0B": "#a3be8c",
+      "0C": "#96b5b4",
+      "0D": "#8fa1b3",
+      "0E": "#b48ead",
+      "0F": "#ab7967"
+    },
+    "levels": {
+      "ignore": "#a3be8c",
+      "normal": "#a3be8c",
+      "warn": "#ebcb8b",
+      "alert": "#bf616a"
+    },
+    "alphas": {
+      "00": "#f22b303b",
+      "01": "#f2343d46",
+      "02": "#f24f5b66",
+      "03": "#f265737e",
+      "04": "#f2a7adba",
+      "05": "#f2c0c5ce",
+      "06": "#f2dfe1e8",
+      "07": "#f2eff1f5",
+      "08": "#f2bf616a",
+      "09": "#f2d08770",
+      "0A": "#f2ebcb8b",
+      "0B": "#f2a3be8c",
+      "0C": "#f296b5b4",
+      "0D": "#f28fa1b3",
+      "0E": "#f2b48ead",
+      "0F": "#f2ab7967",
+      "ignore": "#f2a3be8c",
+      "normal": "#f2a3be8c",
+      "warn": "#f2ebcb8b",
+      "alert": "#f2bf616a"
+    },
+    "scheme": "ocean"
+  },
+  "wallpaper": "trees.jpg",
+  "opacity": {
+    "percentage": "95",
+    "hex": "f2"
+  },
+  "font": {
+    "sans": {
+      "name": "Fira Sans",
+      "size": "11.5"
+    },
+    "monospace": {
+      "name": "Fira Sans Mono",
+      "size": "10.5"
+    }
+  },
+  "gtk": {
+    "theme": "Arc-Dark",
+    "icons": "la-capitaine",
+    "cursors": "capitaine-cursors"
+  }
+}

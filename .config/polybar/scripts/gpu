@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ~/.config/color_themes/current
-
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
 
 function get_usage() {

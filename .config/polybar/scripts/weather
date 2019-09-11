@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ~/.config/color_themes/current
-
 CITY="6092122"
 
 get_icon() {

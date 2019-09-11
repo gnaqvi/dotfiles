@@ -1,0 +1,140 @@
+* {
+    base00: {{ colors.base.00 }}{{ opacity.hex }};
+    base01: {{ colors.base.01 }}{{ opacity.hex }};
+    base02: {{ colors.base.02 }}{{ opacity.hex }};
+    base03: {{ colors.base.03 }}{{ opacity.hex }};
+    base04: {{ colors.base.04 }};
+    base05: {{ colors.base.05 }};
+    base06: {{ colors.base.06 }};
+    base07: {{ colors.base.07 }}{{ opacity.hex }};
+    base08: {{ colors.base.08 }}{{ opacity.hex }};
+    base09: {{ colors.base.09 }}{{ opacity.hex }};
+    base0A: {{ colors.base.0A }}{{ opacity.hex }};
+    base0B: {{ colors.base.0B }}{{ opacity.hex }};
+    base0D: {{ colors.base.0D }}{{ opacity.hex }};
+    base0C: {{ colors.base.0C }}{{ opacity.hex }};
+    base0E: {{ colors.base.0E }}{{ opacity.hex }};
+    base0F: {{ colors.base.0F }}{{ opacity.hex }};
+
+    transparent:      #FFFFFF00;
+    background-color: @transparent;
+    separatorcolor:   @transparent;
+
+    font:             "{{ font.sans.name }} 15";
+}
+
+#window {
+    background-color: @base00;
+    border:           0;
+    padding:          300 0 300 265;
+}
+
+#mainbox {
+    border:  0;
+    padding: 0;
+}
+
+#message {
+    border:       0;
+    border-color: @transparent;
+    padding:      0px;
+}
+
+#textbox {
+    text-color: @base05;
+}
+
+#listview {
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    border-color: @transparent;
+    spacing:      2px;
+    scrollbar:    true;
+    padding:      2px 0px 0px ;
+}
+
+#element {
+    border:  0;
+    padding: 1px;
+}
+
+#element.normal.normal {
+    background-color: @transparent;
+    text-color:       @base05;
+}
+
+#element.normal.urgent {
+    background-color: @transparent;
+    text-color:       @base05;
+}
+
+#element.normal.active {
+    background-color: @transparent;
+    text-color:       @base00;
+}
+
+#element.selected.normal {
+    text-color:       @base0E;
+}
+
+#element.selected.urgent {
+    text-color:       @base0E;
+}
+
+#element.selected.active {
+    text-color:       @base0E;
+}
+
+#element.alternate.normal {
+    background-color: @transparent;
+    text-color:       @base05;
+}
+
+#element.alternate.urgent {
+    background-color: @transparent;
+    text-color:       @base05;
+}
+
+#element.alternate.active {
+    background-color: @transparent;
+    text-color:       @base05;
+}
+
+#scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+}
+
+#sidebar {
+    border:       2px 0px 0px ;
+    border-color: @transparent;
+}
+
+#button.selected {
+    background-color: @transparent;
+    text-color:       @base05;
+}
+
+#inputbar {
+    spacing:    0;
+    text-color: @base05;
+    padding:    0px ;
+}
+
+#case-indicator {
+    spacing:    0;
+    text-color: @base05;
+}
+
+#entry {
+    spacing:    0;
+    text-color: @base05;
+}
+
+#prompt {
+    spacing:    0;
+    text-color: @base05;
+}
+

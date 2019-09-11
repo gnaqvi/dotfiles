@@ -2,24 +2,22 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "workbench.colorTheme": "Base16 Dark Ashes",
     "window.zoomLevel": 1.5,
     "editor.fontSize": 13,
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.visible": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "vim.disableExtension": true,
     "editor.fontFamily": "'Fira Code', monospace",
     "editor.fontLigatures": true,
     "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
-    "workbench.statusBar.feedback.visible": false,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "go.formatTool": "goimports",
     "editor.cursorBlinking": "phase",
-    "workbench.colorCustomizations": {
-        "[Base16 Dark Ashes]": {
-            "sideBar.background": "#1C2023"
-        }
-    }
+    "editor.renderLineHighlight": "none",
+    "workbench.tree.indent": 14,
+    "workbench.tree.renderIndentGuides": "always",
+    "breadcrumbs.enabled": false,
+    "workbench.colorTheme": "Simple Ocean"
 }

@@ -12,9 +12,14 @@ end
 # Quite!
 set fish_greeting ""
 
+# Prompt
+eval (starship init fish)
+
 # Colors
-if functions -q bobthefish_display_colors
-    set theme_color_scheme zenburn
+if status --is-interactive
+    set BASE16_SHELL "$HOME/.config/base16-shell/"
+    source "$BASE16_SHELL/profile_helper.fish"
+    base16-ocean
 end
 
 if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc 

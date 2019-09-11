@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ~/.config/color_themes/current
-
 STATUS_LOG_FILE="/tmp/redshift/status.log"
 
 function get_status() {
@@ -12,20 +10,20 @@ function get_status() {
 
 function get_polybar_text() {
     OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
-    COLOR=$BASE02
+    COLOR=#a7adba
     TEMP=$(get_status)
 
     if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
         TEMP=$(redshift -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
         
         if [ -z "$TEMP" ]; then
-            COLOR=$BASE04
+            COLOR=#a7adba
         elif [ "$TEMP" -ge 5000 ]; then
-            COLOR=$BASE09
+            COLOR=#a3be8c
         elif [ "$TEMP" -ge 4000 ]; then
-            COLOR=$BASE0D
+            COLOR=#ebcb8b
         else
-            COLOR=$ALERT
+            COLOR=#bf616a
         fi
 
         TEMP=${TEMP}k

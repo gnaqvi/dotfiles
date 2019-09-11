@@ -2,14 +2,6 @@
 ; Shared
 ;--------------------------------------------------------------------;
 
-[colors]
-include-file=~/.config/color_themes/current
-
-; Aliases
-normal = ${colors.BASE0A}
-warn = ${colors.BASE08}
-alert = ${colors.RED}
-
 [common/bar]
 override-redirect = false
 
@@ -25,11 +17,11 @@ font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;3"
 font-3 = "Material Icons:pixelsize=17;7"
 
-background = ${colors.ALPHA_BASE00}
-foreground = ${colors.BASE04}
+background = #f22b303b
+foreground = #a7adba
 
 line-size  = 3
-line-color = ${colors.ALPHA_BASE0E}
+line-color = #f2b48ead
 
 border-size = 0
 
@@ -77,51 +69,51 @@ fuzzy-match = true
 
 format = <label-state> <label-mode>
 
-label-dimmed-foreground = ${colors.BASE03}
+label-dimmed-foreground = #65737e
 
 label-dimmed-occupied = %icon%
-label-dimmed-occupied-foreground = ${colors.BASE07}
+label-dimmed-occupied-foreground = #eff1f5
 label-dimmed-occupied-padding = 3
 
 label-dimmed-empty = %icon%
-label-dimmed-empty-foreground = ${colors.BASE02}
+label-dimmed-empty-foreground = #4f5b66
 label-dimmed-empty-padding = 3
 
 label-focused = %icon%
-label-focused-foreground = ${colors.BASE07}
-label-focused-background = ${colors.ALPHA_BASE01}
-label-focused-overline = ${colors.ALPHA_BASE0E}
+label-focused-foreground = #eff1f5
+label-focused-background = #f2343d46
+label-focused-overline = #ebcb8b
 label-focused-padding = 3
 
 label-occupied = %icon%
-label-occupied-foreground = ${colors.BASE07}
+label-occupied-foreground = #eff1f5
 label-occupied-padding = 3
 
 label-urgent = %icon%
-label-urgent-foreground = ${colors.BASE04}
-label-urgent-background = ${colors.ALPHA_RED}
+label-urgent-foreground = #a7adba
+label-urgent-background = #f2bf616a
 label-urgent-padding = 3
 
 label-empty = %icon%
-label-empty-foreground = ${colors.BASE02}
+label-empty-foreground = #4f5b66
 label-empty-padding = 3
 
 label-monocle = 
-label-monocle-foreground = ${colors.BASE08}
+label-monocle-foreground = #a3be8c
 label-tiled = 
-label-tiled-foreground = ${colors.BASE08}
+label-tiled-foreground = #a3be8c
 label-fullscreen = 
-label-fullscreen-foreground = ${colors.BASE08}
+label-fullscreen-foreground = #a3be8c
 label-floating = 
-label-floating-foreground = ${colors.BASE08}
+label-floating-foreground = #a3be8c
 label-pseudotiled = P
-label-pseudotiled-foreground = ${colors.BASE08}
+label-pseudotiled-foreground = #a3be8c
 label-locked = " "
-label-locked-foreground = ${colors.BASE08}
+label-locked-foreground = #a3be8c
 label-sticky = " "
-label-sticky-foreground = ${colors.BASE08}
+label-sticky-foreground = #a3be8c
 label-private = " "
-label-private-foreground = ${colors.BASE08}
+label-private-foreground = #a3be8c
 
 [module/bspwm-secondary]
 inherit = common/bspwm
@@ -134,7 +126,7 @@ ws-icon-default = 
 type = internal/xwindow
 
 format-padding = 0
-format-foreground = ${colors.BASE0A}
+format-foreground = #ebcb8b
 
 label = %title%
 label-maxlen = 140
@@ -150,7 +142,7 @@ mapped = true
 
 format-volume = <ramp-volume> <label-volume>
 label-muted =  Muted
-label-muted-foreground = ${colors.BASE02}
+label-muted-foreground = #4f5b66
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -186,7 +178,7 @@ font-1 = "Weather Icons:size=13;6"
 [module/apps]
 type = custom/text
 content = 
-content-foreground = ${colors.BASE0E}
+content-foreground = #ebcb8b
 click-left = rofi -show drun
 
 [module/news]
@@ -249,7 +241,7 @@ modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand g
 
 tray-position = right
 tray-padding = 0
-tray-background = ${colors.BASE00}
+tray-background = #2b303b
 tray-maxsize = 22
 
 [module/bspwm]
@@ -263,7 +255,6 @@ ws-icon-4 = music;
 ws-icon-5 = chat;
 ws-icon-6 = misc;
 ws-icon-default = 
-
 
 [module/cpu-brand]
 type = custom/text
@@ -286,24 +277,24 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.alert}
+label-warn-foreground = #bf616a
 
 ramp-0 = 
-ramp-0-foreground = ${colors.normal}
+ramp-0-foreground = #a3be8c
 ramp-1 = 
-ramp-1-foreground = ${colors.normal}
+ramp-1-foreground = #a3be8c
 ramp-2 = 
-ramp-2-foreground = ${colors.normal}
+ramp-2-foreground = #a3be8c
 ramp-3 =  
-ramp-3-foreground = ${colors.normal}
+ramp-3-foreground = #a3be8c
 ramp-4 = 
-ramp-4-foreground = ${colors.warn}
+ramp-4-foreground = #a3be8c
 ramp-5 = 
-ramp-5-foreground = ${colors.warn}
+ramp-5-foreground = 
 ramp-6 = 
-ramp-6-foreground = ${colors.warn}
+ramp-6-foreground = 
 ramp-7 = 
-ramp-7-foreground = ${colors.alert}
+ramp-7-foreground = #bf616a
 
 [module/gpu-brand]
 type = custom/text
@@ -335,7 +326,7 @@ mount-0 = /
 format-mounted-prefix = %{A1:baobab:}  %{A}
 label-mounted = %{A1:baobab:}%percentage_used%%%{A}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.alert}
+label-unmounted-foreground = #bf616a
 
 [module/network]
 type = internal/network
@@ -352,9 +343,9 @@ format-packetloss = <label-connected> <animation-packetloss>
 label-connected = %essid%
 label-signal = %signal%
 label-disconnected =  Not connected
-label-disconnected-foreground = ${colors.BASE02}
+label-disconnected-foreground = #4f5b66
 
-label-packetloss-foreground = ${colors.alert}
+label-packetloss-foreground = #bf616a
 animation-packetloss-0 = ⚠
 animation-packetloss-1 = 📶
 animation-packetloss-framerate = 500
@@ -399,7 +390,7 @@ click-left = ~/.config/polybar/scripts/updates -g
 
 [module/power-menu]
 type = custom/text
-content-foreground =  ${colors.RED}
+content-foreground =  #bf616a
 content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 

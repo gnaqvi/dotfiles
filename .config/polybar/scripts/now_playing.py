@@ -2,36 +2,24 @@
 
 from gi.repository import Playerctl, GLib
 
-def get_icon(status):
-    icons = {
-        "Playing": "",
-        "Paused": ""
-    }
-
-    return icons.get(status, "")
+player = Playerctl.Player()
 
 def on_metadata(player, metadata):
     if 'xesam:artist' in metadata.keys() and 'xesam:title' in metadata.keys():
-        print('{status} {artist} - {title}'.format(
-            status=get_icon(player.get_property('status')),
+        print(' {artist} - {title}'.format(
             artist=metadata['xesam:artist'][0],
-            title=metadata['xesam:title']
-        ))
+            title=metadata['xesam:title'])
+        )
 
-player = Playerctl.Player()
-status= player.get_property('status')
+def on_play(player, status):
+    print(' {artist} - {title}'.format(artist=player.get_artist(), title=player.get_title()))
 
-if status:
-    # initial track information
-    artist = player.get_artist()
-    title = player.get_title()
-    print('%s %s - %s' % (get_icon(status), artist, title))
-else:
-    # default status
-    print(' None - None')
+def on_pause(player, status):
+    print(' {artist} - {title}'.format(artist=player.get_artist(), title=player.get_title()))
 
+player.connect('playback-status::playing', on_play)
+player.connect('playback-status::paused', on_pause)
 player.connect('metadata', on_metadata)
 
-# wait for events
 main = GLib.MainLoop()
 main.run()

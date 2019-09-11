@@ -1,10 +1,9 @@
 acpid
-alacritty-git
-alacritty-terminfo-git
 alsa-plugins
 alsa-tools
 alsa-utils
 amd-ucode
+arc-gtk-theme
 audacity
 autoconf
 automake
@@ -73,11 +72,12 @@ intellij-idea-community-edition
 iproute2
 iputils
 iw
-jack2-dbus
+jack2
 jdk-openjdk
 jdk10-openjdk
 jfsutils
 jq
+kitty
 kubectl-bin
 la-capitaine-icon-theme
 less

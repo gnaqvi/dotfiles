@@ -5,10 +5,10 @@ configuration {
 	columns: 1;
 	padding: 0;
 	show-icons: false;
-	terminal: "alacritty";
+	terminal: "kitty";
 	eh: 1;
 	hide-scrollbar: true;
 	fullscreen: false;
 	dpi: 110;
-	theme: "base16-ashes-dmenu";
+	theme: "base16-dmenu";
 }
