@@ -290,9 +290,9 @@ ramp-3-foreground = #a3be8c
 ramp-4 = 
 ramp-4-foreground = #a3be8c
 ramp-5 = 
-ramp-5-foreground = 
+ramp-5-foreground = #ebcb8b
 ramp-6 = 
-ramp-6-foreground = 
+ramp-6-foreground = #ebcb8b
 ramp-7 = 
 ramp-7-foreground = #bf616a
 
@@ -390,7 +390,7 @@ click-left = ~/.config/polybar/scripts/updates -g
 
 [module/power-menu]
 type = custom/text
-content-foreground =  #bf616a
+content-foreground = #bf616a
 content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 

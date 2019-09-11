@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE16_DIR="$XDG_CONFIG_HOME/base16"
+BASE16_DIR="$HOME/.config/base16"
 CONFIG_FILE="$BASE16_DIR/config.json"
 TMPLS_FILE="$BASE16_DIR/templates.json"
 GEN_THEME="$BASE16_DIR/theme.generated.json"

@@ -17,7 +17,7 @@ xsetroot -cursor_name left_ptr
 xrdb -load ~/.Xresources &
 
 # Load monitors info
-source ~/.local/bin/moninfo
+. ~/.local/bin/moninfo
 
 # Set theme
 ~/.local/bin/themer --set
