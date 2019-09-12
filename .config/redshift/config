@@ -2,7 +2,7 @@
 [redshift]
 ; Set the day and night screen temperatures
 temp-day=7000k
-temp-night=4000k
+temp-night=3600k
 
 ; Disable the smooth fade between temperatures when Redshift starts and stops.
 ; 0 will cause an immediate change between screen temperatures.
@@ -57,8 +57,8 @@ adjustment-method=randr
 ; Keep in mind that longitudes west of Greenwich (e.g. the Americas)
 ; are negative numbers.
 [manual]
-lat=43.52
-lon=-79.83
+lat=43.31
+lon=-79.50
 
 ; Configuration of the adjustment-method
 ; type 'redshift -m METHOD:help' to see the settings.

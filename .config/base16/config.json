@@ -8,7 +8,7 @@
             "size": "11.5"
         },
         "monospace": {
-            "name": "Fira Sans Mono",
+            "name": "Fira Code",
             "size": "10.5"
         }
     },
@@ -21,6 +21,7 @@
         "$HOME/.config/fish/config.fish.mustache",
         "$HOME/.config/compton/config.mustache",
         "$HOME/.config/polybar/scripts/rsctl.mustache",
+        "$HOME/.config/polybar/scripts/gpu.mustache",
         "$HOME/.config/bspwm/bspwmrc.mustache",
         "$HOME/.config/polybar/config.mustache",
         "$HOME/.config/dunst/dunstrc.mustache",

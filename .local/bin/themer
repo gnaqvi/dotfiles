@@ -19,7 +19,6 @@ function file_view_render() {
 }
 
 function gen_theme() {
-    test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
     nvm use default > /dev/null
     rm $GEN_THEME 2> /dev/null
     
@@ -74,18 +73,21 @@ case $1 in
 "--app-config")
     case $2 in
     "")
-        echo 'Missing parameter.' >&2 && exit 1
+        echo 'Missing parameter.' >&2; exit 1
         ;;
     *)
-        test -f "$2" || echo 'File does not exist.' >&2 && exit 1
-        gen_app_config $2
+        test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
+        ABS_PATH=$(realpath $2)
+        test -f $ABS_PATH || { echo 'File does not exist.' >&2; exit 1; }
+        gen_app_config $ABS_PATH
         ;;
     esac
     ;;
 "--set")
+    test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
     set_theme
     ;;
 *)
-    echo 'Invalid parameter.' >&2 && exit 1
+    echo 'Invalid parameter.' >&2; exit 1
     ;;
 esac

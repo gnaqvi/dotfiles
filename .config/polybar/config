@@ -237,7 +237,7 @@ font-7 = "Geforce:style=Bold:pixelsize=13.25;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-temp gap memory gap network gap filesystem gap audio-usb gap updates gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap audio-usb gap updates gap power-menu gap
 
 tray-position = right
 tray-padding = 0

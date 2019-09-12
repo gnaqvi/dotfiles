@@ -6,15 +6,15 @@ function get_usage() {
 
 function get_temp() {
     OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
-    COLOR=#a7adba
+    COLOR={{ colors.base.04 }}
     TEMP=$(~/.local/bin/hwinfo --gpu temp)
 
     if [ "${TEMP%??}" -ge 80 ]; then
-        COLOR=#bf616a
+        COLOR={{ colors.levels.alert }}
     elif [ "${TEMP%??}" -ge 60 ]; then
-        COLOR=#ebcb8b
+        COLOR={{ colors.levels.warn }}
     else
-        COLOR=#a3be8c
+        COLOR={{ colors.levels.normal }}
     fi
 
     WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
