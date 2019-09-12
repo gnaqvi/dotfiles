@@ -10,14 +10,14 @@ function get_status() {
 
 function get_polybar_text() {
     OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
-    COLOR=#a7adba
+    COLOR=#65737e
     TEMP=$(get_status)
 
     if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
         TEMP=$(redshift -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
         
         if [ -z "$TEMP" ]; then
-            COLOR=#a7adba
+            COLOR=#65737e
         elif [ "$TEMP" -ge 5000 ]; then
             COLOR=#a3be8c
         elif [ "$TEMP" -ge 4000 ]; then
