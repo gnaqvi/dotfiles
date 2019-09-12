@@ -209,7 +209,7 @@ click-left = ~/.config/polybar/scripts/weather -o
 [module/now-playing]
 type = custom/script
 label = %output:0:50%
-exec = python -u -W ignore ~/.config/polybar/scripts/now_playing.py
+exec = python -u -W ignore ~/.config/polybar/scripts/now_playing
 tail = true
 
 click-left = playerctl play-pause

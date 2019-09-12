@@ -22,6 +22,7 @@
         "$HOME/.config/compton/config.mustache",
         "$HOME/.config/polybar/scripts/rsctl.mustache",
         "$HOME/.config/polybar/scripts/gpu.mustache",
+        "$HOME/.config/polybar/scripts/now_playing.mustache",
         "$HOME/.config/bspwm/bspwmrc.mustache",
         "$HOME/.config/polybar/config.mustache",
         "$HOME/.config/dunst/dunstrc.mustache",

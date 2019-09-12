@@ -19,5 +19,18 @@
     "workbench.tree.indent": 14,
     "workbench.tree.renderIndentGuides": "always",
     "breadcrumbs.enabled": false,
-    "workbench.colorTheme": "Ocean Dark Extended"
+    "workbench.colorTheme": "Ocean Dark Extended",
+    "go.useLanguageServer": true,
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true,
+        "completionDocumentation": true
+    },
+    "files.eol": "\n"
 }
