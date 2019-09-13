@@ -5,6 +5,6 @@ A late night scrot.
 ![Desktop](https://i.imgur.com/xYgrc6D.jpg)
 
 ### *TODO*
-- GPU temperature color ramp
+- ~~GPU temperature color ramp~~
 - ~~Alacritty/Kitty themeable colors~~
 - Sleep/hibernate handles
