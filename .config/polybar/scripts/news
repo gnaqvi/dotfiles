@@ -8,5 +8,5 @@ import textwrap
 nwz = feedparser.parse("https://news.ycombinator.com/rss")
 
 for f in range(0, 1):
-    print(nwz.entries[f].title)
-    xy = nwz.entries[f].title
+	print(nwz.entries[f].title)
+	xy = nwz.entries[f].title

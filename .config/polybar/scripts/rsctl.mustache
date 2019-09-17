@@ -3,45 +3,45 @@
 STATUS_LOG_FILE="/tmp/redshift/status.log"
 
 function get_status() {
-    [ -f "$STATUS_LOG_FILE" ] \
-        && tac $STATUS_LOG_FILE | tr -d '\000' | grep -i -m 1 status | cut -d ":" -f 2 | tr -d "[:blank:]" \
-        || echo "Disabled"
+	[ -f "$STATUS_LOG_FILE" ] \
+		&& tac $STATUS_LOG_FILE | tr -d '\000' | grep -i -m 1 status | cut -d ":" -f 2 | tr -d "[:blank:]" \
+		|| echo "Disabled"
 }
 
 function get_polybar_text() {
-    OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
-    COLOR={{ colors.base.03 }}
-    TEMP=$(get_status)
+	OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
+	COLOR={{ colors.base.03 }}
+	TEMP=$(get_status)
 
-    if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
-        TEMP=$(redshift -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
-        
-        if [ -z "$TEMP" ]; then
-            COLOR={{ colors.base.03 }}
-        elif [ "$TEMP" -ge 5000 ]; then
-            COLOR={{ colors.levels.normal }}
-        elif [ "$TEMP" -ge 4000 ]; then
-            COLOR={{ colors.levels.warn }}
-        else
-            COLOR={{ colors.levels.alert }}
-        fi
+	if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
+		TEMP=$(redshift -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
 
-        TEMP=${TEMP}k
-    fi
+		if [ -z "$TEMP" ]; then
+			COLOR={{ colors.base.03 }}
+		elif [ "$TEMP" -ge 5000 ]; then
+			COLOR={{ colors.levels.normal }}
+		elif [ "$TEMP" -ge 4000 ]; then
+			COLOR={{ colors.levels.warn }}
+		else
+			COLOR={{ colors.levels.alert }}
+		fi
 
-    WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
-    WITH_TEMP=${WITH_COLOR/__TEMP__/$TEMP}
+		TEMP=${TEMP}k
+	fi
 
-    echo $WITH_TEMP
+	WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
+	WITH_TEMP=${WITH_COLOR/__TEMP__/$TEMP}
+
+	echo $WITH_TEMP
 }
 
 function toggle() {
-    if [ "$(pgrep -x redshift)" ]; then
-        echo "" > $STATUS_LOG_FILE
-        pkill -USR1 redshift
-    else
-        $HOME/.config/redshift/launch
-    fi
+	if [ "$(pgrep -x redshift)" ]; then
+		echo "" > $STATUS_LOG_FILE
+		pkill -USR1 redshift
+	else
+		$HOME/.config/redshift/launch
+	fi
 }
 
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1

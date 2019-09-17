@@ -1,127 +1,127 @@
 * {
-    base00: #2b303bf2;
-    base01: #343d46f2;
-    base02: #4f5b66f2;
-    base03: #65737ef2;
-    base04: #a7adba;
-    base05: #c0c5ce;
-    base06: #dfe1e8;
-    base07: #eff1f5f2;
-    base08: #bf616af2;
-    base09: #d08770f2;
-    base0A: #ebcb8bf2;
-    base0B: #a3be8cf2;
-    base0D: #8fa1b3f2;
-    base0C: #96b5b4f2;
-    base0E: #b48eadf2;
-    base0F: #ab7967f2;
+	base00: #2b303bf2;
+	base01: #343d46f2;
+	base02: #4f5b66f2;
+	base03: #65737ef2;
+	base04: #a7adba;
+	base05: #c0c5ce;
+	base06: #dfe1e8;
+	base07: #eff1f5f2;
+	base08: #bf616af2;
+	base09: #d08770f2;
+	base0A: #ebcb8bf2;
+	base0B: #a3be8cf2;
+	base0D: #8fa1b3f2;
+	base0C: #96b5b4f2;
+	base0E: #b48eadf2;
+	base0F: #ab7967f2;
 
-    transparent:      #FFFFFF00;
-    background-color: @transparent;
-    separatorcolor:   @transparent;
+	transparent:      #FFFFFF00;
+	background-color: @transparent;
+	separatorcolor:   @transparent;
 
-    font:             "Fira Sans 15";
+	font:             "Fira Sans 15";
 }
 
 #window {
-    background-color: @base00;
-    border:           0;
-    padding:          5 5 5 5;
+	background-color: @base00;
+	border:           0;
+	padding:          5 5 5 5;
 }
 
 #mainbox {
-    border:  0;
-    padding: 0;
+	border:  0;
+	padding: 0;
 }
 
 #message {
-    border:       0;
-    border-color: @transparent;
-    padding:      0px;
+	border:       0;
+	border-color: @transparent;
+	padding:      0px;
 }
 
 #textbox {
-    text-color: @base05;
+	text-color: @base05;
 }
 
 #listview {
-    fixed-height: 0;
-    border:       2px 0px 0px ;
-    border-color: @transparent;
-    spacing:      2px;
-    scrollbar:    true;
-    padding:      2px 0px 0px ;
+	fixed-height: 0;
+	border:       2px 0px 0px ;
+	border-color: @transparent;
+	spacing:      2px;
+	scrollbar:    true;
+	padding:      2px 0px 0px ;
 }
 
 #element {
-    border:  0;
-    padding: 1px;
+	border:  0;
+	padding: 1px;
 }
 
 #element.normal.normal {
-    background-color: @transparent;
-    text-color:       @base05;
+	background-color: @transparent;
+	text-color:       @base05;
 }
 
 #element.normal.urgent {
-    background-color: @transparent;
-    text-color:       @base05;
+	background-color: @transparent;
+	text-color:       @base05;
 }
 
 #element.normal.active {
-    background-color: @transparent;
-    text-color:       @base00;
+	background-color: @transparent;
+	text-color:       @base00;
 }
 
 #element.selected.normal {
-    text-color:       @base0E;
+	text-color:       @base0E;
 }
 
 #element.selected.urgent {
-    text-color:       @base0E;
+	text-color:       @base0E;
 }
 
 #element.selected.active {
-    text-color:       @base0E;
+	text-color:       @base0E;
 }
 
 #element.alternate.normal {
-    background-color: @transparent;
-    text-color:       @base05;
+	background-color: @transparent;
+	text-color:       @base05;
 }
 
 #element.alternate.urgent {
-    background-color: @transparent;
-    text-color:       @base05;
+	background-color: @transparent;
+	text-color:       @base05;
 }
 
 #element.alternate.active {
-    background-color: @transparent;
-    text-color:       @base05;
+	background-color: @transparent;
+	text-color:       @base05;
 }
 
 #button.selected {
-    background-color: @transparent;
-    text-color:       @base05;
+	background-color: @transparent;
+	text-color:       @base05;
 }
 
 #inputbar {
-    spacing:    0;
-    text-color: @base05;
-    padding:    0px ;
+	spacing:    0;
+	text-color: @base05;
+	padding:    0px ;
 }
 
 #case-indicator {
-    spacing:    0;
-    text-color: @base05;
+	spacing:    0;
+	text-color: @base05;
 }
 
 #entry {
-    spacing:    0;
-    text-color: @base05;
+	spacing:    0;
+	text-color: @base05;
 }
 
 #prompt {
-    spacing:    0;
-    text-color: @base05;
+	spacing:    0;
+	text-color: @base05;
 }

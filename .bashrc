@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 if [ -x /usr/bin/dircolors ]; then
-    [ -r ~/.dircolorsrc ] && eval "$(dircolors -b ~/.dircolorsrc)" || eval "$(dircolors -b)"
+	[ -r ~/.dircolorsrc ] && eval "$(dircolors -b ~/.dircolorsrc)" || eval "$(dircolors -b)"
 fi
 
 # Prompt
@@ -57,6 +57,6 @@ alias pkgl="pacman -Qqe > ~/.pkglist" # updates package list
 # node
 source /usr/share/nvm/init-nvm.sh
 
-# Go
+# go
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/Dev/go

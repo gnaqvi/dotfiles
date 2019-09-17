@@ -1,26 +1,26 @@
 #!/bin/bash
 
 function get_usage() {
-    echo " $(~/.local/bin/hwinfo --gpu usage)"
+	echo " $(~/.local/bin/hwinfo --gpu usage)"
 }
 
 function get_temp() {
-    OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
-    COLOR=#a7adba
-    TEMP=$(~/.local/bin/hwinfo --gpu temp)
+	OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
+	COLOR=#a7adba
+	TEMP=$(~/.local/bin/hwinfo --gpu temp)
 
-    if [ "${TEMP%??}" -ge 80 ]; then
-        COLOR=#bf616a
-    elif [ "${TEMP%??}" -ge 60 ]; then
-        COLOR=#ebcb8b
-    else
-        COLOR=#a3be8c
-    fi
+	if [ "${TEMP%??}" -ge 80 ]; then
+		COLOR=#bf616a
+	elif [ "${TEMP%??}" -ge 60 ]; then
+		COLOR=#ebcb8b
+	else
+		COLOR=#a3be8c
+	fi
 
-    WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
-    WITH_TEMP=${WITH_COLOR/__TEMP__/$TEMP}
+	WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
+	WITH_TEMP=${WITH_COLOR/__TEMP__/$TEMP}
 
-    echo $WITH_TEMP
+	echo $WITH_TEMP
 }
 
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1

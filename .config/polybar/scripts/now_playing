@@ -5,38 +5,38 @@ from gi.repository import Playerctl, GLib
 manager = Playerctl.PlayerManager()
 
 def get_icon(status):
-    icons = {
-        "Playing": "",
-        "Paused": ""
-    }
-    return icons.get(status, "")
+	icons = {
+		"Playing": "",
+		"Paused": ""
+	}
+	return icons.get(status, "")
 
 def on_metadata(player, metadata, manager):
-    keys = metadata.keys()
-    if 'xesam:artist' in keys and 'xesam:title' in keys:
-        print('{status} {artist} - {title}'.format(
-            status=get_icon(player.get_property('status')),
-            artist=metadata['xesam:artist'][0],
-            title=metadata['xesam:title']
-        ))
+	keys = metadata.keys()
+	if 'xesam:artist' in keys and 'xesam:title' in keys:
+		print('{status} {artist} - {title}'.format(
+			status=get_icon(player.get_property('status')),
+			artist=metadata['xesam:artist'][0],
+			title=metadata['xesam:title']
+		))
 
 def init_player(name):
-    if name.name in ['spotify', 'vlc']:
-        player = Playerctl.Player.new_from_name(name)
-        player.connect('metadata', on_metadata, manager)
-        manager.manage_player(player)
+	if name.name in ['spotify', 'vlc']:
+		player = Playerctl.Player.new_from_name(name)
+		player.connect('metadata', on_metadata, manager)
+		manager.manage_player(player)
 
 def on_name_appeared(manager, name):
-    init_player(name)
+	init_player(name)
 
 def on_player_vanished(manager, player):
-    print('%{F #65737e} Nothing is playing%{F-}')
+	print('%{F #65737e} Nothing is playing%{F-}')
 
 manager.connect('name-appeared', on_name_appeared)
 manager.connect('player-vanished', on_player_vanished)
 
 for name in manager.props.player_names:
-    init_player(name)
+	init_player(name)
 
 main = GLib.MainLoop()
 main.run()

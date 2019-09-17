@@ -55,7 +55,7 @@ bottom = true
 
 modules-left = bspwm-secondary gap-small title
 modules-center =
-modules-right = 
+modules-right =
 
 [common/bspwm]
 type = internal/bspwm
@@ -184,7 +184,7 @@ click-left = rofi -show drun
 [module/news]
 type = custom/script
 label =  %output:0:200%...
-exec = ~/.config/polybar/scripts/news.py
+exec = ~/.config/polybar/scripts/news
 click-left = google-chrome-stable https://news.ycombinator.com/
 interval = 600
 
@@ -360,7 +360,7 @@ ramp-signal-4 = %{T5}%{T-}
 inherit = common/alsa
 
 master-soundcard = hw:USB
-master-mixer = 
+master-mixer =
 
 speaker-soundcard =
 speaker-mixer =

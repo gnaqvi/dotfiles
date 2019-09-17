@@ -3,46 +3,46 @@
 #
 
 pcm.realtek {
-    type hw
-    card Generic
+	type hw
+	card Generic
 }
 
 pcm.dmixed {
-    type dmix
-    ipc_key 765824
-    slave {
-        pcm "realtek"
-        channels 2
-        format S32_LE
-        rate 96000
-        period_size 1024
-        buffer_size 8192
-    }
+	type dmix
+	ipc_key 765824
+	slave {
+		pcm "realtek"
+		channels 2
+		format S32_LE
+		rate 96000
+		period_size 1024
+		buffer_size 8192
+	}
 }
 
 pcm.dsnooped {
-    type dsnoop
-    ipc_key 683247
-    ipc_key_add_uid yes
-    slave {
-        pcm "realtek"
-        channels 2
-        rate 96000
-        period_size 1024
-        buffer_size 8192
-    }
+	type dsnoop
+	ipc_key 683247
+	ipc_key_add_uid yes
+	slave {
+		pcm "realtek"
+		channels 2
+		rate 96000
+		period_size 1024
+		buffer_size 8192
+	}
 }
 
 pcm.asymed {
-    type asym
-    playback.pcm "dmixed"
-    capture.pcm "dsnooped"
+	type asym
+	playback.pcm "dmixed"
+	capture.pcm "dsnooped"
 }
 
 pcm.pasymed {
-    type plug
-    slave.pcm "asymed"
-    rate_converter "speexrate_medium"
+	type plug
+	slave.pcm "asymed"
+	rate_converter "speexrate_medium"
 }
 
 #
@@ -50,15 +50,15 @@ pcm.pasymed {
 #
 
 pcm.jack {
-    type jack
-    playback_ports {
-        0 system:playback_1
-        1 system:playback_2
-    }
-    capture_ports {
-        0 system:capture_1
-        1 system:capture_2
-    }
+	type jack
+	playback_ports {
+		0 system:playback_1
+		1 system:playback_2
+	}
+	capture_ports {
+		0 system:capture_1
+		1 system:capture_2
+	}
 }
 
 #
@@ -66,11 +66,11 @@ pcm.jack {
 #
 
 pcm.!default {
-    type plug
-    slave.pcm "jack"
+	type plug
+	slave.pcm "jack"
 }
 
 ctl.!default {
-    type hw
-    card USB
+	type hw
+	card USB
 }

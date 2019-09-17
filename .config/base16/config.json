@@ -1,36 +1,36 @@
 {
-    "colors": "ocean",
-    "wallpaper": "trees.jpg",
-    "opacity": 95,
-    "font": {
-        "sans": {
-            "name": "Fira Sans",
-            "size": "11.5"
-        },
-        "monospace": {
-            "name": "Fira Code",
-            "size": "10.5"
-        }
-    },
-    "gtk": {
-        "theme": "Arc-Dark",
-        "icons": "la-capitaine",
-        "cursors": "capitaine-cursors"
-    },
-    "templates": [
-        "$HOME/.config/fish/config.fish.mustache",
-        "$HOME/.config/compton/config.mustache",
-        "$HOME/.config/polybar/scripts/rsctl.mustache",
-        "$HOME/.config/polybar/scripts/gpu.mustache",
-        "$HOME/.config/polybar/scripts/now_playing.mustache",
-        "$HOME/.config/bspwm/bspwmrc.mustache",
-        "$HOME/.config/polybar/config.mustache",
-        "$HOME/.config/dunst/dunstrc.mustache",
-        "$HOME/.config/kitty/kitty.conf.mustache",
-        "$HOME/.config/gtk-3.0/settings.ini.mustache",
-        "$HOME/.config/rofi/config.rasi.mustache",
-        "$HOME/.local/share/rofi/themes/base16.rasi.mustache",
-        "$HOME/.local/share/rofi/themes/base16-dmenu.rasi.mustache",
-        "$HOME/.dotfiles/.Xresources.mustache"
-    ]
+	"colors": "ocean",
+	"wallpaper": "trees.jpg",
+	"opacity": 95,
+	"font": {
+		"sans": {
+			"name": "Fira Sans",
+			"size": "11.5"
+		},
+		"monospace": {
+			"name": "Fira Code",
+			"size": "10.5"
+		}
+	},
+	"gtk": {
+		"theme": "Arc-Dark",
+		"icons": "la-capitaine",
+		"cursors": "capitaine-cursors"
+	},
+	"templates": [
+		"$HOME/.config/fish/config.fish.mustache",
+		"$HOME/.config/compton/config.mustache",
+		"$HOME/.config/polybar/scripts/rsctl.mustache",
+		"$HOME/.config/polybar/scripts/gpu.mustache",
+		"$HOME/.config/polybar/scripts/now_playing.mustache",
+		"$HOME/.config/bspwm/bspwmrc.mustache",
+		"$HOME/.config/polybar/config.mustache",
+		"$HOME/.config/dunst/dunstrc.mustache",
+		"$HOME/.config/kitty/kitty.conf.mustache",
+		"$HOME/.config/gtk-3.0/settings.ini.mustache",
+		"$HOME/.config/rofi/config.rasi.mustache",
+		"$HOME/.local/share/rofi/themes/base16.rasi.mustache",
+		"$HOME/.local/share/rofi/themes/base16-dmenu.rasi.mustache",
+		"$HOME/.dotfiles/.Xresources.mustache"
+	]
 }

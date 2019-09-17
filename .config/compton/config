@@ -8,11 +8,11 @@ shadow-opacity = 0.7;
 # shadow-green = 0.0;
 # shadow-blue = 0.0;
 shadow-exclude = [
-    "name = 'Notification'",
-    "class_g = 'Firefox' && argb",
-    "class_g ?= 'Notify-osd'",
-    "class_i ?= 'tray'",
-    "_GTK_FRAME_EXTENTS@:c"
+	"name = 'Notification'",
+	"class_g = 'Firefox' && argb",
+	"class_g ?= 'Notify-osd'",
+	"class_i ?= 'tray'",
+	"_GTK_FRAME_EXTENTS@:c"
 ];
 # shadow-exclude-reg = "x10+0+0";
 # xinerama-shadow-crop = true;
@@ -30,12 +30,12 @@ blur-background-frame = false;
 # blur-background-fixed = true;
 blur-background-exclude = [
 	"window_type = 'desktop'",
-    "_GTK_FRAME_EXTENTS@:c"
+	"_GTK_FRAME_EXTENTS@:c"
 ];
 opacity-rule = [
-    "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
-    "95:class_i = 'tray'",
-    "95:class_g = 'Code'"
+	"40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
+	"95:class_i = 'tray'",
+	"95:class_g = 'Code'"
 ];
 
 # Fading

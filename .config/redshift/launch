@@ -10,9 +10,9 @@ LOG_DIR="/tmp/redshift"
 STATUS_LOG_FILE="status.log"
 
 if [ -d "$LOG_DIR" ]; then
-    [ -f "${LOG_DIR}/{STATUS_LOG_FILE}" ] && rm "${LOG_DIR}/{STATUS_LOG_FILE}"
+	[ -f "${LOG_DIR}/{STATUS_LOG_FILE}" ] && rm "${LOG_DIR}/{STATUS_LOG_FILE}"
 else
-    mkdir -p $LOG_DIR
+	mkdir -p $LOG_DIR
 fi
 
 redshift -c ~/.config/redshift/config -v > /tmp/redshift/status.log 2>&1 &

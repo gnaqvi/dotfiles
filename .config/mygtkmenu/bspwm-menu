@@ -39,7 +39,7 @@ Submenu = Move to
 	icon = NULL
 
 	item = Desktop n°...
-	cmd = 
+	cmd =
 	icon = NULL
 
 	item = Next empty desktop

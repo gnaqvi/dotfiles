@@ -1,36 +1,44 @@
 {
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "window.zoomLevel": 1.5,
-    "editor.fontSize": 13,
-    "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.visible": true,
-    "editor.minimap.enabled": true,
-    "vim.disableExtension": true,
-    "editor.fontFamily": "'Fira Code', monospace",
-    "editor.fontLigatures": true,
-    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "go.formatTool": "goimports",
-    "editor.cursorBlinking": "phase",
-    "editor.renderLineHighlight": "none",
-    "workbench.tree.indent": 14,
-    "workbench.tree.renderIndentGuides": "always",
-    "breadcrumbs.enabled": false,
-    "workbench.colorTheme": "Ocean Dark Extended",
-    "go.useLanguageServer": true,
-    "[go]": {
-        "editor.snippetSuggestions": "none",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
-    },
-    "gopls": {
-        "usePlaceholders": true,
-        "completionDocumentation": true
-    },
-    "files.eol": "\n"
+	"gitlens.advanced.messages": {
+		"suppressShowKeyBindingsNotice": true
+	},
+	"window.zoomLevel": 1.5,
+	"editor.fontSize": 13,
+	"window.menuBarVisibility": "toggle",
+	"workbench.activityBar.visible": true,
+	"editor.minimap.enabled": true,
+	"vim.disableExtension": true,
+	"editor.fontFamily": "'Fira Code', monospace",
+	"editor.fontLigatures": true,
+	"window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+	"telemetry.enableTelemetry": false,
+	"telemetry.enableCrashReporter": false,
+	"go.formatTool": "goimports",
+	"editor.cursorBlinking": "phase",
+	"editor.renderLineHighlight": "none",
+	"workbench.tree.indent": 14,
+	"workbench.tree.renderIndentGuides": "always",
+	"breadcrumbs.enabled": false,
+	"workbench.colorTheme": "Ocean Dark Extended",
+	"go.useLanguageServer": true,
+	"[go]": {
+		"editor.tabSize": 4,
+		"editor.snippetSuggestions": "none",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
+		}
+	},
+	"gopls": {
+		"usePlaceholders": true,
+		"completionDocumentation": true
+	},
+	"files.eol": "\n",
+	"files.trimTrailingWhitespace": true,
+	"[json]": {
+		"editor.tabSize": 2
+	},
+	"[javascript]": {
+		"editor.tabSize": 2
+	}
 }

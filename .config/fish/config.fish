@@ -4,9 +4,9 @@
 
 # Install fisher
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
+	set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+	curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+	fish -c fisher
 end
 
 # Quite!
@@ -17,13 +17,13 @@ eval (starship init fish)
 
 # Colors
 if status --is-interactive
-    set BASE16_SHELL "$HOME/.config/base16-shell/"
-    source "$BASE16_SHELL/profile_helper.fish"
-    base16-ocean
+	set BASE16_SHELL "$HOME/.config/base16-shell/"
+	source "$BASE16_SHELL/profile_helper.fish"
+	base16-ocean
 end
 
-if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc 
-    eval (dircolors -c ~/.dircolorsrc | sed 's/>&\/dev\/null$//')
+if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc
+	eval (dircolors -c ~/.dircolorsrc | sed 's/>&\/dev\/null$//')
 end
 
 #
@@ -81,11 +81,11 @@ alias pkgl "pacman -Qqe > ~/.pkglist" # updates package list
 
 # node
 if functions -q bass
-    bass export NVM_DIR="$HOME/.nvm"
-    bass export NVM_SOURCE="/usr/share/nvm"
-    function nvm
-        bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
-    end
+	bass export NVM_DIR="$HOME/.nvm"
+	bass export NVM_SOURCE="/usr/share/nvm"
+	function nvm
+		bass source /usr/share/nvm/nvm.sh --no-use ';' nvm $argv
+	end
 end
 
 # Go
