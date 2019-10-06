@@ -1,12 +1,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Prompt
+eval "$(starship init bash)"
+
+# Colors
 if [ -x /usr/bin/dircolors ]; then
 	[ -r ~/.dircolorsrc ] && eval "$(dircolors -b ~/.dircolorsrc)" || eval "$(dircolors -b)"
 fi
-
-# Prompt
-eval "$(starship init bash)"
 
 # Environment
 BROWSER=/usr/bin/google-chrome-stable
@@ -59,4 +60,5 @@ source /usr/share/nvm/init-nvm.sh
 
 # go
 export GOROOT=/usr/lib/go
-export GOPATH=$HOME/Dev/go
+export GO111MODULE=on
+export GOPATH=~/Dev/go

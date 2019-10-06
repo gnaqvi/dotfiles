@@ -16,6 +16,7 @@ bleachbit
 broadcom-wl-dkms
 bspwm
 bzip2
+capitaine-cursors
 cmake
 colordiff
 compton-git
@@ -36,6 +37,7 @@ docker-machine-driver-kvm2
 dunst
 e2fsprogs
 ebtables
+espeak
 fakeroot
 feh
 file
@@ -88,6 +90,8 @@ libva-utils
 libvirt
 licenses
 linux
+linux-lts
+linux-lts-headers
 logrotate
 lsof
 lvm2
@@ -182,7 +186,7 @@ wget
 which
 wireless_tools
 wpa_supplicant
-xcursor-capitaine
+x11vnc
 xdg-user-dirs
 xdotool
 xf86-video-amdgpu

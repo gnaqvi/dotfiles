@@ -15,6 +15,7 @@
 	"telemetry.enableCrashReporter": false,
 	"go.formatTool": "goimports",
 	"editor.cursorBlinking": "phase",
+	"editor.cursorStyle": "line",
 	"editor.renderLineHighlight": "none",
 	"workbench.tree.indent": 14,
 	"workbench.tree.renderIndentGuides": "always",

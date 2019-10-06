@@ -23,8 +23,8 @@ case $1 in
 		echo "$(head -n 1 /sys/class/drm/card0/device/gpu_busy_percent)%"
 		;;
 	"temp")
-		echo $(sensors amdgpu-pci-1e00 -u | grep temp1_input | awk '{print substr($2,0,2)}')°C
 		#echo $(nvidia-smi --query-gpu=temperature.gpu --format=csvnoheader,nounits)°C
+		echo $(sensors amdgpu-pci-1e00 -u | grep temp1_input | awk '{print substr($2,0,2)}')°C
 		;;
 	*)
 		echo "Invalid metric." && exit 1

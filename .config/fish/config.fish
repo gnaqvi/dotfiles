@@ -2,13 +2,6 @@
 # Fish specific
 #
 
-# Install fisher
-if not functions -q fisher
-	set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-	curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-	fish -c fisher
-end
-
 # Quite!
 set fish_greeting ""
 
@@ -26,9 +19,23 @@ if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc
 	eval (dircolors -c ~/.dircolorsrc | sed 's/>&\/dev\/null$//')
 end
 
+# Install fisher
+if not functions -q fisher
+	set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+	curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+	fish -c fisher
+end
+
 #
 # Environment
 #
+
+# Default apps
+set -gx BROWSER /usr/bin/google-chrome-stable
+set -gx EDITOR /usr/bin/code
+
+# Local bin directory
+set -gx PATH $HOME/.local/bin $PATH
 
 # Config directory
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -36,9 +43,6 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 #
 # Aliases
 #
-
-# Directories
-alias dropd "cd $GOPATH/src/dropd.com"
 
 # Modified commands
 alias diff "colordiff"
@@ -90,5 +94,5 @@ end
 
 # Go
 set -gx GOROOT /usr/lib/go
-set -gx GOPATH $HOME/Dev/go
-set -gx PATH $HOME/.local/bin $GOPATH/bin/ $PATH
+set -gx GO111MODULE on
+set -gx GOPATH ~/Dev/go
