@@ -122,11 +122,11 @@ XF86AudioStop
 
 XF86Audio{Raise,Lower}Volume
 	amixer -c 0 set PCM {5%+,5%-}
-# amixer set Master {5%+,5%-}
+	# amixer set Master {5%+,5%-}
 
 #XF86AudioMute
 # amixer set Master toggle
 
 # bspwm controls menu
 super + @button2
-		mygtkmenu ~/.config/mygtkmenu/bspwm-menu
+	mygtkmenu ~/.config/mygtkmenu/bspwm-menu

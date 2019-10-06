@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Root window should have this color
+xsetroot -solid "#2b303b" -xcf "/usr/share/icons/capitaine-cursors/cursors/left_ptr" 24

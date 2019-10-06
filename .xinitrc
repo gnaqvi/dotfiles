@@ -7,9 +7,6 @@ export SXHKD_SHELL='/usr/bin/bash'
 # Set screen blank time
 xset s 1800 1800
 
-# X mouse pointer fix
-xsetroot -cursor_name left_ptr
-
 # Run custom script on resolution change (for virtual machines)
 #~/.local/bin/xeventbind resolution ~/.local/bin/resize &
 

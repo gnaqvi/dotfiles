@@ -31,6 +31,8 @@
 		"$HOME/.config/rofi/config.rasi.mustache",
 		"$HOME/.local/share/rofi/themes/base16.rasi.mustache",
 		"$HOME/.local/share/rofi/themes/base16-dmenu.rasi.mustache",
-		"$HOME/.dotfiles/.Xresources.mustache"
+		"$HOME/.dotfiles/.Xresources.mustache",
+		"$HOME/.dotfiles/etc/X11/xdm/base16/Xresources.mustache",
+		"$HOME/.dotfiles/etc/X11/xdm/base16/Xsetup.mustache"
 	]
 }
