@@ -14,7 +14,7 @@ pcm.dmixed {
 		pcm "realtek"
 		channels 2
 		format S32_LE
-		rate 96000
+		rate 48000
 		period_size 1024
 		buffer_size 8192
 	}
@@ -27,7 +27,7 @@ pcm.dsnooped {
 	slave {
 		pcm "realtek"
 		channels 2
-		rate 96000
+		rate 48000
 		period_size 1024
 		buffer_size 8192
 	}
@@ -46,7 +46,19 @@ pcm.pasymed {
 }
 
 #
-# Jack (USB)
+# USB (Focusrite 2i2)
+#
+
+pcm.usb {
+	type hw
+	format S32_LE
+	channels 2
+	rate 48000
+	card USB
+}
+
+#
+# Jack
 #
 
 pcm.jack {

@@ -128,8 +128,7 @@ type = internal/xwindow
 format-padding = 0
 format-foreground = #ebcb8b
 
-label = %title%
-label-maxlen = 140
+label = %title:0:140:...%
 label-font   = 0
 
 [common/alsa]

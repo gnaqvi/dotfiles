@@ -4,6 +4,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Export shell in which sxhkd will be run
 export SXHKD_SHELL='/usr/bin/bash'
 
+# Export config directory
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Set screen blank time
 xset s 1800 1800
 
