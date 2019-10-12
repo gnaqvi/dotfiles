@@ -1,0 +1,1 @@
+/bin/jackd -dalsa -r48000 -p512 -n2 -M -D -Chw:USB -Phw:USB

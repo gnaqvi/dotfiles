@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Generate config
-$HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/dunst/dunstrc
+$HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/dunst/dunstrc.mustache
 
 # Terminate already running dunst instances
 killall -q dunst
