@@ -19,7 +19,7 @@
 	},
 	"templates": [
 		"$HOME/.config/fish/config.fish.mustache",
-		"$HOME/.config/compton/config.mustache",
+		"$HOME/.config/picom/config.mustache",
 		"$HOME/.config/polybar/scripts/rsctl.mustache",
 		"$HOME/.config/polybar/scripts/gpu.mustache",
 		"$HOME/.config/polybar/scripts/now_playing.mustache",

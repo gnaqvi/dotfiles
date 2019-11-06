@@ -9,6 +9,7 @@ autoconf
 automake
 aws-cli
 baobab
+base
 bash
 binutils
 bison
@@ -19,7 +20,6 @@ bzip2
 capitaine-cursors
 cmake
 colordiff
-compton-git
 coreutils
 cpupower
 cryptsetup
@@ -61,7 +61,6 @@ grep
 groff
 gtk2
 gucharmap
-guitarix2
 gvfs-mtp
 gzip
 handbrake
@@ -90,8 +89,6 @@ libva-utils
 libvirt
 licenses
 linux
-linux-lts
-linux-lts-headers
 logrotate
 lsof
 lvm2
@@ -114,6 +111,7 @@ ntfs-3g
 ntp
 nvm
 openjdk10-doc
+openshot
 openssh
 otf-fira-code
 pacman
@@ -121,6 +119,7 @@ pacman-contrib
 patch
 pciutils
 perl
+picom-git
 pkgconf
 playerctl
 polybar-git
