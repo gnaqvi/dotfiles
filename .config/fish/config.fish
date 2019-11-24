@@ -13,7 +13,7 @@ end
 set fish_greeting ""
 
 # Prompt
-starship init fish | source
+eval (starship init fish)
 
 # Colors
 if status --is-interactive
