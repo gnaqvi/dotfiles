@@ -35,7 +35,7 @@ blur-background-exclude = [
 opacity-rule = [
 	"40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
 	"95:class_i = 'tray'",
-	"95:class_g = 'Code'"
+	"95:class_g = 'code'"
 ];
 
 # Fading

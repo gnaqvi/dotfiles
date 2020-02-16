@@ -56,11 +56,11 @@
   "font": {
     "sans": {
       "name": "Fira Sans",
-      "size": "11.5"
+      "size": "11"
     },
     "monospace": {
       "name": "Fira Code",
-      "size": "10.5"
+      "size": "10"
     }
   },
   "gtk": {

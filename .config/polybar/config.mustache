@@ -1,5 +1,5 @@
 ;--------------------------------------------------------------------;
-; Shared
+; Common
 ;--------------------------------------------------------------------;
 
 [common/bar]
@@ -14,7 +14,7 @@ fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;3"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;4"
 font-3 = "Material Icons:pixelsize=17;7"
 
 background = {{ colors.alphas.00 }}
@@ -249,7 +249,7 @@ inherit = common/bspwm
 ws-icon-0 = terminal;
 ws-icon-1 = code;
 ws-icon-2 = tor;
-ws-icon-3 = web;
+ws-icon-3 = web;
 ws-icon-4 = music;
 ws-icon-5 = chat;
 ws-icon-6 = misc;
@@ -269,7 +269,7 @@ label = %percentage%%
 type = internal/temperature
 interval = 5
 
-hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon1/temp2_input
+hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon2/temp1_input
 warn-temperature = 80
 
 format = <ramp> <label>
