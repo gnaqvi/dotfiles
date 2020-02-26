@@ -31,17 +31,17 @@ bspc config pointer_modifier      mod4
 # Placement
 bspc rule -a Code                    -o desktop=primary:^3
 bspc rule -a jetbrains-idea          -o desktop=primary:^4
-bspc rule -a Navigator	             -o desktop=primary:^6
+bspc rule -a firefox	             -o desktop=primary:^6
 bspc rule -a Spotify                    desktop=primary:^7
 bspc rule -a Slack                      desktop=primary:^8
 bspc rule -a Gimp                       state=floating
-bspc rule -a org.gnome.Nautilus         state=floating
+bspc rule -a Org.gnome.Nautilus         state=floating
 bspc rule -a Transmission-gtk           state=floating
 bspc rule -a Baobab                     state=floating
 bspc rule -a vlc                        state=floating
 bspc rule -a feh                        state=floating
 bspc rule -a Yad                        state=floating
-bspc rule -a qjackctl                   state=floating
+bspc rule -a QjackCtl                   state=floating
 bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 
 #-------------------------------------------------------------------------------
