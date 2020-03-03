@@ -78,4 +78,5 @@ wintypes:
   popup_menu = { fade = true; shadow = true; opacity = 0.92; focus = true; };
   dock = { shadow = false; }
   dnd = { shadow = false; }
+  utility = { shadow = false; }
 };

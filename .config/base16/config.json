@@ -1,11 +1,11 @@
 {
 	"colors": "ocean",
-	"wallpaper": "electric-state.jpg",
+	"wallpaper": "clouds.png",
 	"opacity": 95,
 	"font": {
 		"sans": {
 			"name": "Fira Sans",
-			"size": "11"
+			"size": "12"
 		},
 		"monospace": {
 			"name": "Fira Code",
@@ -26,7 +26,7 @@
 		"$HOME/.config/bspwm/bspwmrc.mustache",
 		"$HOME/.config/polybar/config.mustache",
 		"$HOME/.config/dunst/dunstrc.mustache",
-		"$HOME/.config/kitty/kitty.conf.mustache",
+		"$HOME/.config/alacritty/alacritty.yml.mustache",
 		"$HOME/.config/gtk-3.0/settings.ini.mustache",
 		"$HOME/.config/rofi/config.rasi.mustache",
 		"$HOME/.local/share/rofi/themes/base16.rasi.mustache",

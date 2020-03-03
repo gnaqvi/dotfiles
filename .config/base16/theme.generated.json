@@ -48,7 +48,7 @@
     },
     "scheme": "ocean"
   },
-  "wallpaper": "electric-state.jpg",
+  "wallpaper": "clouds.png",
   "opacity": {
     "percentage": "95",
     "hex": "f2"
@@ -56,7 +56,7 @@
   "font": {
     "sans": {
       "name": "Fira Sans",
-      "size": "11"
+      "size": "12"
     },
     "monospace": {
       "name": "Fira Code",

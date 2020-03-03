@@ -12,7 +12,7 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "Fira Sans:weight=Regular:size=11;4"
+font-0 = "Fira Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;4"
 font-3 = "Material Icons:pixelsize=17;7"
@@ -184,7 +184,7 @@ click-left = rofi -show drun
 type = custom/script
 label =  %output:0:200%...
 exec = ~/.config/polybar/scripts/news
-click-left = google-chrome-stable https://news.ycombinator.com/
+click-left = firefox https://news.ycombinator.com/
 interval = 600
 
 [module/clock]
