@@ -5,11 +5,11 @@
 	"font": {
 		"sans": {
 			"name": "Fira Sans",
-			"size": "12"
+			"size": "11"
 		},
 		"monospace": {
 			"name": "Fira Code",
-			"size": "10"
+			"size": "11"
 		}
 	},
 	"gtk": {

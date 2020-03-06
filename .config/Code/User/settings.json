@@ -2,7 +2,7 @@
 	"gitlens.advanced.messages": {
 		"suppressShowKeyBindingsNotice": true
 	},
-	"window.zoomLevel": 1.2,
+	"window.zoomLevel": 1,
 	"editor.fontSize": 12,
 	"window.menuBarVisibility": "toggle",
 	"workbench.activityBar.visible": true,
@@ -16,6 +16,7 @@
 	"go.formatTool": "goimports",
 	"editor.cursorBlinking": "phase",
 	"editor.cursorStyle": "line",
+	"editor.letterSpacing": 0.15,
 	"editor.renderLineHighlight": "none",
 	"workbench.tree.indent": 14,
 	"workbench.tree.renderIndentGuides": "always",
