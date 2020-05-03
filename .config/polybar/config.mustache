@@ -131,25 +131,6 @@ format-foreground = {{ colors.base.0A }}
 label = %title:0:140:...%
 label-font   = 0
 
-[common/alsa]
-type = internal/alsa
-
-master-soundcard = hw:Generic
-master-mixer = Master
-
-mapped = true
-
-format-volume = <ramp-volume> <label-volume>
-label-muted =  Muted
-label-muted-foreground = {{ colors.base.02 }}
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-ramp-headphones-0 = 
-ramp-headphones-1 = 
-
 [module/gap-small]
 type = custom/text
 content = " "
@@ -157,6 +138,23 @@ content = " "
 [module/gap]
 type = custom/text
 content = "      "
+
+[common/pulseaudio]
+type = internal/pulseaudio
+
+use-ui-max = false
+interval = 5
+
+format-volume = <ramp-volume>
+label-muted = 
+label-muted-foreground = {{ colors.base.02 }}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-right = pavucontrol &
+click-left = amixer set Master toggle
 
 ;--------------------------------------------------------------------;
 ; Top panel
@@ -236,7 +234,7 @@ font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap audio-usb gap updates gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap updates gap power-menu gap
 
 tray-position = right
 tray-padding = 0
@@ -355,30 +353,9 @@ ramp-signal-2 = %{T5}%{T-}
 ramp-signal-3 = %{T5}%{T-}
 ramp-signal-4 = %{T5}%{T-}
 
-[module/audio-usb]
-inherit = common/alsa
-
-master-soundcard = hw:USB
-master-mixer =
-
-speaker-soundcard =
-speaker-mixer =
-
-headphone-soundcard =
-headphone-mixer =
-headphone-id =
-
-format-volume = %{A1:qjackctl:}<ramp-volume>%{A}
-
-[module/audio]
-inherit = common/alsa
-
-speaker-soundcard = hw:Generic
-speaker-mixer = PCM
-
-headphone-soundcard = hw:Generic
-headphone-mixer = Headphone
-headphone-id = 9
+[module/usb-audio]
+inherit = common/pulseaudio
+sink = alsa_output.usb-Focusrite_Scarlett_2i2_USB-00.analog-stereo
 
 [module/updates]
 type = custom/script

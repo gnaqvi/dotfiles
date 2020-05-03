@@ -121,11 +121,11 @@ XF86AudioStop
 	playerctl stop
 
 XF86Audio{Raise,Lower}Volume
-	amixer -c 0 set PCM {5%+,5%-}
-	# amixer set Master {5%+,5%-}
+	amixer set Master {5%+,5%-}
+	# amixer -c 0 set PCM {5%+,5%-}
 
 #XF86AudioMute
-# amixer set Master toggle
+	# amixer set Master toggle
 
 # bspwm controls menu
 super + @button2

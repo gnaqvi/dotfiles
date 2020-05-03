@@ -48,7 +48,8 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
 # Pacman
-alias pru="sudo pacman -Rns (pacman -Qtdq)"
+alias pacrm "sudo pacman -Rns (pacman -Qtdq)"
+alias pacnew "find /etc -regextype posix-extended -regex '.+\.pac(new|save)' 2> /dev/null"
 alias pkgl="pacman -Qqe > ~/.pkglist" # updates package list
 
 #

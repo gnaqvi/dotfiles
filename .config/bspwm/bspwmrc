@@ -41,9 +41,10 @@ bspc rule -a Baobab                     state=floating
 bspc rule -a vlc                        state=floating
 bspc rule -a feh                        state=floating
 bspc rule -a Yad                        state=floating
-bspc rule -a QjackCtl                   state=floating
 bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 bspc rule -a jetbrains-idea-ce			state=floating
+bspc rule -a zoom                       state=floating
+bspc rule -a Pavucontrol                state=floating
 
 #-------------------------------------------------------------------------------
 # desktop environment
@@ -57,9 +58,6 @@ bspc rule -a jetbrains-idea-ce			state=floating
 
 # Disk manager
 ~/.config/udiskie/launch &
-
-# Audio
-qjackctl &
 
 # Screen dimmer
 ~/.config/redshift/launch &

@@ -74,7 +74,6 @@ intellij-idea-community-edition
 iproute2
 iputils
 iw
-jack2
 jdk-openjdk
 jdk10-openjdk
 jfsutils
@@ -111,12 +110,15 @@ noto-fonts-emoji
 ntfs-3g
 ntp
 nvm
+openconnect
 openjdk10-doc
 openssh
 otf-fira-code
 pacman
 pacman-contrib
+pass
 patch
+pavucontrol
 pciutils
 perl
 picom-git
@@ -127,13 +129,11 @@ powerline
 powerline-fonts
 procps-ng
 psmisc
-pygmentize
 python
 python-docker
 python-feedparser
 python-pip
 qemu
-qjackctl
 qt4
 radeontop
 realtime-privileges
@@ -147,7 +147,6 @@ sed
 shadow
 simplescreenrecorder
 sl
-slack-desktop
 spotify
 starship-bin
 stress
@@ -205,4 +204,5 @@ xterm
 xtitle
 yad
 zip
+zoom
 zscroll-git
