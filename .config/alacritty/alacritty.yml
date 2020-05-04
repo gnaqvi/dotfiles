@@ -1,7 +1,7 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
@@ -9,6 +9,7 @@
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   #TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: "1.00"
 
 window:
   # Window dimensions (changes require restart)
@@ -146,7 +147,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 11
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

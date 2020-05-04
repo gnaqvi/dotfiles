@@ -2,7 +2,7 @@
 
 NO_UPDATES="No updates available"
 FAILED_QUERY="Could not query remote server"
-SYSTEM_HEADING="<big><b>System</b></big>"
+OFFICIAL_HEADING="<big><b>Official</b></big>"
 AUR_HEADING="<big><b>AUR</b></big>"
 GAP="\n\n"
 
@@ -39,10 +39,10 @@ case $1 in
 ;;
 "-g")
 	eval "$(query 'checkupdates')"
-	SYSTEM_STATUS="${SYSTEM_HEADING}${GAP}${OUTPUT}"
+	SYSTEM_STATUS="${OFFICIAL_HEADING}${GAP}${OUTPUT}"
 
 	eval "$(query 'trizen -Su --aur')"
-	AUR_STATUS="${SYSTEM_HEADING}${GAP}${OUTPUT}"
+	AUR_STATUS="${AUR_HEADING}${GAP}${OUTPUT}"
 
 	yad --mouse --no-buttons --close-on-unfocus --borders=10 --text="${SYSTEM_STATUS}${GAP}${AUR_STATUS}"
 ;;

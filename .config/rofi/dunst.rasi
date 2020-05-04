@@ -5,7 +5,7 @@ configuration {
 	columns: 1;
 	padding: 0;
 	show-icons: false;
-	terminal: "kitty";
+	terminal: "alacritty";
 	eh: 1;
 	hide-scrollbar: true;
 	fullscreen: false;

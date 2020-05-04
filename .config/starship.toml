@@ -1,6 +1,6 @@
 [character]
-symbol = "➜"
-error_symbol = "!"
+symbol = "♍"
+error_symbol = "♓"
 use_symbol_for_status = true
 
 [git_state]
@@ -8,14 +8,16 @@ progress_divider = " of "
 cherry_pick = "🍒 Picking"
 
 [git_status]
+prefix = ""
+suffix = ""
 conflicted = "🚩"
-ahead = "⬆"
-behind = "⬇"
-diverged = "↔"
-untracked = "❓"
-stashed = "📦"
-modified = "✏️"
-renamed = "🔘"
+ahead = "🔺"
+behind = "🔻"
+diverged = "💠"
+untracked = " 🔍"
+stashed = "💼"
+modified = "✏"
+renamed = "🔨"
 deleted = "💀"
 staged.value = "++"
 staged.style = "green"

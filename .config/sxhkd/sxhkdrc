@@ -4,7 +4,7 @@ super + r ; {b,s,p}
 
 # terminal emulator
 super + Return
-	kitty
+	alacritty
 
 # lock screen
 super + BackSpace
@@ -51,11 +51,11 @@ super + {_,shift +}{1-9,0}
 	bspc {desktop -f,node -d} 'focused:^{1-9,10}'
 
 # set the window state
-super + t ; {t,p,f,s}
+super + s ; {t,p,f,x}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + s ; {l,s,p}
+super + f ; {l,s,p}
 	bspc node -g {locked,sticky,private}
 
 # if the current node is automatic, send it to the last manual, otherwise pull the last leaf

@@ -2,12 +2,9 @@
 
 BASE16_DIR="$HOME/.config/base16"
 CONFIG_FILE="$BASE16_DIR/config.json"
-TMPLS_FILE="$BASE16_DIR/templates.json"
 GEN_THEME="$BASE16_DIR/theme.generated.json"
-
 COLORS_DIR="$BASE16_DIR/colors"
-EXTRA_TMPL="$COLORS_DIR/extra.mustache"
-
+EXTRA_TMPL="$COLORS_DIR/extra.template"
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 
 function stdin_view_render() {
@@ -27,7 +24,7 @@ function gen_theme() {
 	local OPACITY=$(jq -r '.opacity' $CONFIG_FILE)
 	local OPACITY_HEX=$(printf '%x' "$((255*${OPACITY}/100))")
 	local OPACITY_JSON="{ \"percentage\": \"$OPACITY\", \"hex\": \"$OPACITY_HEX\" }"
-	OUTPUT=$(jq ".opacity = $OPACITY_JSON" $CONFIG_FILE)
+	local OUTPUT=$(jq ".opacity = $OPACITY_JSON" $CONFIG_FILE)
 
 	local BASE16_THEME=$(jq -r '.colors' $CONFIG_FILE)
 	local COLORS_FILE="${COLORS_DIR}/${BASE16_THEME}.json"
@@ -36,8 +33,8 @@ function gen_theme() {
 	local EXTRA_COLORS_JSON=$(stdin_view_render "$HASHLESS_COLORS" $EXTRA_TMPL)
 
 	local ALL_COLORS=$(jq ".colors += $EXTRA_COLORS_JSON" $COLORS_FILE)
-	local OUTPUT=$(echo $OUTPUT | jq ". += $ALL_COLORS")
-	local OUTPUT=$(echo $OUTPUT | jq ".colors += { \"scheme\": \"$BASE16_THEME\" }")
+	OUTPUT=$(echo $OUTPUT | jq ". += $ALL_COLORS")
+	OUTPUT=$(echo $OUTPUT | jq ".colors += { \"scheme\": \"$BASE16_THEME\" }")
 
 	echo "$OUTPUT" | jq 'del(.templates)' > $GEN_THEME
 }

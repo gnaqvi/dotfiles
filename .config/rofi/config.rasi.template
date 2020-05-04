@@ -10,7 +10,7 @@ configuration {
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 	show-icons: true;
-	terminal: "kitty";
+	terminal: "alacritty";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host}";*/
 /*	run-command: "{cmd}";*/
