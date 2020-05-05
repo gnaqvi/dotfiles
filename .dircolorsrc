@@ -22,6 +22,8 @@ TERM terminator
 TERM tmux*
 TERM vt100
 TERM xterm*
+TERM alacritty
+TERM kitty
 # Below are the color init strings for the basic file types. A color init
 # string consists of one or more of the following numeric codes:
 # Attribute codes:
@@ -47,9 +49,9 @@ MISSING 00 # ... and the files they point to
 SETUID 37;41 # file that is setuid (u+s)
 SETGID 30;43 # file that is setgid (g+s)
 CAPABILITY 30;41 # file with capability
-STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 01;34 # dir that is other-writable (o+w) and not sticky (VMWare shared folders)
-STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
+STICKY_OTHER_WRITABLE 30;43 # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 30;42 # dir that is other-writable (o+w) and not sticky (VMWare shared folders)
+STICKY 30;44 # dir with the sticky bit set (+t) and not other-writable
 # This is for files with execute permission:
 EXEC 01;32
 # List any file extensions like '.gz' or '.tar' that you would like ls
@@ -63,7 +65,7 @@ EXEC 01;32
 #.bat 01;32
 # Or if you want to colorize scripts even if they do not have the
 # executable bit actually set.
-#.sh 01;32
+.sh 01;32
 #.csh 01;32
  # archives or compressed (bright red)
 .tar 01;31
@@ -81,7 +83,6 @@ EXEC 01;32
 .t7z 01;31
 .zip 01;31
 .z 01;31
-.Z 01;31
 .dz 01;31
 .gz 01;31
 .lrz 01;31
@@ -139,6 +140,7 @@ EXEC 01;32
 .m2v 01;35
 .mkv 01;35
 .webm 01;35
+.webp 01;35
 .ogm 01;35
 .mp4 01;35
 .m4v 01;35
