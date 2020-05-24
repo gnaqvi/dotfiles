@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Generate config
-$HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/polybar/config.template
+# Generate config on demand
+[ ! -z "$1" ] && [ "$1" == "-r" ] && \
+    $HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/polybar/config.template
 
 # Load monitors info if not loaded already
 [ -z "$PM_NAME" ] && . $HOME/.local/bin/moninfo

@@ -1,7 +1,8 @@
 #!/bin/bash -x
 
-# Generate config
-$HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/dunst/dunstrc.template
+# Generate config on demand
+[ ! -z "$1" ] && [ "$1" == "-r" ] && \
+    $HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/dunst/dunstrc.template
 
 # Terminate already running dunst instances
 killall -q dunst

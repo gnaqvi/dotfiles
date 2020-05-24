@@ -9,6 +9,9 @@ if [ -x /usr/bin/dircolors ]; then
 	[ -r ~/.dircolorsrc ] && eval "$(dircolors -b ~/.dircolorsrc)" || eval "$(dircolors -b)"
 fi
 
+# System
+systemctl --user import-environment $PATH
+
 # Environment
 BROWSER=/usr/bin/google-chrome-stable
 EDITOR=/usr/bin/code

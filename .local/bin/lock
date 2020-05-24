@@ -1,19 +1,14 @@
 #!/bin/bash
 
-TMP_BG='/tmp/screenlock.png'
-OFFSET='+0+0'
-
-scrot -q 50 "$TMP_BG"
-
-# Pixelate
-convert "$TMP_BG" -scale 10% -scale 1000% "$TMP_BG"
-# Blur
-# convert "$TMP_BG" -blur 0x6 "$TMP_BG"
-
 # Stop notification manager
 pkill -u "$USER" -USR1 dunst
 
-i3lock -i "$TMP_BG" --composite -f -t
+# Lock screen
+i3lock -uftek \
+    --pass-media-keys \
+    --composite --blur=10 \
+    --timecolor=FFFFFFFF \
+    --datecolor=FFFFFFFF
 
 # Resume notification manager
 pkill -u "$USER" -USR2 dunst

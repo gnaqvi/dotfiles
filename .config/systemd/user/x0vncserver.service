@@ -1,0 +1,10 @@
+[Unit]
+Description=Remote desktop service (VNC)
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sh -c 'while ! pgrep -U "$USER" Xorg; do sleep 2; done'
+ExecStart=/usr/bin/x0vncserver -rfbauth %h/.vnc/passwd
+
+[Install]
+WantedBy=default.target

@@ -1,22 +1,30 @@
-# reload bspwm/sxhkd/polybar configurations
-super + r ; {b,s,p}
-	{bspc quit, pkill -USR1 -x sxhkd, ~/.config/polybar/launch}
+#
+# system
+#
+
+# reload sxhkd/polybar/picom configurations
+super + r ; {k,b,c}
+	{pkill -USR1 -x sxhkd, ~/.config/polybar/launch -r, ~/.config/picom/launch -r}
+
+# lock screen
+super + @BackSpace
+	~/.local/bin/lock
 
 # terminal emulator
 super + Return
 	alacritty
 
-# lock screen
-super + BackSpace
-	~/.local/bin/lock
-
 # program launcher
-super + @space
+super + space
 	rofi -show drun -m primary
 
 # screenshots
 @Print ; {f,w,d}
 	{scrot -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -u -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -d 10 -q 100 -e 'mv $f ~/Pictures/Screenshots/'}
+
+#
+# bspwm
+#
 
 # close/kill
 super + {_,shift + }w
@@ -93,7 +101,7 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # balance the windows
-super + 0
+super + b
 	bspc node @/ -B
 
 # preselect the direction
@@ -108,6 +116,10 @@ super + ctrl + w
 super + alt + {h,j,k,l} ; {0-9}
 	bspc node {west,south,north,east} -r 0.{0-9}
 
+#
+# media keys
+#
+
 # play/pause
 XF86AudioPlay
 	playerctl play-pause
@@ -120,12 +132,14 @@ XF86Audio{Prev,Next}
 XF86AudioStop
 	playerctl stop
 
+# volume control
 XF86Audio{Raise,Lower}Volume
 	amixer set Master {5%+,5%-}
 	# amixer -c 0 set PCM {5%+,5%-}
 
-#XF86AudioMute
-	# amixer set Master toggle
+#
+# mouse
+#
 
 # bspwm controls menu
 super + @button2

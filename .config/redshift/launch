@@ -15,4 +15,4 @@ else
 	mkdir -p $LOG_DIR
 fi
 
-redshift -c ~/.config/redshift/config -v > /tmp/redshift/status.log 2>&1 &
+redshift -c $XDG_CONFIG_HOME/redshift/config -v > /tmp/redshift/status.log 2>&1 &
