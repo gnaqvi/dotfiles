@@ -10,21 +10,21 @@ function get_status() {
 }
 
 function get_polybar_text() {
-	OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
-	COLOR=#65737e
+	OUTPUT_TEMPL='%{F__COLOR__}%{F-} __TEMP__'
+	COLOR=$1
 	TEMP=$(get_status)
 
 	if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
 		TEMP=$(redshift -c $CONFIG_FILE -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
 
 		if [ -z "$TEMP" ]; then
-			COLOR=#65737e
+			COLOR=$1
 		elif [ "$TEMP" -ge 5000 ]; then
-			COLOR=#a3be8c
+			COLOR=$2
 		elif [ "$TEMP" -ge 4000 ]; then
-			COLOR=#ebcb8b
+			COLOR=$3
 		else
-			COLOR=#bf616a
+			COLOR=$4
 		fi
 
 		TEMP=${TEMP}k
@@ -48,7 +48,14 @@ function toggle() {
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
 
 case $1 in
-"-p") get_polybar_text ;;
-"-t") toggle ;;
-*) echo "Invalid parameter." && exit 1 ;;
+'-p')
+	[ "$#" -ne 5 ] && echo "Missing color codes." && exit 1
+	get_polybar_text $2 $3 $4 $5
+	;;
+'-t')
+	toggle
+	;;
+*)
+	echo "Invalid parameter." && exit 1
+	;;
 esac

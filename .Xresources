@@ -2,46 +2,46 @@
 ! Colors
 !-------------------------------------------------------------------------------
 
-*.foreground:  #c0c5ce
-*.background:  #2b303b
-*.cursorColor: #c0c5ce
-*.color0:      #2b303b
-*.color1:      #bf616a
-*.color2:      #a3be8c
-*.color3:      #ebcb8b
-*.color4:      #8fa1b3
-*.color5:      #b48ead
-*.color6:      #96b5b4
-*.color7:      #c0c5ce
-*.color8:      #65737e
-*.color9:      #bf616a
-*.color10:     #a3be8c
-*.color11:     #ebcb8b
-*.color12:     #8fa1b3
-*.color13:     #b48ead
-*.color14:     #96b5b4
-*.color15:     #eff1f5
-*.color16:     #d08770
-*.color17:     #ab7967
-*.color18:     #343d46
-*.color19:     #4f5b66
-*.color20:     #a7adba
-*.color21:     #dfe1e8
+*.foreground:  #e9e9f4
+*.background:  #282936
+*.cursorColor: #e9e9f4
+*.color0:      #282936
+*.color1:      #ea51b2
+*.color2:      #ebff87
+*.color3:      #00f769
+*.color4:      #62d6e8
+*.color5:      #b45bcf
+*.color6:      #a1efe4
+*.color7:      #e9e9f4
+*.color8:      #626483
+*.color9:      #ea51b2
+*.color10:     #ebff87
+*.color11:     #00f769
+*.color12:     #62d6e8
+*.color13:     #b45bcf
+*.color14:     #a1efe4
+*.color15:     #f7f7fb
+*.color16:     #b45bcf
+*.color17:     #00f769
+*.color18:     #3a3c4e
+*.color19:     #4d4f68
+*.color20:     #62d6e8
+*.color21:     #f1f2f8
 
 !-------------------------------------------------------------------------------
 ! Cursor theme
 !-------------------------------------------------------------------------------
 
-Xcursor.theme:              "capitaine-cursors"
-Xcursor.size:               24
+Xcursor.theme: "capitaine-cursors"
+Xcursor.size:  24
 
 !-------------------------------------------------------------------------------
 ! Xft fonts
 !-------------------------------------------------------------------------------
 
-Xft.dpi:                    110
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
-Xft.lcdfilter:              lcddefault
+Xft.dpi:       110
+Xft.antialias: true
+Xft.rgba:      rgb
+Xft.hinting:   true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault

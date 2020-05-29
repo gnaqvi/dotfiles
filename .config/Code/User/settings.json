@@ -8,7 +8,7 @@
 	"workbench.activityBar.visible": true,
 	"editor.minimap.enabled": false,
 	"vim.disableExtension": true,
-	"editor.fontFamily": "'Fira Code Retina', monospace",
+	"editor.fontFamily": "'Input Mono Testing', 'monospace'",
 	"editor.fontLigatures": true,
 	"window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
 	"telemetry.enableTelemetry": false,

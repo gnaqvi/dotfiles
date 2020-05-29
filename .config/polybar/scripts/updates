@@ -35,7 +35,7 @@ case $1 in
 	eval "$(query 'trizen -Su --aur')"
 	STATUS="${STATUS}/${COUNT}"
 
-	echo " ${STATUS}"
+	echo "${STATUS}"
 ;;
 "-g")
 	eval "$(query 'checkupdates')"

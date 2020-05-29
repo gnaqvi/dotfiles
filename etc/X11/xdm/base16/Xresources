@@ -9,19 +9,19 @@ xlogin.Login.passwdPrompt:		    Password:\040
 xlogin*echoPasswd:      			true
 xlogin*echoPasswdChar:  			*
 
-xlogin*face:						Fira Sans:size=18:style=Normal
-xlogin*greetFace:					Fira Sans:size=18:style=Bold
-xlogin*promptFace:					Fira Sans:size=18:style=Bold
-xlogin*failFace:					Fira Sans:size=18:style=Bold
+xlogin*face:						Input Sans Condensed Testing:size=18:style=Normal
+xlogin*greetFace:					Input Sans Condensed Testing:size=18:style=Bold
+xlogin*promptFace:					Input Sans Condensed Testing:size=18:style=Bold
+xlogin*failFace:					Input Sans Condensed Testing:size=18:style=Bold
 
-xlogin*background:					#2b303b
-xlogin*foreground:					#c0c5ce
-xlogin.Login.promptColor:			#65737e
-xlogin.Login.inpColor:				#2b303b
-xlogin*failColor:					#bf616a
+xlogin*background:					#282936
+xlogin*foreground:					#e9e9f4
+xlogin.Login.promptColor:			#626483
+xlogin.Login.inpColor:				#282936
+xlogin*failColor:					#ff5555
 
 xlogin*borderWidth:		    		0
-xlogin.Login.width:		        	400
+xlogin.Login.width:		        	600
 xlogin.Login.height:		    	150
 xlogin.Login.y:                     645
 xlogin.Login.frameWidth:			0

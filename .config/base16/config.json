@@ -1,14 +1,14 @@
 {
-	"colors": "ocean",
-	"wallpaper": "clouds.png",
-	"opacity": 95,
+	"colors": "dracula",
+	"wallpaper": "borderlands.jpeg",
+	"opacity": 98,
 	"font": {
 		"sans": {
-			"name": "Fira Sans",
-			"size": "12"
+			"name": "Input Sans Condensed Testing",
+			"size": "11"
 		},
 		"monospace": {
-			"name": "Fira Code",
+			"name": "Input Mono Narrow Testing",
 			"size": "12"
 		}
 	},
@@ -20,9 +20,6 @@
 	"templates": [
 		"$HOME/.config/fish/config.fish.template",
 		"$HOME/.config/picom/config.template",
-		"$HOME/.config/polybar/scripts/rsctl.template",
-		"$HOME/.config/polybar/scripts/gpu.template",
-		"$HOME/.config/polybar/scripts/now_playing.template",
 		"$HOME/.config/bspwm/bspwmrc.template",
 		"$HOME/.config/polybar/config.template",
 		"$HOME/.config/dunst/dunstrc.template",

@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # Generate config on demand
 [ ! -z "$1" ] && [ "$1" == "-r" ] && \

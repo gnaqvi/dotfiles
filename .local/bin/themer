@@ -1,11 +1,41 @@
 #!/bin/bash
 
 BASE16_DIR="$HOME/.config/base16"
-CONFIG_FILE="$BASE16_DIR/config.json"
-GEN_THEME="$BASE16_DIR/theme.generated.json"
+TEMPLATES_DIR="$BASE16_DIR/templates"
 COLORS_DIR="$BASE16_DIR/colors"
-EXTRA_TMPL="$COLORS_DIR/extra.template"
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+SHARED_DIR="$HOME/.local/share/themer"
+
+CONFIG_FILE="$BASE16_DIR/config.json"
+GENERATED_THEME="$SHARED_DIR/theme.json"
+
+ALPHA_COLORS_TMPL_FILE='/tmp/alpha_colors_tmpl.json'
+ALPHA_COLORS_TMPL='
+{
+	"alphas": {
+		"00": "#{{opacity.hex}}{{colors.base.00}}",
+		"01": "#{{opacity.hex}}{{colors.base.01}}",
+		"02": "#{{opacity.hex}}{{colors.base.02}}",
+		"03": "#{{opacity.hex}}{{colors.base.03}}",
+		"04": "#{{opacity.hex}}{{colors.base.04}}",
+		"05": "#{{opacity.hex}}{{colors.base.05}}",
+		"06": "#{{opacity.hex}}{{colors.base.06}}",
+		"07": "#{{opacity.hex}}{{colors.base.07}}",
+		"08": "#{{opacity.hex}}{{colors.base.08}}",
+		"09": "#{{opacity.hex}}{{colors.base.09}}",
+		"0A": "#{{opacity.hex}}{{colors.base.0A}}",
+		"0B": "#{{opacity.hex}}{{colors.base.0B}}",
+		"0C": "#{{opacity.hex}}{{colors.base.0C}}",
+		"0D": "#{{opacity.hex}}{{colors.base.0D}}",
+		"0E": "#{{opacity.hex}}{{colors.base.0E}}",
+		"0F": "#{{opacity.hex}}{{colors.base.0F}}",
+		"ignore": "#{{opacity.hex}}{{colors.base.0B}}",
+		"normal": "#{{opacity.hex}}{{colors.base.0B}}",
+		"warn": "#{{opacity.hex}}{{colors.base.0A}}",
+		"alert": "#{{opacity.hex}}{{colors.base.08}}"
+	}
+}
+'
 
 function stdin_view_render() {
 	echo "$(echo "$1" | mustache - $2)"
@@ -17,26 +47,31 @@ function file_view_render() {
 
 function gen_theme() {
 	nvm use default > /dev/null
-	rm $GEN_THEME 2> /dev/null
+	[ -f "$GENERATED_THEME" ] || rm $GENERATED_THEME 2> /dev/null
+	[ -d "$SHARED_DIR" ] || mkdir -p $SHARED_DIR 2> /dev/null
 
 	local OUTPUT=""
 
 	local OPACITY=$(jq -r '.opacity' $CONFIG_FILE)
+	local OPACITY_INVERSE="$((100-${OPACITY}))"
 	local OPACITY_HEX=$(printf '%x' "$((255*${OPACITY}/100))")
-	local OPACITY_JSON="{ \"percentage\": \"$OPACITY\", \"hex\": \"$OPACITY_HEX\" }"
+	local OPACITY_JSON="{ \"percentage\": \"$OPACITY\", \"inverse\": \"$OPACITY_INVERSE\", \"hex\": \"$OPACITY_HEX\" }"
 	local OUTPUT=$(jq ".opacity = $OPACITY_JSON" $CONFIG_FILE)
 
 	local BASE16_THEME=$(jq -r '.colors' $CONFIG_FILE)
 	local COLORS_FILE="${COLORS_DIR}/${BASE16_THEME}.json"
 
 	local HASHLESS_COLORS=$(sed 's/#//' $COLORS_FILE | jq ". += { \"opacity\": $OPACITY_JSON }" -)
-	local EXTRA_COLORS_JSON=$(stdin_view_render "$HASHLESS_COLORS" $EXTRA_TMPL)
 
-	local ALL_COLORS=$(jq ".colors += $EXTRA_COLORS_JSON" $COLORS_FILE)
+	echo "$ALPHA_COLORS_TMPL" > $ALPHA_COLORS_TMPL_FILE
+	local ALPHA_COLORS_JSON=$(stdin_view_render "$HASHLESS_COLORS" $ALPHA_COLORS_TMPL_FILE)
+	rm $ALPHA_COLORS_TMPL_FILE
+
+	local ALL_COLORS=$(jq ".colors += $ALPHA_COLORS_JSON" $COLORS_FILE)
 	OUTPUT=$(echo $OUTPUT | jq ". += $ALL_COLORS")
 	OUTPUT=$(echo $OUTPUT | jq ".colors += { \"scheme\": \"$BASE16_THEME\" }")
 
-	echo "$OUTPUT" | jq 'del(.templates)' > $GEN_THEME
+	echo "$OUTPUT" | jq 'del(.templates)' > $GENERATED_THEME
 }
 
 function gen_app_config() {
@@ -45,7 +80,7 @@ function gen_app_config() {
 	local SOURCE=$(echo "$DIR/$FILE" | envsubst)
 	local TARGET=$(echo "$DIR/${FILE%.*}" | envsubst)
 
-	file_view_render $GEN_THEME $SOURCE > $TARGET
+	file_view_render $GENERATED_THEME $SOURCE > $TARGET
 }
 
 function set_wallpaper() {
@@ -83,6 +118,12 @@ case $1 in
 "--set")
 	test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
 	set_theme
+	;;
+"--refresh")
+	$XDG_CONFIG_HOME/polybar/launch
+	$XDG_CONFIG_HOME/dunst/launch
+	$XDG_CONFIG_HOME/redshift/launch
+	$XDG_CONFIG_HOME/picom/launch
 	;;
 *)
 	echo 'Invalid parameter.' >&2; exit 1

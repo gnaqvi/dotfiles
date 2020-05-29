@@ -19,7 +19,7 @@ eval (starship init fish)
 if status --is-interactive
 	set BASE16_SHELL "$HOME/.config/base16-shell/"
 	source "$BASE16_SHELL/profile_helper.fish"
-	base16-ocean
+	base16-dracula
 end
 
 if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc

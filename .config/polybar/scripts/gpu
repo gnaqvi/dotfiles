@@ -5,16 +5,16 @@ function get_usage() {
 }
 
 function get_temp() {
-	OUTPUT_TEMPL='%{F__COLOR__} __TEMP__%{F-}'
-	COLOR=#a7adba
+	OUTPUT_TEMPL='%{F__COLOR__}%{F-} __TEMP__'
+	COLOR=$1
 	TEMP=$(~/.local/bin/hwinfo --gpu temp)
 
 	if [ "${TEMP%??}" -ge 80 ]; then
-		COLOR=#bf616a
+		COLOR=$4
 	elif [ "${TEMP%??}" -ge 60 ]; then
-		COLOR=#ebcb8b
+		COLOR=$3
 	else
-		COLOR=#a3be8c
+		COLOR=$2
 	fi
 
 	WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
@@ -26,7 +26,14 @@ function get_temp() {
 [ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
 
 case $1 in
-"--usage") get_usage ;;
-"--temp") get_temp ;;
-*) echo "Invalid parameter." && exit 1 ;;
+"--usage")
+	get_usage
+	;;
+"--temp")
+	[ "$#" -ne 5 ] && echo "Missing color codes." && exit 1
+	get_temp $2 $3 $4 $5
+	;;
+*)
+	echo "Invalid parameter." && exit 1
+	;;
 esac

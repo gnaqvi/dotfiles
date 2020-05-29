@@ -12,20 +12,19 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "Fira Sans:weight=Regular:size=12;4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;4"
-font-3 = "Material Icons:pixelsize=17;7"
+font-0 = "Input Sans Condensed Testing:weight=Regular:size=11;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
 
-background = #f22b303b
-foreground = #a7adba
+background = #f9282936
+foreground = #e9e9f4
 
-line-size  = 3
-line-color = #f2b48ead
+line-size = 3
+line-color = #f9b45bcf
 
 border-size = 0
 
-padding-left  = 2
+padding-left = 2
 padding-right = 2
 
 module-margin-left  = 0
@@ -69,51 +68,51 @@ fuzzy-match = true
 
 format = <label-state> <label-mode>
 
-label-dimmed-foreground = #65737e
+label-dimmed-foreground = #626483
 
 label-dimmed-occupied = %icon%
-label-dimmed-occupied-foreground = #eff1f5
-label-dimmed-occupied-padding = 3
+label-dimmed-occupied-foreground = #f7f7fb
+label-dimmed-occupied-padding = 2
 
 label-dimmed-empty = %icon%
-label-dimmed-empty-foreground = #4f5b66
-label-dimmed-empty-padding = 3
+label-dimmed-empty-foreground = #626483
+label-dimmed-empty-padding = 2
 
 label-focused = %icon%
-label-focused-foreground = #eff1f5
-label-focused-background = #f2343d46
-label-focused-overline = #ebcb8b
-label-focused-padding = 3
+label-focused-foreground = #f7f7fb
+label-focused-background = #f93a3c4e
+label-focused-overline = #ebff87
+label-focused-padding = 2
 
 label-occupied = %icon%
-label-occupied-foreground = #eff1f5
-label-occupied-padding = 3
+label-occupied-foreground = #f7f7fb
+label-occupied-padding = 2
 
 label-urgent = %icon%
-label-urgent-foreground = #a7adba
-label-urgent-background = #f2bf616a
-label-urgent-padding = 3
+label-urgent-foreground = #62d6e8
+label-urgent-background = #f9ea51b2
+label-urgent-padding = 2
 
 label-empty = %icon%
-label-empty-foreground = #4f5b66
-label-empty-padding = 3
+label-empty-foreground = #626483
+label-empty-padding = 2
 
 label-monocle = 
-label-monocle-foreground = #a3be8c
+label-monocle-foreground = #b45bcf
 label-tiled = 
-label-tiled-foreground = #a3be8c
+label-tiled-foreground = #b45bcf
 label-fullscreen = 
-label-fullscreen-foreground = #a3be8c
+label-fullscreen-foreground = #b45bcf
 label-floating = 
-label-floating-foreground = #a3be8c
+label-floating-foreground = #b45bcf
 label-pseudotiled = P
-label-pseudotiled-foreground = #a3be8c
+label-pseudotiled-foreground = #b45bcf
 label-locked = " "
-label-locked-foreground = #a3be8c
+label-locked-foreground = #b45bcf
 label-sticky = " "
-label-sticky-foreground = #a3be8c
+label-sticky-foreground = #b45bcf
 label-private = " "
-label-private-foreground = #a3be8c
+label-private-foreground = #b45bcf
 
 [module/bspwm-secondary]
 inherit = common/bspwm
@@ -126,10 +125,10 @@ ws-icon-default = 
 type = internal/xwindow
 
 format-padding = 0
-format-foreground = #ebcb8b
+format-foreground = #ebff87
 
 label = %title:0:140:...%
-label-font   = 0
+;label-font = 0
 
 [module/gap-small]
 type = custom/text
@@ -137,7 +136,7 @@ content = " "
 
 [module/gap]
 type = custom/text
-content = "      "
+content = "    "
 
 [common/pulseaudio]
 type = internal/pulseaudio
@@ -145,15 +144,15 @@ type = internal/pulseaudio
 use-ui-max = false
 interval = 5
 
-format-volume = <ramp-volume>
+format-volume = <ramp-volume> <label-volume>
 label-muted = 
-label-muted-foreground = #4f5b66
+label-muted-foreground = #626483
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-click-right = pavucontrol &
+click-right = pavucontrol
 click-left = amixer set Master toggle
 
 ;--------------------------------------------------------------------;
@@ -170,20 +169,20 @@ modules-left = apps gap news
 modules-center = clock
 modules-right = redshift gap weather gap now-playing
 
-font-1 = "Weather Icons:size=13;6"
+font-3 = "Weather Icons:size=11;5"
 
 [module/apps]
 type = custom/text
-content = 
-content-foreground = #ebcb8b
+content = 
+content-foreground = #ebff87
 click-left = rofi -show drun
 
 [module/news]
 type = custom/script
-label =  %output:0:200%...
+label =  %output:0:150%...
 exec = ~/.config/polybar/scripts/news
 click-left = firefox https://news.ycombinator.com/
-interval = 600
+interval = 300
 
 [module/clock]
 type = custom/script
@@ -193,7 +192,7 @@ click-left = ~/.config/polybar/scripts/calendar
 
 [module/redshift]
 type = custom/script
-exec = ~/.config/polybar/scripts/rsctl -p
+exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#62d6e8' '#ebff87' '#ea51b2'
 interval = 5
 click-left = ~/.config/polybar/scripts/rsctl -t
 
@@ -202,16 +201,17 @@ type = custom/script
 exec = ~/.config/polybar/scripts/weather -p
 interval = 1800
 click-left = ~/.config/polybar/scripts/weather -o
+label-font = 4
 
 [module/now-playing]
 type = custom/script
 label = %output:0:50%
-exec = python -u -W ignore ~/.config/polybar/scripts/now_playing
+exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '#e9e9f4' -i '#626483'
 tail = true
-
 click-left = playerctl play-pause
 click-middle = playerctl next
 click-right = playerctl previous
+
 
 ;--------------------------------------------------------------------;
 ; Bottom panel
@@ -227,7 +227,8 @@ bottom = true
 padding-left = 0
 padding-right = 0
 
-font-4 = "icomoon:pixelsize=15;3"
+font-3 = "Material Icons:pixelsize=17;7"
+font-4 = "icomoon:style=Regular:pixelsize=22"
 font-5 = "Spy Agency:pixelsize=12;4"
 font-6 = "Spy Agency Laser:pixelsize=12;4"
 font-7 = "Geforce:style=Bold:pixelsize=12;5"
@@ -238,7 +239,7 @@ modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand g
 
 tray-position = right
 tray-padding = 0
-tray-background = #2b303b
+tray-background = #f9282936
 tray-maxsize = 22
 
 [module/bspwm]
@@ -246,10 +247,10 @@ inherit = common/bspwm
 
 ws-icon-0 = terminal;
 ws-icon-1 = code;
-ws-icon-2 = tor;
+ws-icon-2 = tor;
 ws-icon-3 = web;
 ws-icon-4 = music;
-ws-icon-5 = chat;
+ws-icon-5 = chat;
 ws-icon-6 = misc;
 ws-icon-default = 
 
@@ -274,24 +275,24 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = #bf616a
+label-warn-foreground = #ff5555
 
 ramp-0 = 
-ramp-0-foreground = #a3be8c
+ramp-0-foreground = #00f769
 ramp-1 = 
-ramp-1-foreground = #a3be8c
+ramp-1-foreground = #00f769
 ramp-2 = 
-ramp-2-foreground = #a3be8c
+ramp-2-foreground = #00f769
 ramp-3 =  
-ramp-3-foreground = #a3be8c
+ramp-3-foreground = #00f769
 ramp-4 = 
-ramp-4-foreground = #a3be8c
+ramp-4-foreground = #00f769
 ramp-5 = 
-ramp-5-foreground = #ebcb8b
+ramp-5-foreground = #ebff87
 ramp-6 = 
-ramp-6-foreground = #ebcb8b
+ramp-6-foreground = #ebff87
 ramp-7 = 
-ramp-7-foreground = #bf616a
+ramp-7-foreground = #ff5555
 
 [module/gpu-brand]
 type = custom/text
@@ -305,14 +306,14 @@ label = %output%
 
 [module/gpu-temp]
 type = custom/script
-exec = ~/.config/polybar/scripts/gpu --temp
+exec = ~/.config/polybar/scripts/gpu --temp '#626483' '#00f769' '#ebff87' '#ff5555'
 interval = 5
 label = %output%
 
 [module/memory]
 type = internal/memory
 interval = 5
-format-prefix = "LPX  "
+format-prefix = " "
 label = %percentage_used%%
 
 [module/filesystem]
@@ -323,7 +324,7 @@ mount-0 = /
 format-mounted-prefix = %{A1:baobab:}  %{A}
 label-mounted = %{A1:baobab:}%percentage_used%%%{A}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = #bf616a
+label-unmounted-foreground = #ff5555
 
 [module/network]
 type = internal/network
@@ -333,25 +334,25 @@ interval = 5
 ping-interval = 0
 accumulate-stats = false
 
-format-connected = <label-connected> <ramp-signal>
+format-connected = <ramp-signal><label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected> <animation-packetloss>
 
 label-connected = %essid%
 label-signal = %signal%
 label-disconnected =  Not connected
-label-disconnected-foreground = #4f5b66
+label-disconnected-foreground = #626483
 
-label-packetloss-foreground = #bf616a
-animation-packetloss-0 = ⚠
-animation-packetloss-1 = 📶
+label-packetloss-foreground = #ff5555
+animation-packetloss-0 = 
+animation-packetloss-1 = 
 animation-packetloss-framerate = 500
 
-ramp-signal-0 = %{T5}%{T-}
-ramp-signal-1 = %{T5}%{T-}
-ramp-signal-2 = %{T5}%{T-}
-ramp-signal-3 = %{T5}%{T-}
-ramp-signal-4 = %{T5}%{T-}
+ramp-signal-0 = %{T5}%{T-}
+ramp-signal-1 = %{T5}%{T-}
+ramp-signal-2 = %{T5}%{T-}
+ramp-signal-3 = %{T5}%{T-}
+ramp-signal-4 = %{T5}%{T-}
 
 [module/usb-audio]
 inherit = common/pulseaudio
@@ -359,14 +360,14 @@ sink = alsa_output.usb-Focusrite_Scarlett_2i2_USB-00.analog-stereo
 
 [module/updates]
 type = custom/script
-label = %output%
+label =  %output%
 exec = ~/.config/polybar/scripts/updates -p
 interval = 600
 click-left = ~/.config/polybar/scripts/updates -g
 
 [module/power-menu]
 type = custom/text
-content-foreground = #bf616a
+content-foreground = #ff5555
 content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 

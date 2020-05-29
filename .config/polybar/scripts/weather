@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CITY="6092122"
-
 get_icon() {
 	case $1 in
 		01d) icon="";;
@@ -57,7 +55,7 @@ function get_polybar_text() {
 
 		echo "$(get_icon "$current_icon") $current_temp$SYMBOL  $trend  $(get_icon "$forecast_icon") $forecast_temp$SYMBOL   $sun_rise   $sun_set"
 	else
-		echo "%{F$BASE02} Unable to get forecast%{F-}"
+		echo " Unable to get forecast"
 	fi
 }
 

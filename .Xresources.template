@@ -32,16 +32,16 @@
 ! Cursor theme
 !-------------------------------------------------------------------------------
 
-Xcursor.theme:              "{{ gtk.cursors }}"
-Xcursor.size:               24
+Xcursor.theme: "{{ gtk.cursors }}"
+Xcursor.size:  24
 
 !-------------------------------------------------------------------------------
 ! Xft fonts
 !-------------------------------------------------------------------------------
 
-Xft.dpi:                    110
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
-Xft.lcdfilter:              lcddefault
+Xft.dpi:       110
+Xft.antialias: true
+Xft.rgba:      rgb
+Xft.hinting:   true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault

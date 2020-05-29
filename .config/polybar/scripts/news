@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# TODO: Implement scrolling
 
 import feedparser
 from subprocess import call
@@ -9,4 +10,3 @@ nwz = feedparser.parse("https://news.ycombinator.com/rss")
 
 for f in range(0, 1):
 	print(nwz.entries[f].title)
-	xy = nwz.entries[f].title

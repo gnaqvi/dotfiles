@@ -21,7 +21,7 @@ xlogin.Login.inpColor:				{{ colors.base.00 }}
 xlogin*failColor:					{{ colors.levels.alert }}
 
 xlogin*borderWidth:		    		0
-xlogin.Login.width:		        	400
+xlogin.Login.width:		        	600
 xlogin.Login.height:		    	150
 xlogin.Login.y:                     645
 xlogin.Login.frameWidth:			0

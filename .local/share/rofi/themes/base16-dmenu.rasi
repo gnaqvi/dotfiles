@@ -1,26 +1,26 @@
 * {
-	base00: #2b303bf2;
-	base01: #343d46f2;
-	base02: #4f5b66f2;
-	base03: #65737ef2;
-	base04: #a7adba;
-	base05: #c0c5ce;
-	base06: #dfe1e8;
-	base07: #eff1f5f2;
-	base08: #bf616af2;
-	base09: #d08770f2;
-	base0A: #ebcb8bf2;
-	base0B: #a3be8cf2;
-	base0D: #8fa1b3f2;
-	base0C: #96b5b4f2;
-	base0E: #b48eadf2;
-	base0F: #ab7967f2;
+	base00: #282936f9;
+	base01: #3a3c4ef9;
+	base02: #4d4f68f9;
+	base03: #626483f9;
+	base04: #62d6e8;
+	base05: #e9e9f4;
+	base06: #f1f2f8;
+	base07: #f7f7fbf9;
+	base08: #ea51b2f9;
+	base09: #b45bcff9;
+	base0A: #00f769f9;
+	base0B: #ebff87f9;
+	base0D: #62d6e8f9;
+	base0C: #a1efe4f9;
+	base0E: #b45bcff9;
+	base0F: #00f769f9;
 
 	transparent:      #FFFFFF00;
 	background-color: @transparent;
 	separatorcolor:   @transparent;
 
-	font:             "Fira Sans 15";
+	font:             "Input Sans Condensed Testing 15";
 }
 
 #window {
