@@ -2,7 +2,7 @@
 
 # Generate config on demand
 [ ! -z "$1" ] && [ "$1" == "-r" ] && \
-    $HOME/.local/bin/themer --app-config $XDG_CONFIG_HOME/picom/config.template
+    $HOME/.local/bin/themer --template .config/picom/config.template
 
 # Terminate already running picom instances
 killall -q picom

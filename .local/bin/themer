@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DOTFILES_DIR="$HOME/.dotfiles"
 BASE16_DIR="$HOME/.config/base16"
 TEMPLATES_DIR="$BASE16_DIR/templates"
 COLORS_DIR="$BASE16_DIR/colors"
@@ -45,7 +46,22 @@ function file_view_render() {
 	echo "$(mustache $1 $2)"
 }
 
-function gen_theme() {
+function render_config() {
+	local TEMPLATE=$1
+	local TEMPLATE_ABS=$(realpath "$TEMPLATES_DIR/$TEMPLATE")
+	test -f $TEMPLATE_ABS || { echo 'Template does not exist.' >&2; exit 1; }
+
+	local DIR=$(dirname $1) #.config/polybar
+	local FILE_NAME=$(basename $1) #config
+
+	local CONFIG_DIR="$DOTFILES_DIR/$DIR" #~/.dotfiles/.config/polybar
+	local CONFIG_FILE=$(echo "$DOTFILES_DIR/$DIR/${FILE_NAME%.*}")
+
+	mkdir -p $CONFIG_DIR
+	file_view_render $GENERATED_THEME $TEMPLATE_ABS > $CONFIG_FILE
+}
+
+function render_theme() {
 	nvm use default > /dev/null
 	[ -f "$GENERATED_THEME" ] || rm $GENERATED_THEME 2> /dev/null
 	[ -d "$SHARED_DIR" ] || mkdir -p $SHARED_DIR 2> /dev/null
@@ -74,44 +90,31 @@ function gen_theme() {
 	echo "$OUTPUT" | jq 'del(.templates)' > $GENERATED_THEME
 }
 
-function gen_app_config() {
-	local DIR=$(dirname $1)
-	local FILE=$(basename $1)
-	local SOURCE=$(echo "$DIR/$FILE" | envsubst)
-	local TARGET=$(echo "$DIR/${FILE%.*}" | envsubst)
+function set_theme() {
+	render_theme
 
-	file_view_render $GENERATED_THEME $SOURCE > $TARGET
+	local TEMPLATE_ARR=()
+	readarray -t TEMPLATE_ARR < <(find $TEMPLATES_DIR -type f -name '*.template' -printf "%P\n")
+
+	for TMPL in ${TEMPLATE_ARR[@]};
+	do
+		render_config $TMPL
+	done
 }
 
 function set_wallpaper() {
 	feh --no-fehbg --bg-fill "$WALLPAPER_DIR/$(jq -r '.wallpaper' $CONFIG_FILE)"
 }
 
-function set_theme() {
-	gen_theme
-
-	local TEMPLATE_ARR=()
-	read -a TEMPLATE_ARR < <(jq -r '.templates|@tsv' $CONFIG_FILE)
-
-	for TMPL in ${TEMPLATE_ARR[@]};
-	do
-		gen_app_config $TMPL
-	done
-
-	set_wallpaper
-}
-
 case $1 in
-"--app-config")
+"--template")
 	case $2 in
 	"")
 		echo 'Missing parameter.' >&2; exit 1
 		;;
 	*)
 		test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
-		ABS_PATH=$(realpath $2)
-		test -f $ABS_PATH || { echo 'File does not exist.' >&2; exit 1; }
-		gen_app_config $ABS_PATH
+		render_config $2
 		;;
 	esac
 	;;
@@ -120,10 +123,8 @@ case $1 in
 	set_theme
 	;;
 "--refresh")
-	$XDG_CONFIG_HOME/polybar/launch
-	$XDG_CONFIG_HOME/dunst/launch
-	$XDG_CONFIG_HOME/redshift/launch
-	$XDG_CONFIG_HOME/picom/launch
+	set_wallpaper
+	$XDG_CONFIG_HOME/bspwm/bspwmrc
 	;;
 *)
 	echo 'Invalid parameter.' >&2; exit 1

@@ -9,28 +9,12 @@
 		},
 		"monospace": {
 			"name": "Input Mono Narrow Testing",
-			"size": "12"
+			"size": "11.5"
 		}
 	},
 	"gtk": {
 		"theme": "Arc-Dark",
 		"icons": "la-capitaine",
 		"cursors": "capitaine-cursors"
-	},
-	"templates": [
-		"$HOME/.config/fish/config.fish.template",
-		"$HOME/.config/picom/config.template",
-		"$HOME/.config/bspwm/bspwmrc.template",
-		"$HOME/.config/polybar/config.template",
-		"$HOME/.config/dunst/dunstrc.template",
-		"$HOME/.config/alacritty/alacritty.yml.template",
-		"$HOME/.config/kitty/kitty.conf.template",
-		"$HOME/.config/gtk-3.0/settings.ini.template",
-		"$HOME/.config/rofi/config.rasi.template",
-		"$HOME/.local/share/rofi/themes/base16.rasi.template",
-		"$HOME/.local/share/rofi/themes/base16-dmenu.rasi.template",
-		"$HOME/.dotfiles/.Xresources.template",
-		"$HOME/.dotfiles/etc/X11/xdm/base16/Xresources.template",
-		"$HOME/.dotfiles/etc/X11/xdm/base16/Xsetup.template"
-	]
+	}
 }
