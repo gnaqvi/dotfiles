@@ -30,6 +30,9 @@ end
 # Environment
 #
 
+set -gx BROWSER /usr/bin/firefox
+set -gx EDITOR /usr/bin/code
+
 # Config directory
 set -gx XDG_CONFIG_HOME $HOME/.config
 

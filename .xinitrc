@@ -19,8 +19,8 @@ xrdb -load ~/.Xresources &
 # Load monitors info
 . ~/.local/bin/moninfo
 
-# Set theme
-~/.local/bin/themer --set
+# Write all theme-able configuration file
+~/.local/bin/themer --all
 
 # Start hotkey daemon and bspwm
 sxhkd -m 1 -t 20 &

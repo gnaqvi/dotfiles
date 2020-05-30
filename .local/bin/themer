@@ -46,7 +46,7 @@ function file_view_render() {
 	echo "$(mustache $1 $2)"
 }
 
-function render_config() {
+function render() {
 	local TEMPLATE=$1
 	local TEMPLATE_ABS=$(realpath "$TEMPLATES_DIR/$TEMPLATE")
 	test -f $TEMPLATE_ABS || { echo 'Template does not exist.' >&2; exit 1; }
@@ -54,19 +54,27 @@ function render_config() {
 	local DIR=$(dirname $1) #.config/polybar
 	local FILE_NAME=$(basename $1) #config
 
-	local CONFIG_DIR="$DOTFILES_DIR/$DIR" #~/.dotfiles/.config/polybar
+	local CONFIG_DIR="$DOTFILES_DIR/$DIR" #~/.dotfiles/.config
 	local CONFIG_FILE=$(echo "$DOTFILES_DIR/$DIR/${FILE_NAME%.*}")
 
 	mkdir -p $CONFIG_DIR
 	file_view_render $GENERATED_THEME $TEMPLATE_ABS > $CONFIG_FILE
 }
 
-function render_theme() {
+function render_all() {
+	local TEMPLATE_ARR=()
+	readarray -t TEMPLATE_ARR < <(find $TEMPLATES_DIR -type f -name '*.template' -printf "%P\n")
+
+	for TMPL in ${TEMPLATE_ARR[@]};
+	do
+		render $TMPL
+	done
+}
+
+function generate_theme() {
 	nvm use default > /dev/null
 	[ -f "$GENERATED_THEME" ] || rm $GENERATED_THEME 2> /dev/null
-	[ -d "$SHARED_DIR" ] || mkdir -p $SHARED_DIR 2> /dev/null
-
-	local OUTPUT=""
+	[ -d "$SHARED_DIR" ] || mkdir -p $SHARED_DIR 2> /de	local OUTPUT=""
 
 	local OPACITY=$(jq -r '.opacity' $CONFIG_FILE)
 	local OPACITY_INVERSE="$((100-${OPACITY}))"
@@ -90,41 +98,29 @@ function render_theme() {
 	echo "$OUTPUT" | jq 'del(.templates)' > $GENERATED_THEME
 }
 
-function set_theme() {
-	render_theme
-
-	local TEMPLATE_ARR=()
-	readarray -t TEMPLATE_ARR < <(find $TEMPLATES_DIR -type f -name '*.template' -printf "%P\n")
-
-	for TMPL in ${TEMPLATE_ARR[@]};
-	do
-		render_config $TMPL
-	done
-}
-
 function set_wallpaper() {
 	feh --no-fehbg --bg-fill "$WALLPAPER_DIR/$(jq -r '.wallpaper' $CONFIG_FILE)"
 }
 
 case $1 in
-"--template")
+"--one")
 	case $2 in
 	"")
 		echo 'Missing parameter.' >&2; exit 1
 		;;
 	*)
 		test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
-		render_config $2
+
+		render $2
 		;;
 	esac
 	;;
-"--set")
+"--all")
 	test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
-	set_theme
-	;;
-"--refresh")
+
+	generate_theme
+	render_all
 	set_wallpaper
-	$XDG_CONFIG_HOME/bspwm/bspwmrc
 	;;
 *)
 	echo 'Invalid parameter.' >&2; exit 1

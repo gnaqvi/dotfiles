@@ -10,9 +10,6 @@ if [ -n "$LM_NAME" ]; then
     bspc monitor $LM_NAME -d home terminal code code
 fi
 
-# Spawn settings
-bspc config automatic_scheme spiral
-
 # Colors
 bspc config normal_border_color   "#626483"
 bspc config focused_border_color  "#b45bcf"

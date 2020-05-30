@@ -17,7 +17,7 @@ fi
 systemctl --user import-environment $PATH
 
 # Environment
-BROWSER=/usr/bin/google-chrome-stable
+BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/code
 
 #
