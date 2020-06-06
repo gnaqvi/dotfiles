@@ -166,7 +166,7 @@
 	max_icon_size = 64
 
 	# Paths to default icons.
-	icon_path = /usr/share/icons/la-capitaine/status/scalable-dark:/usr/share/icons/la-capitaine/devices/scalable-dark
+	icon_path = /usr/share/icons/{{ gtk.icons }}}}/status/scalable-dark:/usr/share/icons/{{ gtk.icons }}}}/devices/scalable-dark
 
 	### History ###
 
@@ -276,24 +276,24 @@
 	# IMPORTANT: colors have to be defined in quotation marks.
 	# Otherwise the "#" and following would be interpreted as a comment.
 	background = "{{ colors.base.00 }}"
-	foreground = "{{ colors.base.06 }}"
-	frame_color = "{{ colors.levels.ignore }}"
+	foreground = "{{ colors.base.05 }}"
+	frame_color = "{{ colors.normal.green }}"
 	timeout = 10
 	# Icon for notifications with low urgency, uncomment to enable
 	#icon = /path/to/icon
 
 [urgency_normal]
 	background = "{{ colors.base.00 }}"
-	foreground = "{{ colors.base.06 }}"
-	frame_color = "{{ colors.levels.normal }}"
+	foreground = "{{ colors.base.05 }}"
+	frame_color = "{{ colors.normal.green }}"
 	timeout = 10
 	# Icon for notifications with normal urgency, uncomment to enable
 	#icon = /path/to/icon
 
 [urgency_critical]
 	background = "{{ colors.base.00 }}"
-	foreground = "{{ colors.base.06 }}"
-	frame_color = "{{ colors.levels.alert }}"
+	foreground = "{{ colors.base.05 }}"
+	frame_color = "{{ colors.normal.red }}"
 	timeout = 0
 	# Icon for notifications with critical urgency, uncomment to enable
 	#icon = /path/to/icon

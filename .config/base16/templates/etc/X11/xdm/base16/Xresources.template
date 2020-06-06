@@ -18,7 +18,7 @@ xlogin*background:					{{ colors.base.00 }}
 xlogin*foreground:					{{ colors.base.05 }}
 xlogin.Login.promptColor:			{{ colors.base.03 }}
 xlogin.Login.inpColor:				{{ colors.base.00 }}
-xlogin*failColor:					{{ colors.levels.alert }}
+xlogin*failColor:					{{ colors.normal.red }}
 
 xlogin*borderWidth:		    		0
 xlogin.Login.width:		        	600

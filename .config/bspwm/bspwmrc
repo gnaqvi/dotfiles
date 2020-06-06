@@ -4,6 +4,9 @@
 # bspwm settings
 #-------------------------------------------------------------------------------
 
+# Scheme
+bspc config automatic_scheme spiral
+
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code tor web music chat misc misc misc
 if [ -n "$LM_NAME" ]; then

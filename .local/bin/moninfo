@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 get_x() {
 	echo ${1:0:4}
@@ -34,17 +34,15 @@ LM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "left" {print $1}')
 LM_RES=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
 LM_HEIGHT=$(get_y $LM_RES)
 
-export LM_NAME
-export LM_RES
-export LM_HEIGHT
-[ ! -z "$LM_NAME" ] && export LM_BAR_HEIGHT=$(get_bar_height $LM_HEIGHT)
+[ -z "$LM_NAME" ] || export LM_NAME
+[ -z "$LM_RES" ] || export LM_RES
+[ -z "$LM_HEIGHT" ] || (export LM_HEIGHT; export LM_BAR_HEIGHT=$(get_bar_height $LM_HEIGHT))
 
 # Right
 RM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
 RM_RES=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
 RM_HEIGHT=$(get_y $RM_RES)
 
-export RM_NAME
-export RM_RES
-export RM_HEIGHT
-[ ! -z "$RM_NAME" ] && export RM_BAR_HEIGHT=$(get_bar_height $RM_HEIGHT)
+[ -z "$RM_NAME" ] || export RM_NAME
+[ -z "$RM_RES" ] || export RM_RES
+[ -z "$RM_HEIGHT" ] || (export RM_HEIGHT; export RM_BAR_HEIGHT=$(get_bar_height $RM_HEIGHT))

@@ -6,45 +6,76 @@ TEMPLATES_DIR="$BASE16_DIR/templates"
 COLORS_DIR="$BASE16_DIR/colors"
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 SHARED_DIR="$HOME/.local/share/themer"
-
 CONFIG_FILE="$BASE16_DIR/config.json"
 GENERATED_THEME="$SHARED_DIR/theme.json"
 
-ALPHA_COLORS_TMPL_FILE='/tmp/alpha_colors_tmpl.json'
-ALPHA_COLORS_TMPL='
-{
-	"alphas": {
-		"00": "#{{opacity.hex}}{{colors.base.00}}",
-		"01": "#{{opacity.hex}}{{colors.base.01}}",
-		"02": "#{{opacity.hex}}{{colors.base.02}}",
-		"03": "#{{opacity.hex}}{{colors.base.03}}",
-		"04": "#{{opacity.hex}}{{colors.base.04}}",
-		"05": "#{{opacity.hex}}{{colors.base.05}}",
-		"06": "#{{opacity.hex}}{{colors.base.06}}",
-		"07": "#{{opacity.hex}}{{colors.base.07}}",
-		"08": "#{{opacity.hex}}{{colors.base.08}}",
-		"09": "#{{opacity.hex}}{{colors.base.09}}",
-		"0A": "#{{opacity.hex}}{{colors.base.0A}}",
-		"0B": "#{{opacity.hex}}{{colors.base.0B}}",
-		"0C": "#{{opacity.hex}}{{colors.base.0C}}",
-		"0D": "#{{opacity.hex}}{{colors.base.0D}}",
-		"0E": "#{{opacity.hex}}{{colors.base.0E}}",
-		"0F": "#{{opacity.hex}}{{colors.base.0F}}",
-		"ignore": "#{{opacity.hex}}{{colors.base.0B}}",
-		"normal": "#{{opacity.hex}}{{colors.base.0B}}",
-		"warn": "#{{opacity.hex}}{{colors.base.0A}}",
-		"alert": "#{{opacity.hex}}{{colors.base.08}}"
-	}
+COLORS_TEMPLATE='{
+    "base": {
+        "00": "#{{ 00 }}",
+        "01": "#{{ 01 }}",
+        "02": "#{{ 02 }}",
+        "03": "#{{ 03 }}",
+        "04": "#{{ 04 }}",
+        "05": "#{{ 05 }}",
+        "06": "#{{ 06 }}",
+        "07": "#{{ 07 }}",
+        "08": "#{{ 08 }}",
+        "09": "#{{ 09 }}",
+        "0A": "#{{ 0A }}",
+        "0B": "#{{ 0B }}",
+        "0C": "#{{ 0C }}",
+        "0D": "#{{ 0D }}",
+        "0E": "#{{ 0E }}",
+        "0F": "#{{ 0F }}"
+    },
+    "normal": {
+        "black": "#{{ 00 }}",
+        "red": "#{{ 08 }}",
+        "green": "#{{ 0B }}",
+        "yellow": "#{{ 0A }}",
+        "blue": "#{{ 0D }}",
+        "magenta": "#{{ 0E }}",
+        "cyan": "#{{ 0C }}",
+        "white": "#{{ 05 }}"
+    },
+    "bright": {
+        "black": "#{{ 03 }}",
+        "red": "#{{ 08 }}",
+        "green": "#{{ 0B }}",
+        "yellow": "#{{ 0A }}",
+        "blue": "#{{ 0D }}",
+        "magenta": "#{{ 0E }}",
+        "cyan": "#{{ 0C }}",
+        "white": "#{{ 07 }}"
+    },
+    "hashless": {
+        "00": "{{ 00 }}",
+        "01": "{{ 01 }}",
+        "02": "{{ 02 }}",
+        "03": "{{ 03 }}",
+        "04": "{{ 04 }}",
+        "05": "{{ 05 }}",
+        "06": "{{ 06 }}",
+        "07": "{{ 07 }}",
+        "08": "{{ 08 }}",
+        "09": "{{ 09 }}",
+        "0A": "{{ 0A }}",
+        "0B": "{{ 0B }}",
+        "0C": "{{ 0C }}",
+        "0D": "{{ 0D }}",
+        "0E": "{{ 0E }}",
+        "0F": "{{ 0F }}",
+		"black": "{{ 03 }}",
+        "red": "{{ 08 }}",
+        "green": "{{ 0B }}",
+        "yellow": "{{ 0A }}",
+        "blue": "{{ 0D }}",
+        "magenta": "{{ 0E }}",
+        "cyan": "{{ 0C }}",
+        "white": "{{ 07 }}"
+    }
 }
 '
-
-function stdin_view_render() {
-	echo "$(echo "$1" | mustache - $2)"
-}
-
-function file_view_render() {
-	echo "$(mustache $1 $2)"
-}
 
 function render() {
 	local TEMPLATE=$1
@@ -58,7 +89,7 @@ function render() {
 	local CONFIG_FILE=$(echo "$DOTFILES_DIR/$DIR/${FILE_NAME%.*}")
 
 	mkdir -p $CONFIG_DIR
-	file_view_render $GENERATED_THEME $TEMPLATE_ABS > $CONFIG_FILE
+	mustache $GENERATED_THEME $TEMPLATE_ABS > $CONFIG_FILE
 }
 
 function render_all() {
@@ -72,30 +103,24 @@ function render_all() {
 }
 
 function generate_theme() {
-	nvm use default > /dev/null
 	[ -f "$GENERATED_THEME" ] || rm $GENERATED_THEME 2> /dev/null
-	[ -d "$SHARED_DIR" ] || mkdir -p $SHARED_DIR 2> /de	local OUTPUT=""
+	[ -d "$SHARED_DIR" ] || mkdir -p $SHARED_DIR 2> /dev/null
 
-	local OPACITY=$(jq -r '.opacity' $CONFIG_FILE)
+	local OUTPUT=$(jq -r '.' $CONFIG_FILE)
+
+	local OPACITY=$(echo $OUTPUT | jq -r '.opacity' -)
 	local OPACITY_INVERSE="$((100-${OPACITY}))"
 	local OPACITY_HEX=$(printf '%x' "$((255*${OPACITY}/100))")
-	local OPACITY_JSON="{ \"percentage\": \"$OPACITY\", \"inverse\": \"$OPACITY_INVERSE\", \"hex\": \"$OPACITY_HEX\" }"
-	local OUTPUT=$(jq ".opacity = $OPACITY_JSON" $CONFIG_FILE)
+	OUTPUT=$(echo $OUTPUT | jq ".opacity = { \"percentage\": $OPACITY, \"inverse\": $OPACITY_INVERSE, \"hex\": \"$OPACITY_HEX\" }")
 
-	local BASE16_THEME=$(jq -r '.colors' $CONFIG_FILE)
-	local COLORS_FILE="${COLORS_DIR}/${BASE16_THEME}.json"
+	local COLOR_SCHEME=$(echo $OUTPUT | jq -r '.colors')
+	local COLORS_VIEW=$(cat $COLORS_DIR/$COLOR_SCHEME.json)
+	COLORS_VIEW=$(echo $COLORS_VIEW | jq ". += { \"alpha\": \"$OPACITY_HEX\" }")
+	local ALL_COLORS=$(mustache <(echo "$COLORS_VIEW") <(echo $COLORS_TEMPLATE))
+	OUTPUT=$(echo $OUTPUT | jq ".colors = $ALL_COLORS")
+	OUTPUT=$(echo $OUTPUT | jq ".colors += { \"scheme\": \"$COLOR_SCHEME\" }")
 
-	local HASHLESS_COLORS=$(sed 's/#//' $COLORS_FILE | jq ". += { \"opacity\": $OPACITY_JSON }" -)
-
-	echo "$ALPHA_COLORS_TMPL" > $ALPHA_COLORS_TMPL_FILE
-	local ALPHA_COLORS_JSON=$(stdin_view_render "$HASHLESS_COLORS" $ALPHA_COLORS_TMPL_FILE)
-	rm $ALPHA_COLORS_TMPL_FILE
-
-	local ALL_COLORS=$(jq ".colors += $ALPHA_COLORS_JSON" $COLORS_FILE)
-	OUTPUT=$(echo $OUTPUT | jq ". += $ALL_COLORS")
-	OUTPUT=$(echo $OUTPUT | jq ".colors += { \"scheme\": \"$BASE16_THEME\" }")
-
-	echo "$OUTPUT" | jq 'del(.templates)' > $GENERATED_THEME
+	echo "$OUTPUT" > $GENERATED_THEME
 }
 
 function set_wallpaper() {
@@ -103,7 +128,7 @@ function set_wallpaper() {
 }
 
 case $1 in
-"--one")
+"--template")
 	case $2 in
 	"")
 		echo 'Missing parameter.' >&2; exit 1
@@ -115,12 +140,19 @@ case $1 in
 		;;
 	esac
 	;;
-"--all")
+"--set")
 	test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
 
 	generate_theme
 	render_all
-	set_wallpaper
+	;;
+"--refresh")
+	$HOME/.config/bspwm/bspwmrc
+	$HOME/.config/picom/launch
+    set_wallpaper
+	;;
+"--wall")
+    set_wallpaper
 	;;
 *)
 	echo 'Invalid parameter.' >&2; exit 1

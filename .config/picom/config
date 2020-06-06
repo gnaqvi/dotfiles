@@ -153,8 +153,8 @@ focus-exclude = [ "class_g = 'Cairo-clock'" ];
 # opacity-rule = []
 opacity-rule = [
   "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
-  "98:class_i = 'tray'",
-  "98:class_g = 'code-oss'"
+  "99:class_i = 'tray'",
+  "99:class_g = 'code-oss'"
 ];
 
 

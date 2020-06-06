@@ -18,7 +18,7 @@ xlogin*background:					#282936
 xlogin*foreground:					#e9e9f4
 xlogin.Login.promptColor:			#626483
 xlogin.Login.inpColor:				#282936
-xlogin*failColor:					#ff5555
+xlogin*failColor:					#ea51b2
 
 xlogin*borderWidth:		    		0
 xlogin.Login.width:		        	600

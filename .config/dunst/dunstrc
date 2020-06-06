@@ -41,7 +41,7 @@
 	# The transparency of the window.  Range: [0; 100].
 	# This option will only work if a compositing window manager is
 	# present (e.g. xcompmgr, compiz, etc.).
-	transparency = 2
+	transparency = 1
 
 	# The height of the entire notification.  If the height is smaller
 	# than the font height and padding combined, it will be raised
@@ -166,7 +166,7 @@
 	max_icon_size = 64
 
 	# Paths to default icons.
-	icon_path = /usr/share/icons/la-capitaine/status/scalable-dark:/usr/share/icons/la-capitaine/devices/scalable-dark
+	icon_path = /usr/share/icons/la-capitaine}}/status/scalable-dark:/usr/share/icons/la-capitaine}}/devices/scalable-dark
 
 	### History ###
 
@@ -276,7 +276,7 @@
 	# IMPORTANT: colors have to be defined in quotation marks.
 	# Otherwise the "#" and following would be interpreted as a comment.
 	background = "#282936"
-	foreground = "#f1f2f8"
+	foreground = "#e9e9f4"
 	frame_color = "#00f769"
 	timeout = 10
 	# Icon for notifications with low urgency, uncomment to enable
@@ -284,7 +284,7 @@
 
 [urgency_normal]
 	background = "#282936"
-	foreground = "#f1f2f8"
+	foreground = "#e9e9f4"
 	frame_color = "#00f769"
 	timeout = 10
 	# Icon for notifications with normal urgency, uncomment to enable
@@ -292,8 +292,8 @@
 
 [urgency_critical]
 	background = "#282936"
-	foreground = "#f1f2f8"
-	frame_color = "#ff5555"
+	foreground = "#e9e9f4"
+	frame_color = "#ea51b2"
 	timeout = 0
 	# Icon for notifications with critical urgency, uncomment to enable
 	#icon = /path/to/icon

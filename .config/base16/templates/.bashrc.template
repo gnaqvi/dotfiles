@@ -7,14 +7,14 @@ eval "$(starship init bash)"
 # Colors
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
-base16-{{ colors.scheme }}
+base16_{{ colors.scheme }}
 
 if [ -x /usr/bin/dircolors ]; then
 	[ -r ~/.dircolorsrc ] && eval "$(dircolors -b ~/.dircolorsrc)" || eval "$(dircolors -b)"
 fi
 
 # System
-systemctl --user import-environment $PATH
+systemctl --user import-environment PATH
 
 # Environment
 BROWSER=/usr/bin/firefox

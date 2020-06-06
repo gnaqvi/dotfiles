@@ -1,20 +1,20 @@
 * {
-	base00: #282936f9;
-	base01: #3a3c4ef9;
-	base02: #4d4f68f9;
-	base03: #626483f9;
+	base00: #282936fc;
+	base01: #3a3c4efc;
+	base02: #4d4f68fc;
+	base03: #626483fc;
 	base04: #62d6e8;
 	base05: #e9e9f4;
 	base06: #f1f2f8;
-	base07: #f7f7fbf9;
-	base08: #ea51b2f9;
-	base09: #b45bcff9;
-	base0A: #00f769f9;
-	base0B: #ebff87f9;
-	base0D: #62d6e8f9;
-	base0C: #a1efe4f9;
-	base0E: #b45bcff9;
-	base0F: #00f769f9;
+	base07: #f7f7fbfc;
+	base08: #ea51b2fc;
+	base09: #b45bcffc;
+	base0A: #ebff87fc;
+	base0B: #00f769fc;
+	base0D: #62d6e8fc;
+	base0C: #a1efe4fc;
+	base0E: #b45bcffc;
+	base0F: #7fc06efc;
 
 	transparent:      #FFFFFF00;
 	background-color: @transparent;
@@ -137,3 +137,4 @@
 	spacing:    0;
 	text-color: @base05;
 }
+

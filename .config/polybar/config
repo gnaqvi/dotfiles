@@ -16,11 +16,11 @@ font-0 = "Input Sans Condensed Testing:weight=Regular:size=11;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
 
-background = #f9282936
+background = #fc282936
 foreground = #e9e9f4
 
 line-size = 3
-line-color = #f9b45bcf
+line-color = #fcb45bcf
 
 border-size = 0
 
@@ -79,9 +79,9 @@ label-dimmed-empty-foreground = #626483
 label-dimmed-empty-padding = 2
 
 label-focused = %icon%
-label-focused-foreground = #f7f7fb
-label-focused-background = #f93a3c4e
-label-focused-overline = #ebff87
+label-focused-foreground = #e9e9f4
+label-focused-background = #fc3a3c4e
+label-focused-overline = #fcebff87
 label-focused-padding = 2
 
 label-occupied = %icon%
@@ -89,8 +89,8 @@ label-occupied-foreground = #f7f7fb
 label-occupied-padding = 2
 
 label-urgent = %icon%
-label-urgent-foreground = #62d6e8
-label-urgent-background = #f9ea51b2
+label-urgent-foreground = #e9e9f4
+label-urgent-background = #fc#ea51b2
 label-urgent-padding = 2
 
 label-empty = %icon%
@@ -167,22 +167,21 @@ dpi = ${env:PM_DPI:110}
 
 modules-left = apps gap news
 modules-center = clock
-modules-right = redshift gap weather gap now-playing
+modules-right = weather gap now-playing gap redshift gap power-menu
 
 font-3 = "Weather Icons:size=11;5"
 
 [module/apps]
 type = custom/text
 content = 
-content-foreground = #ebff87
+content-foreground = #7fc06e
 click-left = rofi -show drun
 
 [module/news]
 type = custom/script
 label =  %output:0:150%...
 exec = ~/.config/polybar/scripts/news
-click-left = firefox https://news.ycombinator.com/
-interval = 300
+double-click-left = firefox https://news.ycombinator.com/
 
 [module/clock]
 type = custom/script
@@ -192,7 +191,7 @@ click-left = ~/.config/polybar/scripts/calendar
 
 [module/redshift]
 type = custom/script
-exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#62d6e8' '#ebff87' '#ea51b2'
+exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#00f769' '#ebff87' '#ea51b2'
 interval = 5
 click-left = ~/.config/polybar/scripts/rsctl -t
 
@@ -200,18 +199,23 @@ click-left = ~/.config/polybar/scripts/rsctl -t
 type = custom/script
 exec = ~/.config/polybar/scripts/weather -p
 interval = 1800
-click-left = ~/.config/polybar/scripts/weather -o
+double-click-left = ~/.config/polybar/scripts/weather -o
 label-font = 4
 
 [module/now-playing]
 type = custom/script
-label = %output:0:50%
+label = %output:0:60%...
 exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '#e9e9f4' -i '#626483'
 tail = true
 click-left = playerctl play-pause
 click-middle = playerctl next
 click-right = playerctl previous
 
+[module/power-menu]
+type = custom/text
+content-foreground = #ea51b2
+content = 
+click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 ;--------------------------------------------------------------------;
 ; Bottom panel
@@ -220,6 +224,7 @@ click-right = playerctl previous
 [bar/bottom]
 inherit = common/bar
 
+enable-ipc = true
 monitor = ${env:PM_NAME:DP-0}
 dpi = ${env:PM_DPI:110}
 
@@ -235,11 +240,11 @@ font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap updates gap power-menu gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap updates gap
 
 tray-position = right
 tray-padding = 0
-tray-background = #f9282936
+tray-background = #fc282936
 tray-maxsize = 22
 
 [module/bspwm]
@@ -275,7 +280,7 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = #ff5555
+label-warn-foreground = #ea51b2
 
 ramp-0 = 
 ramp-0-foreground = #00f769
@@ -292,7 +297,7 @@ ramp-5-foreground = #ebff87
 ramp-6 = 
 ramp-6-foreground = #ebff87
 ramp-7 = 
-ramp-7-foreground = #ff5555
+ramp-7-foreground = #ea51b2
 
 [module/gpu-brand]
 type = custom/text
@@ -306,7 +311,7 @@ label = %output%
 
 [module/gpu-temp]
 type = custom/script
-exec = ~/.config/polybar/scripts/gpu --temp '#626483' '#00f769' '#ebff87' '#ff5555'
+exec = ~/.config/polybar/scripts/gpu --temp '#626483' '#00f769' '#ebff87' '#ea51b2'
 interval = 5
 label = %output%
 
@@ -324,7 +329,7 @@ mount-0 = /
 format-mounted-prefix = %{A1:baobab:}  %{A}
 label-mounted = %{A1:baobab:}%percentage_used%%%{A}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = #ff5555
+label-unmounted-foreground = #ea51b2
 
 [module/network]
 type = internal/network
@@ -343,7 +348,7 @@ label-signal = %signal%
 label-disconnected =  Not connected
 label-disconnected-foreground = #626483
 
-label-packetloss-foreground = #ff5555
+label-packetloss-foreground = #ea51b2
 animation-packetloss-0 = 
 animation-packetloss-1 = 
 animation-packetloss-framerate = 500
@@ -364,12 +369,6 @@ label =  %output%
 exec = ~/.config/polybar/scripts/updates -p
 interval = 600
 click-left = ~/.config/polybar/scripts/updates -g
-
-[module/power-menu]
-type = custom/text
-content-foreground = #ff5555
-content = 
-click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 ;--------------------------------------------------------------------;
 ; Left panel

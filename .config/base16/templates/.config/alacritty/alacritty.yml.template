@@ -215,25 +215,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '{{ colors.base.00 }}'
-    red:     '{{ colors.base.08 }}'
-    green:   '{{ colors.base.0B }}'
-    yellow:  '{{ colors.base.0A }}'
-    blue:    '{{ colors.base.0D }}'
-    magenta: '{{ colors.base.08 }}'
-    cyan:    '{{ colors.base.0C }}'
-    white:   '{{ colors.base.07 }}'
+    black:   '{{ colors.normal.black }}'
+    red:     '{{ colors.normal.red }}'
+    green:   '{{ colors.normal.green }}'
+    yellow:  '{{ colors.normal.yellow }}'
+    blue:    '{{ colors.normal.blue }}'
+    magenta: '{{ colors.normal.magenta }}'
+    cyan:    '{{ colors.normal.cyan }}'
+    white:   '{{ colors.normal.white }}'
 
   # Bright colors
   bright:
-    black:   '{{ colors.base.00 }}'
-    red:     '{{ colors.base.08 }}'
-    green:   '{{ colors.base.0B }}'
-    yellow:  '{{ colors.base.0A }}'
-    blue:    '{{ colors.base.0D }}'
-    magenta: '{{ colors.base.08 }}'
-    cyan:    '{{ colors.base.0C }}'
-    white:   '{{ colors.base.07 }}'
+    black:   '{{ colors.bright.black }}'
+    red:     '{{ colors.bright.red }}'
+    green:   '{{ colors.bright.green }}'
+    yellow:  '{{ colors.bright.yellow }}'
+    blue:    '{{ colors.bright.blue }}'
+    magenta: '{{ colors.bright.magenta }}'
+    cyan:    '{{ colors.bright.cyan }}'
+    white:   '{{ colors.bright.white }}'
 
   # Dim colors
   #
