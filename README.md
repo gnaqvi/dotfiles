@@ -9,5 +9,4 @@
 
 ### *TODO*
 - Sleep/hibernate lock handles
-- Fix Polybar now-playing script not showing content on startup
 - Implement scrollable Polybar newsfeed script

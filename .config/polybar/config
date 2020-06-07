@@ -204,7 +204,7 @@ label-font = 4
 
 [module/now-playing]
 type = custom/script
-label = %output:0:60%...
+label = %output:0:100%
 exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '#e9e9f4' -i '#626483'
 tail = true
 click-left = playerctl play-pause

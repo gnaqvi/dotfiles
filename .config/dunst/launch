@@ -2,7 +2,7 @@
 
 # Generate config on demand
 [ ! -z "$1" ] && [ "$1" == "-r" ] && \
-    $HOME/.local/bin/themer --one .config/dunst/dunstrc.template
+    $HOME/.local/bin/themer --template .config/dunst/dunstrc.template
 
 # Terminate already running dunst instances
 killall -q dunst

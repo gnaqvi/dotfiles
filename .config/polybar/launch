@@ -2,7 +2,7 @@
 
 # Generate config on demand
 [ ! -z "$1" ] && [ "$1" == "-r" ] && \
-    $HOME/.local/bin/themer --one .config/polybar/config.template
+    $HOME/.local/bin/themer --template .config/polybar/config.template
 
 # Load monitors info if not loaded already
 [ -z "$PM_NAME" ] && . $HOME/.local/bin/moninfo
