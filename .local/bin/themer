@@ -78,27 +78,27 @@ COLORS_TEMPLATE='{
 '
 
 function render() {
-	local TEMPLATE=$1
+	local TEMPLATE="$1"
 	local TEMPLATE_ABS=$(realpath "$TEMPLATES_DIR/$TEMPLATE")
-	test -f $TEMPLATE_ABS || { echo 'Template does not exist.' >&2; exit 1; }
+	test -f "$TEMPLATE_ABS" || { echo 'Template does not exist.' >&2; exit 1; }
 
-	local DIR=$(dirname $1) #.config/polybar
-	local FILE_NAME=$(basename $1) #config
+	local DIR=$(dirname "$1")
+	local FILE_NAME=$(basename "$1")
 
-	local CONFIG_DIR="$DOTFILES_DIR/$DIR" #~/.dotfiles/.config
+	local CONFIG_DIR="$DOTFILES_DIR/$DIR"
 	local CONFIG_FILE=$(echo "$DOTFILES_DIR/$DIR/${FILE_NAME%.*}")
 
-	mkdir -p $CONFIG_DIR
-	mustache $GENERATED_THEME $TEMPLATE_ABS > $CONFIG_FILE
+	mkdir -p "$CONFIG_DIR"
+	mustache $GENERATED_THEME "$TEMPLATE_ABS" > "$CONFIG_FILE"
 }
 
 function render_all() {
 	local TEMPLATE_ARR=()
 	readarray -t TEMPLATE_ARR < <(find $TEMPLATES_DIR -type f -name '*.template' -printf "%P\n")
 
-	for TMPL in ${TEMPLATE_ARR[@]};
+	for TMPL in "${TEMPLATE_ARR[@]}";
 	do
-		render $TMPL
+		render "$TMPL"
 	done
 }
 
@@ -136,7 +136,7 @@ case $1 in
 	*)
 		test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
 
-		render $2
+		render "$2"
 		;;
 	esac
 	;;

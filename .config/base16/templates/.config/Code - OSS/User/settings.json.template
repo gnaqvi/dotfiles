@@ -1,0 +1,63 @@
+{
+	"gitlens.advanced.messages": {
+		"suppressShowKeyBindingsNotice": true
+	},
+	"window.zoomLevel": 1.35,
+	"editor.fontSize": {{ font.monospace.size }},
+	"window.menuBarVisibility": "toggle",
+	"workbench.activityBar.visible": true,
+	"editor.minimap.enabled": false,
+	"vim.disableExtension": true,
+	"editor.fontFamily": "'{{ font.monospace.name }}'",
+	"editor.letterSpacing": 0.3,
+	"editor.fontLigatures": true,
+	"window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+	"telemetry.enableTelemetry": false,
+	"telemetry.enableCrashReporter": false,
+	"go.formatTool": "goimports",
+	"editor.cursorBlinking": "phase",
+	"editor.cursorStyle": "line",
+	"editor.renderLineHighlight": "none",
+	"workbench.tree.indent": 14,
+	"workbench.tree.renderIndentGuides": "always",
+	"breadcrumbs.enabled": false,
+	"workbench.colorTheme": "Dracula",
+	"go.useLanguageServer": true,
+	"[go]": {
+		"editor.tabSize": 4,
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true,
+		},
+		"editor.snippetSuggestions": "none",
+	},
+	"gopls": {
+		// Add parameter placeholders when completing a function.
+		"usePlaceholders": true,
+		// If true, enable additional analyses with staticcheck.
+		// Warning: This will significantly increase memory usage.
+		"staticcheck": false,
+	},
+	"files.eol": "\n",
+	"files.trimTrailingWhitespace": true,
+	"[json]": {
+		"editor.tabSize": 2
+	},
+	"[javascript]": {
+		"editor.tabSize": 2
+	},
+	"[xml]": {
+		"editor.tabSize": 2
+	},
+	"files.insertFinalNewline": true,
+	"[go.mod]": {
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true,
+		},
+	},
+	"workbench.iconTheme": "vscode-icons",
+	"cSpell.userWords": [
+		"monospace"
+	]
+}

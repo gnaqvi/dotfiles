@@ -49,6 +49,7 @@ file
 filesystem
 findutils
 firefox
+firefox-i18n-ur
 fish
 flex
 gawk
@@ -64,6 +65,7 @@ go
 gradle
 grep
 groff
+gtk-engine-murrine
 gtk2
 gucharmap
 gvfs-mtp
@@ -79,7 +81,6 @@ iproute2
 iputils
 iw
 jdk-openjdk
-jdk10-openjdk
 jfsutils
 jq
 kubectl-bin
@@ -115,7 +116,6 @@ ntp
 nvm
 nvme-cli
 openconnect
-openjdk10-doc
 openssh
 otf-fira-code
 pacman
@@ -169,10 +169,7 @@ tree
 trizen
 ttf-fira-code
 ttf-font-awesome
-ttf-google-fonts-git
-ttf-jameel-noori-nastaleeq
-ttf-liberation
-ttf-material-icons
+ttf-material-design-icons
 udiskie
 unrar
 unzip
@@ -192,7 +189,6 @@ xdg-user-dirs
 xdotool
 xf86-video-amdgpu
 xfsprogs
-xinit-xsession
 xorg-server
 xorg-xdm
 xorg-xdpyinfo
@@ -208,4 +204,3 @@ xterm
 xtitle
 yad
 zip
-zscroll-git
