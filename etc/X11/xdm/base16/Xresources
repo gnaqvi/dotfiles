@@ -14,11 +14,11 @@ xlogin*greetFace:					Input Sans Condensed Testing:size=18:style=Bold
 xlogin*promptFace:					Input Sans Condensed Testing:size=18:style=Bold
 xlogin*failFace:					Input Sans Condensed Testing:size=18:style=Bold
 
-xlogin*background:					#282936
-xlogin*foreground:					#e9e9f4
+xlogin*background:					#282a36
+xlogin*foreground:					#f8f8f2
 xlogin.Login.promptColor:			#626483
-xlogin.Login.inpColor:				#282936
-xlogin*failColor:					#ea51b2
+xlogin.Login.inpColor:				#626483
+xlogin*failColor:					#ff5555
 
 xlogin*borderWidth:		    		0
 xlogin.Login.width:		        	600

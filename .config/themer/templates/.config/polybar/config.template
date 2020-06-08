@@ -12,15 +12,15 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "Input Sans Condensed Testing:weight=Regular:size=12;4"
+font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
 
-background = #fc282a36
-foreground = #f8f8f2
+background = {{ opacity.hex }}{{ colors.normal.background }}
+foreground = {{ colors.normal.foreground }}
 
 line-size = 4
-line-color = #fccaa9fa
+line-color = {{ opacity.hex }}{{ colors.bright.blue }}
 
 border-size = 0
 
@@ -68,51 +68,51 @@ fuzzy-match = true
 
 format = <label-state> <label-mode>
 
-label-dimmed-foreground = #282a36
+label-dimmed-foreground = {{ colors.dim.background }}
 
 label-dimmed-occupied = %icon%
-label-dimmed-occupied-foreground = #626483
+label-dimmed-occupied-foreground = {{ colors.dim.foreground }}
 label-dimmed-occupied-padding = 2
 
 label-dimmed-empty = %icon%
-label-dimmed-empty-foreground = #3a3c4e
+label-dimmed-empty-foreground = {{ colors.bright.background }}
 label-dimmed-empty-padding = 2
 
 label-focused = %icon%
-label-focused-foreground = #f8f8f2
-label-focused-background = #fc3a3c4e
-label-focused-underline = #fccaa9fa
+label-focused-foreground = {{ colors.normal.foreground }}
+label-focused-background = {{ opacity.hex }}{{ colors.bright.background }}
+label-focused-underline = {{ opacity.hex }}{{ colors.bright.blue }}
 label-focused-padding = 2
 
 label-occupied = %icon%
-label-occupied-foreground = #ffffff
+label-occupied-foreground = {{ colors.bright.foreground }}
 label-occupied-padding = 2
 
 label-urgent = %icon%
-label-urgent-foreground = #f8f8f2
-label-urgent-background = #fcff5555
+label-urgent-foreground = {{ colors.normal.foreground }}
+label-urgent-background = {{ opacity.hex }}{{ colors.normal.red }}
 label-urgent-padding = 2
 
 label-empty = %icon%
-label-empty-foreground = #626483
+label-empty-foreground = {{ colors.dim.foreground }}
 label-empty-padding = 2
 
 label-monocle = 
-label-monocle-foreground = #8be9fd
+label-monocle-foreground = {{ colors.normal.cyan }}
 label-tiled = 
-label-tiled-foreground = #8be9fd
+label-tiled-foreground = {{ colors.normal.cyan }}
 label-fullscreen = 
-label-fullscreen-foreground = #8be9fd
+label-fullscreen-foreground = {{ colors.normal.cyan }}
 label-floating = 
-label-floating-foreground = #8be9fd
+label-floating-foreground = {{ colors.normal.cyan }}
 label-pseudotiled = P
-label-pseudotiled-foreground = #8be9fd
+label-pseudotiled-foreground = {{ colors.normal.cyan }}
 label-locked = " "
-label-locked-foreground = #8be9fd
+label-locked-foreground = {{ colors.normal.cyan }}
 label-sticky = " "
-label-sticky-foreground = #8be9fd
+label-sticky-foreground = {{ colors.normal.cyan }}
 label-private = " "
-label-private-foreground = #8be9fd
+label-private-foreground = {{ colors.normal.cyan }}
 
 [module/bspwm-secondary]
 inherit = common/bspwm
@@ -125,7 +125,7 @@ ws-icon-default = 
 type = internal/xwindow
 
 format-padding = 0
-format-foreground = #f4f99d
+format-foreground = {{ colors.bright.yellow }}
 
 label = %title:0:140:...%
 ;label-font = 0
@@ -146,7 +146,7 @@ interval = 5
 
 format-volume = <ramp-volume> <label-volume>
 label-muted = 
-label-muted-foreground = #626483
+label-muted-foreground = {{ colors.dim.foreground }}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -174,7 +174,7 @@ font-3 = "Weather Icons:size=11;5"
 [module/apps]
 type = custom/text
 content = 
-content-foreground = #ff79c6
+content-foreground = {{ colors.normal.magenta }}
 click-left = rofi -show drun
 
 [module/news]
@@ -191,7 +191,7 @@ click-left = ~/.config/polybar/scripts/calendar
 
 [module/redshift]
 type = custom/script
-exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#50fa7b' '#f1fa8c' '#ff5555'
+exec = ~/.config/polybar/scripts/rsctl -p '{{ colors.dim.foreground }}' '{{ colors.normal.green }}' '{{ colors.normal.yellow }}' '{{ colors.normal.red }}'
 interval = 5
 click-left = ~/.config/polybar/scripts/rsctl -t
 
@@ -205,7 +205,7 @@ label-font = 4
 [module/now-playing]
 type = custom/script
 label = %output:0:100%
-exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '#f8f8f2' -i '#626483'
+exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '{{ colors.normal.foreground }}' -i '{{ colors.dim.foreground }}'
 tail = true
 click-left = playerctl play-pause
 click-middle = playerctl next
@@ -213,7 +213,7 @@ click-right = playerctl previous
 
 [module/power-menu]
 type = custom/text
-content-foreground = #ff5555
+content-foreground = {{ colors.normal.red }}
 content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
@@ -244,7 +244,7 @@ modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand g
 
 tray-position = right
 tray-padding = 0
-tray-background = #fc282a36
+tray-background = {{ opacity.hex }}{{ colors.normal.background }}
 tray-maxsize = 22
 
 [module/bspwm]
@@ -280,24 +280,24 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = #ff5555
+label-warn-foreground = {{ colors.normal.red }}
 
 ramp-0 = 
-ramp-0-foreground = #50fa7b
+ramp-0-foreground = {{ colors.normal.green }}
 ramp-1 = 
-ramp-1-foreground = #50fa7b
+ramp-1-foreground = {{ colors.normal.green }}
 ramp-2 = 
-ramp-2-foreground = #50fa7b
+ramp-2-foreground = {{ colors.normal.green }}
 ramp-3 =  
-ramp-3-foreground = #50fa7b
+ramp-3-foreground = {{ colors.normal.green }}
 ramp-4 = 
-ramp-4-foreground = #50fa7b
+ramp-4-foreground = {{ colors.normal.green }}
 ramp-5 = 
-ramp-5-foreground = #f1fa8c
+ramp-5-foreground = {{ colors.normal.yellow }}
 ramp-6 = 
-ramp-6-foreground = #f1fa8c
+ramp-6-foreground = {{ colors.normal.yellow }}
 ramp-7 = 
-ramp-7-foreground = #ff5555
+ramp-7-foreground = {{ colors.normal.red }}
 
 [module/gpu-brand]
 type = custom/text
@@ -311,7 +311,7 @@ label = %output%
 
 [module/gpu-temp]
 type = custom/script
-exec = ~/.config/polybar/scripts/gpu --temp '#626483' '#50fa7b' '#f1fa8c' '#ff5555'
+exec = ~/.config/polybar/scripts/gpu --temp '{{ colors.dim.foreground }}' '{{ colors.normal.green }}' '{{ colors.normal.yellow}}' '{{ colors.normal.red }}'
 interval = 5
 label = %output%
 
@@ -329,7 +329,7 @@ mount-0 = /
 format-mounted-prefix = %{A1:baobab:}  %{A}
 label-mounted = %{A1:baobab:}%percentage_used%%%{A}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = #ff5555
+label-unmounted-foreground = {{ colors.normal.red }}
 
 [module/network]
 type = internal/network
@@ -346,9 +346,9 @@ format-packetloss = <label-connected> <animation-packetloss>
 label-connected = %essid%
 label-signal = %signal%
 label-disconnected =  Not connected
-label-disconnected-foreground = #626483
+label-disconnected-foreground = {{ colors.dim.foreground }}
 
-label-packetloss-foreground = #ff5555
+label-packetloss-foreground = {{ colors.normal.red }}
 animation-packetloss-0 = 
 animation-packetloss-1 = 
 animation-packetloss-framerate = 500

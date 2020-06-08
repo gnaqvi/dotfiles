@@ -14,10 +14,10 @@ if [ -n "$LM_NAME" ]; then
 fi
 
 # Colors
-bspc config normal_border_color   "#000000"
-bspc config focused_border_color  "#caa9fa"
-bspc config active_border_color   "#caa9fa"
-bspc config presel_feedback_color "#ff92d0"
+bspc config normal_border_color   "{{colors.bright.black}}"
+bspc config focused_border_color  "{{colors.bright.blue}}"
+bspc config active_border_color   "{{colors.bright.blue}}"
+bspc config presel_feedback_color "{{colors.bright.magenta }}"
 
 # Windows
 bspc config border_width          2

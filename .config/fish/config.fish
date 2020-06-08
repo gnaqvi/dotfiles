@@ -16,12 +16,6 @@ set fish_greeting ""
 eval (starship init fish)
 
 # Colors
-if status --is-interactive
-	set BASE16_SHELL "$HOME/.config/base16-shell/"
-	source "$BASE16_SHELL/profile_helper.fish"
-	base16-dracula
-end
-
 if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc
 	eval (dircolors -c ~/.dircolorsrc | sed 's/>&\/dev\/null$//')
 end

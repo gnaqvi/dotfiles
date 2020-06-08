@@ -3,15 +3,15 @@
 		"suppressShowKeyBindingsNotice": true
 	},
 	"window.zoomLevel": 1.35,
-	"editor.fontSize": 12.5,
+	"editor.fontSize": {{ font.monospace.size }},
 	"window.menuBarVisibility": "toggle",
 	"workbench.activityBar.visible": true,
 	"editor.minimap.enabled": false,
 	"workbench.colorCustomizations": {
-		"editorGroup.border": "#caa9fa"
+		"editorGroup.border": "{{ colors.bright.blue }}"
 	},
 	"vim.disableExtension": true,
-	"editor.fontFamily": "'Input Mono Narrow Testing'",
+	"editor.fontFamily": "'{{ font.monospace.name }}'",
 	"editor.letterSpacing": 0.3,
 	"editor.fontLigatures": true,
 	"window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",

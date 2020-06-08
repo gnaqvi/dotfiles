@@ -41,7 +41,7 @@
 	# The transparency of the window.  Range: [0; 100].
 	# This option will only work if a compositing window manager is
 	# present (e.g. xcompmgr, compiz, etc.).
-	transparency = 1
+	transparency = {{ opacity.inverse }}
 
 	# The height of the entire notification.  If the height is smaller
 	# than the font height and padding combined, it will be raised
@@ -86,7 +86,7 @@
 
 	### Text ###
 
-	font = Input Sans Condensed Testing 12
+	font = {{ font.sans.name }} {{ font.sans.size }}
 
 	# The spacing between lines.  If the height is smaller than the
 	# font height, it will get raised to the font height.
@@ -166,7 +166,7 @@
 	max_icon_size = 64
 
 	# Paths to default icons.
-	icon_path = /usr/share/icons/la-capitaine}}/status/scalable-dark:/usr/share/icons/la-capitaine}}/devices/scalable-dark
+	icon_path = /usr/share/icons/{{ gtk.icons }}}}/status/scalable-dark:/usr/share/icons/{{ gtk.icons }}}}/devices/scalable-dark
 
 	### History ###
 
@@ -275,25 +275,25 @@
 [urgency_low]
 	# IMPORTANT: colors have to be defined in quotation marks.
 	# Otherwise the "#" and following would be interpreted as a comment.
-	background = "#282a36"
-	foreground = "#f8f8f2"
-	frame_color = "#50fa7b"
+	background = "{{ colors.normal.background }}"
+	foreground = "{{ colors.normal.foreground }}"
+	frame_color = "{{ colors.normal.green }}"
 	timeout = 10
 	# Icon for notifications with low urgency, uncomment to enable
 	#icon = /path/to/icon
 
 [urgency_normal]
-	background = "#282a36"
-	foreground = "#f8f8f2"
-	frame_color = "#5af78e"
+	background = "{{ colors.normal.background }}"
+	foreground = "{{ colors.normal.foreground }}"
+	frame_color = "{{ colors.bright.green }}"
 	timeout = 10
 	# Icon for notifications with normal urgency, uncomment to enable
 	#icon = /path/to/icon
 
 [urgency_critical]
-	background = "#282a36"
-	foreground = "#f8f8f2"
-	frame_color = "#ff5555"
+	background = "{{ colors.normal.background }}"
+	foreground = "{{ colors.normal.foreground }}"
+	frame_color = "{{ colors.normal.red }}"
 	timeout = 0
 	# Icon for notifications with critical urgency, uncomment to enable
 	#icon = /path/to/icon

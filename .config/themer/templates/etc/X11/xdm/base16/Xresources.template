@@ -1,0 +1,29 @@
+Xcursor.theme: 						{{ gtk.cursors }}
+
+xlogin*greeting:
+xlogin.Login.fail:			        Incorrect credentials.
+xlogin.Login.changePasswdMessage:	Change password.
+xlogin*namePrompt:			        Username:\040
+xlogin.Login.passwdPrompt:		    Password:\040
+
+xlogin*echoPasswd:      			true
+xlogin*echoPasswdChar:  			*
+
+xlogin*face:						{{ font.sans.name }}:size=18:style=Normal
+xlogin*greetFace:					{{ font.sans.name }}:size=18:style=Bold
+xlogin*promptFace:					{{ font.sans.name }}:size=18:style=Bold
+xlogin*failFace:					{{ font.sans.name }}:size=18:style=Bold
+
+xlogin*background:					{{ colors.normal.background }}
+xlogin*foreground:					{{ colors.normal.foreground }}
+xlogin.Login.promptColor:			{{ colors.dim.foreground }}
+xlogin.Login.inpColor:				{{ colors.dim.foreground }}
+xlogin*failColor:					{{ colors.normal.red }}
+
+xlogin*borderWidth:		    		0
+xlogin.Login.width:		        	600
+xlogin.Login.height:		    	150
+xlogin.Login.y:                     645
+xlogin.Login.frameWidth:			0
+xlogin.Login.innerFramesWidth:		0
+xlogin.Login.sepWidth:				0

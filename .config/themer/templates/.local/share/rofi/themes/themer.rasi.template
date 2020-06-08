@@ -1,0 +1,127 @@
+* {
+	background: {{ colors.normal.background }}{{ opacity.hex }};
+	foreground: {{ colors.normal.foreground }};
+	accent: {{ colors.normal.magenta }}{{ opacity.hex }};
+
+	transparent:      #FFFFFF00;
+	background-color: @transparent;
+	separatorcolor:   @transparent;
+
+	font:             "{{ font.sans.name }} 15";
+}
+
+#window {
+	background-color: @background;
+	border:           0;
+	padding:          300 0 300 265;
+}
+
+#mainbox {
+	border:  0;
+	padding: 0;
+}
+
+#message {
+	border:       0;
+	border-color: @transparent;
+	padding:      0px;
+}
+
+#textbox {
+	text-color: @foreground;
+}
+
+#listview {
+	fixed-height: 0;
+	border:       2px 0px 0px ;
+	border-color: @transparent;
+	spacing:      2px;
+	scrollbar:    true;
+	padding:      2px 0px 0px ;
+}
+
+#element {
+	border:  0;
+	padding: 1px;
+}
+
+#element.normal.normal {
+	background-color: @transparent;
+	text-color:       @foreground;
+}
+
+#element.normal.urgent {
+	background-color: @transparent;
+	text-color:       @foreground;
+}
+
+#element.normal.active {
+	background-color: @transparent;
+	text-color:       @background;
+}
+
+#element.selected.normal {
+	text-color:       @accent;
+}
+
+#element.selected.urgent {
+	text-color:       @accent;
+}
+
+#element.selected.active {
+	text-color:       @accent;
+}
+
+#element.alternate.normal {
+	background-color: @transparent;
+	text-color:       @foreground;
+}
+
+#element.alternate.urgent {
+	background-color: @transparent;
+	text-color:       @foreground;
+}
+
+#element.alternate.active {
+	background-color: @transparent;
+	text-color:       @foreground;
+}
+
+#scrollbar {
+	width:        4px ;
+	border:       0;
+	handle-width: 8px ;
+	padding:      0;
+}
+
+#sidebar {
+	border:       2px 0px 0px ;
+	border-color: @transparent;
+}
+
+#button.selected {
+	background-color: @transparent;
+	text-color:       @foreground;
+}
+
+#inputbar {
+	spacing:    0;
+	text-color: @foreground;
+	padding:    0px ;
+}
+
+#case-indicator {
+	spacing:    0;
+	text-color: @foreground;
+}
+
+#entry {
+	spacing:    0;
+	text-color: @foreground;
+}
+
+#prompt {
+	spacing:    0;
+	text-color: @foreground;
+}
+

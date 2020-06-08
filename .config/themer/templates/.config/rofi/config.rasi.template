@@ -18,7 +18,7 @@ configuration {
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "xkill -id {window}";*/
 /*	window-match-fields: "all";*/
-	icon-theme: "la-capitaine";
+	icon-theme: "{{ gtk.icons }}";
 /*	drun-match-fields: "name,generic,exec,categories";*/
 /*	disable-history: false;*/
 /*	sort: false;*/

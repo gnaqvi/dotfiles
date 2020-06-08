@@ -108,7 +108,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Input Mono Narrow Testing
+    family: {{ font.monospace.name }}
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -147,7 +147,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12.5
+  size: {{ font.monospace.size }}
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -185,24 +185,24 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: '{{ colors.normal.background }}'
+    foreground: '{{ colors.normal.foreground }}'
 
     # Bright and dim foreground colors
     #
     # The dimmed foreground color is calculated automatically if it is not present.
     # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
     # is `false`, the normal foreground color will be used.
-    dim_foreground: '#626483'
-    bright_foreground: '#ffffff'
+    dim_foreground: '{{ colors.dim.foreground }}'
+    bright_foreground: '{{ colors.bright.foreground }}'
 
   # Cursor colors
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
   cursor:
-    text: '#626483'
-    cursor: '#f8f8f2'
+    text: '{{ colors.dim.foreground }}'
+    cursor: '{{ colors.normal.foreground }}'
 
   # Selection colors
   #
@@ -210,44 +210,44 @@ colors:
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
   selection:
-    text: '#282a36'
-    background: '#f8f8f2'
+    text: '{{ colors.normal.background }}'
+    background: '{{ colors.normal.foreground }}'
 
   # Normal colors
   normal:
-    black:   '#000000'
-    red:     '#ff5555'
-    green:   '#50fa7b'
-    yellow:  '#f1fa8c'
-    blue:    '#bd93f9'
-    magenta: '#ff79c6'
-    cyan:    '#8be9fd'
-    white:   '#bfbfbf'
+    black:   '{{ colors.normal.black }}'
+    red:     '{{ colors.normal.red }}'
+    green:   '{{ colors.normal.green }}'
+    yellow:  '{{ colors.normal.yellow }}'
+    blue:    '{{ colors.normal.blue }}'
+    magenta: '{{ colors.normal.magenta }}'
+    cyan:    '{{ colors.normal.cyan }}'
+    white:   '{{ colors.normal.white }}'
 
   # Bright colors
   bright:
-    black:   '#000000'
-    red:     '#ff6e67'
-    green:   '#5af78e'
-    yellow:  '#f4f99d'
-    blue:    '#caa9fa'
-    magenta: '#ff92d0'
-    cyan:    '#9aedfe'
-    white:   '#e6e6e6'
+    black:   '{{ colors.bright.black }}'
+    red:     '{{ colors.bright.red }}'
+    green:   '{{ colors.bright.green }}'
+    yellow:  '{{ colors.bright.yellow }}'
+    blue:    '{{ colors.bright.blue }}'
+    magenta: '{{ colors.bright.magenta }}'
+    cyan:    '{{ colors.bright.cyan }}'
+    white:   '{{ colors.bright.white }}'
 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
   dim:
-    black:   '#14151b'
-    red:     '#ff2222'
-    green:   '#1ef956'
-    yellow:  '#ebf85b'
-    blue:    '#4d5b86'
-    magenta: '#ff46b0'
-    cyan:    '#59dffc'
-    white:   '#e6e6d1'
+    black:   '{{ colors.dim.black }}'
+    red:     '{{ colors.dim.red }}'
+    green:   '{{ colors.dim.green }}'
+    yellow:  '{{ colors.dim.yellow }}'
+    blue:    '{{ colors.dim.blue }}'
+    magenta: '{{ colors.dim.magenta }}'
+    cyan:    '{{ colors.dim.cyan }}'
+    white:   '{{ colors.dim.white }}'
 
   # Indexed Colors
   #
@@ -289,7 +289,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.99
+background_opacity: 0.{{ opacity.percentage }}
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

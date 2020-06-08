@@ -4,6 +4,9 @@
 [ ! -z "$1" ] && [ "$1" == "-r" ] && \
     $HOME/.local/bin/themer --template .config/polybar/config.template
 
+# Hack for Polybar ARGB format
+sed -i -E 's/([0-9a-fA-F]{2})#([0-9a-fA-F]{6})/#\1\2/g' $HOME/.config/polybar/config
+
 # Load monitors info if not loaded already
 [ -z "$PM_NAME" ] && . $HOME/.local/bin/moninfo
 
