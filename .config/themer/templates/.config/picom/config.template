@@ -154,7 +154,8 @@ focus-exclude = [ "class_g = 'Cairo-clock'" ];
 opacity-rule = [
   "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
   "{{ opacity.percentage }}:class_i = 'tray'",
-  "{{ opacity.percentage }}:class_g = 'code-oss'"
+  "{{ opacity.percentage }}:class_g = 'code-oss'",
+  "{{ opacity.percentage }}:class_g = 'Org.gnome.Nautilus'"
 ];
 
 
@@ -215,7 +216,7 @@ backend = "glx";
 
 # Enable/disable VSync.
 # vsync = false
-vsync = true
+vsync = false
 
 # Enable remote control via D-Bus. See the *D-BUS API* section below for more details.
 # dbus = false

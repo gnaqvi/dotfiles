@@ -13,8 +13,8 @@
 		}
 	},
 	"gtk": {
-		"theme": "Arc-Dark",
+		"theme": "Ant-Dracula",
 		"icons": "la-capitaine",
-		"cursors": "capitaine-cursors"
+		"cursors": "capitaine-cursors-light"
 	}
 }

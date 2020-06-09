@@ -1,7 +1,7 @@
-gtk-theme-name="Arc-Dark"
+gtk-theme-name="Ant-Dracula"
 gtk-icon-theme-name="la-capitaine"
 gtk-font-name="Input Sans Condensed Testing 12"
-gtk-cursor-theme-name="capitaine-cursors"
+gtk-cursor-theme-name="capitaine-cursors-light"
 gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
 gtk-toolbar-icon-size=GTK_ICON_SIZE_MENU

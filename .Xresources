@@ -27,7 +27,7 @@
 ! Cursor theme
 !-------------------------------------------------------------------------------
 
-Xcursor.theme: "capitaine-cursors"
+Xcursor.theme: "capitaine-cursors-light"
 Xcursor.size:  24
 
 !-------------------------------------------------------------------------------

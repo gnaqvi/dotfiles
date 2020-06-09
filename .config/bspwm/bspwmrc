@@ -10,7 +10,7 @@ bspc config automatic_scheme spiral
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code tor web music chat misc misc misc
 if [ -n "$LM_NAME" ]; then
-    bspc monitor $LM_NAME -d home terminal code code
+	bspc monitor $LM_NAME -d home terminal code code
 fi
 
 # Colors
@@ -20,13 +20,13 @@ bspc config active_border_color   "#caa9fa"
 bspc config presel_feedback_color "#ff92d0"
 
 # Windows
-bspc config border_width          2
+bspc config border_width          1
 bspc config top_padding           0
 bspc config window_gap            5
 bspc config split_ratio           0.50
 bspc config borderless_monocle    true
 bspc config gapless_monocle       false
-bspc config single_monocle        true
+bspc config single_monocle        false
 bspc config focus_follows_pointer false
 bspc config click_to_focus        button1
 bspc config pointer_modifier      mod4
@@ -47,6 +47,8 @@ bspc rule -a Yad                        state=floating
 bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 bspc rule -a jetbrains-idea-ce			state=floating
 bspc rule -a zoom                       state=floating
+bspc rule -a Lxappearance               state=floating
+
 
 #-------------------------------------------------------------------------------
 # desktop environment

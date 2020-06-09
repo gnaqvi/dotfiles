@@ -46,7 +46,7 @@ super + m
 
 # focus the next/previous monitor
 super + {semicolon, apostrophe}
-	bspc monitor -f (bspc query -M -m '.!focused')
+	bspc monitor -f $(bspc query -M -m '.!focused')
 
 # focus the last node/desktop
 super + {_,shift +}Tab
