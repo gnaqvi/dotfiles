@@ -1,9 +1,10 @@
 [Settings]
 gtk-icon-theme-name={{ gtk.icons }}
-gtk-cursor-theme-name={{ gtk.cursors }}
+gtk-cursor-theme-name={{ cursor.theme }}
+gtk-cursor-theme-size={{ cursor.size }}
 gtk-font-name={{ font.sans.name }} {{ font.sans.size }}
 gtk-theme-name={{ gtk.theme }}
-gtk-xft-dpi=96
+gtk-xft-dpi=110
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle=hintslight
@@ -14,4 +15,3 @@ gtk-button-images=1
 gtk-menu-images=1
 gtk-enable-event-sounds=0
 gtk-enable-input-feedback-sounds=0
-gtk-cursor-theme-size=24

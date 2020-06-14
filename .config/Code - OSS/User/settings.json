@@ -11,7 +11,7 @@
 		"editorGroup.border": "#caa9fa"
 	},
 	"vim.disableExtension": true,
-	"editor.fontFamily": "'Input Mono Narrow Testing'",
+	"editor.fontFamily": "'Fira Code'",
 	"editor.letterSpacing": 0.3,
 	"editor.fontLigatures": true,
 	"window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",

@@ -4,17 +4,20 @@
 	"opacity": 99,
 	"font": {
 		"sans": {
-			"name": "Input Sans Condensed Testing",
+			"name": "Fira Sans",
 			"size": "12"
 		},
 		"monospace": {
-			"name": "Input Mono Narrow Testing",
+			"name": "Fira Code",
 			"size": "12.5"
 		}
 	},
 	"gtk": {
 		"theme": "Ant-Dracula",
-		"icons": "la-capitaine",
-		"cursors": "capitaine-cursors-light"
+		"icons": "la-capitaine"
+	},
+	"cursor": {
+		"theme": "Breeze_Snow",
+		"size": 24
 	}
 }

@@ -21,6 +21,7 @@ EDITOR=/usr/bin/code
 #
 
 # Modified commands
+alias xcp='xclip -selection clipboard'
 alias diff='colordiff' # requires colordiff package
 alias grep='grep --color=auto'
 alias more='less'

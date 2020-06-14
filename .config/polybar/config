@@ -12,7 +12,7 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "Input Sans Condensed Testing:weight=Regular:size=12;4"
+font-0 = "Fira Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
 
@@ -24,8 +24,8 @@ line-color = #fccaa9fa
 
 border-size = 0
 
-padding-left = 2
-padding-right = 2
+padding-left = 3
+padding-right = 3
 
 module-margin-left  = 0
 module-margin-right = 0
@@ -72,30 +72,30 @@ label-dimmed-foreground = #282a36
 
 label-dimmed-occupied = %icon%
 label-dimmed-occupied-foreground = #626483
-label-dimmed-occupied-padding = 2
+label-dimmed-occupied-padding = 3
 
 label-dimmed-empty = %icon%
 label-dimmed-empty-foreground = #3a3c4e
-label-dimmed-empty-padding = 2
+label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
 label-focused-background = #fc3a3c4e
 label-focused-underline = #fccaa9fa
-label-focused-padding = 2
+label-focused-padding = 3
 
 label-occupied = %icon%
 label-occupied-foreground = #ffffff
-label-occupied-padding = 2
+label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
 label-urgent-background = #fcff5555
-label-urgent-padding = 2
+label-urgent-padding = 3
 
 label-empty = %icon%
 label-empty-foreground = #626483
-label-empty-padding = 2
+label-empty-padding = 3
 
 label-monocle = 
 label-monocle-foreground = #8be9fd
@@ -132,11 +132,11 @@ label = %title:0:140:...%
 
 [module/gap-small]
 type = custom/text
-content = " "
+content = "  "
 
 [module/gap]
 type = custom/text
-content = "    "
+content = "        "
 
 [common/pulseaudio]
 type = internal/pulseaudio

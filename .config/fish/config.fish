@@ -38,6 +38,7 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 alias dropd "cd $GOPATH/src/dropd.com"
 
 # Modified commands
+alias xcp "xclip -selection clipboard"
 alias diff "colordiff"
 alias grep "grep --color=auto"
 alias more "less"

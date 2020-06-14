@@ -27,14 +27,14 @@
 ! Cursor theme
 !-------------------------------------------------------------------------------
 
-Xcursor.theme: "{{ gtk.cursors }}"
-Xcursor.size:  24
+Xcursor.theme: {{ cursor.theme }}
+Xcursor.size:  {{ cursor.size }}
 
 !-------------------------------------------------------------------------------
 ! Xft fonts
 !-------------------------------------------------------------------------------
 
-Xft.dpi:       96
+Xft.dpi:       110
 Xft.antialias: true
 Xft.rgba:      rgb
 Xft.hinting:   true

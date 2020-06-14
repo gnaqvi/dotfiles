@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# Root window should have this color
-xsetroot -solid "{{ colors.normal.background }}" -xcf "/usr/share/icons/{{ gtk.cursors }}/cursors/left_ptr" 24

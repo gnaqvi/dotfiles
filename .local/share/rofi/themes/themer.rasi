@@ -7,7 +7,7 @@
 	background-color: @transparent;
 	separatorcolor:   @transparent;
 
-	font:             "Input Sans Condensed Testing 15";
+	font:             "Fira Sans 15";
 }
 
 #window {

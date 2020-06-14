@@ -27,14 +27,14 @@
 ! Cursor theme
 !-------------------------------------------------------------------------------
 
-Xcursor.theme: "capitaine-cursors-light"
+Xcursor.theme: Breeze_Snow
 Xcursor.size:  24
 
 !-------------------------------------------------------------------------------
 ! Xft fonts
 !-------------------------------------------------------------------------------
 
-Xft.dpi:       96
+Xft.dpi:       110
 Xft.antialias: true
 Xft.rgba:      rgb
 Xft.hinting:   true

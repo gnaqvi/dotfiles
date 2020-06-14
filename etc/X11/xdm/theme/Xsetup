@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Root window should have this color
+xsetroot -solid "#282a36" -xcf "/usr/share/icons/Breeze_Snow/cursors/left_ptr" 24

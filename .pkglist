@@ -6,6 +6,7 @@ alsa-plugins
 alsa-tools
 alsa-utils
 amd-ucode
+ant-dracula-gtk-theme
 arc-gtk-theme
 audacity
 autoconf
@@ -13,8 +14,10 @@ automake
 autorandr
 aws-cli
 baobab
+barrier
 base
 bash
+bind-tools
 binutils
 bison
 bleachbit
@@ -22,7 +25,6 @@ broadcom-wl-dkms
 brother-dcpl2540dw-cups
 bspwm
 bzip2
-capitaine-cursors
 cmake
 code
 colordiff
@@ -129,6 +131,7 @@ picom-git
 pkgconf
 playerctl
 polybar-git
+postman-bin
 powerline
 powerline-fonts
 procps-ng
@@ -171,6 +174,7 @@ ttf-fira-code
 ttf-font-awesome
 ttf-material-design-icons
 udiskie
+ufw
 unrar
 unzip
 usbutils
@@ -185,6 +189,7 @@ which
 wireless_tools
 wpa_supplicant
 x11vnc
+xcursor-breeze
 xdg-user-dirs
 xdotool
 xf86-video-amdgpu

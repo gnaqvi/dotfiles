@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Root window should have this color
+xsetroot -solid "{{ colors.normal.background }}" -xcf "/usr/share/icons/{{ cursor.theme }}/cursors/left_ptr" {{ cursor.size }}

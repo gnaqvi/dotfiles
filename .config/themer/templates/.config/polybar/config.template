@@ -24,8 +24,8 @@ line-color = {{ opacity.hex }}{{ colors.bright.blue }}
 
 border-size = 0
 
-padding-left = 2
-padding-right = 2
+padding-left = 3
+padding-right = 3
 
 module-margin-left  = 0
 module-margin-right = 0
@@ -72,30 +72,30 @@ label-dimmed-foreground = {{ colors.dim.background }}
 
 label-dimmed-occupied = %icon%
 label-dimmed-occupied-foreground = {{ colors.dim.foreground }}
-label-dimmed-occupied-padding = 2
+label-dimmed-occupied-padding = 3
 
 label-dimmed-empty = %icon%
 label-dimmed-empty-foreground = {{ colors.bright.background }}
-label-dimmed-empty-padding = 2
+label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = {{ colors.normal.foreground }}
 label-focused-background = {{ opacity.hex }}{{ colors.bright.background }}
 label-focused-underline = {{ opacity.hex }}{{ colors.bright.blue }}
-label-focused-padding = 2
+label-focused-padding = 3
 
 label-occupied = %icon%
 label-occupied-foreground = {{ colors.bright.foreground }}
-label-occupied-padding = 2
+label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = {{ colors.normal.foreground }}
 label-urgent-background = {{ opacity.hex }}{{ colors.normal.red }}
-label-urgent-padding = 2
+label-urgent-padding = 3
 
 label-empty = %icon%
 label-empty-foreground = {{ colors.dim.foreground }}
-label-empty-padding = 2
+label-empty-padding = 3
 
 label-monocle = 
 label-monocle-foreground = {{ colors.normal.cyan }}
@@ -132,11 +132,11 @@ label = %title:0:140:...%
 
 [module/gap-small]
 type = custom/text
-content = " "
+content = "  "
 
 [module/gap]
 type = custom/text
-content = "    "
+content = "        "
 
 [common/pulseaudio]
 type = internal/pulseaudio
