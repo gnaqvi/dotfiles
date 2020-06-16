@@ -55,7 +55,7 @@ function get_polybar_text() {
 
 		echo "$(get_icon "$current_icon") $current_temp$SYMBOL  $trend  $(get_icon "$forecast_icon") $forecast_temp$SYMBOL   $sun_rise   $sun_set"
 	else
-		echo " Unable to get forecast"
+		echo "%{F$1}%{F-} Unable to get forecast"
 	fi
 }
 
@@ -64,7 +64,14 @@ function open_browser() {
 }
 
 case $1 in
-"-p") get_polybar_text ;;
-"-o") open_browser ;;
-*) echo "Invalid parameter." && exit 1 ;;
+"-p")
+	[ "$#" -ne 2 ] && echo "Missing inactive color code." && exit 1
+	get_polybar_text $2
+	;;
+"-o")
+	open_browser
+	;;
+*)
+	echo "Invalid parameter." && exit 1
+	;;
 esac

@@ -12,7 +12,7 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "IBM Plex Sans:weight=Regular:size=11;4"
+font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
 
@@ -200,7 +200,7 @@ click-left = ~/.config/polybar/scripts/rsctl -t
 
 [module/weather]
 type = custom/script
-exec = ~/.config/polybar/scripts/weather -p
+exec = ~/.config/polybar/scripts/weather -p '#626483'
 interval = 1800
 double-click-left = ~/.config/polybar/scripts/weather -o
 label-font = 4

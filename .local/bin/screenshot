@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function play_sound() {
+    mplayer /usr/share/sounds/freedesktop/stereo/camera-shutter.oga > /dev/null 2>&1
+}
+
+[ "$#" -lt 1 ] && echo "Missing parameters." && exit 1
+
+case $1 in
+"-f")
+    play_sound
+    scrot -q 100 -e 'mv $f ~/Pictures/Screenshots/'
+	;;
+"-w")
+    play_sound
+    scrot -u -q 100 -e 'mv $f ~/Pictures/Screenshots/'
+	;;
+"-s")
+    scrot -s -q 100 -e 'mv $f ~/Pictures/Screenshots/'
+    play_sound
+	;;
+*)
+	echo "Invalid parameter." && exit 1
+	;;
+esac

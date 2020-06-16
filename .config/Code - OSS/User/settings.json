@@ -3,7 +3,7 @@
 		"suppressShowKeyBindingsNotice": true
 	},
 	"window.zoomLevel": 1.35,
-	"editor.fontSize": 12,
+	"editor.fontSize": 13,
 	"window.menuBarVisibility": "toggle",
 	"workbench.activityBar.visible": true,
 	"editor.minimap.enabled": false,

@@ -5,11 +5,11 @@
 	"font": {
 		"sans": {
 			"name": "IBM Plex Sans",
-			"size": "11"
+			"size": "12"
 		},
 		"monospace": {
 			"name": "IBM Plex Mono",
-			"size": "12"
+			"size": "13"
 		}
 	},
 	"gtk": {

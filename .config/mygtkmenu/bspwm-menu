@@ -173,6 +173,22 @@ item = Next urgent window
 cmd = bspc node -f next.urgent
 icon = NULL
 
+Submenu = Screenshot
+
+	icon = NULL
+
+	item = Entire Screen
+	cmd = /home/gnaqvi/.local/bin/screenshot -f
+	icon = NULL
+
+	item = Window
+	cmd = /home/gnaqvi/.local/bin/screenshot -w
+	icon = NULL
+
+	item = Selection
+	cmd = /home/gnaqvi/.local/bin/screenshot -s
+	icon = NULL
+
 separator
 
 item = Terminal

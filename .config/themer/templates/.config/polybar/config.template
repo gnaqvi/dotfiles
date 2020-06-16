@@ -200,7 +200,7 @@ click-left = ~/.config/polybar/scripts/rsctl -t
 
 [module/weather]
 type = custom/script
-exec = ~/.config/polybar/scripts/weather -p
+exec = ~/.config/polybar/scripts/weather -p '{{ colors.dim.foreground }}'
 interval = 1800
 double-click-left = ~/.config/polybar/scripts/weather -o
 label-font = 4
