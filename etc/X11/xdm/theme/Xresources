@@ -10,10 +10,10 @@ xlogin.Login.passwdPrompt: Password:\040
 xlogin*echoPasswd: true
 xlogin*echoPasswdChar: *
 
-xlogin*face: Fira Sans:size=18:style=Normal
-xlogin*greetFace: Fira Sans:size=18:style=Bold
-xlogin*promptFace: Fira Sans:size=18:style=Bold
-xlogin*failFace: Fira Sans:size=18:style=Bold
+xlogin*face: IBM Plex Sans:size=18:style=Normal
+xlogin*greetFace: IBM Plex Sans:size=18:style=Bold
+xlogin*promptFace: IBM Plex Sans:size=18:style=Bold
+xlogin*failFace: IBM Plex Sans:size=18:style=Bold
 
 xlogin*background: #282a36
 xlogin*foreground: #f8f8f2

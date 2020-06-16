@@ -1,13 +1,13 @@
 * {
-	background: #282a36fc;
+	background: #282a36f9;
 	foreground: #f8f8f2;
-	accent: #ff79c6fc;
+	accent: #ff79c6f9;
 
 	transparent:      #FFFFFF00;
 	background-color: @transparent;
 	separatorcolor:   @transparent;
 
-	font:             "Fira Sans 15";
+	font:             "IBM Plex Sans 15";
 }
 
 #window {

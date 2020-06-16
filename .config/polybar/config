@@ -12,15 +12,15 @@ offset-y = 0
 radius = 0
 fixed-center = true
 
-font-0 = "Fira Sans:weight=Regular:size=12;4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
+font-0 = "IBM Plex Sans:weight=Regular:size=11;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
 
-background = #fc282a36
+background = #f9282a36
 foreground = #f8f8f2
 
 line-size = 4
-line-color = #fccaa9fa
+line-color = #f9caa9fa
 
 border-size = 0
 
@@ -80,8 +80,8 @@ label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
-label-focused-background = #fc3a3c4e
-label-focused-underline = #fccaa9fa
+label-focused-background = #f93a3c4e
+label-focused-underline = #f9caa9fa
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -90,7 +90,7 @@ label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
-label-urgent-background = #fcff5555
+label-urgent-background = #f9ff5555
 label-urgent-padding = 3
 
 label-empty = %icon%
@@ -98,21 +98,21 @@ label-empty-foreground = #626483
 label-empty-padding = 3
 
 label-monocle = 
-label-monocle-foreground = #8be9fd
+label-monocle-foreground = #50fa7b
 label-tiled = 
-label-tiled-foreground = #8be9fd
+label-tiled-foreground = #50fa7b
 label-fullscreen = 
-label-fullscreen-foreground = #8be9fd
+label-fullscreen-foreground = #50fa7b
 label-floating = 
-label-floating-foreground = #8be9fd
+label-floating-foreground = #50fa7b
 label-pseudotiled = P
-label-pseudotiled-foreground = #8be9fd
+label-pseudotiled-foreground = #50fa7b
 label-locked = " "
-label-locked-foreground = #8be9fd
+label-locked-foreground = #50fa7b
 label-sticky = " "
-label-sticky-foreground = #8be9fd
+label-sticky-foreground = #50fa7b
 label-private = " "
-label-private-foreground = #8be9fd
+label-private-foreground = #50fa7b
 
 [module/bspwm-secondary]
 inherit = common/bspwm
@@ -128,7 +128,6 @@ format-padding = 0
 format-foreground = #f4f99d
 
 label = %title:0:140:...%
-;label-font = 0
 
 [module/gap-small]
 type = custom/text
@@ -162,6 +161,8 @@ click-left = amixer set Master toggle
 [bar/top]
 inherit = common/bar
 
+padding-left = 0
+
 monitor = ${env:PM_NAME:DP-0}
 dpi = ${env:PM_DPI:110}
 
@@ -169,12 +170,14 @@ modules-left = apps gap news
 modules-center = clock
 modules-right = weather gap now-playing gap redshift gap power-menu
 
-font-3 = "Weather Icons:size=11;5"
+font-3 = "Weather Icons:size=12;5"
 
 [module/apps]
 type = custom/text
 content = 
 content-foreground = #ff79c6
+content-background = #3a3c4e
+content-padding = 3
 click-left = rofi -show drun
 
 [module/news]
@@ -191,7 +194,7 @@ click-left = ~/.config/polybar/scripts/calendar
 
 [module/redshift]
 type = custom/script
-exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#50fa7b' '#f1fa8c' '#ff5555'
+exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#8be9fd' '#f1fa8c' '#ff5555'
 interval = 5
 click-left = ~/.config/polybar/scripts/rsctl -t
 
@@ -244,7 +247,7 @@ modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand g
 
 tray-position = right
 tray-padding = 0
-tray-background = #fc282a36
+tray-background = #f9282a36
 tray-maxsize = 22
 
 [module/bspwm]

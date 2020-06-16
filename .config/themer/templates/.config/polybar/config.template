@@ -13,8 +13,8 @@ radius = 0
 fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
 
 background = {{ opacity.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
@@ -98,21 +98,21 @@ label-empty-foreground = {{ colors.dim.foreground }}
 label-empty-padding = 3
 
 label-monocle = 
-label-monocle-foreground = {{ colors.normal.cyan }}
+label-monocle-foreground = {{ colors.normal.green }}
 label-tiled = 
-label-tiled-foreground = {{ colors.normal.cyan }}
+label-tiled-foreground = {{ colors.normal.green }}
 label-fullscreen = 
-label-fullscreen-foreground = {{ colors.normal.cyan }}
+label-fullscreen-foreground = {{ colors.normal.green }}
 label-floating = 
-label-floating-foreground = {{ colors.normal.cyan }}
+label-floating-foreground = {{ colors.normal.green }}
 label-pseudotiled = P
-label-pseudotiled-foreground = {{ colors.normal.cyan }}
+label-pseudotiled-foreground = {{ colors.normal.green }}
 label-locked = " "
-label-locked-foreground = {{ colors.normal.cyan }}
+label-locked-foreground = {{ colors.normal.green }}
 label-sticky = " "
-label-sticky-foreground = {{ colors.normal.cyan }}
+label-sticky-foreground = {{ colors.normal.green }}
 label-private = " "
-label-private-foreground = {{ colors.normal.cyan }}
+label-private-foreground = {{ colors.normal.green }}
 
 [module/bspwm-secondary]
 inherit = common/bspwm
@@ -128,7 +128,6 @@ format-padding = 0
 format-foreground = {{ colors.bright.yellow }}
 
 label = %title:0:140:...%
-;label-font = 0
 
 [module/gap-small]
 type = custom/text
@@ -162,6 +161,8 @@ click-left = amixer set Master toggle
 [bar/top]
 inherit = common/bar
 
+padding-left = 0
+
 monitor = ${env:PM_NAME:DP-0}
 dpi = ${env:PM_DPI:110}
 
@@ -169,12 +170,14 @@ modules-left = apps gap news
 modules-center = clock
 modules-right = weather gap now-playing gap redshift gap power-menu
 
-font-3 = "Weather Icons:size=11;5"
+font-3 = "Weather Icons:size=12;5"
 
 [module/apps]
 type = custom/text
 content = 
 content-foreground = {{ colors.normal.magenta }}
+content-background = {{ colors.bright.background }}
+content-padding = 3
 click-left = rofi -show drun
 
 [module/news]
@@ -191,7 +194,7 @@ click-left = ~/.config/polybar/scripts/calendar
 
 [module/redshift]
 type = custom/script
-exec = ~/.config/polybar/scripts/rsctl -p '{{ colors.dim.foreground }}' '{{ colors.normal.green }}' '{{ colors.normal.yellow }}' '{{ colors.normal.red }}'
+exec = ~/.config/polybar/scripts/rsctl -p '{{ colors.dim.foreground }}' '{{ colors.normal.cyan }}' '{{ colors.normal.yellow }}' '{{ colors.normal.red }}'
 interval = 5
 click-left = ~/.config/polybar/scripts/rsctl -t
 

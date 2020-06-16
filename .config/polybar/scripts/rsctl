@@ -10,7 +10,7 @@ function get_status() {
 }
 
 function get_polybar_text() {
-	OUTPUT_TEMPL='%{F__COLOR__}%{F-} __TEMP__'
+	OUTPUT_TEMPL='%{F__COLOR__}%{F-}  __TEMP__'
 	COLOR=$1
 	TEMP=$(get_status)
 

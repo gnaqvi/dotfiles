@@ -1,15 +1,15 @@
 {
 	"colors": "dracula",
 	"wallpaper": "borderlands.jpeg",
-	"opacity": 99,
+	"opacity": 98,
 	"font": {
 		"sans": {
-			"name": "Fira Sans",
-			"size": "12"
+			"name": "IBM Plex Sans",
+			"size": "11"
 		},
 		"monospace": {
-			"name": "Fira Code",
-			"size": "12.5"
+			"name": "IBM Plex Mono",
+			"size": "12"
 		}
 	},
 	"gtk": {

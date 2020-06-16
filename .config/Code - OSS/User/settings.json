@@ -3,7 +3,7 @@
 		"suppressShowKeyBindingsNotice": true
 	},
 	"window.zoomLevel": 1.35,
-	"editor.fontSize": 12.5,
+	"editor.fontSize": 12,
 	"window.menuBarVisibility": "toggle",
 	"workbench.activityBar.visible": true,
 	"editor.minimap.enabled": false,
@@ -11,7 +11,7 @@
 		"editorGroup.border": "#caa9fa"
 	},
 	"vim.disableExtension": true,
-	"editor.fontFamily": "'Fira Code'",
+	"editor.fontFamily": "'IBM Plex Mono'",
 	"editor.letterSpacing": 0.3,
 	"editor.fontLigatures": true,
 	"window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
