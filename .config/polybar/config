@@ -5,22 +5,22 @@
 [common/bar]
 override-redirect = false
 
-width = 100%
+width = ${env:PM_BAR_WIDTH:99.8%}
 height = ${env:PM_BAR_HEIGHT:3%}
-offset-x = 0
-offset-y = 0
-radius = 0
+offset-x = 2
+offset-y = 2
+radius = 8
 fixed-center = true
 
 font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
 
-background = #f9282a36
+background = #ea282a36
 foreground = #f8f8f2
 
 line-size = 4
-line-color = #f9caa9fa
+line-color = #eacaa9fa
 
 border-size = 0
 
@@ -80,8 +80,8 @@ label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
-label-focused-background = #f93a3c4e
-label-focused-underline = #f9caa9fa
+label-focused-background = #ea3a3c4e
+label-focused-underline = #eacaa9fa
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -90,7 +90,7 @@ label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
-label-urgent-background = #f9ff5555
+label-urgent-background = #eaff5555
 label-urgent-padding = 3
 
 label-empty = %icon%
@@ -123,10 +123,8 @@ ws-icon-default = 
 
 [module/title]
 type = internal/xwindow
-
 format-padding = 0
 format-foreground = #f4f99d
-
 label = %title:0:140:...%
 
 [module/gap-small]
@@ -168,7 +166,7 @@ dpi = ${env:PM_DPI:110}
 
 modules-left = apps gap news
 modules-center = clock
-modules-right = weather gap now-playing gap redshift gap power-menu
+modules-right = weather gap now-playing gap redshift gap-small
 
 font-3 = "Weather Icons:size=12;5"
 
@@ -214,12 +212,6 @@ click-left = playerctl play-pause
 click-middle = playerctl next
 click-right = playerctl previous
 
-[module/power-menu]
-type = custom/text
-content-foreground = #ff5555
-content = 
-click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
-
 ;--------------------------------------------------------------------;
 ; Bottom panel
 ;--------------------------------------------------------------------;
@@ -233,7 +225,6 @@ dpi = ${env:PM_DPI:110}
 
 bottom = true
 padding-left = 0
-padding-right = 0
 
 font-3 = "Material Icons:pixelsize=17;7"
 font-4 = "icomoon:style=Regular:pixelsize=22"
@@ -243,11 +234,13 @@ font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap updates gap
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap updates gap gap gap power-menu
 
-tray-position = right
+tray-position = center
+tray-detatched = true
+tray-offset-x = 1640
 tray-padding = 0
-tray-background = #f9282a36
+tray-background = #ea282a36
 tray-maxsize = 22
 
 [module/bspwm]
@@ -372,6 +365,12 @@ label =  %output%
 exec = ~/.config/polybar/scripts/updates -p
 interval = 600
 click-left = ~/.config/polybar/scripts/updates -g
+
+[module/power-menu]
+type = custom/text
+content-foreground = #ff5555
+content = 
+click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 ;--------------------------------------------------------------------;
 ; Left panel

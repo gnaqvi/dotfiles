@@ -60,10 +60,10 @@ gcc-libs
 gettext
 gimp
 git
-glances
 glibc
 gnome-icon-theme
 go
+gotop
 gradle
 grep
 groff
@@ -106,6 +106,7 @@ man-pages
 mdadm
 mesa-demos
 mesa-vdpau
+mplayer
 msi-rgb
 mupdf
 mygtkmenu
@@ -126,11 +127,10 @@ patch
 pavucontrol
 pciutils
 perl
-picom-git
+picom-rounded-corners
 pkgconf
 playerctl
 polybar-git
-postman-bin
 powerline
 powerline-fonts
 procps-ng
@@ -171,7 +171,8 @@ tree
 trizen
 ttf-fira-code
 ttf-font-awesome
-ttf-material-design-icons
+ttf-material-design-icons-git
+ttf-material-icons-git
 udiskie
 ufw
 unrar
@@ -181,7 +182,6 @@ util-linux
 vdpauinfo
 vi
 vim
-vlc
 vulkan-radeon
 wget
 which

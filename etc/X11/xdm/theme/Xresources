@@ -23,7 +23,7 @@ xlogin*failColor: #ff5555
 
 xlogin*borderWidth: 0
 xlogin.Login.width: 600
-xlogin.Login.height: 150
+xlogin.Login.height: 200
 xlogin.Login.y: 645
 xlogin.Login.frameWidth: 0
 xlogin.Login.innerFramesWidth: 0

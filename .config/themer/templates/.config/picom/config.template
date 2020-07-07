@@ -1,4 +1,16 @@
 #################################
+#         Round Corners         #
+#################################
+
+round-borders = 1
+corner-radius = 8
+rounded-corners-exclude = [
+    "class_g = 'polybar'",
+    "class_g = 'Dunst'",
+    "window_type = 'dock'"
+];
+
+#################################
 #             Shadows           #
 #################################
 
