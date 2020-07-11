@@ -4,9 +4,6 @@
 # bspwm settings
 #-------------------------------------------------------------------------------
 
-# Scheme
-bspc config automatic_scheme spiral
-
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code tor web music chat misc misc misc
 if [ -n "$LM_NAME" ]; then
@@ -14,29 +11,33 @@ if [ -n "$LM_NAME" ]; then
 fi
 
 # Colors
-bspc config normal_border_color   "#000000"
+bspc config normal_border_color   "#14151b"
 bspc config focused_border_color  "#caa9fa"
 bspc config active_border_color   "#caa9fa"
 bspc config presel_feedback_color "#ff92d0"
 
 # Windows
-bspc config border_width          2
-bspc config top_padding           0
-bspc config window_gap            5
-bspc config split_ratio           0.50
-bspc config borderless_monocle    true
-bspc config gapless_monocle       false
-bspc config single_monocle        false
-bspc config focus_follows_pointer false
-bspc config click_to_focus        button1
-bspc config pointer_modifier      mod4
+bspc config automatic_scheme      		spiral
+bspc config border_width          		2
+bspc config top_padding           		0
+bspc config window_gap            		5
+bspc config split_ratio          		0.50
+bspc config borderless_monocle    		true
+bspc config gapless_monocle       		false
+bspc config single_monocle        		false
+bspc config focus_follows_pointer 		false
+bspc config click_to_focus        		button1
+bspc config pointer_modifier      		mod4
+bspc config center_pseudo_tiled	  		true
+bspc config directional_focus_tightness high
 
 # Placement
 bspc rule -a code-oss                -o desktop=primary:^3
 bspc rule -a jetbrains-idea          -o desktop=primary:^4
 bspc rule -a firefox	             -o desktop=primary:^6
-bspc rule -a Spotify                    desktop=primary:^7
+bspc rule -a spotify                    desktop=primary:^7
 bspc rule -a Slack                      desktop=primary:^8
+bspc rule -a discord                    desktop=primary:^8
 bspc rule -a Gimp                       state=floating
 bspc rule -a Org.gnome.Nautilus         state=floating
 bspc rule -a Transmission-gtk           state=floating
@@ -68,3 +69,6 @@ bspc rule -a Lxappearance               state=floating
 
 # Panels
  ~/.config/polybar/launch &
+
+# Other aaps
+ ~/.config/bspwm/apps &

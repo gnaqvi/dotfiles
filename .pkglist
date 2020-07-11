@@ -154,7 +154,9 @@ sed
 shadow
 simplescreenrecorder
 sl
+slack-desktop
 spotify
+spotifywm-git
 starship-bin
 stress
 sudo
@@ -190,6 +192,7 @@ wpa_supplicant
 x11vnc
 xcursor-breeze
 xdg-user-dirs
+xdo
 xdotool
 xf86-video-amdgpu
 xfsprogs

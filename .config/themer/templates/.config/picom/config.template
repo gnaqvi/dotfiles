@@ -5,9 +5,7 @@
 round-borders = 1
 corner-radius = 8
 rounded-corners-exclude = [
-    "class_g = 'polybar'",
-    "class_g = 'Dunst'",
-    "window_type = 'dock'"
+    "class_g = 'Dunst'"
 ];
 
 #################################
@@ -24,18 +22,18 @@ shadow = true;
 
 # The blur radius for shadows, in pixels. (defaults to 12)
 # shadow-radius = 15
-shadow-radius = 10;
+shadow-radius = 15;
 
 # The opacity of shadows. (0.0 - 1.0, defaults to 0.75)
 shadow-opacity = 0.6;
 
 # The left offset for shadows, in pixels. (defaults to -15)
 # shadow-offset-x = -15
-shadow-offset-x = -10;
+shadow-offset-x = -16;
 
 # The top offset for shadows, in pixels. (defaults to -15)
 # shadow-offset-y = -15
-shadow-offset-y = -9;
+shadow-offset-y = -12;
 
 # Avoid drawing shadows on dock/panel windows. This option is deprecated,
 # you should use the *wintypes* option in your config file instead.
@@ -78,7 +76,6 @@ shadow-exclude = [
   "name = 'cpt_frame_window'",
   "class_g = 'Firefox' && argb",
   "class_g ?= 'Notify-osd'",
-  "class_i ?= 'tray'",
   "_GTK_FRAME_EXTENTS@:c"
 ];
 
@@ -430,9 +427,9 @@ log-level = "warn";
 wintypes:
 {
   tooltip = { fade = true; shadow = true; opacity = 0.92; focus = true; full-shadow = false; };
-  dock = { shadow = false; }
+  dock = { shadow = true; full-shadow = true; }
   dnd = { shadow = false; }
   popup_menu = { fade = true; shadow = true; opacity = 0.92; focus = true; full-shadow = false; }
-  dropdown_menu = { shadow = false; opacity = 0.92; }
+  dropdown_menu = { shadow = false; }
   utility = { shadow = false; };
 };

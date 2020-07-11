@@ -5,11 +5,11 @@
 [common/bar]
 override-redirect = false
 
-width = ${env:PM_BAR_WIDTH:99.8%}
+width = ${env:PM_BAR_WIDTH:99%}
 height = ${env:PM_BAR_HEIGHT:3%}
-offset-x = 2
-offset-y = 2
-radius = 8
+offset-x = 0.5%
+offset-y = 0.5%
+radius = 0
 fixed-center = true
 
 font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
@@ -31,8 +31,8 @@ module-margin-left  = 0
 module-margin-right = 0
 
 modules-left = apps news
-modules-center = clock
-modules-right = weather now-playing
+modules-center =
+modules-right = weather now-playing clock
 
 wm-restack = bspwm
 
@@ -98,21 +98,21 @@ label-empty-foreground = #626483
 label-empty-padding = 3
 
 label-monocle = 
-label-monocle-foreground = #50fa7b
+label-monocle-foreground = #f1fa8c
 label-tiled = 
-label-tiled-foreground = #50fa7b
+label-tiled-foreground = #f1fa8c
 label-fullscreen = 
-label-fullscreen-foreground = #50fa7b
+label-fullscreen-foreground = #f1fa8c
 label-floating = 
-label-floating-foreground = #50fa7b
+label-floating-foreground = #f1fa8c
 label-pseudotiled = P
-label-pseudotiled-foreground = #50fa7b
+label-pseudotiled-foreground = #f1fa8c
 label-locked = " "
-label-locked-foreground = #50fa7b
+label-locked-foreground = #f1fa8c
 label-sticky = " "
-label-sticky-foreground = #50fa7b
+label-sticky-foreground = #f1fa8c
 label-private = " "
-label-private-foreground = #50fa7b
+label-private-foreground = #f1fa8c
 
 [module/bspwm-secondary]
 inherit = common/bspwm
@@ -133,7 +133,7 @@ content = "  "
 
 [module/gap]
 type = custom/text
-content = "        "
+content = "          "
 
 [common/pulseaudio]
 type = internal/pulseaudio
@@ -165,8 +165,8 @@ monitor = ${env:PM_NAME:DP-0}
 dpi = ${env:PM_DPI:110}
 
 modules-left = apps gap news
-modules-center = clock
-modules-right = weather gap now-playing gap redshift gap-small
+modules-center =
+modules-right = now-playing gap weather gap clock
 
 font-3 = "Weather Icons:size=12;5"
 
@@ -180,21 +180,16 @@ click-left = rofi -show drun
 
 [module/news]
 type = custom/script
-label =  %output:0:150%...
+label =   %output:0:150%...
 exec = ~/.config/polybar/scripts/news
 double-click-left = firefox https://news.ycombinator.com/
 
 [module/clock]
 type = custom/script
+label =   %output%
 exec = ~/.config/polybar/scripts/clock
 interval = 5
 click-left = ~/.config/polybar/scripts/calendar
-
-[module/redshift]
-type = custom/script
-exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#8be9fd' '#f1fa8c' '#ff5555'
-interval = 5
-click-left = ~/.config/polybar/scripts/rsctl -t
 
 [module/weather]
 type = custom/script
@@ -218,6 +213,7 @@ click-right = playerctl previous
 
 [bar/bottom]
 inherit = common/bar
+width = 95%
 
 enable-ipc = true
 monitor = ${env:PM_NAME:DP-0}
@@ -227,21 +223,14 @@ bottom = true
 padding-left = 0
 
 font-3 = "Material Icons:pixelsize=17;7"
-font-4 = "icomoon:style=Regular:pixelsize=22"
+font-4 = "icomoon:style=Regular:pixelsize=20;2"
 font-5 = "Spy Agency:pixelsize=12;4"
 font-6 = "Spy Agency Laser:pixelsize=12;4"
 font-7 = "Geforce:style=Bold:pixelsize=12;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap network gap filesystem gap usb-audio gap updates gap gap gap power-menu
-
-tray-position = center
-tray-detatched = true
-tray-offset-x = 1640
-tray-padding = 0
-tray-background = #ea282a36
-tray-maxsize = 22
+modules-right = uptime gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
 
 [module/bspwm]
 inherit = common/bspwm
@@ -254,6 +243,12 @@ ws-icon-4 = music;
 ws-icon-5 = chat;
 ws-icon-6 = misc;
 ws-icon-default = 
+
+[module/uptime]
+type = custom/script
+exec = uptime -p | cut -d ' ' -f2-
+interval = 60
+label =   %output%
 
 [module/cpu-brand]
 type = custom/text
@@ -337,17 +332,12 @@ accumulate-stats = false
 
 format-connected = <ramp-signal><label-connected>
 format-disconnected = <label-disconnected>
-format-packetloss = <label-connected> <animation-packetloss>
+format-packetloss = <label-connected>
 
 label-connected = %essid%
 label-signal = %signal%
-label-disconnected =  Not connected
+label-disconnected =  Disconnected
 label-disconnected-foreground = #626483
-
-label-packetloss-foreground = #ff5555
-animation-packetloss-0 = 
-animation-packetloss-1 = 
-animation-packetloss-framerate = 500
 
 ramp-signal-0 = %{T5}%{T-}
 ramp-signal-1 = %{T5}%{T-}
@@ -358,6 +348,12 @@ ramp-signal-4 = %{T5}%{T-}
 [module/usb-audio]
 inherit = common/pulseaudio
 sink = alsa_output.usb-Focusrite_Scarlett_2i2_USB-00.analog-stereo
+
+[module/redshift]
+type = custom/script
+exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#8be9fd' '#f1fa8c' '#ff5555'
+interval = 5
+click-left = ~/.config/polybar/scripts/rsctl -t
 
 [module/updates]
 type = custom/script
@@ -371,6 +367,31 @@ type = custom/text
 content-foreground = #ff5555
 content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
+
+;--------------------------------------------------------------------;
+; Tray
+;--------------------------------------------------------------------;
+
+[bar/tray]
+monitor = ${env:PM_NAME:DP-0}
+dpi = ${env:PM_DPI:110}
+bottom = true
+background = #00000000
+
+width = 1%
+height = ${env:PM_BAR_HEIGHT:3%}
+offset-x = 98.5%
+offset-y = 0.5%
+
+modules-left = gap
+modules-center =
+modules-right =
+
+tray-position = right
+tray-detatched = true
+tray-padding = 6
+tray-background = #282a36
+tray-maxsize = 22
 
 ;--------------------------------------------------------------------;
 ; Left panel
