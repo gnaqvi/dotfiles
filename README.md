@@ -10,3 +10,4 @@
 ### *TODO*
 - Sleep/hibernate lock handles
 - Implement scrollable Polybar newsfeed script
+- Generalize polybar/stalonetray positioning

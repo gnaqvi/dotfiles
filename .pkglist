@@ -112,6 +112,7 @@ mupdf
 mygtkmenu
 nano
 nautilus
+neofetch
 netctl
 noto-fonts-emoji
 ntfs-3g
@@ -157,6 +158,7 @@ sl
 slack-desktop
 spotify
 spotifywm-git
+stalonetray
 starship-bin
 stress
 sudo
@@ -173,7 +175,6 @@ tree
 trizen
 ttf-fira-code
 ttf-font-awesome
-ttf-material-design-icons-git
 ttf-material-icons-git
 udiskie
 ufw
