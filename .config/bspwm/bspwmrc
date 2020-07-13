@@ -70,5 +70,8 @@ bspc rule -a Lxappearance               state=floating
 # Panels
  ~/.config/polybar/launch &
 
+# Tray
+ ~/.config/stalonetray/launch &
+
 # Apps
  ~/.config/bspwm/apps &
