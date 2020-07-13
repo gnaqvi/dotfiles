@@ -76,10 +76,6 @@ case $1 in
 	generate_theme
 	render_all
 	;;
-"--refresh")
-	$HOME/.config/bspwm/bspwmrc
-    set_wallpaper
-	;;
 "--wall")
     set_wallpaper
 	;;

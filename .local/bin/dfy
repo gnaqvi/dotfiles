@@ -1,14 +1,14 @@
-#!/bin/bash -x
+#!/bin/bash
 
 function dotify() {
 	ABS_PATH=$(realpath $1)
 	DFY_PATH=${ABS_PATH/$HOME\//}
 	PARENT=$(dirname "$DFY_PATH")
 
-	[ "$PARENT" != "." ] && mkdir -p "~/.dotfiles/$PARENT"
+	[ "$PARENT" != "." ] && mkdir -p "$HOME/.dotfiles/$PARENT"
 
-	mv "$ABS_PATH" "~/.dotfiles/$PARENT"
-	ln -sf "~/.dotfiles/$DFY_PATH" "$ABS_PATH"
+	mv "$ABS_PATH" "$HOME/.dotfiles/$PARENT"
+	ln -sf "$HOME/.dotfiles/$DFY_PATH" "$ABS_PATH"
 }
 
 function restore() {
@@ -20,8 +20,8 @@ function restore() {
 		echo "$NORMAL_PATH: Skipped. Already symlinked."
 		return
 	elif [ -f "$NORMAL_PATH" ] || [ -d "$NORMAL_PATH" ]; then
-		mkdir -p ~/dfy_backup
-		mv "$NORMAL_PATH" "~/dfy_backup/$BASENAME"
+		mkdir -p $HOME/dfy_backup
+		mv "$NORMAL_PATH" "$HOME/dfy_backup/$BASENAME"
 	fi
 
 	ln -s "$DFY_PATH" "$NORMAL_PATH"

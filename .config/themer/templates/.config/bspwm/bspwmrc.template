@@ -11,7 +11,7 @@ if [ -n "$LM_NAME" ]; then
 fi
 
 # Colors
-bspc config normal_border_color   "{{colors.dim.black}}"
+bspc config normal_border_color   "{{colors.bright.background}}"
 bspc config focused_border_color  "{{colors.bright.blue}}"
 bspc config active_border_color   "{{colors.bright.blue}}"
 bspc config presel_feedback_color "{{colors.bright.magenta }}"
@@ -70,3 +70,5 @@ bspc rule -a Lxappearance               state=floating
 # Panels
  ~/.config/polybar/launch &
 
+# Apps
+ ~/.config/bspwm/apps &

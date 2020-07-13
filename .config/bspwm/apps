@@ -1,5 +1,4 @@
 #!/bin/bash
 
-slack-desktop &
+slack &
 discord &
-spotify &

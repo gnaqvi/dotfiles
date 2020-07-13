@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Generate config on demand
+[ ! -z "$1" ] && [ "$1" == "-r" ] && \
+    $HOME/.local/bin/themer --template .config/stalonetray/stalonetrayrc.template
+
+# Load monitors info if not loaded already
+[ -z "$PM_NAME" ] && . $HOME/.local/bin/moninfo
+
+# Terminate already running stalonetray instances
+killall -q stalonetray
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x stalonetray >/dev/null; do sleep 1; done
+
+# Launch tray
+stalonetray -c $HOME/.config/stalonetray/stalonetrayrc &

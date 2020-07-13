@@ -9,7 +9,7 @@ width = ${env:PM_BAR_WIDTH:99%}
 height = ${env:PM_BAR_HEIGHT:3%}
 offset-x = 0.5%
 offset-y = 0.5%
-radius = 0
+radius = 8
 fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
@@ -213,7 +213,7 @@ click-right = playerctl previous
 
 [bar/bottom]
 inherit = common/bar
-width = 95%
+width = 94.5%
 
 enable-ipc = true
 monitor = ${env:PM_NAME:DP-0}

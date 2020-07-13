@@ -1,0 +1,24 @@
+background "{{ colors.normal.background }}"
+geometry 3x1+3284+1393
+max_geometry 3x1
+grow_gravity W
+icon_gravity W
+icon_size 22
+slot_size 40
+
+scrollbars horizontal
+scrollbars_size 8
+scrollbars_step 4
+scrollbars_highlight "{{ colors.normal.blue }}"
+
+decorations none
+dockapp_mode simple #none
+fuzzy_edges 0
+skip_taskbar true
+sticky false
+vertical false
+window_layer normal
+window_type dock
+no_shrink false
+parent_bg false
+log_level err
