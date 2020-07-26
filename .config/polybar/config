@@ -16,11 +16,11 @@ font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
 
-background = d9#282a36
+background = ea#282a36
 foreground = #f8f8f2
 
 line-size = 4
-line-color = d9#caa9fa
+line-color = ea#caa9fa
 
 border-size = 0
 
@@ -80,8 +80,8 @@ label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
-label-focused-background = d9#3a3c4e
-label-focused-underline = d9#caa9fa
+label-focused-background = ea#3a3c4e
+label-focused-underline = ea#caa9fa
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -90,7 +90,7 @@ label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
-label-urgent-background = d9#ff5555
+label-urgent-background = ea#ff5555
 label-urgent-padding = 3
 
 label-empty = %icon%
@@ -170,7 +170,7 @@ font-3 = "Weather Icons:size=12;5"
 tray-position = center
 tray-detatched = false
 tray-padding = 6
-tray-background = d9#3a3c4e
+tray-background = ea#3a3c4e
 tray-maxsize = 22
 
 tray-offset-y = 6
