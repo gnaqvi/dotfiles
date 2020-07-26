@@ -20,7 +20,7 @@ bspc config presel_feedback_color "{{colors.bright.magenta }}"
 bspc config automatic_scheme      		spiral
 bspc config border_width          		2
 bspc config top_padding           		0
-bspc config window_gap            		5
+bspc config window_gap            		{{ wm.gap.pixels }}
 bspc config split_ratio          		0.50
 bspc config borderless_monocle    		true
 bspc config gapless_monocle       		false
@@ -49,14 +49,14 @@ bspc rule -a sun-awt-X11-XDialogPeer    state=floating
 bspc rule -a jetbrains-idea-ce			state=floating
 bspc rule -a zoom                       state=floating
 bspc rule -a Lxappearance               state=floating
-
+bspc rule -a Pavucontrol                state=floating
 
 #-------------------------------------------------------------------------------
 # desktop environment
 #-------------------------------------------------------------------------------
 
 # Composting manager
- ~/.config/picom/launch &
+~/.config/picom/launch &
 
 # Notifications manager
 ~/.config/dunst/launch &
@@ -68,10 +68,7 @@ bspc rule -a Lxappearance               state=floating
 ~/.config/redshift/launch &
 
 # Panels
- ~/.config/polybar/launch &
-
-# Tray
- ~/.config/stalonetray/launch &
+~/.config/polybar/launch &
 
 # Apps
- ~/.config/bspwm/apps &
+~/.config/bspwm/apps &

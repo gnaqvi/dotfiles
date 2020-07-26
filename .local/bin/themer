@@ -57,8 +57,57 @@ function set_wallpaper() {
 	feh --no-fehbg --bg-fill "$WALLPAPER_DIR/$(jq -r '.wallpaper' $CONFIG_FILE)"
 }
 
+function bar_info() {
+	local GAP_PIXELS=$(jq -r '.wm.gap.pixels' $GENERATED_THEME)
+
+	# Primary
+	export PM_NAME=$(xrandr | awk '$2 == "connected" && $3 == "primary" {print $1}')
+	export PM_RES=$(xrandr | awk '$2 == "connected" && awk $3 == "primary" {getline; print $1}')
+	export PM_BAR_WIDTH="$(($(get_x $PM_RES)-${GAP_PIXELS}*2))"
+	export PM_BAR_HEIGHT=$(get_bar_height $(get_y $PM_RES))
+
+	# Left
+	LM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "left" {print $1}')
+	if [ -n "$LM_NAME" ]; then
+		export LM_NAME
+		export LM_RES=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
+		export LM_BAR_WIDTH="$(($(get_x $LM_RES)-${GAP_PIXELS}*2))"
+		export LM_BAR_HEIGHT=$(get_bar_height $(get_y $LM_RES))
+	fi
+
+	# Right
+	RM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
+	if [ -n "$RM_NAME" ]; then
+		export RM_NAME
+		export RM_RES=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
+		export RM_BAR_WIDTH="$(($(get_x $RM_RES)-${GAP_PIXELS}*2))"
+		export RM_BAR_HEIGHT=$(get_bar_height $(get_y $RM_RES))
+	fi
+}
+
+get_x() {
+	echo ${1:0:4}
+}
+
+get_y() {
+	echo ${1:5}
+}
+
+get_bar_height() {
+	if [ -z "$1" ]; then
+		echo  ""
+	elif [ "$1" -lt 1080 ]; then
+		echo "2.5%"
+	elif [ "$1" -ge 1080 ]; then
+		echo "2.75%"
+	fi
+}
+
 case $1 in
-"--template")
+"--generate-theme")
+	generate_theme
+	;;
+"--write-one")
 	case $2 in
 	"")
 		echo 'Missing parameter.' >&2; exit 1
@@ -70,14 +119,15 @@ case $1 in
 		;;
 	esac
 	;;
-"--set")
+"--write-all")
 	test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
-
-	generate_theme
 	render_all
 	;;
-"--wall")
+"--wallpaper")
     set_wallpaper
+	;;
+"--bar-info")
+    bar_info
 	;;
 *)
 	echo 'Invalid parameter.' >&2; exit 1

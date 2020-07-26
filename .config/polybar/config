@@ -7,8 +7,8 @@ override-redirect = false
 
 width = ${env:PM_BAR_WIDTH:99%}
 height = ${env:PM_BAR_HEIGHT:3%}
-offset-x = 0.5%
-offset-y = 0.5%
+offset-x = 6
+offset-y = 6
 radius = 8
 fixed-center = true
 
@@ -16,11 +16,11 @@ font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
 
-background = #ea282a36
+background = d9#282a36
 foreground = #f8f8f2
 
 line-size = 4
-line-color = #eacaa9fa
+line-color = d9#caa9fa
 
 border-size = 0
 
@@ -80,8 +80,8 @@ label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
-label-focused-background = #ea3a3c4e
-label-focused-underline = #eacaa9fa
+label-focused-background = d9#3a3c4e
+label-focused-underline = d9#caa9fa
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -90,7 +90,7 @@ label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
-label-urgent-background = #eaff5555
+label-urgent-background = d9#ff5555
 label-urgent-padding = 3
 
 label-empty = %icon%
@@ -149,9 +149,6 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-click-right = pavucontrol
-click-left = amixer set Master toggle
-
 ;--------------------------------------------------------------------;
 ; Top panel
 ;--------------------------------------------------------------------;
@@ -169,6 +166,15 @@ modules-center =
 modules-right = now-playing gap weather gap clock
 
 font-3 = "Weather Icons:size=12;5"
+
+tray-position = center
+tray-detatched = false
+tray-padding = 6
+tray-background = d9#3a3c4e
+tray-maxsize = 22
+
+tray-offset-y = 6
+tray-scale = 0.75
 
 [module/apps]
 type = custom/text
@@ -213,7 +219,6 @@ click-right = playerctl previous
 
 [bar/bottom]
 inherit = common/bar
-width = 94.5%
 
 enable-ipc = true
 monitor = ${env:PM_NAME:DP-0}

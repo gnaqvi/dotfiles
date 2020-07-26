@@ -7,8 +7,8 @@ override-redirect = false
 
 width = ${env:PM_BAR_WIDTH:99%}
 height = ${env:PM_BAR_HEIGHT:3%}
-offset-x = 0.5%
-offset-y = 0.5%
+offset-x = {{ wm.gap.pixels }}
+offset-y = {{ wm.gap.pixels }}
 radius = 8
 fixed-center = true
 
@@ -149,9 +149,6 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-click-right = pavucontrol
-click-left = amixer set Master toggle
-
 ;--------------------------------------------------------------------;
 ; Top panel
 ;--------------------------------------------------------------------;
@@ -169,6 +166,15 @@ modules-center =
 modules-right = now-playing gap weather gap clock
 
 font-3 = "Weather Icons:size=12;5"
+
+tray-position = center
+tray-detatched = false
+tray-padding = {{ wm.gap.pixels }}
+tray-background = {{ opacity.hex }}{{ colors.bright.background }}
+tray-maxsize = 22
+
+tray-offset-y = {{ wm.gap.pixels }}
+tray-scale = 0.75
 
 [module/apps]
 type = custom/text
@@ -213,7 +219,6 @@ click-right = playerctl previous
 
 [bar/bottom]
 inherit = common/bar
-width = 94.5%
 
 enable-ipc = true
 monitor = ${env:PM_NAME:DP-0}

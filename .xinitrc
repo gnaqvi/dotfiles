@@ -13,11 +13,8 @@ xset s 1800 1800
 # Load .Xresources
 xrdb -load ~/.Xresources &
 
-# Load monitors info
-. ~/.local/bin/moninfo
-
 # Set wallpaper
-~/.local/bin/themer --wall &
+~/.local/bin/themer --wallpaper &
 
 # Start hotkey daemon and bspwm
 sxhkd -m 1 -t 20 &

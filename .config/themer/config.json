@@ -2,6 +2,11 @@
 	"colors": "dracula",
 	"wallpaper": "pattern.jpg",
 	"opacity": 92,
+	"wm": {
+		"gap": {
+			"pixels": 6
+		}
+	},
 	"font": {
 		"sans": {
 			"name": "IBM Plex Sans",
