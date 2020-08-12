@@ -17,7 +17,7 @@ baobab
 barrier
 base
 bash
-bind-tools
+bind
 binutils
 bison
 bleachbit
@@ -120,10 +120,12 @@ ntp
 nvm
 nvme-cli
 openconnect
+openshot
 openssh
 pacman
 pacman-contrib
 pass
+pasystray
 patch
 pavucontrol
 pciutils

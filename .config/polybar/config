@@ -16,11 +16,11 @@ font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
 
-background = ea#282a36
+background = #ea282a36
 foreground = #f8f8f2
 
 line-size = 4
-line-color = ea#caa9fa
+line-color = #eacaa9fa
 
 border-size = 0
 
@@ -80,8 +80,8 @@ label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
-label-focused-background = ea#3a3c4e
-label-focused-underline = ea#caa9fa
+label-focused-background = #ea3a3c4e
+label-focused-underline = #eacaa9fa
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -90,7 +90,7 @@ label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
-label-urgent-background = ea#ff5555
+label-urgent-background = #eaff5555
 label-urgent-padding = 3
 
 label-empty = %icon%
@@ -125,7 +125,7 @@ ws-icon-default = 
 type = internal/xwindow
 format-padding = 0
 format-foreground = #f4f99d
-label = %title:0:140:...%
+label = %title:0:50:...%
 
 [module/gap-small]
 type = custom/text
@@ -166,15 +166,6 @@ modules-center =
 modules-right = now-playing gap weather gap clock
 
 font-3 = "Weather Icons:size=12;5"
-
-tray-position = center
-tray-detatched = false
-tray-padding = 6
-tray-background = ea#3a3c4e
-tray-maxsize = 22
-
-tray-offset-y = 6
-tray-scale = 0.75
 
 [module/apps]
 type = custom/text
@@ -374,29 +365,12 @@ content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 ;--------------------------------------------------------------------;
-; Tray
+; Bottom panel (compact)
 ;--------------------------------------------------------------------;
 
-[bar/tray]
-monitor = ${env:PM_NAME:DP-0}
-dpi = ${env:PM_DPI:110}
-bottom = true
-background = #00000000
-
-width = 1%
-height = ${env:PM_BAR_HEIGHT:3%}
-offset-x = 98.5%
-offset-y = 0.5%
-
-modules-left = gap
-modules-center =
-modules-right =
-
-tray-position = right
-tray-detatched = true
-tray-padding = 6
-tray-background = #282a36
-tray-maxsize = 22
+[bar/bottom-compact]
+inherit = bar/bottom
+modules-right = uptime gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
 
 ;--------------------------------------------------------------------;
 ; Left panel

@@ -125,7 +125,7 @@ ws-icon-default = 
 type = internal/xwindow
 format-padding = 0
 format-foreground = {{ colors.bright.yellow }}
-label = %title:0:140:...%
+label = %title:0:50:...%
 
 [module/gap-small]
 type = custom/text
@@ -166,15 +166,6 @@ modules-center =
 modules-right = now-playing gap weather gap clock
 
 font-3 = "Weather Icons:size=12;5"
-
-tray-position = center
-tray-detatched = false
-tray-padding = {{ wm.gap.pixels }}
-tray-background = {{ opacity.hex }}{{ colors.bright.background }}
-tray-maxsize = 22
-
-tray-offset-y = {{ wm.gap.pixels }}
-tray-scale = 0.75
 
 [module/apps]
 type = custom/text
@@ -374,29 +365,12 @@ content = 
 click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 ;--------------------------------------------------------------------;
-; Tray
+; Bottom panel (compact)
 ;--------------------------------------------------------------------;
 
-[bar/tray]
-monitor = ${env:PM_NAME:DP-0}
-dpi = ${env:PM_DPI:110}
-bottom = true
-background = #00000000
-
-width = 1%
-height = ${env:PM_BAR_HEIGHT:3%}
-offset-x = 98.5%
-offset-y = 0.5%
-
-modules-left = gap
-modules-center =
-modules-right =
-
-tray-position = right
-tray-detatched = true
-tray-padding = 6
-tray-background = {{ colors.normal.background }}
-tray-maxsize = 22
+[bar/bottom-compact]
+inherit = bar/bottom
+modules-right = uptime gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
 
 ;--------------------------------------------------------------------;
 ; Left panel

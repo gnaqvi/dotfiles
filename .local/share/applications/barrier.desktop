@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Barrier Daemon
+Comment=Keyboard and mouse sharing solution
+Exec=/home/gnaqvi/.config/barrier/launch
+Icon=barrier
+Terminal=false
+Categories=Utility;DesktopUtility;
+Keywords=keyboard;mouse;sharing;network;share;
+
