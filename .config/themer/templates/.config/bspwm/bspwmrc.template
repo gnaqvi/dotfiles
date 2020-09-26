@@ -50,6 +50,7 @@ bspc rule -a jetbrains-idea-ce			state=floating
 bspc rule -a zoom                       state=floating
 bspc rule -a Lxappearance               state=floating
 bspc rule -a Pavucontrol                state=floating
+bspc rule -a Arandr		                state=floating
 
 #-------------------------------------------------------------------------------
 # desktop environment
