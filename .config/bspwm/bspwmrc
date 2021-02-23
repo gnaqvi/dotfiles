@@ -50,10 +50,14 @@ bspc rule -a jetbrains-idea-ce			state=floating
 bspc rule -a zoom                       state=floating
 bspc rule -a Lxappearance               state=floating
 bspc rule -a Pavucontrol                state=floating
+bspc rule -a Arandr		                state=floating
 
 #-------------------------------------------------------------------------------
 # desktop environment
 #-------------------------------------------------------------------------------
+
+# Composting manager
+~/.config/picom/launch &
 
 # Notifications manager
 ~/.config/dunst/launch &
@@ -66,9 +70,6 @@ bspc rule -a Pavucontrol                state=floating
 
 # Panels
 ~/.config/polybar/launch &
-
-# Composting manager
-~/.config/picom/launch &
 
 # Apps
 ~/.config/bspwm/apps &

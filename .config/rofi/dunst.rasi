@@ -9,6 +9,6 @@ configuration {
 	eh: 1;
 	hide-scrollbar: true;
 	fullscreen: false;
-	dpi: 110;
+	dpi: 93;
 	theme: "base16-dmenu";
 }

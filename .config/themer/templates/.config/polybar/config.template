@@ -13,8 +13,8 @@ radius = 8
 fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12.5;3"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;4"
 
 background = {{ opacity.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
@@ -125,7 +125,7 @@ ws-icon-default = 
 type = internal/xwindow
 format-padding = 0
 format-foreground = {{ colors.bright.yellow }}
-label = %title:0:50:...%
+label = %title:0:60:...%
 
 [module/gap-small]
 type = custom/text
@@ -133,7 +133,7 @@ content = "  "
 
 [module/gap]
 type = custom/text
-content = "          "
+content = "       "
 
 [common/pulseaudio]
 type = internal/pulseaudio
@@ -159,11 +159,11 @@ inherit = common/bar
 padding-left = 0
 
 monitor = ${env:PM_NAME:DP-0}
-dpi = ${env:PM_DPI:110}
+dpi = ${env:PM_DPI:93}
 
-modules-left = apps gap news
+modules-left = apps gap uptime
 modules-center =
-modules-right = now-playing gap weather gap clock
+modules-right = news gap now-playing gap weather gap clock
 
 font-3 = "Weather Icons:size=12;5"
 
@@ -213,20 +213,20 @@ inherit = common/bar
 
 enable-ipc = true
 monitor = ${env:PM_NAME:DP-0}
-dpi = ${env:PM_DPI:110}
+dpi = ${env:PM_DPI:93}
 
 bottom = true
 padding-left = 0
 
 font-3 = "Material Icons:pixelsize=17;7"
 font-4 = "icomoon:style=Regular:pixelsize=20;2"
-font-5 = "Spy Agency:pixelsize=12;4"
-font-6 = "Spy Agency Laser:pixelsize=12;4"
-font-7 = "Geforce:style=Bold:pixelsize=12;5"
+font-5 = "Spy Agency:pixelsize=13;3"
+font-6 = "Spy Agency Laser:pixelsize=13;3"
+font-7 = "Geforce:style=Bold:pixelsize=13;5"
 
 modules-left = bspwm gap-small title
 modules-center =
-modules-right = uptime gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
 
 [module/bspwm]
 inherit = common/bspwm
@@ -326,7 +326,7 @@ interval = 5
 ping-interval = 0
 accumulate-stats = false
 
-format-connected = <ramp-signal><label-connected>
+format-connected = <label-connected> <ramp-signal>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected>
 
@@ -370,7 +370,7 @@ click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
 
 [bar/bottom-compact]
 inherit = bar/bottom
-modules-right = uptime gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
+modules-right = network gap usb-audio gap redshift gap updates gap power-menu gap-small
 
 ;--------------------------------------------------------------------;
 ; Left panel
@@ -380,7 +380,7 @@ modules-right = uptime gap network gap usb-audio gap redshift gap updates gap po
 inherit = common/bar-secondary
 
 monitor = ${env:LM_NAME:DP-1}
-dpi = ${env:LM_DPI:110}
+dpi = ${env:LM_DPI:93}
 
 height = ${env:LM_BAR_HEIGHT:2.75%}
 
@@ -392,7 +392,7 @@ height = ${env:LM_BAR_HEIGHT:2.75%}
 inherit = common/bar-secondary
 
 monitor = ${env:RM_NAME:DP-1}
-dpi = ${env:RM_DPI:110}
+dpi = ${env:RM_DPI:93}
 
 height = ${env:RM_BAR_HEIGHT:2.75%}
 

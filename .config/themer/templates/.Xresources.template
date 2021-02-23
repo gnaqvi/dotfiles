@@ -34,7 +34,7 @@ Xcursor.size:  {{ cursor.size }}
 ! Xft fonts
 !-------------------------------------------------------------------------------
 
-Xft.dpi:       110
+Xft.dpi:       93
 Xft.antialias: true
 Xft.rgba:      rgb
 Xft.hinting:   true

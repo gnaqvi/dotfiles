@@ -2,7 +2,7 @@
 	"gitlens.advanced.messages": {
 		"suppressShowKeyBindingsNotice": true
 	},
-	"window.zoomLevel": 1,
+	"window.zoomLevel": 1.25,
 	"editor.fontSize": 12,
 	"window.menuBarVisibility": "toggle",
 	"workbench.activityBar.visible": true,

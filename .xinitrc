@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Non-reparenting window managers fix for Java
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -11,10 +13,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 xset s 1800 1800
 
 # Load .Xresources
-xrdb -load ~/.Xresources &
+xrdb -load $HOME/.Xresources &
 
 # Set wallpaper
-~/.local/bin/themer --wallpaper &
+$HOME/.local/bin/themer --wallpaper &
 
 # Start hotkey daemon and bspwm
 sxhkd -m 1 -t 20 &
