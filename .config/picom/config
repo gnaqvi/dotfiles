@@ -164,9 +164,9 @@ focus-exclude = [ "class_g = 'Cairo-clock'" ];
 # opacity-rule = []
 opacity-rule = [
   "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
-  "92:class_i = 'tray'",
-  "92:class_g = 'code-oss'",
-  "92:class_g = 'Org.gnome.Nautilus'"
+  "95:class_i = 'tray'",
+  "95:class_g = 'code-oss'",
+  "95:class_g = 'Org.gnome.Nautilus'"
 ];
 
 

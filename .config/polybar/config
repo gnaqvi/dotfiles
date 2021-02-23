@@ -16,11 +16,11 @@ font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
 font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;4"
 
-background = #ea282a36
+background = #f2282a36
 foreground = #f8f8f2
 
 line-size = 4
-line-color = #eacaa9fa
+line-color = #f2caa9fa
 
 border-size = 0
 
@@ -80,8 +80,8 @@ label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
-label-focused-background = #ea3a3c4e
-label-focused-underline = #eacaa9fa
+label-focused-background = #f23a3c4e
+label-focused-underline = #f2caa9fa
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -90,7 +90,7 @@ label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
-label-urgent-background = #eaff5555
+label-urgent-background = #f2ff5555
 label-urgent-padding = 3
 
 label-empty = %icon%

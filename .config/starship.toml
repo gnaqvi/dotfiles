@@ -8,8 +8,6 @@ progress_divider = " of "
 cherry_pick = "🍒 Picking"
 
 [git_status]
-prefix = ""
-suffix = " "
 conflicted = "🚩"
 ahead = "🔺"
 behind = "🔻"
