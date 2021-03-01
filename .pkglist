@@ -64,7 +64,6 @@ git
 glibc
 gnome-icon-theme
 go
-gotop
 gradle
 grep
 groff
@@ -75,7 +74,6 @@ gvfs-mtp
 gzip
 handbrake
 hddtemp
-i3lock-color
 iftop
 imagemagick
 inetutils
@@ -188,6 +186,7 @@ util-linux
 vdpauinfo
 vi
 vim
+vlc
 vulkan-radeon
 wget
 which
@@ -200,6 +199,7 @@ xdo
 xdotool
 xf86-video-amdgpu
 xfsprogs
+xiccd
 xorg-server
 xorg-xdm
 xorg-xdpyinfo

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Load display settings
+autorandr -c default
+
 # Non-reparenting window managers fix for Java
 export _JAVA_AWT_WM_NONREPARENTING=1
 
