@@ -1,10 +1,8 @@
 [character]
-symbol = "♍"
+success_symbol = "♍"
 error_symbol = "♓"
-use_symbol_for_status = true
 
 [git_state]
-progress_divider = " of "
 cherry_pick = "🍒 Picking"
 
 [git_status]
@@ -17,10 +15,7 @@ stashed = "💼 "
 modified = "✏ "
 renamed = "🔨"
 deleted = "💀"
-staged.value = "++"
-staged.style = "green"
-staged_count.enabled = true
-staged_count.style = "green"
+staged = "++"
 
 [golang]
 symbol = "Go "
@@ -35,9 +30,6 @@ disabled = true
 disabled = true
 
 [elm]
-disabled = true
-
-[haskell]
 disabled = true
 
 [php]

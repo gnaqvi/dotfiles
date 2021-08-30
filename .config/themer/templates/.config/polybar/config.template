@@ -13,8 +13,8 @@ radius = 8
 fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=14;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=14;4"
 
 background = {{ opacity.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
@@ -320,26 +320,19 @@ label-unmounted-foreground = {{ colors.normal.red }}
 
 [module/network]
 type = internal/network
-interface = wlo1
+interface = enp24s0
 
 interval = 5
 ping-interval = 0
 accumulate-stats = false
 
-format-connected = <label-connected> <ramp-signal>
+format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected>
 
-label-connected = %essid%
-label-signal = %signal%
-label-disconnected =  Disconnected
+label-connected = %downspeed:9%
+label-disconnected =  Disconnected
 label-disconnected-foreground = {{ colors.dim.foreground }}
-
-ramp-signal-0 = %{T5}%{T-}
-ramp-signal-1 = %{T5}%{T-}
-ramp-signal-2 = %{T5}%{T-}
-ramp-signal-3 = %{T5}%{T-}
-ramp-signal-4 = %{T5}%{T-}
 
 [module/usb-audio]
 inherit = common/pulseaudio

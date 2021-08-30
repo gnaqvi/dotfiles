@@ -1,6 +1,6 @@
 {
 	"colors": "dracula",
-	"wallpaper": "mandalorian.jpg",
+	"wallpaper": "borderlands.jpeg",
 	"opacity": 96,
 	"wm": {
 		"gap": {
@@ -10,11 +10,11 @@
 	"font": {
 		"sans": {
 			"name": "IBM Plex Sans",
-			"size": "12"
+			"size": "13"
 		},
 		"monospace": {
 			"name": "IBM Plex Mono",
-			"size": "12"
+			"size": "12.5"
 		}
 	},
 	"gtk": {

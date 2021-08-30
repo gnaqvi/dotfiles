@@ -5,7 +5,7 @@
 - Run `themer --set` to generate theme. See `.local/bin/themer`.
 - Theme can be modified in `~/.config/base16/config.json`
 
-![Desktop](https://i.imgur.com/D1iYyXs.jpg)
+![Desktop](https://i.imgur.com/nbLKfxU.jpeg)
 
 ### *TODO*
 - Sleep/hibernate lock handles

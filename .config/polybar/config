@@ -12,15 +12,15 @@ offset-y = 6
 radius = 8
 fixed-center = true
 
-font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=13;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=13;4"
+font-0 = "IBM Plex Sans:weight=Regular:size=13;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=14;4"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=14;4"
 
-background = #f2282a36
+background = f4#282a36
 foreground = #f8f8f2
 
 line-size = 4
-line-color = #f2caa9fa
+line-color = f4#caa9fa
 
 border-size = 0
 
@@ -80,8 +80,8 @@ label-dimmed-empty-padding = 3
 
 label-focused = %icon%
 label-focused-foreground = #f8f8f2
-label-focused-background = #f23a3c4e
-label-focused-underline = #f2caa9fa
+label-focused-background = f4#3a3c4e
+label-focused-underline = f4#caa9fa
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -90,7 +90,7 @@ label-occupied-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
-label-urgent-background = #f2ff5555
+label-urgent-background = f4#ff5555
 label-urgent-padding = 3
 
 label-empty = %icon%
@@ -320,26 +320,19 @@ label-unmounted-foreground = #ff5555
 
 [module/network]
 type = internal/network
-interface = wlo1
+interface = enp24s0
 
 interval = 5
 ping-interval = 0
 accumulate-stats = false
 
-format-connected = <label-connected> <ramp-signal>
+format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected>
 
-label-connected = %essid%
-label-signal = %signal%
-label-disconnected =  Disconnected
+label-connected = %downspeed:9%
+label-disconnected =  Disconnected
 label-disconnected-foreground = #626483
-
-ramp-signal-0 = %{T5}%{T-}
-ramp-signal-1 = %{T5}%{T-}
-ramp-signal-2 = %{T5}%{T-}
-ramp-signal-3 = %{T5}%{T-}
-ramp-signal-4 = %{T5}%{T-}
 
 [module/usb-audio]
 inherit = common/pulseaudio
