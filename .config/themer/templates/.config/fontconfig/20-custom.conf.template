@@ -4,7 +4,7 @@
   <alias>
     <family>sans-serif</family>
     <prefer>
-      <family>IBM Plex Sans</family>
+      <family>{{ font.sans.name }}</family>
       <family>Noto Color Emoji</family>
       <family>Noto Emoji</family>
     </prefer>
@@ -20,7 +20,7 @@
   <alias>
     <family>monospace</family>
     <prefer>
-      <family>IBM Plex Mono</family>
+      <family>{{ font.monospace.name }}</family>
       <family>Noto Color Emoji</family>
       <family>Noto Emoji</family>
     </prefer>

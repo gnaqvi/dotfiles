@@ -7,7 +7,7 @@
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code tor web music chat
 if [ -n "$LM_NAME" ]; then
-	bspc monitor $LM_NAME -d home terminal code code
+    bspc monitor $LM_NAME -d home terminal code code
 fi
 
 # Colors
@@ -26,6 +26,7 @@ bspc config borderless_monocle    		true
 bspc config gapless_monocle       		false
 bspc config single_monocle        		false
 bspc config focus_follows_pointer 		false
+bspc config ignore_ewmh_focus 			true
 bspc config click_to_focus        		button1
 bspc config pointer_modifier      		mod4
 bspc config center_pseudo_tiled	  		true
@@ -36,8 +37,8 @@ bspc rule -a code-oss                -o desktop=primary:^3
 bspc rule -a jetbrains-idea          -o desktop=primary:^4
 bspc rule -a firefox	             -o desktop=primary:^6
 bspc rule -a spotify                    desktop=primary:^7
-bspc rule -a Slack                      desktop=primary:^8
-bspc rule -a discord                    desktop=primary:^8
+bspc rule -a Slack                      desktop=primary:^8 follow=false
+bspc rule -a discord                    desktop=primary:^8 follow=false
 bspc rule -a Gimp                       state=floating
 bspc rule -a Org.gnome.Nautilus         state=floating
 bspc rule -a Transmission-gtk           state=floating
