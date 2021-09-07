@@ -1,7 +1,7 @@
 configuration {
 	modi: "drun";
 	display-drun: "Open";
-	font: "IBM Plex Sans 16";
+	font: "{{ font.sans.name }} 16";
 	show-icons: false;
 	terminal: "alacritty";
 	eh: 1;

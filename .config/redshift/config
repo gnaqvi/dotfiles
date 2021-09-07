@@ -57,8 +57,8 @@ adjustment-method=randr
 ; Keep in mind that longitudes west of Greenwich (e.g. the Americas)
 ; are negative numbers.
 [manual]
-lat=43.31
-lon=-79.50
+lat=43.6532
+lon=-79.3832
 
 ; Configuration of the adjustment-method
 ; type 'redshift -m METHOD:help' to see the settings.

@@ -39,7 +39,7 @@ function get_polybar_text() {
 function toggle() {
 	if [ "$(pgrep -x redshift)" ]; then
 		echo "" > $STATUS_LOG_FILE
-		pkill -USR1 redshift
+		pkill -USR1 '^redshift$'
 	else
 		$HOME/.config/redshift/launch
 	fi

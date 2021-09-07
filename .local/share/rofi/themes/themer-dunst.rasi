@@ -1,22 +1,23 @@
 * {
-	background: {{ colors.normal.background }}{{ opacity.hex }};
-	foreground: {{ colors.normal.foreground }};
-	accent: 	{{ colors.normal.magenta }}{{ opacity.hex }};
+	background: #282a36f4;
+	foreground: #f8f8f2;
+	accent: 	#ff79c6f4;
 
 	transparent:      #FFFFFF00;
 	background-color: @transparent;
 
-	font: "{{ font.sans.name }} 15";
+	font: "IBM Plex Sans 15";
 }
 
 window {
-	fullscreen:       true;
 	background-color: @background;
+    height: 10%;
+    width: 30%;
 }
 
 mainbox {
     border:  0;
-    padding: 15%;
+    padding: 1%;
 }
 
 message {
@@ -29,14 +30,13 @@ textbox {
 }
 
 listview {
-    fixed-height: 0;
-    scrollbar:    true;
-	columns:      4;
+    scrollbar: true;
+	columns:   1;
+    padding: 2% 0;
 }
 
 element {
     border:  0;
-    padding: 24px;
 }
 
 element-icon {
@@ -46,8 +46,6 @@ element-icon {
 element-text {
     background-color: inherit;
     text-color:       inherit;
-	vertical-align:   0.5;
-    padding:          0 0 0 6px;
 }
 
 element.normal.normal, element.normal.urgent, element.normal.active {
@@ -72,7 +70,7 @@ scrollbar {
 }
 
 mode-switcher {
-    border:       0;
+    border: 0;
 }
 
 button.selected {
@@ -83,7 +81,6 @@ button.selected {
 inputbar {
     text-color: @accent;
 	children:   [prompt, textbox-prompt-colon, entry];
-    padding:    0 24px;
 }
 
 case-indicator {

@@ -330,7 +330,7 @@ format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected>
 
-label-connected = %downspeed:9%
+label-connected =  %downspeed:9%
 label-disconnected =  Disconnected
 label-disconnected-foreground = {{ colors.dim.foreground }}
 

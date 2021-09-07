@@ -180,10 +180,10 @@
 	### Misc/Advanced ###
 
 	# dmenu path.
-	dmenu = /usr/bin/rofi -dmenu -p "Open:" -config ~/.config/rofi/dunst.rasi
+	dmenu = /usr/bin/rofi -dmenu -config ~/.config/rofi/dunst.rasi
 
 	# Browser for opening urls in context menu.
-	browser = /usr/bin/google-chrome-stable --force-device-scale-factor=1.20
+	browser = /usr/bin/firefox
 
 	# Always run rule-defined scripts, even if the notification is suppressed
 	always_run_script = true

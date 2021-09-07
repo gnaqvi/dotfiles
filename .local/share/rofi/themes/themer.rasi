@@ -1,127 +1,107 @@
 * {
 	background: #282a36f4;
 	foreground: #f8f8f2;
-	accent: #ff79c6f4;
+	accent: 	#ff79c6f4;
 
 	transparent:      #FFFFFF00;
 	background-color: @transparent;
-	separatorcolor:   @transparent;
 
-	font:             "IBM Plex Sans 15";
+	font: "IBM Plex Sans 15";
 }
 
-#window {
+window {
+	fullscreen:       true;
 	background-color: @background;
-	border:           0;
-	padding:          300 0 300 265;
 }
 
-#mainbox {
-	border:  0;
-	padding: 0;
+mainbox {
+    border:  0;
+    padding: 15%;
 }
 
-#message {
-	border:       0;
-	border-color: @transparent;
-	padding:      0px;
+message {
+    border:  0;
+    padding: 0;
 }
 
-#textbox {
-	text-color: @foreground;
+textbox {
+    text-color: @foreground;
 }
 
-#listview {
-	fixed-height: 0;
-	border:       2px 0px 0px ;
-	border-color: @transparent;
-	spacing:      2px;
-	scrollbar:    true;
-	padding:      2px 0px 0px ;
+listview {
+    fixed-height: 0;
+    scrollbar:    true;
+	columns:      4;
 }
 
-#element {
-	border:  0;
-	padding: 1px;
+element {
+    border:  0;
+    padding: 24px;
 }
 
-#element.normal.normal {
-	background-color: @transparent;
-	text-color:       @foreground;
+element-icon {
+    size: 2em;
 }
 
-#element.normal.urgent {
-	background-color: @transparent;
-	text-color:       @foreground;
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+	vertical-align:   0.5;
+    padding:          0 0 0 6px;
 }
 
-#element.normal.active {
-	background-color: @transparent;
-	text-color:       @background;
+element.normal.normal, element.normal.urgent, element.normal.active {
+    background-color: @transparent;
+    text-color:       @foreground;
 }
 
-#element.selected.normal {
-	text-color:       @accent;
+element.selected.normal, element.selected.urgent, element.selected.active {
+    text-color:       @accent;
 }
 
-#element.selected.urgent {
-	text-color:       @accent;
+element.alternate.normal, element.alternate.urgent, element.alternate.active {
+    background-color: @transparent;
+    text-color:       @foreground;
 }
 
-#element.selected.active {
-	text-color:       @accent;
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-width: 8px;
+    padding:      0;
 }
 
-#element.alternate.normal {
-	background-color: @transparent;
-	text-color:       @foreground;
+mode-switcher {
+    border:       0;
 }
 
-#element.alternate.urgent {
-	background-color: @transparent;
-	text-color:       @foreground;
+button.selected {
+    background-color: @transparent;
+    text-color:       @foreground;
 }
 
-#element.alternate.active {
-	background-color: @transparent;
-	text-color:       @foreground;
+inputbar {
+    text-color: @accent;
+	children:   [prompt, textbox-prompt-colon, entry];
+    padding:    0 24px;
 }
 
-#scrollbar {
-	width:        4px ;
-	border:       0;
-	handle-width: 8px ;
-	padding:      0;
+case-indicator {
+    spacing:    0;
+    text-color: @foreground;
 }
 
-#sidebar {
-	border:       2px 0px 0px ;
-	border-color: @transparent;
+entry {
+    text-color: @accent;
 }
 
-#button.selected {
-	background-color: @transparent;
-	text-color:       @foreground;
+prompt {
+    text-color: @foreground;
 }
 
-#inputbar {
-	spacing:    0;
-	text-color: @foreground;
-	padding:    0px ;
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em;
+    text-color: @foreground;
 }
-
-#case-indicator {
-	spacing:    0;
-	text-color: @foreground;
-}
-
-#entry {
-	spacing:    0;
-	text-color: @foreground;
-}
-
-#prompt {
-	spacing:    0;
-	text-color: @foreground;
-}
-

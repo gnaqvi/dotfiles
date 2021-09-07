@@ -33,25 +33,25 @@ bspc config center_pseudo_tiled	  		true
 bspc config directional_focus_tightness high
 
 # Placement
-bspc rule -a code-oss                -o desktop=primary:^3
-bspc rule -a jetbrains-idea          -o desktop=primary:^4
-bspc rule -a firefox	             -o desktop=primary:^6
-bspc rule -a spotify                    desktop=primary:^7
-bspc rule -a Slack                      desktop=primary:^8 follow=false
-bspc rule -a discord                    desktop=primary:^8 follow=false
+bspc rule -a code-oss                -o desktop=primary:^3 follow=on
+bspc rule -a jetbrains-idea          -o desktop=primary:^4 follow=on
+bspc rule -a firefox	             -o desktop=primary:^6 follow=on
+bspc rule -a spotify                    desktop=primary:^7 follow=on
+bspc rule -a Slack                      desktop=primary:^8
+bspc rule -a discord                    desktop=primary:^8
 bspc rule -a Gimp                       state=floating
-bspc rule -a Org.gnome.Nautilus         state=floating
+bspc rule -a Org.gnome.Nautilus         state=floating follow=on
 bspc rule -a Transmission-gtk           state=floating
 bspc rule -a Baobab                     state=floating
-bspc rule -a vlc                        state=floating
+bspc rule -a vlc                        state=floating follow=on
 bspc rule -a feh                        state=floating
 bspc rule -a Yad                        state=floating
 bspc rule -a sun-awt-X11-XDialogPeer    state=floating
-bspc rule -a jetbrains-idea-ce			state=floating
-bspc rule -a zoom                       state=floating
-bspc rule -a Lxappearance               state=floating
-bspc rule -a Pavucontrol                state=floating
-bspc rule -a Arandr		                state=floating
+bspc rule -a jetbrains-idea-ce			state=floating follow=on
+bspc rule -a zoom                       state=floating follow=on
+bspc rule -a Lxappearance               state=floating follow=on
+bspc rule -a Pavucontrol                state=floating follow=on
+bspc rule -a Arandr		                state=floating follow=on
 
 #-------------------------------------------------------------------------------
 # desktop environment
