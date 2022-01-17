@@ -39,7 +39,7 @@ Submenu = Move to
 	icon = NULL
 
 	item = Desktop n°...
-	cmd =
+	cmd = bspc node -d "focused:^$(yad --entry --numeric --entry-label=Desktop})"
 	icon = NULL
 
 	item = Next empty desktop

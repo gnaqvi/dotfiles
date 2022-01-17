@@ -6,5 +6,5 @@ configuration {
 	terminal: "alacritty";
 	eh: 1;
 	dpi: 93;
-	theme: "themer-dunst";
 }
+@theme "themer-dunst"

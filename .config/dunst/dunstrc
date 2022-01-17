@@ -180,7 +180,7 @@
 	### Misc/Advanced ###
 
 	# dmenu path.
-	dmenu = /usr/bin/rofi -show drun -config ~/.config/rofi/dunst.rasi
+	dmenu = /usr/bin/rofi -dmenu -config ~/.config/rofi/dunst.rasi
 
 	# Browser for opening urls in context menu.
 	browser = /usr/bin/firefox
