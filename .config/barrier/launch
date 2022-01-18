@@ -7,4 +7,4 @@ killall -q barriers
 while pgrep -u $UID -x barriers >/dev/null; do sleep 1; done
 
 # Launch barriers
-barriers -c $HOME/.config/barrier/barrier.conf --enable-crypto --no-restart --daemon
+barriers -c $XDG_CONFIG_HOME/barrier/barrier.conf --enable-crypto --no-restart --daemon

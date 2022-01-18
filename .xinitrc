@@ -22,5 +22,5 @@ xrdb -load $HOME/.Xresources &
 $HOME/.local/bin/themer --wallpaper &
 
 # Start hotkey daemon and bspwm
-sxhkd -m 1 -t 20 &
+$XDG_CONFIG_HOME/sxhkd/launch
 exec bspwm

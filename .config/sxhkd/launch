@@ -1,0 +1,20 @@
+#!/bin/bash -x
+
+# Terminate already running sxhkd instances
+killall -q sxhkd
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; done
+
+FIFO_DIR="/tmp/sxhkd"
+FIFO_PATH="${FIFO_DIR}/status"
+
+if [ -d "$FIFO_DIR" ]; then
+	[ -f "${FIFO_PATH}" ] && rm "${FIFO_PATH}"
+else
+	mkdir -p $FIFO_DIR
+fi
+
+mkfifo "${FIFO_PATH}"
+
+sxhkd -m 1 -t 20 -s "${FIFO_PATH}" &

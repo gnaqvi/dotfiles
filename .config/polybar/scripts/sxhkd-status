@@ -1,0 +1,16 @@
+#!/bin/bash
+
+STATUS_FIFO="/tmp/sxhkd/status"
+read LINE <$STATUS_FIFO
+
+while read LINE <$STATUS_FIFO
+do
+  case $LINE in
+  BBegin*)
+    polybar-msg hook sxhkd 1
+    ;;
+  EEnd*)
+    polybar-msg hook sxhkd 2
+	  ;;
+  esac
+done

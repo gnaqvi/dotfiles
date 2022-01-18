@@ -1,23 +1,28 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Source bar info variables
 . $HOME/.local/bin/themer --bar-info
 
 # Generate config on demand
 [ ! -z "$1" ] && [ "$1" == "-r" ] && \
-    $HOME/.local/bin/themer --write-one .config/polybar/config.template
+    $HOME/.local/bin/themer --write-one .config/polybar/config.ini.template
 
 # Hack for Polybar ARGB format
-sed -i -E 's/([0-9a-fA-F]{2})#([0-9a-fA-F]{6})/#\1\2/g' $HOME/.config/polybar/config
+sed -i -E 's/([0-9a-fA-F]{2})#([0-9a-fA-F]{6})/#\1\2/g' $XDG_CONFIG_HOME/polybar/config.ini
 
 # Terminate already running polybar instances
 killall -q polybar
+killall -q sxhkd-status
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+while pgrep -u $UID -x sxhkd-status >/dev/null; do sleep 1; done
 
 # Launch bars
 polybar top &
 $PM_BAR_COMPACT && (polybar bottom-compact &) || (polybar bottom &)
 [ ! -z "$LM_NAME" ] && polybar left &
 [ ! -z "$RM_NAME" ] && polybar right &
+
+# Launch sxhkd listener
+$XDG_CONFIG_HOME/polybar/scripts/sxhkd-status &

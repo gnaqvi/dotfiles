@@ -125,7 +125,7 @@ ws-icon-default = 
 type = internal/xwindow
 format-padding = 0
 format-foreground = {{ colors.bright.yellow }}
-label = %title:0:60:...%
+label = %title:0:100:...%
 
 [module/gap-small]
 type = custom/text
@@ -175,6 +175,12 @@ content-background = {{ colors.bright.background }}
 content-padding = 3
 click-left = rofi -show drun
 
+[module/uptime]
+type = custom/script
+exec = uptime -p | cut -d ' ' -f2-
+interval = 60
+label =   %output%
+
 [module/news]
 type = custom/script
 label =   %output:0:150%...
@@ -223,8 +229,9 @@ font-4 = "icomoon:style=Regular:pixelsize=20;2"
 font-5 = "Spy Agency:pixelsize=13;3"
 font-6 = "Spy Agency Laser:pixelsize=13;3"
 font-7 = "Geforce:style=Bold:pixelsize=13;5"
+font-8 = "DejaVuSans:style=Normal:size={{ font.sans.size }};0"
 
-modules-left = bspwm gap-small title
+modules-left = bspwm gap-small sxhkd title
 modules-center =
 modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
 
@@ -240,11 +247,11 @@ ws-icon-5 = chat;
 ws-icon-6 = misc;
 ws-icon-default = 
 
-[module/uptime]
-type = custom/script
-exec = uptime -p | cut -d ' ' -f2-
-interval = 60
-label =   %output%
+[module/sxhkd]
+type = custom/ipc
+hook-0 = echo "  "
+hook-1 = echo ""
+initial = 2
 
 [module/cpu-brand]
 type = custom/text
@@ -394,10 +401,6 @@ height = ${env:RM_BAR_HEIGHT:2.75%}
 ;--------------------------------------------------------------------;
 
 [settings]
-throttle-output = 5
-throttle-output-for = 10
-throttle-input-for = 30
-
 screenchange-reload = true
 ;compositing-background = xor
 ;compositing-background = screen

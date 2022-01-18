@@ -41,7 +41,7 @@ function toggle() {
 		echo "" > $STATUS_LOG_FILE
 		pkill -USR1 '^redshift$'
 	else
-		$HOME/.config/redshift/launch
+		$XDG_CONFIG_HOME/redshift/launch
 	fi
 }
 

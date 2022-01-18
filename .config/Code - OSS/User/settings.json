@@ -62,5 +62,7 @@
 	"workbench.iconTheme": "vscode-icons",
 	"cSpell.userWords": [
 		"monospace"
-	]
+	],
+	"workbench.editor.untitled.labelFormat": "name",
+	"telemetry.telemetryLevel": "off"
 }
