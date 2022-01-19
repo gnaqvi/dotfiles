@@ -1,6 +1,6 @@
 function __z -d "Jump to a recent directory."
     function __print_help -d "Print z help."
-        printf "Usage: $Z_CMD  [-celrth] regex1 regex2...\n\n"
+        printf "Usage: $Z_CMD  [-celrth] string1 string2...\n\n"
         printf "         -c --clean    Removes directories that no longer exist from $Z_DATA\n"
         printf "         -d --dir      Opens matching directory using system file manager.\n"
         printf "         -e --echo     Prints best match, no cd\n"
@@ -10,10 +10,6 @@ function __z -d "Jump to a recent directory."
         printf "         -t --recent   Search by recency\n"
         printf "         -x --delete   Removes the current directory from $Z_DATA\n"
         printf "         -h --help     Print this help\n\n"
-
-        if type -q fisher
-            printf "Run `fisher help z` for more information.\n"
-        end
     end
     function __z_legacy_escape_regex
         # taken from escape_string_pcre2 in fish
@@ -26,7 +22,7 @@ function __z -d "Jump to a recent directory."
         end
     end
 
-    set -l options "h/help" "c/clean" "e/echo" "l/list" "p/purge" "r/rank" "t/recent" "d/directory" "x/delete"
+    set -l options h/help c/clean e/echo l/list p/purge r/rank t/recent d/directory x/delete
 
     argparse $options -- $argv
 
@@ -38,7 +34,7 @@ function __z -d "Jump to a recent directory."
         printf "%s cleaned!\n" $Z_DATA
         return 0
     else if set -q _flag_purge
-        echo > $Z_DATA
+        echo >$Z_DATA
         printf "%s purged!\n" $Z_DATA
         return 0
     else if set -q _flag_delete
@@ -49,9 +45,9 @@ function __z -d "Jump to a recent directory."
     set -l typ
 
     if set -q _flag_rank
-        set typ "rank"
+        set typ rank
     else if set -q _flag_recent
-        set typ "recent"
+        set typ recent
     end
 
     set -l z_script '
@@ -129,7 +125,7 @@ function __z -d "Jump to a recent directory."
     set -l qs
     for arg in $argv
         set -l escaped $arg
-        if string escape --style=regex '' ^/dev/null >/dev/null # use builtin escape if available
+        if string escape --style=regex '' >/dev/null 2>&1 # use builtin escape if available
             set escaped (string escape --style=regex $escaped)
         else
             set escaped (__z_legacy_escape_regex $escaped)
@@ -144,37 +140,38 @@ function __z -d "Jump to a recent directory."
         # Handle list separately as it can print common path information to stderr
         # which cannot be captured from a subcommand.
         command awk -v t=(date +%s) -v list="list" -v typ="$typ" -v q="$q" -F "|" $z_script "$Z_DATA"
-    else
-        set target (command awk -v t=(date +%s) -v typ="$typ" -v q="$q" -F "|" $z_script "$Z_DATA")
+        return
+    end
 
-        if test "$status" -gt 0
-            return
-        end
+    set target (command awk -v t=(date +%s) -v typ="$typ" -v q="$q" -F "|" $z_script "$Z_DATA")
 
-        if test -z "$target"
-            printf "'%s' did not match any results\n" "$argv"
-            return 1
-        end
+    if test "$status" -gt 0
+        return
+    end
 
-        if set -q _flag_list
-            echo "$target" | tr ";" "\n" | sort -nr
-            return 0
-        end
+    if test -z "$target"
+        printf "'%s' did not match any results\n" "$argv"
+        return 1
+    end
 
-        if set -q _flag_echo
-            printf "%s\n" "$target"
-        else if set -q _flag_directory
+    if set -q _flag_echo
+        printf "%s\n" "$target"
+    else if set -q _flag_directory
+        if test -n "$ZO_METHOD"
+            type -q "$ZO_METHOD"; and "$ZO_METHOD" "$target"; and return $status
+            echo "Cannot open with ZO_METHOD set to $ZO_METHOD"; and return 1
+        else if test "$OS" = Windows_NT
             # Be careful, in msys2, explorer always return 1
-            if test "$OS" = Windows_NT
-                type -q explorer;and explorer "$target"; return 0;
-                echo "Cannot open file explorer"; return 1;
-            else
-                type -q xdg-open;and xdg-open "$target"; and return $status;
-                type -q open;and open "$target"; and return $status;
-                echo "Not sure how to open file manager"; and return 1;
-            end
+            type -q explorer; and explorer "$target"
+            return 0
+            echo "Cannot open file explorer"
+            return 1
         else
-            pushd "$target"
+            type -q xdg-open; and xdg-open "$target"; and return $status
+            type -q open; and open "$target"; and return $status
+            echo "Not sure how to open file manager"; and return 1
         end
+    else
+        pushd "$target"
     end
 end

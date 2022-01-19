@@ -1,4 +1,3 @@
-1password-cli
 acpid
 adriconf
 alacritty
@@ -15,14 +14,11 @@ automake
 autorandr
 aws-cli
 baobab
-barrier
 base
 bash
 bind
 binutils
 bison
-bleachbit
-broadcom-wl-dkms
 brother-dcpl2540dw-cups
 bspwm
 bzip2
@@ -45,7 +41,6 @@ docker
 dunst
 e2fsprogs
 ebtables
-espeak
 fakeroot
 feh
 file
@@ -137,6 +132,7 @@ powerline
 powerline-fonts
 procps-ng
 psmisc
+pulseaudio-equalizer-ladspa
 python
 python-docker
 python-feedparser
@@ -148,18 +144,21 @@ realtime-privileges
 redshift
 reflector
 reiserfsprogs
+rmlint
 rofi
 s-nail
+sane-airscan
 scrot
 sed
 shadow
+simple-scan
 simplescreenrecorder
 sl
 slack-desktop
 spotify
 spotifywm-git
 stalonetray
-starship-bin
+starship
 stress
 sudo
 sxhkd
@@ -169,6 +168,7 @@ systemd
 systemd-sysvcompat
 tar
 texinfo
+tldr
 transmission-gtk
 trash-cli
 tree
@@ -190,7 +190,6 @@ vulkan-radeon
 wget
 which
 wireless_tools
-wpa_supplicant
 x11vnc
 xcursor-breeze
 xdg-user-dirs
