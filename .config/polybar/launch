@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # Source bar info variables
 . $HOME/.local/bin/themer --bar-info
