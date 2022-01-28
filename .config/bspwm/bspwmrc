@@ -7,7 +7,7 @@
 # Desktops
 bspc monitor $PM_NAME -d terminal terminal code code tor web music chat
 if [ -n "$LM_NAME" ]; then
-	bspc monitor $LM_NAME -d home terminal code code
+    bspc monitor $LM_NAME -d home terminal code code
 fi
 
 # Colors
@@ -29,7 +29,7 @@ bspc config focus_follows_pointer false
 bspc config ignore_ewmh_focus true
 bspc config click_to_focus button1
 bspc config pointer_modifier mod4
-bspc config center_pseudo_tiled	true
+bspc config center_pseudo_tiled true
 bspc config directional_focus_tightness high
 
 # Placement

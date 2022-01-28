@@ -17,41 +17,41 @@ bspc config active_border_color   "{{colors.bright.blue}}"
 bspc config presel_feedback_color "{{colors.bright.magenta }}"
 
 # Windows
-bspc config automatic_scheme      		spiral
-bspc config border_width          		2
-bspc config top_padding           		0
-bspc config window_gap            		{{ wm.gap.pixels }}
-bspc config split_ratio          		0.50
-bspc config borderless_monocle    		true
-bspc config gapless_monocle       		false
-bspc config single_monocle        		false
-bspc config focus_follows_pointer 		false
-bspc config ignore_ewmh_focus 			true
-bspc config click_to_focus        		button1
-bspc config pointer_modifier      		mod4
-bspc config center_pseudo_tiled	  		true
+bspc config automatic_scheme spiral
+bspc config border_width 2
+bspc config top_padding 0
+bspc config window_gap {{ wm.gap.pixels }}
+bspc config split_ratio 0.50
+bspc config borderless_monocle true
+bspc config gapless_monocle false
+bspc config single_monocle false
+bspc config focus_follows_pointer false
+bspc config ignore_ewmh_focus true
+bspc config click_to_focus button1
+bspc config pointer_modifier mod4
+bspc config center_pseudo_tiled true
 bspc config directional_focus_tightness high
 
 # Placement
-bspc rule -a code-oss                -o desktop=primary:^3 follow=on
-bspc rule -a jetbrains-idea          -o desktop=primary:^4 follow=on
-bspc rule -a firefox	             -o desktop=primary:^6 follow=on
-bspc rule -a spotify                    desktop=primary:^7 follow=on
-bspc rule -a Slack                      desktop=primary:^8
-bspc rule -a discord                    desktop=primary:^8
-bspc rule -a Gimp                       state=floating
-bspc rule -a Org.gnome.Nautilus         state=floating follow=on
-bspc rule -a Transmission-gtk           state=floating
-bspc rule -a Baobab                     state=floating
-bspc rule -a vlc                        state=floating follow=on
-bspc rule -a feh                        state=floating
-bspc rule -a Yad                        state=floating
-bspc rule -a sun-awt-X11-XDialogPeer    state=floating
-bspc rule -a jetbrains-idea-ce			state=floating follow=on
-bspc rule -a zoom                       state=floating follow=on
-bspc rule -a Lxappearance               state=floating follow=on
-bspc rule -a Pavucontrol                state=floating follow=on
-bspc rule -a Arandr		                state=floating follow=on
+bspc rule -a code-oss -o desktop=primary:^3 follow=on
+bspc rule -a jetbrains-idea -o desktop=primary:^4 follow=on
+bspc rule -a firefox -o desktop=primary:^6 follow=on
+bspc rule -a spotify desktop=primary:^7 follow=on
+bspc rule -a Slack desktop=primary:^8
+bspc rule -a discord desktop=primary:^8
+bspc rule -a Gimp state=floating
+bspc rule -a Org.gnome.Nautilus state=floating follow=on
+bspc rule -a Transmission-gtk state=floating
+bspc rule -a Baobab state=floating
+bspc rule -a vlc state=floating follow=on
+bspc rule -a feh state=floating
+bspc rule -a Yad state=floating
+bspc rule -a sun-awt-X11-XDialogPeer state=floating
+bspc rule -a jetbrains-idea-ce state=floating follow=on
+bspc rule -a zoom state=floating follow=on
+bspc rule -a Lxappearance state=floating follow=on
+bspc rule -a Pavucontrol state=floating follow=on
+bspc rule -a Arandr state=floating follow=on
 
 #-------------------------------------------------------------------------------
 # desktop environment
