@@ -13,8 +13,8 @@ radius = 8
 fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=14;4"
-font-2 = "FontAwesome5Brands:style=Solid:pixelsize=14;4"
+font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=14;4"
+font-2 = "Font Awesome 6 Brands:style=Solid:pixelsize=14;4"
 
 background = {{ opacity.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
@@ -196,10 +196,9 @@ click-left = ~/.config/polybar/scripts/calendar
 
 [module/weather]
 type = custom/script
-exec = ~/.config/polybar/scripts/weather -p '{{ colors.dim.foreground }}'
+exec = ~/.config/polybar/scripts/weather -p '{{ colors.dim.foreground }}' -t 4
 interval = 1800
 double-click-left = ~/.config/polybar/scripts/weather -o
-label-font = 4
 
 [module/now-playing]
 type = custom/script
@@ -337,8 +336,8 @@ format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected>
 
-label-connected =  %downspeed:9%
-label-disconnected =  Disconnected
+label-connected = %downspeed:9%
+label-disconnected = Disconnected
 label-disconnected-foreground = {{ colors.dim.foreground }}
 
 [module/usb-audio]

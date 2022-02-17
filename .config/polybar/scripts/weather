@@ -1,27 +1,35 @@
 #!/bin/bash
 
-get_icon() {
+INACTIVE_COLOR_HEX='#FFFFF'
+TEXT_FONT_IDX=1
+ICON_FONT_IDX=1
+
+print_icon() {
+	echo "%{T$ICON_FONT_IDX}$1%{T-}"
+}
+
+get_glyph() {
 	case $1 in
-		01d) icon="";;
-		01n) icon="";;
-		02d) icon="";;
-		02n) icon="";;
-		03*) icon="";;
-		04*) icon="";;
-		09d) icon="";;
-		09n) icon="";;
-		10d) icon="";;
-		10n) icon="";;
-		11d) icon="";;
-		11n) icon="";;
-		13d) icon="";;
-		13n) icon="";;
-		50d) icon="";;
-		50n) icon="";;
-		*) icon="";
+		01d) icon='';;
+		01n) icon='';;
+		02d) icon='';;
+		02n) icon='';;
+		03*) icon='';;
+		04*) icon='';;
+		09d) icon='';;
+		09n) icon='';;
+		10d) icon='';;
+		10n) icon='';;
+		11d) icon='';;
+		11n) icon='';;
+		13d) icon='';;
+		13n) icon='';;
+		50d) icon='';;
+		50n) icon='';;
+		*) icon='';
 	esac
 
-	echo $icon
+	echo $(print_icon "$icon" $2)
 }
 
 get_duration() {
@@ -29,8 +37,8 @@ get_duration() {
 }
 
 function get_polybar_text() {
-	UNITS="metric"
-	SYMBOL="°"
+	UNITS='metric'
+	SYMBOL='°'
 
 	current=$(curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID=$OPW_KEY&id=$CITY&units=$UNITS")
 	forecast=$(curl -sf "http://api.openweathermap.org/data/2.5/forecast?APPID=$OPW_KEY&id=$CITY&units=$UNITS&cnt=1")
@@ -43,19 +51,19 @@ function get_polybar_text() {
 		forecast_icon=$(echo "$forecast" | jq -r ".list[].weather[].icon")
 
 		if [ "$current_temp" -gt "$forecast_temp" ]; then
-			trend=""
+			trend=$(print_icon '')
 		elif [ "$forecast_temp" -gt "$current_temp" ]; then
-			trend=""
+			trend=$(print_icon '')
 		else
-			trend=""
+			trend=$(print_icon '' )
 		fi
 
-		sun_rise=" $(get_duration "$(echo "$current" | jq ".sys.sunrise")")"
-		sun_set=" $(get_duration "$(echo "$current" | jq ".sys.sunset")")"
+		sun_rise="$(print_icon '') $(get_duration "$(echo "$current" | jq ".sys.sunrise")")"
+		sun_set="$(print_icon '') $(get_duration "$(echo "$current" | jq ".sys.sunset")")"
 
-		echo "$(get_icon "$current_icon") $current_temp$SYMBOL  $trend  $(get_icon "$forecast_icon") $forecast_temp$SYMBOL   $sun_rise   $sun_set"
+		echo "$(get_glyph "$current_icon") $current_temp$(print_icon $SYMBOL)  $trend  $(get_glyph "$forecast_icon" $2) $forecast_temp$(print_icon $SYMBOL)   $sun_rise   $sun_set"
 	else
-		echo "%{F$1}%{F-} Unable to get forecast"
+		echo "%{F$INACTIVE_COLOR_HEX}%{F-} Unable to get forecast"
 	fi
 }
 
@@ -65,13 +73,18 @@ function open_browser() {
 
 case $1 in
 "-p")
-	[ "$#" -ne 2 ] && echo "Missing inactive color code." && exit 1
-	get_polybar_text $2
+	if [ "$#" -ne 4 ]; then
+		echo "Missing inactive color or font code." && exit 1
+	else
+		INACTIVE_COLOR_HEX=$2
+		ICON_FONT_IDX=$4
+		get_polybar_text
+	fi
 	;;
 "-o")
 	open_browser
 	;;
 *)
-	echo "Invalid parameter." && exit 1
+	echo "Invalid parameters." && exit 1
 	;;
 esac
