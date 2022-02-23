@@ -32,13 +32,13 @@ super + space
 super + {_,shift + }w
 	bspc node -{c,k}
 
-# rotate desktop backward
-super + q
-	bspc node @/ -C backward
+# rotate desktop by moving nodes
+super + {comma,period}
+	bspc node @/ -R {-90,90}
 
-# rotate forward
-super + e
-	bspc node @/ -C forward
+# rotate desktop by replacing nodes
+super + {less,greater}
+	bspc node @/ -C {backward,forward}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -76,10 +76,6 @@ super + y
 super + g
 	bspc node -s biggest.local
 
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
 # focus the older or newer node in the focus history
 super + {o,i}
 	bspc wm -h off; \
@@ -110,13 +106,13 @@ super + b
 super + ctrl + {h,j,k,l} : {1-9}
 	bspc node -p {west,south,north,east} -o 0.{1-9}rs
 
-# cancel the preselection for the focused node
+# cancel the preselection for the focused node or desktop
 super + ctrl + w
-	bspc node -p cancel
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 # ratio
 super + alt + {h,j,k,l} ; {0-9}
-	bspc node {west,south,north,east} -r 0.{0-9}
+	bspc node {west,south,north,east} -r 0.{0-9}``
 
 #
 # media keys

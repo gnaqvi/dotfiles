@@ -9,12 +9,8 @@ while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; done
 FIFO_DIR="/tmp/sxhkd"
 FIFO_PATH="${FIFO_DIR}/status"
 
-if [ -d "$FIFO_DIR" ]; then
-	[ -f "${FIFO_PATH}" ] && rm "${FIFO_PATH}"
-else
-	mkdir -p $FIFO_DIR
-fi
-
+[ -p "${FIFO_PATH}" ] && rm "${FIFO_PATH}"
+mkdir -p $FIFO_DIR
 mkfifo "${FIFO_PATH}"
 
 sxhkd -m 1 -t 20 -s "${FIFO_PATH}" &
