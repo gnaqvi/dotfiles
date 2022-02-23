@@ -15,8 +15,6 @@
 	"editor.letterSpacing": 0.3,
 	"editor.fontLigatures": true,
 	"window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
-	"telemetry.enableTelemetry": false,
-	"telemetry.enableCrashReporter": false,
 	"go.formatTool": "goimports",
 	"editor.cursorBlinking": "phase",
 	"editor.cursorStyle": "line",
