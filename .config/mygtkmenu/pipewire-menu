@@ -1,0 +1,7 @@
+item = Music
+cmd = easyeffects -l music
+icon =
+
+item = Movie
+cmd = easyeffects -l movie
+icon =

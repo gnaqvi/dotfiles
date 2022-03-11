@@ -1,203 +1,203 @@
-Submenu = Window
+submenu = Window
 
-	icon = NULL
+	icon =
 
 	item = Monocle
 	cmd = bspc desktop -l next
-	icon = NULL
+	icon =
 
 	item = Tiled
 	cmd = bspc node -t tiled
-	icon = NULL
+	icon =
 
 	item = Floating
 	cmd = bspc node -t floating
-	icon = NULL
+	icon =
 
 	item = Fullscreen
 	cmd = bspc node -t fullscreen
-	icon = NULL
+	icon =
 
 	item = Pseudo tiled
 	cmd = bspc node -t pseudo_tiled
-	icon = NULL
+	icon =
 
 	item = Lock
 	cmd = bspc node -g locked
-	icon = NULL
+	icon =
 
 	item = Sticky
 	cmd = bspc node -g sticky
-	icon = NULL
+	icon =
 
 	item = Private
 	cmd = bspc node -g private
-	icon = NULL
+	icon =
 
-Submenu = Move to
+submenu = Move to
 
-	icon = NULL
+	icon =
 
 	item = Desktop n°...
 	cmd = bspc node -d "focused:^$(yad --entry --numeric --entry-label=Desktop})"
-	icon = NULL
+	icon =
 
 	item = Next empty desktop
 	cmd = bspc node -d next.!occupied
-	icon = NULL
+	icon =
 
 	item = Last focused desktop
 	cmd = bspc desktop -f last
-	icon = NULL
+	icon =
 
 	separator
 
 	item = Swap with biggest window
 	cmd = bspc node -s biggest.local
-	icon = NULL
+	icon =
 
 	item = Move to another monitor
 	cmd =
-	icon = NULL
+	icon =
 
 	item = Bring to front
 	cmd = bspc node -l above
-	icon = NULL
+	icon =
 
 	item = Send to back
 	cmd = bspc node -l below
-	icon = NULL
+	icon =
 
-Submenu = Desktop
+submenu = Desktop
 
-	icon = NULL
+	icon =
 
-	Submenu = Flip
+	submenu = Flip
 
-		icon = NULL
+		icon =
 
 		item = Vertical
 		cmd = bspc node @/ -F horizontal
-		icon = NULL
+		icon =
 
 		item = Horizontal
 		cmd = bspc node @/ -F vertical
-		icon = NULL
+		icon =
 
-	Submenu = Rotate
+	submenu = Rotate
 
-		icon = NULL
+		icon =
 
 		item = +90°
 		cmd = bspc node @/ -R 90
-		icon = NULL
+		icon =
 
 		item = -90°
 		cmd = bspc node @/ -90
-		icon = NULL
+		icon =
 
 		item = +180°
 		cmd = bspc node @/ 180
-		icon = NULL
+		icon =
 
 	separator
 
 	item = Balance windows
 	cmd = bspc node @/ -B
-	icon = NULL
+	icon =
 
 	item = Equalize windows
 	cmd = bspc node @/ -E
-	icon = NULL
+	icon =
 
 	separator
 
 	item = Add a desktop
 	cmd = bspc monitor -a misc
-	icon = NULL
+	icon =
 
 	item = Remove desktop
 	cmd = bspc desktop -r
-	icon = NULL
+	icon =
 
-Submenu = Manual
+submenu = Manual
 
-	icon = NULL
+	icon =
 
-	Submenu = Manual split
+	submenu = Manual split
 
-		icon = NULL
+		icon =
 
 		item = Up
 		cmd = bspc node -p north
-		icon = NULL
+		icon =
 
 		item = Right
 		cmd = bspc node -p east
-		icon = NULL
+		icon =
 
 		item = Left
 		cmd = bspc node -p west
-		icon = NULL
+		icon =
 
 		item = Down
 		cmd = bspc node -p south
-		icon = NULL
+		icon =
 
-	Submenu = Split ratio
+	submenu = Split ratio
 
-		icon = NULL
+		icon =
 
 		item = 25%
 		cmd = bspc config split_ratio 0.25
-		icon = NULL
+		icon =
 
 		item = 50%
 		cmd = bspc config split_ratio 0.50
-		icon = NULL
+		icon =
 
 		item = 75%
 		cmd = bspc config split_ratio 0.75
-		icon = NULL
+		icon =
 
 	separator
 
 	item = Cancel all splits
 	cmd =  bspc node -p cancel
-	icon = NULL
+	icon =
 
 
 separator
 
 item = Next urgent window
 cmd = bspc node -f next.urgent
-icon = NULL
+icon =
 
-Submenu = Screenshot
+submenu = Screenshot
 
-	icon = NULL
+	icon =
 
 	item = Entire Screen
 	cmd = /home/gnaqvi/.local/bin/screenshot -f
-	icon = NULL
+	icon =
 
 	item = Window
 	cmd = /home/gnaqvi/.local/bin/screenshot -w
-	icon = NULL
+	icon =
 
 	item = Selection
 	cmd = /home/gnaqvi/.local/bin/screenshot -s
-	icon = NULL
+	icon =
 
 separator
 
 item = Terminal
 cmd = alacritty
-icon = NULL
+icon =
 
 separator
 
 item = Close window
 cmd = bspc node -c
-icon = NULL
+icon =
 

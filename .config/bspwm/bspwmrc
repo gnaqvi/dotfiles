@@ -51,6 +51,7 @@ bspc rule -a jetbrains-idea-ce state=floating follow=on
 bspc rule -a zoom state=floating follow=on
 bspc rule -a Lxappearance state=floating follow=on
 bspc rule -a Pavucontrol state=floating follow=on
+bspc rule -a easyeffects state=floating follow=on
 bspc rule -a Arandr state=floating follow=on
 
 #-------------------------------------------------------------------------------
@@ -59,6 +60,9 @@ bspc rule -a Arandr state=floating follow=on
 
 # Composting manager
 ~/.config/picom/launch &
+
+# Audio
+easyeffects --gapplication-service &
 
 # Notifications manager
 ~/.config/dunst/launch &

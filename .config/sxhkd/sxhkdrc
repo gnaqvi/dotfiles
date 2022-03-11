@@ -141,4 +141,4 @@ XF86Audio{Raise,Lower}Volume
 
 # bspwm controls menu
 super + @button2
-	mygtkmenu ~/.config/mygtkmenu/bspwm-menu > /dev/null 2>&1
+	mygtkmenui -- ~/.config/mygtkmenu/bspwm-menu > /dev/null 2>&1

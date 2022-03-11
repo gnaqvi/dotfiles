@@ -22,6 +22,7 @@ bison
 brother-dcpl2540dw-cups
 bspwm
 bzip2
+calf
 cmake
 code
 colordiff
@@ -40,7 +41,9 @@ dnsmasq
 docker
 dunst
 e2fsprogs
+easyeffects
 ebtables
+eog
 fakeroot
 feh
 file
@@ -62,8 +65,10 @@ go
 gradle
 grep
 groff
+gst-plugin-pipewire
 gtk-engine-murrine
 gtk2
+gtk4
 gucharmap
 gvfs-mtp
 gzip
@@ -103,10 +108,9 @@ mesa-vdpau
 mplayer
 msi-rgb
 mupdf
-mygtkmenu
+mygtkmenui-git
 nano
 nautilus
-neofetch
 netctl
 noto-fonts-emoji
 ntfs-3g
@@ -119,12 +123,13 @@ openssh
 pacman
 pacman-contrib
 pass
-pasystray
 patch
 pavucontrol
 pciutils
 perl
 picom-git
+pipewire-alsa
+pipewire-pulse
 pkgconf
 playerctl
 polybar-git
@@ -132,7 +137,6 @@ powerline
 powerline-fonts
 procps-ng
 psmisc
-pulseaudio-equalizer-ladspa
 python
 python-docker
 python-feedparser
@@ -153,7 +157,6 @@ sed
 shadow
 simple-scan
 simplescreenrecorder
-sl
 slack-desktop
 spotify
 spotifywm-git
@@ -189,7 +192,6 @@ vlc
 vulkan-radeon
 wget
 which
-wireless_tools
 x11vnc
 xcursor-breeze
 xdg-user-dirs
