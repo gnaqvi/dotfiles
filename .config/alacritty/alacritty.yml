@@ -81,7 +81,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.96
+  opacity: 0.92
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -221,25 +221,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#000000'
+    black:   '#21222c'
     red:     '#ff5555'
     green:   '#50fa7b'
     yellow:  '#f1fa8c'
     blue:    '#bd93f9'
     magenta: '#ff79c6'
     cyan:    '#8be9fd'
-    white:   '#bfbfbf'
+    white:   '#f8f8f2'
 
   # Bright colors
   bright:
-    black:   '#000000'
-    red:     '#ff6e67'
-    green:   '#5af78e'
-    yellow:  '#f4f99d'
-    blue:    '#caa9fa'
-    magenta: '#ff92d0'
-    cyan:    '#9aedfe'
-    white:   '#e6e6e6'
+    black:   '#6272a4'
+    red:     '#ff6e6e'
+    green:   '#69ff94'
+    yellow:  '#ffffa5'
+    blue:    '#d6acff'
+    magenta: '#ff92df'
+    cyan:    '#a4ffff'
+    white:   '#ffffff'
 
   # Dim colors
   #

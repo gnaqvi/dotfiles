@@ -8,7 +8,9 @@
 	"workbench.activityBar.visible": true,
 	"editor.minimap.enabled": false,
 	"workbench.colorCustomizations": {
-		"editorGroup.border": "{{ colors.bright.blue }}"
+		"editorGroup.border": "{{ colors.accent.bright }}",
+		"badge.background": "{{ colors.accent.bright }}",
+		"activityBarBadge.background": "{{ colors.accent.bright }}"
 	},
 	"vim.disableExtension": true,
 	"editor.fontFamily": "'{{ font.monospace.name }}'",

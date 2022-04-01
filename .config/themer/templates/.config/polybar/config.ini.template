@@ -19,8 +19,8 @@ font-2 = "Font Awesome 6 Brands:style=Solid:pixelsize=14;4"
 background = {{ opacity.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
 
-line-size = 4
-line-color = {{ opacity.hex }}{{ colors.bright.blue }}
+line-size = 3
+line-color = {{ opacity.hex }}{{ colors.accent.bright }}
 
 border-size = 0
 
@@ -81,7 +81,7 @@ label-dimmed-empty-padding = 3
 label-focused = %icon%
 label-focused-foreground = {{ colors.normal.foreground }}
 label-focused-background = {{ opacity.hex }}{{ colors.bright.background }}
-label-focused-underline = {{ opacity.hex }}{{ colors.bright.blue }}
+label-focused-underline = {{ opacity.hex }}{{ colors.accent.bright }}
 label-focused-padding = 3
 
 label-occupied = %icon%
@@ -163,16 +163,16 @@ padding-left = 0
 monitor = ${env:PM_NAME:DP-0}
 dpi = ${env:PM_DPI:93}
 
-modules-left = apps gap uptime
+modules-left = apps gap news gap weather
 modules-center =
-modules-right = news gap now-playing gap weather gap clock
+modules-right = now-playing gap uptime gap clock
 
 font-3 = "Weather Icons:size=12;5"
 
 [module/apps]
 type = custom/text
-content = 
-content-foreground = {{ colors.normal.magenta }}
+content = 
+content-foreground = {{ colors.accent.bright }}
 content-background = {{ colors.bright.background }}
 content-padding = 3
 click-left = rofi -show drun

@@ -6,22 +6,22 @@
 *.foreground:  #f8f8f2
 *.cursorColor: #626483
 
-*.color0:      #000000
+*.color0:      #21222c
 *.color1:      #ff5555
 *.color2:      #50fa7b
 *.color3:      #f1fa8c
 *.color4:      #bd93f9
 *.color5:      #ff79c6
 *.color6:      #8be9fd
-*.color7:      #bfbfbf
-*.color8:      #000000
-*.color9:      #ff6e67
-*.color10:     #5af78e
-*.color11:     #f4f99d
-*.color12:     #caa9fa
-*.color13:     #ff92d0
-*.color14:     #9aedfe
-*.color15:     #e6e6e6
+*.color7:      #f8f8f2
+*.color8:      #6272a4
+*.color9:      #ff6e6e
+*.color10:     #69ff94
+*.color11:     #ffffa5
+*.color12:     #d6acff
+*.color13:     #ff92df
+*.color14:     #a4ffff
+*.color15:     #ffffff
 
 !-------------------------------------------------------------------------------
 ! Cursor theme

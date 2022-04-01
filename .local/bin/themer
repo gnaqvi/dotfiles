@@ -45,10 +45,16 @@ function generate_theme() {
 	local OPACITY_HEX=$(printf '%x' "$((255*${OPACITY}/100))")
 	OUTPUT=$(echo $OUTPUT | jq ".opacity = { \"percentage\": $OPACITY, \"inverse\": $OPACITY_INVERSE, \"hex\": \"$OPACITY_HEX\" }")
 
-	local COLOR_SCHEME=$(echo $OUTPUT | jq -r '.colors')
-	local COLORS=$(jq -r '.' $COLORS_DIR/$COLOR_SCHEME.json)
+	local COLOR_PALETTE=$(echo $OUTPUT | jq -r '.colors.palette')
+	local ACCENT_COLOR=$(echo $OUTPUT | jq -r '.colors.accent')
+
+	local COLORS=$(jq -r '.' $COLORS_DIR/$COLOR_PALETTE.json)
+	local ACCENT_NORMAL=$(echo $COLORS | jq -r ".normal.${ACCENT_COLOR}")
+	local ACCENT_BRIGHT=$(echo $COLORS | jq -r ".bright.${ACCENT_COLOR}")
+	local ACCENT_DIM=$(echo $COLORS | jq -r ".dim.${ACCENT_COLOR}")
+
 	OUTPUT=$(echo $OUTPUT | jq ".colors = $COLORS")
-	OUTPUT=$(echo $OUTPUT | jq ".colors += { \"scheme\": \"$COLOR_SCHEME\" }")
+	OUTPUT=$(echo $OUTPUT | jq ".colors += { \"accent\": { "normal": \"$ACCENT_NORMAL\", "bright": \"$ACCENT_BRIGHT\", "dim": \"$ACCENT_DIM\" } }")
 
 	echo "$OUTPUT" > $GENERATED_THEME
 }

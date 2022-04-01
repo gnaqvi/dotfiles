@@ -7,7 +7,6 @@ alsa-utils
 amd-ucode
 ant-dracula-gtk-theme
 arandr
-arc-gtk-theme
 audacity
 autoconf
 automake
@@ -24,6 +23,7 @@ bspwm
 bzip2
 calf
 cmake
+cmatrix
 code
 colordiff
 coreutils
@@ -61,6 +61,7 @@ gimp
 git
 glibc
 gnome-icon-theme
+gnome-keyring
 go
 gradle
 grep
@@ -106,7 +107,6 @@ mdadm
 mesa-demos
 mesa-vdpau
 mplayer
-msi-rgb
 mupdf
 mygtkmenui-git
 nano

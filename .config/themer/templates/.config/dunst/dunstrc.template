@@ -293,7 +293,7 @@
 [urgency_critical]
 	background = "{{ colors.normal.background }}"
 	foreground = "{{ colors.normal.foreground }}"
-	frame_color = "{{ colors.normal.red }}"
+	frame_color = "{{ colors.bright.red }}"
 	timeout = 0
 	# Icon for notifications with critical urgency, uncomment to enable
 	#icon = /path/to/icon

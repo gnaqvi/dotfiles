@@ -1,7 +1,10 @@
 {
-	"colors": "dracula",
-	"wallpaper": "borderlands.jpeg",
-	"opacity": 96,
+	"colors": {
+		"palette": "dracula",
+		"accent": "blue"
+	},
+	"wallpaper": "darth-vader.jpeg",
+	"opacity": 92,
 	"wm": {
 		"gap": {
 			"pixels": 6

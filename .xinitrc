@@ -15,6 +15,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Set screen blank time
 xset s 1800 1800
 
+# Set keyboard repeat rate
+xset r rate 200 30
+
 # Load .Xresources
 xrdb -load $HOME/.Xresources &
 

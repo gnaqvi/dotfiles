@@ -1,7 +1,7 @@
 * {
 	background: {{ colors.normal.background }}{{ opacity.hex }};
 	foreground: {{ colors.normal.foreground }};
-	accent: 	{{ colors.normal.magenta }}{{ opacity.hex }};
+	accent: 	{{ colors.accent.bright }}{{ opacity.hex }};
 
 	transparent:      #FFFFFF00;
 	background-color: @transparent;

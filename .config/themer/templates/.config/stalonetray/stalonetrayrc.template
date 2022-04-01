@@ -9,7 +9,7 @@ slot_size 40
 scrollbars horizontal
 scrollbars_size 8
 scrollbars_step 4
-scrollbars_highlight "{{ colors.normal.blue }}"
+scrollbars_highlight "{{ colors.accent.normal }}"
 
 decorations none
 dockapp_mode none

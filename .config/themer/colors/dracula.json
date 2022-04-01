@@ -2,37 +2,37 @@
   "normal": {
     "background": "#282a36",
     "foreground": "#f8f8f2",
-    "black":   "#000000",
-    "red":     "#ff5555",
-    "green":   "#50fa7b",
-    "yellow":  "#f1fa8c",
-    "blue":    "#bd93f9",
+    "black": "#21222c",
+    "red": "#ff5555",
+    "green": "#50fa7b",
+    "yellow": "#f1fa8c",
+    "blue": "#bd93f9",
     "magenta": "#ff79c6",
-    "cyan":    "#8be9fd",
-    "white":   "#bfbfbf"
+    "cyan": "#8be9fd",
+    "white": "#f8f8f2"
   },
   "bright": {
-    "background": "#3a3c4e",
+    "background": "#282a36",
     "foreground": "#ffffff",
-    "black":   "#000000",
-    "red":     "#ff6e67",
-    "green":   "#5af78e",
-    "yellow":  "#f4f99d",
-    "blue":    "#caa9fa",
-    "magenta": "#ff92d0",
-    "cyan":    "#9aedfe",
-    "white":   "#e6e6e6"
+    "black": "#6272a4",
+    "red": "#ff6e6e",
+    "green": "#69ff94",
+    "yellow": "#ffffa5",
+    "blue": "#d6acff",
+    "magenta": "#ff92df",
+    "cyan": "#a4ffff",
+    "white": "#ffffff"
   },
   "dim": {
     "background": "#282a36",
     "foreground": "#626483",
-    "black":   "#14151b",
-    "red":     "#ff2222",
-    "green":   "#1ef956",
-    "yellow":  "#ebf85b",
-    "blue":    "#4d5b86",
+    "black": "#14151b",
+    "red": "#ff2222",
+    "green": "#1ef956",
+    "yellow": "#ebf85b",
+    "blue": "#4d5b86",
     "magenta": "#ff46b0",
-    "cyan":    "#59dffc",
-    "white":   "#e6e6d1"
+    "cyan": "#59dffc",
+    "white": "#e6e6d1"
   }
 }
