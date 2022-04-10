@@ -64,5 +64,6 @@
 		"monospace"
 	],
 	"workbench.editor.untitled.labelFormat": "name",
-	"telemetry.telemetryLevel": "off"
+	"telemetry.telemetryLevel": "off",
+	"redhat.telemetry.enabled": false
 }

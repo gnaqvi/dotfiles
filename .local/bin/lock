@@ -4,11 +4,7 @@
 pkill -u "$USER" -USR1 dunst
 
 # Lock screen
-i3lock -uftek \
-    --pass-media-keys \
-    --composite --blur=10 \
-    --timecolor=FFFFFFFF \
-    --datecolor=FFFFFFFF
+slock
 
 # Resume notification manager
 pkill -u "$USER" -USR2 dunst
