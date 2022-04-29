@@ -403,7 +403,7 @@ log-level = "warn";
 wintypes:
 {
   tooltip = { fade = true; shadow = true; opacity = 0.{{ opacity.percentage }}; focus = true; full-shadow = false; };
-  dock = { shadow = true; full-shadow = true; }
+  dock = { shadow = true; full-shadow = false; }
   dnd = { shadow = false; }
   popup_menu = { fade = true; shadow = true; opacity = 0.{{ opacity.percentage }}; focus = true; full-shadow = false; }
   dropdown_menu = { shadow = false; }

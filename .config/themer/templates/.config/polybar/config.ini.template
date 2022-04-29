@@ -13,8 +13,8 @@ radius = 8
 fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
-font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=14;4"
-font-2 = "Font Awesome 6 Brands:style=Solid:pixelsize=14;4"
+font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=14;5"
+font-2 = "Font Awesome 6 Brands:style=Solid:pixelsize=14;5"
 
 background = {{ opacity.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
@@ -338,7 +338,7 @@ format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected>
 
-label-connected = %downspeed:9%
+label-connected =  %downspeed:9%
 label-disconnected = Disconnected
 label-disconnected-foreground = {{ colors.dim.foreground }}
 
