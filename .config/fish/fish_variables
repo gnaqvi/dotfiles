@@ -1,10 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR ZO_CMD:zo
-SETUVAR Z_CMD:z
-SETUVAR Z_DATA:/home/gnaqvi/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/gnaqvi/\x2elocal/share/z
-SETUVAR Z_EXCLUDE:\x5e/home/gnaqvi\x24
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d

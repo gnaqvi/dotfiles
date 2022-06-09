@@ -21,8 +21,8 @@ super + space
 	rofi -show drun -m primary
 
 # screenshots
-@Print ; {f,w,d}
-	{scrot -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -u -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -d 10 -q 100 -e 'mv $f ~/Pictures/Screenshots/'}
+@Print ; {f,w,s}
+	{scrot -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -u -q 100 -e 'mv $f ~/Pictures/Screenshots/', scrot -s -f -q 100 -e 'mv $f ~/Pictures/Screenshots/'}
 
 #
 # bspwm
@@ -133,7 +133,6 @@ XF86AudioStop
 # volume control
 XF86Audio{Raise,Lower}Volume
 	amixer set Master {5%+,5%-}
-	# amixer -c 0 set PCM {5%+,5%-}
 
 #
 # mouse
