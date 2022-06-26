@@ -44,6 +44,8 @@ shadow-offset-y = -12;
 shadow-exclude = [
   "name = 'Notification'",
   "name = 'cpt_frame_window'",
+  "name = 'cpt_frame_xcb_window'",
+  "name = 'as_toolbar'",
   "class_g ^= 'firefox' && argb",
   "class_g ?= 'Notify-osd'",
   "class_g = 'Polybar' && class_i = 'tray'",
