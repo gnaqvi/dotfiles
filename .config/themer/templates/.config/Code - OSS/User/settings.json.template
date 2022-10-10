@@ -65,5 +65,6 @@
 	],
 	"workbench.editor.untitled.labelFormat": "name",
 	"telemetry.telemetryLevel": "off",
-	"redhat.telemetry.enabled": false
+	"redhat.telemetry.enabled": false,
+	"go.toolsManagement.autoUpdate": true
 }

@@ -1,9 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Prompt
-eval "$(starship init bash)"
-
 # Colors
 if [ -x /usr/bin/dircolors ]; then
 	[ -r ~/.dircolorsrc ] && eval "$(dircolors -b ~/.dircolorsrc)" || eval "$(dircolors -b)"
