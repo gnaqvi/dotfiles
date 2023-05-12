@@ -40,7 +40,7 @@ bspc rule -a spotify desktop=primary:^7 follow=on
 bspc rule -a Slack desktop=primary:^8
 bspc rule -a discord desktop=primary:^8
 bspc rule -a Gimp state=floating
-bspc rule -a Org.gnome.Nautilus state=floating follow=on
+bspc rule -a org.gnome.Nautilus state=floating follow=on
 bspc rule -a Transmission-gtk state=floating
 bspc rule -a Baobab state=floating
 bspc rule -a vlc state=floating follow=on
@@ -49,7 +49,6 @@ bspc rule -a Yad state=floating
 bspc rule -a sun-awt-X11-XDialogPeer state=floating
 bspc rule -a jetbrains-idea-ce state=floating follow=on
 bspc rule -a zoom state=floating follow=on
-bspc rule -a Lxappearance state=floating follow=on
 bspc rule -a Pavucontrol state=floating follow=on
 bspc rule -a easyeffects state=floating follow=on
 bspc rule -a Arandr state=floating follow=on
@@ -58,11 +57,11 @@ bspc rule -a Arandr state=floating follow=on
 # desktop environment
 #-------------------------------------------------------------------------------
 
-# Composting manager
-~/.config/picom/launch &
-
 # Audio
 easyeffects --gapplication-service &
+
+# Composting manager
+~/.config/picom/launch &
 
 # Notifications manager
 ~/.config/dunst/launch &
