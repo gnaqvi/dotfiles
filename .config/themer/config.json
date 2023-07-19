@@ -21,7 +21,7 @@
 		}
 	},
 	"gtk": {
-		"theme": "Ant-Dracula",
+		"theme": "Dracula",
 		"icons": "la-capitaine"
 	},
 	"cursor": {

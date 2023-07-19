@@ -61,7 +61,6 @@
 	},
 	"workbench.iconTheme": "vscode-icons",
 	"cSpell.userWords": [
-		"Alacritty",
 		"monospace"
 	],
 	"workbench.editor.untitled.labelFormat": "name",

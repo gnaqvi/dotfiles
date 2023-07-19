@@ -5,7 +5,6 @@ alsa-plugins
 alsa-tools
 alsa-utils
 amd-ucode
-ant-dracula-gtk-theme
 arandr
 audacity
 autoconf
@@ -26,6 +25,8 @@ code
 colordiff
 coreutils
 cpupower
+cri-o
+crictl
 cryptsetup
 cups
 cups-pdf
@@ -39,9 +40,8 @@ dnsmasq
 dracula-gtk-theme
 dunst
 e2fsprogs
-easyeffects
-ebtables
 eog
+ethtool
 fakeroot
 feh
 file
@@ -51,6 +51,7 @@ filesystem
 findutils
 firefox
 firefox-i18n-ur
+firefox-tridactyl
 fish
 flex
 gawk
@@ -63,7 +64,6 @@ gnome-calculator
 gnome-icon-theme
 gnome-keyring
 go
-gradle
 grep
 groff
 gst-libav
@@ -176,6 +176,7 @@ systemd-sysvcompat
 tar
 texinfo
 tldr
+torbrowser-launcher
 transmission-gtk
 trash-cli
 tree

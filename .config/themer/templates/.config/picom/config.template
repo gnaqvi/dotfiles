@@ -44,11 +44,11 @@ shadow-offset-y = -12;
 shadow-exclude = [
   "class_i = 'Firefox' && window_type = 'utility'",
   "class_i = 'Firefox' && window_type = 'popup_menu'",
-  "class_g = 'Polybar' && class_i = 'tray'",
   "name = 'cpt_frame_window'",
   "name = 'cpt_frame_xcb_window'",
   "name = 'as_toolbar'",
-  "_GTK_FRAME_EXTENTS@:c"
+  "_GTK_FRAME_EXTENTS@:c",
+  "override_redirect = true"
 ];
 
 # Specify a list of conditions of windows that should have no shadow painted over, such as a dock window.
@@ -135,7 +135,7 @@ opacity-rule = [
   "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
   "{{ opacity.percentage }}:class_i = 'tray'",
   "{{ opacity.percentage }}:class_g = 'code-oss'",
-  "{{ opacity.percentage }}:class_g = 'Org.gnome.Nautilus'"
+  "{{ opacity.percentage }}:class_g = 'org.gnome.Nautilus'"
 ];
 
 
@@ -192,9 +192,6 @@ blur-strength = 3
 # Exclude conditions for background blur.
 # blur-background-exclude = []
 blur-background-exclude = [
-  "class_i = 'Firefox' && window_type = 'utility'",
-  "class_i = 'Firefox' && window_type = 'popup_menu'",
-  "window_type = 'dock'",
   "window_type = 'desktop'",
   "_GTK_FRAME_EXTENTS@:c"
 ];
