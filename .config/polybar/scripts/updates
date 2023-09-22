@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash +x
 
 NO_UPDATES="No updates available"
 FAILED_QUERY="Could not query remote server"
@@ -7,14 +7,14 @@ AUR_HEADING="<big><b>AUR</b></big>"
 GAP="\n\n"
 
 function count_lines() {
-	echo $(echo "$1" | awk NF | wc -l)
+	echo "$1" | awk NF | wc -l
 }
 
 function query() {
 	OUTPUT=$($1 2>/dev/null)
 	NUM=$(count_lines "$OUTPUT")
 
-	if [ $? -eq 0 ]; then
+	if [ $? == 0 ]; then
 		[ "$OUTPUT" == ":: No AUR updates found..." ] && NUM=0 # Fix for Trizen
 		[ "$NUM" -eq 0 ] && OUTPUT=$NO_UPDATES
 	else

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function dotify() {
-	ABS_PATH=$(realpath $1)
+	ABS_PATH=$(realpath "$1")
 	DFY_PATH=${ABS_PATH/$HOME\//}
 	PARENT=$(dirname "$DFY_PATH")
 
@@ -12,7 +12,7 @@ function dotify() {
 }
 
 function restore() {
-	DFY_PATH=$(realpath $1)
+	DFY_PATH=$(realpath "$1")
 	NORMAL_PATH=${DFY_PATH/.dotfiles\//}
 	BASENAME=$(basename "$NORMAL_PATH")
 
@@ -20,7 +20,7 @@ function restore() {
 		echo "$NORMAL_PATH: Skipped. Already symlinked."
 		return
 	elif [ -f "$NORMAL_PATH" ] || [ -d "$NORMAL_PATH" ]; then
-		mkdir -p $HOME/dfy_backup
+		mkdir -p "$HOME/dfy_backup"
 		mv "$NORMAL_PATH" "$HOME/dfy_backup/$BASENAME"
 	fi
 
@@ -30,7 +30,7 @@ function restore() {
 [ "$#" -lt 2 ] && echo "Not enough parameters" && exit 1
 
 case $1 in
-"-d") dotify $2 ;;
-"-r") restore $2 ;;
+"-d") dotify "$2" ;;
+"-r") restore "$2" ;;
 *) echo "Invalid parameter" && exit 1 ;;
 esac

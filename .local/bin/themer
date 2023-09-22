@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash +x
 
 DOTFILES_DIR="$HOME/.dotfiles"
 THEMER_DIR="$DOTFILES_DIR/.config/themer"
@@ -10,23 +10,23 @@ CONFIG_FILE="$THEMER_DIR/config.json"
 GENERATED_THEME="$SHARED_DIR/theme.json"
 
 function render() {
-	local TEMPLATE="$1"
-	local TEMPLATE_ABS=$(realpath "$TEMPLATES_DIR/$TEMPLATE")
+	TEMPLATE="$1"
+	TEMPLATE_ABS=$(realpath "$TEMPLATES_DIR/$TEMPLATE")
 	test -f "$TEMPLATE_ABS" || { echo 'Template does not exist.' >&2; exit 1; }
 
-	local DIR=$(dirname "$1")
-	local FILE_NAME=$(basename "$1")
+	DIR=$(dirname "$1")
+	FILE_NAME=$(basename "$1")
 
-	local CONFIG_DIR="$DOTFILES_DIR/$DIR"
-	local CONFIG_FILE=$(echo "$DOTFILES_DIR/$DIR/${FILE_NAME%.*}")
+	CONFIG_DIR="$DOTFILES_DIR/$DIR"
+	CONFIG_FILE="$DOTFILES_DIR/$DIR/${FILE_NAME%.*}"
 
 	mkdir -p "$CONFIG_DIR"
-	mustache $GENERATED_THEME "$TEMPLATE_ABS" > "$CONFIG_FILE"
+	mustache "$GENERATED_THEME" "$TEMPLATE_ABS" > "$CONFIG_FILE"
 }
 
 function render_all() {
-	local TEMPLATE_ARR=()
-	readarray -t TEMPLATE_ARR < <(find $TEMPLATES_DIR -type f -name '*.template' -printf "%P\n")
+	TEMPLATE_ARR=()
+	readarray -t TEMPLATE_ARR < <(find "$TEMPLATES_DIR" -type f -name '*.template' -printf "%P\n")
 
 	for TMPL in "${TEMPLATE_ARR[@]}";
 	do
@@ -35,69 +35,90 @@ function render_all() {
 }
 
 function generate_theme() {
-	[ -f "$GENERATED_THEME" ] || rm $GENERATED_THEME 2> /dev/null
-	[ -d "$SHARED_DIR" ] || mkdir -p $SHARED_DIR 2> /dev/null
+	[ -f "$GENERATED_THEME" ] || rm "$GENERATED_THEME" 2> /dev/null
+	[ -d "$SHARED_DIR" ] || mkdir -p "$SHARED_DIR" 2> /dev/null
 
-	local OUTPUT=$(jq -r '.' $CONFIG_FILE)
+	OUTPUT=$(jq -r '.' "$CONFIG_FILE")
 
-	local OPACITY=$(echo $OUTPUT | jq -r '.opacity' -)
-	local OPACITY_INVERSE="$((100-${OPACITY}))"
-	local OPACITY_HEX=$(printf '%x' "$((255*${OPACITY}/100))")
-	OUTPUT=$(echo $OUTPUT | jq ".opacity = { \"percentage\": $OPACITY, \"inverse\": $OPACITY_INVERSE, \"hex\": \"$OPACITY_HEX\" }")
+	OPACITY=$(echo "$OUTPUT" | jq -r '.opacity' -)
+	OPACITY_INVERSE=$((100-"$OPACITY"))
+	OPACITY_HEX=$(printf '%x' $((255*"$OPACITY"/100)))
+	OUTPUT=$(echo "$OUTPUT" | jq ".opacity = { \"percentage\": $OPACITY, \"inverse\": $OPACITY_INVERSE, \"hex\": \"$OPACITY_HEX\" }")
 
-	local COLOR_PALETTE=$(echo $OUTPUT | jq -r '.colors.palette')
-	local ACCENT_COLOR=$(echo $OUTPUT | jq -r '.colors.accent')
+	COLOR_PALETTE=$(echo "$OUTPUT" | jq -r '.colors.palette')
+	ACCENT_COLOR=$(echo "$OUTPUT" | jq -r '.colors.accent')
 
-	local COLORS=$(jq -r '.' $COLORS_DIR/$COLOR_PALETTE.json)
-	local ACCENT_NORMAL=$(echo $COLORS | jq -r ".normal.${ACCENT_COLOR}")
-	local ACCENT_BRIGHT=$(echo $COLORS | jq -r ".bright.${ACCENT_COLOR}")
-	local ACCENT_DIM=$(echo $COLORS | jq -r ".dim.${ACCENT_COLOR}")
+	COLORS=$(jq -r '.' "$COLORS_DIR/$COLOR_PALETTE.json")
+	ACCENT_NORMAL=$(echo "$COLORS" | jq -r ".normal.${ACCENT_COLOR}")
+	ACCENT_BRIGHT=$(echo "$COLORS" | jq -r ".bright.${ACCENT_COLOR}")
+	ACCENT_DIM=$(echo "$COLORS" | jq -r ".dim.${ACCENT_COLOR}")
 
-	OUTPUT=$(echo $OUTPUT | jq ".colors = $COLORS")
-	OUTPUT=$(echo $OUTPUT | jq ".colors += { \"accent\": { "normal": \"$ACCENT_NORMAL\", "bright": \"$ACCENT_BRIGHT\", "dim": \"$ACCENT_DIM\" } }")
+	OUTPUT=$(echo "$OUTPUT" | jq ".colors = $COLORS")
+	OUTPUT=$(echo "$OUTPUT" | jq ".colors += { \"accent\": { \"normal\": \"$ACCENT_NORMAL\", \"bright\": \"$ACCENT_BRIGHT\", \"dim\": \"$ACCENT_DIM\" } }")
 
-	echo "$OUTPUT" > $GENERATED_THEME
+	echo "$OUTPUT" > "$GENERATED_THEME"
 }
 
 function set_wallpaper() {
-	feh --no-fehbg --bg-fill "$WALLPAPER_DIR/$(jq -r '.wallpaper' $CONFIG_FILE)"
+	feh --no-fehbg --bg-fill "$WALLPAPER_DIR/$(jq -r '.wallpaper' "$CONFIG_FILE")"
 }
 
 function bar_info() {
-	local GAP_PIXELS=$(jq -r '.wm.gap.pixels' $GENERATED_THEME)
+	GAP_PIXELS=$(jq -r '.wm.gap.pixels' "$GENERATED_THEME")
 
 	# Primary
-	export PM_NAME=$(xrandr | awk '$2 == "connected" && $3 == "primary" {print $1}')
-	export PM_RES=$(xrandr | awk '$2 == "connected" && awk $3 == "primary" {getline; print $1}')
-	export PM_BAR_WIDTH="$(($(get_x $PM_RES)-${GAP_PIXELS}*2))"
-	export PM_BAR_HEIGHT=$(get_bar_height $(get_y $PM_RES))
-	export PM_BAR_COMPACT=$(show_compact_bar $(get_x $PM_RES))
+	PM_NAME=$(xrandr | awk '$2 == "connected" && $3 == "primary" {print $1}')
+	export PM_NAME=$PM_NAME
+
+	PM_RES=$(xrandr | awk '$2 == "connected" && awk $3 == "primary" {getline; print $1}')
+	export PM_RES=$PM_RES
+
+	PM_BAR_WIDTH=$(($(get_x "$PM_RES")-"$GAP_PIXELS"*2))
+	export PM_BAR_WIDTH=$PM_BAR_WIDTH
+
+	PM_BAR_HEIGHT=$(get_bar_height "$(get_y "$PM_RES")")
+	export PM_BAR_HEIGHT=$PM_BAR_HEIGHT
+
+	PM_BAR_COMPACT=$(show_compact_bar "$(get_x "$PM_RES")")
+	export PM_BAR_COMPACT=$PM_BAR_COMPACT
 
 	# Left
 	LM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "left" {print $1}')
 	if [ -n "$LM_NAME" ]; then
-		export LM_NAME
-		export LM_RES=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
-		export LM_BAR_WIDTH="$(($(get_x $LM_RES)-${GAP_PIXELS}*2))"
-		export LM_BAR_HEIGHT=$(get_bar_height $(get_y $LM_RES))
+		export LM_NAME=$LM_NAME
+
+		LM_RES=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
+		export LM_RES=$LM_RES
+
+		LM_BAR_WIDTH=$(($(get_x "$LM_RES")-"$GAP_PIXELS"*2))
+		export LM_BAR_WIDTH=$LM_BAR_WIDTH
+
+		LM_BAR_HEIGHT=$(get_bar_height "$(get_y "$LM_RES")")
+		export LM_BAR_HEIGHT=$LM_BAR_HEIGHT
 	fi
 
 	# Right
 	RM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
 	if [ -n "$RM_NAME" ]; then
-		export RM_NAME
-		export RM_RES=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
-		export RM_BAR_WIDTH="$(($(get_x $RM_RES)-${GAP_PIXELS}*2))"
-		export RM_BAR_HEIGHT=$(get_bar_height $(get_y $RM_RES))
+		export RM_NAME=$RM_NAME
+
+		RM_RES=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
+		export RM_RES=$RM_RES
+
+		export RM_BAR_WIDTH=$(($(get_x "$RM_RES")-"$GAP_PIXELS"*2))
+		export RM_BAR_WIDTH=$RM_BAR_WIDTH
+
+		RM_BAR_HEIGHT=$(get_bar_height "$(get_y "$RM_RES")")
+		export RM_BAR_HEIGHT=$RM_BAR_HEIGHT
 	fi
 }
 
 get_x() {
-	echo ${1:0:4}
+	echo "${1:0:4}"
 }
 
 get_y() {
-	echo ${1:5}
+	echo "${1:5}"
 }
 
 get_bar_height() {
@@ -130,14 +151,14 @@ case $1 in
 		echo 'Missing parameter.' >&2; exit 1
 		;;
 	*)
-		test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
+		test -h "$HOME/.nvm/nvm.sh" && source "$HOME/.nvm/nvm.sh" || exit 1
 
 		render "$2"
 		;;
 	esac
 	;;
 "--write-all")
-	test -h "$HOME/.nvm/nvm.sh" && . "$HOME/.nvm/nvm.sh" || exit -1
+	test -h "$HOME/.nvm/nvm.sh" && source "$HOME/.nvm/nvm.sh" || exit 1
 	render_all
 	;;
 "--wallpaper")

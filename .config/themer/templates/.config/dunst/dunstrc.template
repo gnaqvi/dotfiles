@@ -166,7 +166,7 @@
 	max_icon_size = 64
 
 	# Paths to default icons.
-	icon_path = /usr/share/icons/{{ gtk.icons }}}}/status/scalable-dark:/usr/share/icons/{{ gtk.icons }}}}/devices/scalable-dark
+	icon_path = /usr/share/icons/{{ gtk.icons }}/status/scalable-dark:/usr/share/icons/{{ gtk.icons }}/devices/scalable-dark
 
 	### History ###
 

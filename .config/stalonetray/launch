@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Generate config on demand
-[ ! -z "$1" ] && [ "$1" == "-r" ] && \
-    $HOME/.local/bin/themer --write-one .config/stalonetray/stalonetrayrc.template
+[ -n "$1" ] && [ "$1" == "-r" ] && \
+    "$HOME/.local/bin/themer" --write-one .config/stalonetray/stalonetrayrc.template
 
 # Terminate already running stalonetray instances
 killall -q stalonetray
@@ -11,4 +11,4 @@ killall -q stalonetray
 while pgrep -u $UID -x stalonetray >/dev/null; do sleep 1; done
 
 # Launch tray
-stalonetray -c $XDG_CONFIG_HOME/stalonetray/stalonetrayrc &
+stalonetray -c "$XDG_CONFIG_HOME/stalonetray/stalonetrayrc" &

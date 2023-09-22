@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Generate config on demand
-[ ! -z "$1" ] && [ "$1" == "-r" ] && \
-    $HOME/.local/bin/themer --write-one .config/picom/config.template
+[ -n "$1" ] && [ "$1" == "-r" ] && \
+    "$HOME/.local/bin/themer" --write-one .config/picom/config.template
 
 # Terminate already running picom instances
 killall -q picom
@@ -11,4 +11,4 @@ killall -q picom
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 
 # Launch picom
-picom --experimental-backends --config ~/.config/picom/config &
+picom --experimental-backends --daemon --config ~/.config/picom/config

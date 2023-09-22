@@ -5,9 +5,9 @@
 #-------------------------------------------------------------------------------
 
 # Desktops
-bspc monitor $PM_NAME -d terminal terminal code code tor web music chat
+bspc monitor "$PM_NAME" -d terminal terminal code code tor web music chat
 if [ -n "$LM_NAME" ]; then
-    bspc monitor $LM_NAME -d home terminal code code
+    bspc monitor "$LM_NAME" -d home terminal code code
 fi
 
 # Colors
@@ -18,7 +18,7 @@ bspc config presel_feedback_color "{{ colors.bright.magenta }}"
 
 # Windows
 bspc config automatic_scheme spiral
-bspc config border_width 1
+bspc config border_width 2
 bspc config top_padding 0
 bspc config window_gap {{ wm.gap.pixels }}
 bspc config split_ratio 0.50

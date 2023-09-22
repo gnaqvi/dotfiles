@@ -1,7 +1,6 @@
 #!/bin/bash
 
 INACTIVE_COLOR_HEX='#FFFFF'
-TEXT_FONT_IDX=1
 ICON_FONT_IDX=1
 
 print_icon() {
@@ -29,7 +28,7 @@ get_glyph() {
 		*) icon='';
 	esac
 
-	echo $(print_icon "$icon" $2)
+	echo $(print_icon "$icon")
 }
 
 get_duration() {
@@ -61,7 +60,7 @@ function get_polybar_text() {
 		sun_rise="$(print_icon '') $(get_duration "$(echo "$current" | jq ".sys.sunrise")")"
 		sun_set="$(print_icon '') $(get_duration "$(echo "$current" | jq ".sys.sunset")")"
 
-		echo "$(get_glyph "$current_icon") $current_temp$(print_icon $SYMBOL)  $trend  $(get_glyph "$forecast_icon" $2) $forecast_temp$(print_icon $SYMBOL)   $sun_rise   $sun_set"
+		echo "$(get_glyph "$current_icon") $current_temp$(print_icon $SYMBOL)  $trend  $(get_glyph "$forecast_icon") $forecast_temp$(print_icon $SYMBOL)   $sun_rise   $sun_set"
 	else
 		echo "%{F$INACTIVE_COLOR_HEX}%{F-} Unable to get forecast"
 	fi

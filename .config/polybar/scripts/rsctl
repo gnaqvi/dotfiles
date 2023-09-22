@@ -15,7 +15,7 @@ function get_polybar_text() {
 	TEMP=$(get_status)
 
 	if [ "$(pgrep -x redshift)" ] && [ "$TEMP" == "Enabled" ]; then
-		TEMP=$(redshift -c $CONFIG_FILE -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
+		TEMP=$(redshift -c "$CONFIG_FILE" -p 2> /dev/null | grep temp | cut -d ":" -f 2 | tr -dc "[:digit:]")
 
 		if [ -z "$TEMP" ]; then
 			COLOR=$1
@@ -26,14 +26,12 @@ function get_polybar_text() {
 		else
 			COLOR=$4
 		fi
-
-		TEMP=${TEMP}
 	fi
 
 	WITH_COLOR=${OUTPUT_TEMPL/__COLOR__/$COLOR}
 	WITH_TEMP=${WITH_COLOR/__TEMP__/$TEMP}
 
-	echo $WITH_TEMP
+	echo "$WITH_TEMP"
 }
 
 function toggle() {
@@ -41,7 +39,7 @@ function toggle() {
 		echo "" > $STATUS_LOG_FILE
 		pkill -USR1 '^redshift$'
 	else
-		$XDG_CONFIG_HOME/redshift/launch
+		"$XDG_CONFIG_HOME"/redshift/launch
 	fi
 }
 
@@ -50,7 +48,7 @@ function toggle() {
 case $1 in
 '-p')
 	[ "$#" -ne 5 ] && echo "Missing color codes." && exit 1
-	get_polybar_text $2 $3 $4 $5
+	get_polybar_text "$2" "$3" "$4" "$5"
 	;;
 '-t')
 	toggle

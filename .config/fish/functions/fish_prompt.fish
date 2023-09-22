@@ -1,1 +1,1 @@
-/home/gnaqvi/.local/share/omf/themes/boxfish/fish_prompt.fish
+/home/gnaqvi/.local/share/omf/themes/pie/fish_prompt.fish
