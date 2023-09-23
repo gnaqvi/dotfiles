@@ -12,12 +12,15 @@ offset-y = {{ wm.gap.pixels }}
 radius = 8
 fixed-center = true
 
-font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};4"
-font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=14;5"
-font-2 = "Font Awesome 6 Brands:style=Solid:pixelsize=14;5"
+font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};3"
+font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=14;4"
+font-2 = "Font Awesome 6 Brands:style=Solid:pixelsize=14;4"
 
 background = {{ opacity.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
+
+tray-background = {{ opacity.hex }}{{ colors.normal.background }}
+tray-foreground = {{ colors.normal.foreground }}
 
 line-size = 3
 line-color = {{ opacity.hex }}{{ colors.accent.bright }}
@@ -163,7 +166,7 @@ dpi = ${env:PM_DPI:93}
 
 modules-left = apps gap news gap weather
 modules-center =
-modules-right = now-playing gap uptime gap clock
+modules-right = now-playing gap uptime gap clock gap power-menu
 
 font-3 = "Weather Icons:size=12;5"
 
@@ -207,6 +210,12 @@ click-left = playerctl play-pause
 click-middle = playerctl next
 click-right = playerctl previous
 
+[module/power-menu]
+type = custom/text
+format-foreground = {{ colors.normal.red }}
+format = 
+click-right = mygtkmenui -- ~/.config/mygtkmenu/power-menu
+
 ;--------------------------------------------------------------------;
 ; Bottom panel
 ;--------------------------------------------------------------------;
@@ -223,14 +232,18 @@ padding-left = 0
 
 font-3 = "Material Icons:pixelsize=17;7"
 font-4 = "icomoon:style=Regular:pixelsize=20;2"
-font-5 = "Spy Agency:pixelsize=13;4"
-font-6 = "Spy Agency Laser:pixelsize=13;4"
-font-7 = "Geforce:style=Bold:pixelsize=13;5"
+font-5 = "Spy Agency:pixelsize=13;3"
+font-6 = "Spy Agency Laser:pixelsize=13;3"
+font-7 = "Geforce:style=Bold:pixelsize=13;4"
 font-8 = "DejaVuSans:style=Normal:size={{ font.sans.size }};0"
 
 modules-left = bspwm gap-small sxhkd title
 modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap usb-audio gap redshift gap updates gap power-menu gap-small
+modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap usb-audio gap redshift gap updates gap-small
+
+tray-position = right
+tray-detached = false
+tray-maxsize = 22
 
 [module/bspwm]
 inherit = common/bspwm
@@ -354,12 +367,6 @@ label =  %output%
 exec = ~/.config/polybar/scripts/updates -p
 interval = 600
 click-left = ~/.config/polybar/scripts/updates -g
-
-[module/power-menu]
-type = custom/text
-format-foreground = {{ colors.normal.red }}
-format = 
-click-right = mygtkmenui -- ~/.config/mygtkmenu/power-menu
 
 ;--------------------------------------------------------------------;
 ; Bottom panel (compact)

@@ -10,17 +10,16 @@ audacity
 autoconf
 automake
 autorandr
+azure-cli
 baobab
 base
 bash
-bind
 binutils
 bison
 brother-dcpl2540dw-cups
 bspwm
 bzip2
 cmake
-cmatrix
 code
 colordiff
 coreutils
@@ -40,6 +39,7 @@ dnsmasq
 dracula-gtk-theme
 dunst
 e2fsprogs
+easyeffects
 eog
 ethtool
 fakeroot
@@ -58,6 +58,7 @@ gawk
 gcc
 gcc-libs
 gettext
+gimp
 git
 glibc
 gnome-calculator
@@ -74,7 +75,6 @@ gucharmap
 gvfs-mtp
 gzip
 handbrake
-hddtemp
 ifplugd
 iftop
 imagemagick
@@ -82,6 +82,7 @@ inetutils
 intellij-idea-community-edition
 ipp-usb
 iproute2
+iptables-nft
 iputils
 iw
 jdk-openjdk
@@ -109,6 +110,7 @@ man-pages
 mdadm
 mesa-demos
 mesa-vdpau
+minikube
 mplayer
 mupdf
 mygtkmenui-git
@@ -160,6 +162,7 @@ sane-airscan
 scrot
 sed
 shadow
+shellcheck
 simple-scan
 simplescreenrecorder
 slack-desktop
@@ -194,6 +197,7 @@ util-linux
 vdpauinfo
 vi
 vim
+vlc
 vulkan-radeon
 w3m
 wget
