@@ -3,8 +3,11 @@
 		"palette": "dracula",
 		"accent": "blue"
 	},
-	"wallpaper": "cat-spooky.jpg",
-	"opacity": 92,
+	"wallpaper": "houses.jpg",
+	"opacity": {
+		"bar": 80,
+		"window": 94
+	},
 	"wm": {
 		"gap": {
 			"pixels": 6

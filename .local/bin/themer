@@ -40,10 +40,20 @@ function generate_theme() {
 
 	OUTPUT=$(jq -r '.' "$CONFIG_FILE")
 
-	OPACITY=$(echo "$OUTPUT" | jq -r '.opacity' -)
-	OPACITY_INVERSE=$((100-"$OPACITY"))
-	OPACITY_HEX=$(printf '%x' $((255*"$OPACITY"/100)))
-	OUTPUT=$(echo "$OUTPUT" | jq ".opacity = { \"percentage\": $OPACITY, \"inverse\": $OPACITY_INVERSE, \"hex\": \"$OPACITY_HEX\" }")
+	OPACITY_BAR=$(echo "$OUTPUT" | jq -r '.opacity.bar' -)
+	OPACITY_WINDOW=$(echo "$OUTPUT" | jq -r '.opacity.window' -)
+	OUTPUT=$(echo "$OUTPUT" | jq ".opacity = {
+		\"bar\": {
+			\"percentage\": $OPACITY_BAR,
+			\"inverse\": $((100-OPACITY_BAR)),
+			\"hex\": \"$(printf '%x' $((255*OPACITY_BAR/100)))\"
+		},
+		\"window\": {
+			\"percentage\": $OPACITY_WINDOW,
+			\"inverse\": $((100-OPACITY_WINDOW)),
+			\"hex\": \"$(printf '%x' $((255*OPACITY_WINDOW/100)))\"
+		}
+	}")
 
 	COLOR_PALETTE=$(echo "$OUTPUT" | jq -r '.colors.palette')
 	ACCENT_COLOR=$(echo "$OUTPUT" | jq -r '.colors.accent')
@@ -54,7 +64,13 @@ function generate_theme() {
 	ACCENT_DIM=$(echo "$COLORS" | jq -r ".dim.${ACCENT_COLOR}")
 
 	OUTPUT=$(echo "$OUTPUT" | jq ".colors = $COLORS")
-	OUTPUT=$(echo "$OUTPUT" | jq ".colors += { \"accent\": { \"normal\": \"$ACCENT_NORMAL\", \"bright\": \"$ACCENT_BRIGHT\", \"dim\": \"$ACCENT_DIM\" } }")
+	OUTPUT=$(echo "$OUTPUT" | jq ".colors += {
+		 \"accent\": {
+			\"normal\": \"$ACCENT_NORMAL\",
+		 	\"bright\": \"$ACCENT_BRIGHT\",
+		 	\"dim\": \"$ACCENT_DIM\"
+		}
+	}")
 
 	echo "$OUTPUT" > "$GENERATED_THEME"
 }

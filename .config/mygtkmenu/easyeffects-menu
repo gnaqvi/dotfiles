@@ -1,7 +1,16 @@
-item = Music
-cmd = easyeffects -l music
+item = Bass Boosted
+cmd = easyeffects -l 'Bass Boosted'
 icon =
 
-item = Movie
-cmd = easyeffects -l movie
+item = Bass Enhancing + Perfect EQ
+cmd = easyeffects -l 'Bass Enhancing + Perfect EQ'
 icon =
+
+item = Perfect EQ
+cmd = easyeffects -l 'Perfect EQ'
+icon =
+
+item = Loudness+Autogain
+cmd = easyeffects -l 'Loudness+Autogain'
+icon =
+

@@ -66,5 +66,9 @@
 	"workbench.editor.untitled.labelFormat": "name",
 	"telemetry.telemetryLevel": "off",
 	"redhat.telemetry.enabled": false,
-	"go.toolsManagement.autoUpdate": true
+	"go.toolsManagement.autoUpdate": true,
+	"gitlens.codeLens.authors.enabled": false,
+	"gitlens.currentLine.enabled": false,
+	"gitlens.currentLine.pullRequests.enabled": false,
+	"gitlens.codeLens.recentChange.enabled": false
 }

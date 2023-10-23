@@ -133,9 +133,9 @@ inactive-opacity-override = false;
 #
 opacity-rule = [
   "40:class_g = 'Bspwm' && class_i = 'presel_feedback'",
-  "92:class_i = 'tray'",
-  "92:class_g = 'code-oss'",
-  "92:class_g = 'org.gnome.Nautilus'"
+  "94:class_i = 'tray'",
+  "94:class_g = 'code-oss'",
+  "94:class_g = 'org.gnome.Nautilus'"
 ];
 
 
@@ -400,10 +400,10 @@ log-level = "warn";
 #
 wintypes:
 {
-  tooltip = { fade = true; shadow = true; opacity = 0.92; focus = true; full-shadow = false; };
+  tooltip = { fade = true; shadow = true; opacity = 0.94; focus = true; full-shadow = false; };
   dock = { shadow = true; full-shadow = true; }
   dnd = { shadow = false; }
-  popup_menu = { fade = true; shadow = true; opacity = 0.92; focus = true; full-shadow = false; }
+  popup_menu = { fade = true; shadow = true; opacity = 0.94; focus = true; full-shadow = false; }
   dropdown_menu = { shadow = false; }
   utility = { shadow = false; }
 };
