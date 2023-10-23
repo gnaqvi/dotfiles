@@ -34,7 +34,7 @@ def on_metadata(player, metadata, manager):
 		))
 
 def init_player(name):
-	if name.name in ['spotify']:
+	if name.name in ['spotify', 'chromium']:
 		player = Playerctl.Player.new_from_name(name)
 		player.connect('metadata', on_metadata, manager)
 		manager.manage_player(player)
