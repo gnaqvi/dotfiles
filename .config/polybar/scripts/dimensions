@@ -1,0 +1,67 @@
+#!/bin/bash
+
+. "$HOME/.local/bin/moninfo"
+
+get_x() {
+	echo "${1:0:4}"
+}
+
+get_y() {
+	echo "${1:5}"
+}
+
+get_bar_height() {
+	if [ -z "$1" ]; then
+		echo  ""
+	elif [ "$1" -lt 1080 ]; then
+		echo "2.5%"
+	elif [ "$1" -ge 1080 ]; then
+		echo "2.75%"
+	fi
+}
+
+show_compact_bar() {
+	if [ -z "$1" ]; then
+		echo false
+	elif [ "$1" -lt 2560 ]; then
+		echo true
+	else
+		echo false
+	fi
+}
+
+THEME="$HOME/.local/share/themer/theme.json"
+GAP_PIXELS=$(jq -r '.wm.gap.pixels' "$THEME")
+
+PM_BAR_HEIGHT=$(get_bar_height "$(get_y "$PM_RES")")
+export PM_BAR_HEIGHT=$PM_BAR_HEIGHT
+
+BOTTOM_BAR_WIDTH=$(($(get_x "$PM_RES")-("$GAP_PIXELS"*40)))
+export BOTTOM_BAR_WIDTH=$BOTTOM_BAR_WIDTH
+
+BOTTOM_BAR_OFFSET=$((($(get_x "$PM_RES")-"$BOTTOM_BAR_WIDTH")/2))
+export BOTTOM_BAR_OFFSET=$BOTTOM_BAR_OFFSET
+
+TOP_BAR_WIDTH=$(($(get_x "$PM_RES")-("$GAP_PIXELS"*215)))
+export TOP_BAR_WIDTH=$TOP_BAR_WIDTH
+
+TOP_BAR_OFFSET=$((($(get_x "$PM_RES")-"$TOP_BAR_WIDTH")/2))
+export TOP_BAR_OFFSET=$TOP_BAR_OFFSET
+
+# Left
+if [ -n "$LM_NAME" ]; then
+    LM_BAR_WIDTH=$(($(get_x "$LM_RES")-"$GAP_PIXELS"*2))
+    export LM_BAR_WIDTH=$LM_BAR_WIDTH
+
+    LM_BAR_HEIGHT=$(get_bar_height "$(get_y "$LM_RES")")
+    export LM_BAR_HEIGHT=$LM_BAR_HEIGHT
+fi
+
+# Right
+if [ -n "$RM_NAME" ]; then
+    export RM_BAR_WIDTH=$(($(get_x "$RM_RES")-"$GAP_PIXELS"*2))
+    export RM_BAR_WIDTH=$RM_BAR_WIDTH
+
+    RM_BAR_HEIGHT=$(get_bar_height "$(get_y "$RM_RES")")
+    export RM_BAR_HEIGHT=$RM_BAR_HEIGHT
+fi

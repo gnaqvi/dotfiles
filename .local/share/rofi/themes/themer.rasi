@@ -1,7 +1,7 @@
 * {
-	background: #282a36ef;
+	background: #282a36f9;
 	foreground: #f8f8f2;
-	accent: 	#d6acffef;
+	accent: 	#d6acfff9;
 
 	transparent:      #FFFFFF00;
 	background-color: @transparent;

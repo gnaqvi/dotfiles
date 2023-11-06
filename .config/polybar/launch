@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source bar info variables
-. "$HOME/.local/bin/themer" --bar-info
+. "$XDG_CONFIG_HOME/polybar/scripts/dimensions"
 
 # Generate config on demand
 [ -n "$1" ] && [ "$1" == "-r" ] && \
@@ -20,12 +20,7 @@ while pgrep -u $UID -x sxhkd-status >/dev/null; do sleep 1; done
 
 # Launch bars
 polybar --log=warning top &
-if [ -z "$PM_BAR_COMPACT" ]; then
-    polybar --log=warning bottom-compact &
-else
-    polybar --log=warning bottom &
-fi
-
+polybar --log=warning bottom &
 [ -n "$LM_NAME" ] && polybar left &
 [ -n "$RM_NAME" ] && polybar right &
 

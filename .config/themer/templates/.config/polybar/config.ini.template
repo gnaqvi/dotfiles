@@ -5,16 +5,16 @@
 [common/bar]
 override-redirect = false
 
-width = ${env:PM_BAR_WIDTH:99%}
 height = ${env:PM_BAR_HEIGHT:3%}
 offset-x = {{ wm.gap.pixels }}
 offset-y = {{ wm.gap.pixels }}
-radius = 8
+radius = 12
 fixed-center = true
 
 font-0 = "{{ font.sans.name }}:weight=Regular:size={{ font.sans.size }};3"
 font-1 = "Font Awesome 6 Free:style=Solid:pixelsize=14;4"
 font-2 = "Font Awesome 6 Brands:style=Solid:pixelsize=14;4"
+font-3 = "Material Icons:pixelsize=17;6"
 
 background = {{ opacity.bar.hex }}{{ colors.normal.background }}
 foreground = {{ colors.normal.foreground }}
@@ -26,16 +26,6 @@ line-size = 3
 line-color = {{ opacity.bar.hex }}{{ colors.accent.bright }}
 
 border-size = 0
-
-padding-left = 3
-padding-right = 3
-
-module-margin-left  = 0
-module-margin-right = 0
-
-modules-left = apps news
-modules-center =
-modules-right = weather now-playing clock
 
 wm-restack = bspwm
 
@@ -50,16 +40,7 @@ double-click-left =
 double-click-middle =
 double-click-right =
 
-[common/bar-secondary]
-inherit = common/bar
-
-bottom = true
-
-modules-left = bspwm-secondary gap-small title
-modules-center =
-modules-right =
-
-[common/bspwm]
+[module/wm]
 type = internal/bspwm
 
 pin-workspaces = true
@@ -67,6 +48,7 @@ inline-mode = false
 enable-click = true
 enable-scroll = true
 reverse-scroll = true
+occupied-scroll = true
 fuzzy-match = true
 
 format = <label-state> <label-mode>
@@ -100,43 +82,30 @@ label-empty = %icon%
 label-empty-foreground = {{ colors.dim.foreground }}
 label-empty-padding = 3
 
-label-monocle = 
+label-monocle = "       "
 label-monocle-foreground = {{ colors.normal.yellow }}
-label-tiled = 
+label-tiled = "       "
 label-tiled-foreground = {{ colors.normal.yellow }}
-label-fullscreen = 
+label-fullscreen = "       "
 label-fullscreen-foreground = {{ colors.normal.yellow }}
-label-floating = 
+label-floating = ""
 label-floating-foreground = {{ colors.normal.yellow }}
-label-pseudotiled = P
+label-pseudotiled = "       P"
 label-pseudotiled-foreground = {{ colors.normal.yellow }}
-label-locked = " "
+label-locked = "       "
 label-locked-foreground = {{ colors.normal.yellow }}
-label-sticky = " "
+label-sticky = "       "
 label-sticky-foreground = {{ colors.normal.yellow }}
-label-private = " "
+label-private = "       "
 label-private-foreground = {{ colors.normal.yellow }}
-
-[module/bspwm-secondary]
-inherit = common/bspwm
 
 ws-icon-0 = terminal;
 ws-icon-1 = code;
+ws-icon-2 = tor;
+ws-icon-3 = web;
+ws-icon-4 = music;
+ws-icon-5 = chat;
 ws-icon-default = 
-
-[module/title]
-type = internal/xwindow
-format-padding = 0
-format-foreground = {{ colors.bright.yellow }}
-label = %title:0:100:...%
-
-[module/gap-small]
-type = custom/text
-format = "  "
-
-[module/gap]
-type = custom/text
-format = "       "
 
 [common/pulseaudio]
 type = internal/pulseaudio
@@ -152,33 +121,27 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-;---------------------------------------------------\-----------------;
-; Top panel
+[module/gap-small]
+type = custom/text
+format = "  "
+
+[module/gap]
+type = custom/text
+format = "       "
+
+;--------------------------------------------------------------------;
+; Top left panel
 ;--------------------------------------------------------------------;
 
-[bar/top]
+[bar/top-left]
 inherit = common/bar
 
 monitor = ${env:PM_NAME:DisplayPort-0}
 dpi = ${env:PM_DPI:93}
 
-modules-left = apps gap news gap weather
+modules-left = news
 modules-center =
-modules-right = now-playing gap uptime gap clock gap power-menu
-
-font-3 = "Weather Icons:size=12;5"
-
-[module/apps]
-type = custom/text
-format = 
-format-foreground = {{ colors.accent.bright }}
-click-left = rofi -show drun
-
-[module/uptime]
-type = custom/script
-exec = uptime -p | cut -d ' ' -f2-
-interval = 60
-label =   %output%
+modules-right =
 
 [module/news]
 type = custom/script
@@ -186,120 +149,52 @@ label =   %output:0:150%...
 exec = ~/.config/polybar/scripts/news
 double-click-left = firefox https://news.ycombinator.com/
 
-[module/clock]
-type = custom/script
-label =   %output%
-exec = ~/.config/polybar/scripts/clock
-interval = 5
-click-left = ~/.config/polybar/scripts/calendar
-
-[module/weather]
-type = custom/script
-exec = ~/.config/polybar/scripts/weather -p '{{ colors.dim.foreground }}' -t 4
-interval = 1800
-double-click-left = ~/.config/polybar/scripts/weather -o
-
-[module/now-playing]
-type = custom/script
-label = %output:0:100%
-exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '{{ colors.normal.foreground }}' -i '{{ colors.dim.foreground }}'
-tail = true
-click-left = playerctl play-pause
-click-middle = playerctl next
-click-right = playerctl previous
-
-[module/power-menu]
-type = custom/text
-format-foreground = {{ colors.normal.red }}
-format = 
-click-right = mygtkmenui -- ~/.config/mygtkmenu/power-menu
-
 ;--------------------------------------------------------------------;
-; Bottom panel
+; Top panel
 ;--------------------------------------------------------------------;
 
-[bar/bottom]
+[bar/top]
 inherit = common/bar
 
-enable-ipc = true
+;enable-ipc = true
 monitor = ${env:PM_NAME:DisplayPort-0}
 dpi = ${env:PM_DPI:93}
 
-bottom = true
-padding-left = 0
+width = ${env:TOP_BAR_WIDTH:1650}
+offset-x = ${env:TOP_BAR_OFFSET:1536}
+fixed-center = true
 
-font-3 = "Material Icons:pixelsize=17;7"
 font-4 = "icomoon:style=Regular:pixelsize=20;2"
 font-5 = "Spy Agency:pixelsize=13;3"
 font-6 = "Spy Agency Laser:pixelsize=13;3"
 font-7 = "Geforce:style=Bold:pixelsize=13;4"
 font-8 = "DejaVuSans:style=Normal:size={{ font.sans.size }};0"
 
-modules-left = bspwm gap-small sxhkd title
-modules-center =
-modules-right = cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap sound gap updates gap redshift gap-small
+modules-left =
+modules-center = gap uptime gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap sound gap updates gap redshift gap
+modules-right =
 
-;tray-position = right
-;tray-detached = false
-;tray-maxsize = 22
-
-[module/bspwm]
-inherit = common/bspwm
-
-ws-icon-0 = terminal;
-ws-icon-1 = code;
-ws-icon-2 = tor;
-ws-icon-3 = web;
-ws-icon-4 = music;
-ws-icon-5 = chat;
-ws-icon-6 = misc;
-ws-icon-default = 
-
-[module/sxhkd]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo "  "
-initial = 0
+[module/uptime]
+type = custom/script
+exec = uptime -p | cut -d ' ' -f2-
+interval = 60
+label =   %output%
 
 [module/cpu-brand]
 type = custom/text
 format = %{T6}RYZ%{T-}%{T7}E%{T-}%{T6}N%{T-}
 
 [module/cpu-usage]
-type = internal/cpu
+type = custom/script
+exec = ~/.config/polybar/scripts/hwinfo cpu usage
 interval = 5
-format-prefix = " "
-label = %percentage%%
+label = %output:20:25%
 
 [module/cpu-temp]
-type = internal/temperature
+type = custom/script
+exec = ~/.config/polybar/scripts/hwinfo cpu temp
 interval = 5
-
-hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon2/temp1_input
-warn-temperature = 80
-
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = {{ colors.normal.red }}
-
-ramp-0 = 
-ramp-0-foreground = {{ colors.normal.green }}
-ramp-1 = 
-ramp-1-foreground = {{ colors.normal.green }}
-ramp-2 = 
-ramp-2-foreground = {{ colors.normal.green }}
-ramp-3 =  
-ramp-3-foreground = {{ colors.normal.green }}
-ramp-4 = 
-ramp-4-foreground = {{ colors.normal.green }}
-ramp-5 = 
-ramp-5-foreground = {{ colors.normal.yellow }}
-ramp-6 = 
-ramp-6-foreground = {{ colors.normal.yellow }}
-ramp-7 = 
-ramp-7-foreground = {{ colors.normal.red }}
+label = %output%
 
 [module/gpu-brand]
 type = custom/text
@@ -307,13 +202,13 @@ format = %{T8}VEGA 64%{T-}
 
 [module/gpu-usage]
 type = custom/script
-exec = ~/.config/polybar/scripts/gpu --usage
+exec = ~/.config/polybar/scripts/hwinfo gpu usage
 interval = 5
 label = %output%
 
 [module/gpu-temp]
 type = custom/script
-exec = ~/.config/polybar/scripts/gpu --temp '{{ colors.dim.foreground }}' '{{ colors.normal.green }}' '{{ colors.normal.yellow}}' '{{ colors.normal.red }}'
+exec = ~/.config/polybar/scripts/hwinfo gpu temp
 interval = 5
 label = %output%
 
@@ -345,7 +240,7 @@ format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <label-connected>
 
-label-connected = %downspeed:9%
+label-connected =   %ifname%
 label-disconnected = Disconnected
 label-disconnected-foreground = {{ colors.dim.foreground }}
 
@@ -368,36 +263,108 @@ interval = 5
 click-left = ~/.config/polybar/scripts/rsctl -t
 
 ;--------------------------------------------------------------------;
-; Bottom panel (compact)
+; Bottom panel
 ;--------------------------------------------------------------------;
 
-[bar/bottom-compact]
-inherit = bar/bottom
-modules-right = network gap pulseaudio gap redshift gap updates gap power-menu gap-small
+[bar/bottom]
+inherit = common/bar
+
+monitor = ${env:PM_NAME:DisplayPort-0}
+dpi = ${env:PM_DPI:93}
+
+bottom = true
+width = ${env:BOTTOM_BAR_WIDTH:2440}
+offset-x = ${env:BOTTOM_BAR_OFFSET:60}
+fixed-center = true
+
+enable-ipc = true
+
+font-4 = "Weather Icons:size=12;5"
+
+modules-left = gap apps gap wm gap-small sxhkd gap-small gap title
+modules-center =
+modules-right = gap-small weather gap now-playing gap clock gap power-menu gap
+
+[module/apps]
+type = custom/text
+format = 
+format-foreground = {{ colors.accent.bright }}
+click-left = rofi -show drun
+
+[module/sxhkd]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = echo ""
+initial = 1
+format-foreground = {{ colors.dim.cyan }}
+
+[module/title]
+type = internal/xwindow
+format =  <label>
+format-foreground = {{ colors.dim.white }}
+label = %title%
+label-maxlen = 80
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather -p '{{ colors.dim.foreground }}' -t 5
+interval = 1800
+double-click-left = ~/.config/polybar/scripts/weather -o
+
+[module/now-playing]
+type = custom/script
+label = %output%
+label-maxlen = 60
+
+exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '{{ colors.normal.foreground }}' -i '{{ colors.dim.foreground }}'
+tail = true
+click-left = playerctl play-pause
+click-middle = playerctl next
+click-right = playerctl previous
+
+[module/clock]
+type = custom/script
+format =  <label>
+label = %output%
+exec = ~/.config/polybar/scripts/clock
+interval = 5
+click-left = ~/.config/polybar/scripts/calendar
+
+[module/power-menu]
+type = custom/text
+format-foreground = {{ colors.bright.red }}
+format = 
+click-right = mygtkmenui -- ~/.config/mygtkmenu/power-menu
 
 ;--------------------------------------------------------------------;
 ; Left panel
 ;--------------------------------------------------------------------;
 
 [bar/left]
-inherit = common/bar-secondary
+inherit = bar/bottom
 
-monitor = ${env:LM_NAME:DP-1}
+monitor = ${env:LM_NAME:DisplayPort-1}
 dpi = ${env:LM_DPI:93}
-
 height = ${env:LM_BAR_HEIGHT:2.75%}
+
+modules-left = gap-small apps gap wm gap-small sxhkd gap-small
+modules-center =
+modules-right =
 
 ;--------------------------------------------------------------------;
 ; Right panel
 ;--------------------------------------------------------------------;
 
 [bar/right]
-inherit = common/bar-secondary
+inherit = bar/bottom
 
-monitor = ${env:RM_NAME:DP-1}
+monitor = ${env:RM_NAME:DisplayPort-2}
 dpi = ${env:RM_DPI:93}
-
 height = ${env:RM_BAR_HEIGHT:2.75%}
+
+modules-left = gap-small apps gap wm gap-small sxhkd gap-small
+modules-center =
+modules-right =
 
 ;--------------------------------------------------------------------;
 ; General
@@ -405,13 +372,9 @@ height = ${env:RM_BAR_HEIGHT:2.75%}
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-
-[global/wm]
-margin-top = 0
-margin-bottom = 0
-
-;vim:ft=dosini
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+pseudo-transparency = false

@@ -5,13 +5,14 @@
 # Quite!
 set fish_greeting ""
 
-# Prompt
-
-
-# Colors
-if test -x /usr/bin/dircolors -a -e ~/.dircolorsrc
-	eval (dircolors -c ~/.dircolorsrc | sed 's/>&\/dev\/null$//')
+# Oh my fish
+if not functions -q omf
+	curl -s -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c "source - --noninteractive"
+	omf install https://github.com/dracula/fish
 end
+
+# Theme
+fish_config theme choose "Dracula"
 
 #
 # Environment
@@ -38,7 +39,6 @@ alias mkdir 'mkdir -p -v'
 alias nano 'nano -w'
 alias ping 'ping -c 5'
 alias dmesg 'dmesg -HL'
-alias ccat 'pygmentize -g'
 
 # ls
 alias ls 'ls -hF --color=auto'

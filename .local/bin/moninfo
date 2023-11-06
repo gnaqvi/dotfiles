@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Primary
+PM_NAME=$(xrandr | awk '$2 == "connected" && $3 == "primary" {print $1}')
+export PM_NAME=$PM_NAME
+
+PM_RES=$(xrandr | awk '$2 == "connected" && awk $3 == "primary" {getline; print $1}')
+export PM_RES=$PM_RES
+
+# Left
+LM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "left" {print $1}')
+if [ -n "$LM_NAME" ]; then
+    export LM_NAME=$LM_NAME
+
+    LM_RES=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
+    export LM_RES=$LM_RES
+fi
+
+# Right
+RM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
+if [ -n "$RM_NAME" ]; then
+    export RM_NAME=$RM_NAME
+
+    RM_RES=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
+    export RM_RES=$RM_RES
+fi

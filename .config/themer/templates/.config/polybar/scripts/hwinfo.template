@@ -1,0 +1,58 @@
+#!/bin/bash
+
+TEMPL='%{F__COLOR__}__ICON__%{F-} __DATA__'
+GREEN='{{ colors.normal.green }}'
+YELLOW='{{ colors.normal.yellow }}'
+RED='{{ colors.normal.red }}'
+
+function colorize() {
+	ICON=$1
+	DATA=$2
+
+    COLOR=$GREEN
+	if [ "${DATA//[!0-9]/}" -ge 75 ]; then
+		COLOR=$RED
+	elif [ "${DATA//[!0-9]/}" -ge 45 ]; then
+		COLOR=$YELLOW
+	fi
+
+	OUT="${TEMPL/__COLOR__/$COLOR}"
+	OUT="${OUT/__ICON__/$ICON}"
+	echo "${OUT/__DATA__/$DATA}"
+}
+
+[ "$#" -lt 2 ] && echo "Missing parameters." && exit 1
+
+case $1 in
+"cpu")
+	case $2 in
+	"usage")
+		colorize "" "$( (grep 'cpu ' /proc/stat; sleep 0.1; grep 'cpu ' /proc/stat) | awk -v RS="" '{print int(($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5))"%"}' )"
+		;;
+	"temp")
+		colorize "" "$(( $(cat /sys/devices/platform/nct6775.2592/hwmon/hwmon2/temp1_input) / 1000 ))°C"
+		;;
+	*)
+		echo "Invalid metric." && exit 1
+		;;
+	esac
+	;;
+"gpu")
+	case $2 in
+	"usage")
+		#$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)%
+		colorize "" "$(cat /sys/class/drm/card1/device/gpu_busy_percent)%"
+		;;
+	"temp")
+		#$(nvidia-smi --query-gpu=temperature.gpu --format=csvnoheader,nounits)°C
+		colorize "" "$(sensors amdgpu-pci-1e00 -u | grep temp1_input | awk '{print substr($2,0,2)}')°C"
+		;;
+	*)
+		echo "Invalid metric." && exit 1
+		;;
+	esac
+	;;
+*)
+	echo "Invalid resource." && exit 1
+	;;
+esac

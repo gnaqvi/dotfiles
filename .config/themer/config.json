@@ -3,10 +3,10 @@
 		"palette": "dracula",
 		"accent": "blue"
 	},
-	"wallpaper": "houses.jpg",
+	"wallpaper": "mountain.jpg",
 	"opacity": {
-		"bar": 80,
-		"window": 94
+		"bar": 88,
+		"window": 98
 	},
 	"wm": {
 		"gap": {

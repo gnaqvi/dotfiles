@@ -14,6 +14,7 @@ azure-cli
 baobab
 base
 bash
+bashtop
 binutils
 bison
 brother-dcpl2540dw-cups
@@ -75,6 +76,7 @@ gucharmap
 gvfs-mtp
 gzip
 handbrake
+hugo
 ifplugd
 iftop
 imagemagick
@@ -133,6 +135,7 @@ patch
 pavucontrol
 pciutils
 perl
+pfetch
 picom-git
 pipewire-alsa
 pipewire-pulse
@@ -147,7 +150,6 @@ psmisc
 python
 python-feedparser
 python-pip
-python-pygments
 qemu-desktop
 radeontop
 ranger
@@ -186,6 +188,7 @@ tree
 trizen
 ttf-fira-code
 ttf-font-awesome
+ttf-google-fonts-git
 ttf-ibm-plex
 ttf-material-icons-git
 udiskie
@@ -224,5 +227,6 @@ xss-lock
 xterm
 xtitle
 yad
+youtube-music-bin
 zip
 zoom

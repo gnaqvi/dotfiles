@@ -1,4 +1,4 @@
-#!/bin/bash +x
+#!/bin/bash
 
 DOTFILES_DIR="$HOME/.dotfiles"
 THEMER_DIR="$DOTFILES_DIR/.config/themer"
@@ -79,84 +79,6 @@ function set_wallpaper() {
 	feh --no-fehbg --bg-fill "$WALLPAPER_DIR/$(jq -r '.wallpaper' "$CONFIG_FILE")"
 }
 
-function bar_info() {
-	GAP_PIXELS=$(jq -r '.wm.gap.pixels' "$GENERATED_THEME")
-
-	# Primary
-	PM_NAME=$(xrandr | awk '$2 == "connected" && $3 == "primary" {print $1}')
-	export PM_NAME=$PM_NAME
-
-	PM_RES=$(xrandr | awk '$2 == "connected" && awk $3 == "primary" {getline; print $1}')
-	export PM_RES=$PM_RES
-
-	PM_BAR_WIDTH=$(($(get_x "$PM_RES")-"$GAP_PIXELS"*2))
-	export PM_BAR_WIDTH=$PM_BAR_WIDTH
-
-	PM_BAR_HEIGHT=$(get_bar_height "$(get_y "$PM_RES")")
-	export PM_BAR_HEIGHT=$PM_BAR_HEIGHT
-
-	PM_BAR_COMPACT=$(show_compact_bar "$(get_x "$PM_RES")")
-	export PM_BAR_COMPACT=$PM_BAR_COMPACT
-
-	# Left
-	LM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "left" {print $1}')
-	if [ -n "$LM_NAME" ]; then
-		export LM_NAME=$LM_NAME
-
-		LM_RES=$(xrandr | awk '$2 == "connected" && $4 == "left" {getline; print $1}')
-		export LM_RES=$LM_RES
-
-		LM_BAR_WIDTH=$(($(get_x "$LM_RES")-"$GAP_PIXELS"*2))
-		export LM_BAR_WIDTH=$LM_BAR_WIDTH
-
-		LM_BAR_HEIGHT=$(get_bar_height "$(get_y "$LM_RES")")
-		export LM_BAR_HEIGHT=$LM_BAR_HEIGHT
-	fi
-
-	# Right
-	RM_NAME=$(xrandr | awk '$2 == "connected" && $4 == "right" {print $1}')
-	if [ -n "$RM_NAME" ]; then
-		export RM_NAME=$RM_NAME
-
-		RM_RES=$(xrandr | awk '$2 == "connected" && $4 == "right" {getline; print $1}')
-		export RM_RES=$RM_RES
-
-		export RM_BAR_WIDTH=$(($(get_x "$RM_RES")-"$GAP_PIXELS"*2))
-		export RM_BAR_WIDTH=$RM_BAR_WIDTH
-
-		RM_BAR_HEIGHT=$(get_bar_height "$(get_y "$RM_RES")")
-		export RM_BAR_HEIGHT=$RM_BAR_HEIGHT
-	fi
-}
-
-get_x() {
-	echo "${1:0:4}"
-}
-
-get_y() {
-	echo "${1:5}"
-}
-
-get_bar_height() {
-	if [ -z "$1" ]; then
-		echo  ""
-	elif [ "$1" -lt 1080 ]; then
-		echo "2.5%"
-	elif [ "$1" -ge 1080 ]; then
-		echo "2.75%"
-	fi
-}
-
-show_compact_bar() {
-	if [ -z "$1" ]; then
-		echo false
-	elif [ "$1" -lt 2560 ]; then
-		echo true
-	else
-		echo false
-	fi
-}
-
 case $1 in
 "--generate-theme")
 	generate_theme
@@ -179,9 +101,6 @@ case $1 in
 	;;
 "--wallpaper")
     set_wallpaper
-	;;
-"--bar-info")
-    bar_info
 	;;
 *)
 	echo 'Invalid parameter.' >&2; exit 1

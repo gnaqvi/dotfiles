@@ -11,4 +11,5 @@ killall -q picom
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 
 # Launch picom
-picom --experimental-backends --daemon --config ~/.config/picom/config
+#picom  --daemon --config ~/.config/picom/config
+picom --daemon --config ~/.config/picom/config
