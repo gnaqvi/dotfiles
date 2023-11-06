@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 . "$HOME/.local/bin/moninfo"
 
@@ -36,17 +36,8 @@ GAP_PIXELS=$(jq -r '.wm.gap.pixels' "$THEME")
 PM_BAR_HEIGHT=$(get_bar_height "$(get_y "$PM_RES")")
 export PM_BAR_HEIGHT=$PM_BAR_HEIGHT
 
-BOTTOM_BAR_WIDTH=$(($(get_x "$PM_RES")-("$GAP_PIXELS"*40)))
-export BOTTOM_BAR_WIDTH=$BOTTOM_BAR_WIDTH
-
-BOTTOM_BAR_OFFSET=$((($(get_x "$PM_RES")-"$BOTTOM_BAR_WIDTH")/2))
-export BOTTOM_BAR_OFFSET=$BOTTOM_BAR_OFFSET
-
-TOP_BAR_WIDTH=$(($(get_x "$PM_RES")-("$GAP_PIXELS"*215)))
-export TOP_BAR_WIDTH=$TOP_BAR_WIDTH
-
-TOP_BAR_OFFSET=$((($(get_x "$PM_RES")-"$TOP_BAR_WIDTH")/2))
-export TOP_BAR_OFFSET=$TOP_BAR_OFFSET
+PM_BAR_WIDTH=$(($(get_x "$PM_RES")-("$GAP_PIXELS"*2)))
+export PM_BAR_WIDTH=$PM_BAR_WIDTH
 
 # Left
 if [ -n "$LM_NAME" ]; then

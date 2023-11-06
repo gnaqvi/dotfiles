@@ -5,7 +5,8 @@
 [common/bar]
 override-redirect = false
 
-height = ${env:PM_BAR_HEIGHT:3%}
+width = ${env:PM_BAR_WIDTH:2548}
+height = ${env:PM_BAR_HEIGHT:2.75%}
 offset-x = {{ wm.gap.pixels }}
 offset-y = {{ wm.gap.pixels }}
 radius = 12
@@ -130,49 +131,52 @@ type = custom/text
 format = "       "
 
 ;--------------------------------------------------------------------;
-; Top left panel
-;--------------------------------------------------------------------;
-
-[bar/top-left]
-inherit = common/bar
-
-monitor = ${env:PM_NAME:DisplayPort-0}
-dpi = ${env:PM_DPI:93}
-
-modules-left = news
-modules-center =
-modules-right =
-
-[module/news]
-type = custom/script
-label =   %output:0:150%...
-exec = ~/.config/polybar/scripts/news
-double-click-left = firefox https://news.ycombinator.com/
-
-;--------------------------------------------------------------------;
 ; Top panel
 ;--------------------------------------------------------------------;
 
 [bar/top]
 inherit = common/bar
 
-;enable-ipc = true
 monitor = ${env:PM_NAME:DisplayPort-0}
 dpi = ${env:PM_DPI:93}
 
-width = ${env:TOP_BAR_WIDTH:1650}
-offset-x = ${env:TOP_BAR_OFFSET:1536}
 fixed-center = true
 
-font-4 = "icomoon:style=Regular:pixelsize=20;2"
-font-5 = "Spy Agency:pixelsize=13;3"
-font-6 = "Spy Agency Laser:pixelsize=13;3"
-font-7 = "Geforce:style=Bold:pixelsize=13;4"
-font-8 = "DejaVuSans:style=Normal:size={{ font.sans.size }};0"
+font-4 = "Weather Icons:size=12;5"
+font-5 = "icomoon:style=Regular:pixelsize=20;2"
+font-6 = "Spy Agency:pixelsize=13;3"
+font-7 = "Spy Agency Laser:pixelsize=13;3"
+font-8 = "Geforce:style=Bold:pixelsize=13;4"
+font-9 = "DejaVuSans:style=Normal:size={{ font.sans.size }};0"
 
-modules-left =
-modules-center = gap uptime gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap sound gap updates gap redshift gap
-modules-right =
+modules-left = gap weather gap news-fetcher news-rotator news-display
+modules-center =
+modules-right = uptime gap cpu-brand gap-small cpu-usage gap-small cpu-temp gap gpu-brand gap-small gpu-usage gap-small gpu-temp gap memory gap filesystem gap network gap sound gap updates gap redshift gap
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather -p '{{ colors.dim.foreground }}' -t 5
+interval = 1800
+double-click-left = ~/.config/polybar/scripts/weather -o
+
+[module/news-fetcher]
+type = custom/script
+exec = ~/.config/polybar/scripts/news/env/bin/python ~/.config/polybar/scripts/news/news_fetcher.py
+
+[module/news-rotator]
+type = custom/script
+interval = 30
+exec = ~/.config/polybar/scripts/news/env/bin/python ~/.config/polybar/scripts/news/news_rotator.py
+
+[module/news-display]
+type = custom/script
+tail = true
+interval = 1
+format-prefix = "  "
+format = <label>
+label-maxlen = 100
+exec = ~/.config/polybar/scripts/news/scroll_current_article.sh
+click-left = < ~/.config/polybar/scripts/news/current_article_url.txt xargs -I % xdg-open %
 
 [module/uptime]
 type = custom/script
@@ -182,7 +186,7 @@ label =   %output%
 
 [module/cpu-brand]
 type = custom/text
-format = %{T6}RYZ%{T-}%{T7}E%{T-}%{T6}N%{T-}
+format = %{T7}RYZ%{T-}%{T8}E%{T-}%{T7}N%{T-}
 
 [module/cpu-usage]
 type = custom/script
@@ -198,7 +202,7 @@ label = %output%
 
 [module/gpu-brand]
 type = custom/text
-format = %{T8}VEGA 64%{T-}
+format = %{T9}VEGA 64%{T-}
 
 [module/gpu-usage]
 type = custom/script
@@ -273,17 +277,13 @@ monitor = ${env:PM_NAME:DisplayPort-0}
 dpi = ${env:PM_DPI:93}
 
 bottom = true
-width = ${env:BOTTOM_BAR_WIDTH:2440}
-offset-x = ${env:BOTTOM_BAR_OFFSET:60}
 fixed-center = true
 
 enable-ipc = true
 
-font-4 = "Weather Icons:size=12;5"
-
 modules-left = gap apps gap wm gap-small sxhkd gap-small gap title
 modules-center =
-modules-right = gap-small weather gap now-playing gap clock gap power-menu gap
+modules-right = now-playing gap clock gap power-menu gap
 
 [module/apps]
 type = custom/text
@@ -303,18 +303,12 @@ type = internal/xwindow
 format =  <label>
 format-foreground = {{ colors.dim.white }}
 label = %title%
-label-maxlen = 80
-
-[module/weather]
-type = custom/script
-exec = ~/.config/polybar/scripts/weather -p '{{ colors.dim.foreground }}' -t 5
-interval = 1800
-double-click-left = ~/.config/polybar/scripts/weather -o
+label-maxlen = 100
 
 [module/now-playing]
 type = custom/script
 label = %output%
-label-maxlen = 60
+label-maxlen = 150
 
 exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '{{ colors.normal.foreground }}' -i '{{ colors.dim.foreground }}'
 tail = true
