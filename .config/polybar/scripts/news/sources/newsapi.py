@@ -12,5 +12,5 @@ def get_news():
         title = data['articles'][x]['title']
         url = data['articles'][x]['url']
         news_data.append({'source': sourceName, 'title': title, 'url': url})
-        
+
     return news_data

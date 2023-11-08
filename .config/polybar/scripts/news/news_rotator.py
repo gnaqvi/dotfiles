@@ -14,22 +14,13 @@ with open(os.path.join(script_dir, "articles.json"), 'r+') as f:
     # Get the current article
     article = articles[index]
 
-    # Check if 'source' key exists
-    if 'source' in article:
-        source = article['source']
-    else:
-        source = article['type']
-
-    # Now, you can use 'source' in your formatted string
-    current_article = '[{0}] {1}'.format(source, article['title'])
-
     # Write the URL to a separate file
     with open(os.path.join(script_dir, "current_article_url.txt"), "w") as url_file:
         url_file.write(article['url'])
-        
+
     # Write the current article to a separate file
     with open(os.path.join(script_dir, "current_article.txt"), "w") as article_file:
-        article_file.write(current_article)
+        article_file.write('{0}'.format(article['title']))
 
     # Update the index for the next run
     data['index'] = (index + 1) % len(articles)

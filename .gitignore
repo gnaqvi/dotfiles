@@ -4,9 +4,8 @@
 *.log
 logs/
 
+.config/polybar/scripts/news/**/__pycache__
 .config/polybar/scripts/news/env
-.config/polybar/scripts/news/__pycache__
-.config/polybar/scripts/news/articles.json
-.config/polybar/scripts/news/current_article_url.txt
-.config/polybar/scripts/news/current_article.txt
+.config/polybar/scripts/news/*.json
+.config/polybar/scripts/news/*.txt
 .config/polybar/scripts/news/config.py
