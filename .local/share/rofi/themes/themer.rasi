@@ -1,5 +1,5 @@
 * {
-	background: #282a36f9;
+    background: #282a36f9;
 	foreground: #f8f8f2;
 	accent: 	#d6acfff9;
 
@@ -15,6 +15,11 @@ window {
 }
 
 mainbox {
+    border:  0;
+    padding: 15%;
+}
+
+error-message {
     border:  0;
     padding: 15%;
 }

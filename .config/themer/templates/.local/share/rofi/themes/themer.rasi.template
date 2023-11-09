@@ -1,5 +1,5 @@
 * {
-	background: {{ colors.normal.background }}{{ opacity.window.hex }};
+    background: {{ colors.normal.background }}{{ opacity.window.hex }};
 	foreground: {{ colors.normal.foreground }};
 	accent: 	{{ colors.accent.bright }}{{ opacity.window.hex }};
 
@@ -15,6 +15,11 @@ window {
 }
 
 mainbox {
+    border:  0;
+    padding: 15%;
+}
+
+error-message {
     border:  0;
     padding: 15%;
 }

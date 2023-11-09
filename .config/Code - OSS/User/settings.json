@@ -5,7 +5,6 @@
 	"window.zoomLevel": 1.5,
 	"editor.fontSize": 12.5,
 	"window.menuBarVisibility": "toggle",
-	"workbench.activityBar.visible": true,
 	"editor.minimap.enabled": false,
 	"workbench.colorCustomizations": {
 		"editorGroup.border": "#d6acff",
